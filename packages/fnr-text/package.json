@@ -1,0 +1,20 @@
+{
+  "name": "@findr/text",
+  "version": "0.0.1",
+  "type": "commonjs",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/@findr/text/fnr.cjs.js",
+  "module": "./dist/@findr/text/fnr.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/@findr/text/fnr.es.js",
+      "require": "./dist/@findr/text/fnr.cjs.js"
+    },
+    "./multiline": {
+      "import": "./dist/@findr/text/multiline.es.js",
+      "require": "./dist/@findr/text/multiline.cjs.js"
+    }
+  }
+}

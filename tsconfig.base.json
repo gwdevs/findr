@@ -14,7 +14,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@findr/text": ["packages/fnr-text/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
