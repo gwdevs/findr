@@ -3,18 +3,23 @@
   "version": "0.0.1",
   "type": "commonjs",
   "files": [
-    "dist"
+    "./"
   ],
-  "main": "./dist/@findr/text/fnr.cjs.js",
-  "module": "./dist/@findr/text/fnr.es.js",
+  "peerDependenciesMeta": {
+    "xregexp": {
+      "optional": true
+    }
+  },
+  "main": "./@findr/text/fnr.cjs.js",
+  "module": "./@findr/text/fnr.es.js",
   "exports": {
     ".": {
-      "import": "./dist/@findr/text/fnr.es.js",
-      "require": "./dist/@findr/text/fnr.cjs.js"
+      "import": "./@findr/text/fnr.es.js",
+      "require": "./@findr/text/fnr.cjs.js"
     },
     "./multiline": {
-      "import": "./dist/@findr/text/multiline.es.js",
-      "require": "./dist/@findr/text/multiline.cjs.js"
+      "import": "./@findr/text/multiline.es.js",
+      "require": "./@findr/text/multiline.cjs.js"
     }
   }
 }
