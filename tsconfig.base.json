@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@findr/dom": ["packages/fnr-dom/src/index.ts"],
       "@findr/text": ["packages/fnr-text/src/index.ts"]
     }
   },
