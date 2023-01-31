@@ -30,8 +30,10 @@ specifiers:
   vite: ^4.0.1
   vite-plugin-dts: ~1.7.1
   vite-plugin-eslint: ^1.8.1
+  vite-plugin-static-copy: ^0.13.0
   vite-tsconfig-paths: ^4.0.2
   vitest: ^0.25.8
+  xregexp: ^5.1.1
 
 dependencies:
   tslib: 2.5.0
@@ -42,7 +44,7 @@ devDependencies:
   '@nrwl/jest': 15.6.3_3xgxminkwligwjc3w5rzye3c4u
   '@nrwl/js': 15.6.3_niqd3hdk7vpad7e2t7c2ooltle
   '@nrwl/linter': 15.6.3_2gweb7o7pkltzmj3jx6phpvxki
-  '@nrwl/nx-cloud': 15.0.2
+  '@nrwl/nx-cloud': 15.0.3
   '@nrwl/vite': 15.6.3_wbcv54vqbl567gf4udaylmrbja
   '@nrwl/web': 15.6.3_w5vcoytsqyb7ch77eyk7ch26ca
   '@nrwl/workspace': 15.6.3_ru3a6u6i5jfe3w3i7orrmgwxwa
@@ -65,8 +67,10 @@ devDependencies:
   vite: 4.0.4_@types+node@16.11.7
   vite-plugin-dts: 1.7.1_rollup@2.79.1+vite@4.0.4
   vite-plugin-eslint: 1.8.1_eslint@8.15.0+vite@4.0.4
+  vite-plugin-static-copy: 0.13.0_vite@4.0.4
   vite-tsconfig-paths: 4.0.5_typescript@4.8.4
   vitest: 0.25.8_eetf2xjpdhuqcs2dx4ndfgw7iq
+  xregexp: 5.1.1
 
 packages:
 
@@ -1275,6 +1279,14 @@ packages:
       - supports-color
     dev: true
 
+  /@babel/runtime-corejs3/7.20.13:
+    resolution: {integrity: sha512-p39/6rmY9uvlzRiLZBIB3G9/EBr66LBMcYm7fIDeSBNdRjF2AGD3rFZucUyAgGHC2N+7DdLvVi33uTjSE44FIw==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      core-js-pure: 3.27.2
+      regenerator-runtime: 0.13.11
+    dev: true
+
   /@babel/runtime/7.20.13:
     resolution: {integrity: sha512-gt3PKXs0DBoL9xCvOIIZ2NEqAGZqHjAnmVbfQtB620V0uReIQutpel14KcneZuer7UioY8ALKZ7iocavvzTNFA==}
     engines: {node: '>=6.9.0'}
@@ -2092,8 +2104,8 @@ packages:
       - typescript
     dev: true
 
-  /@nrwl/nx-cloud/15.0.2:
-    resolution: {integrity: sha512-DaTASuXmGyQHMxJuK6y3f7fs+Q0qQCfYDIDVGK9muNwN/QItLeWdRNltLQxbrBeS112kQTu2FPsr0DmRD60+0A==}
+  /@nrwl/nx-cloud/15.0.3:
+    resolution: {integrity: sha512-KvwM8/IbCOlbWIzi+Tm14tJkEdQK3ruN6TPUmeKnkeFZsJyoFw4GCyKJMOLs8y4MQokHgskg3nbF822JLR9xJg==}
     hasBin: true
     dependencies:
       axios: 0.21.4
@@ -3443,6 +3455,11 @@ packages:
     resolution: {integrity: sha512-welaYuF7ZtbYKGrIy7y3eb40d37rG1FvzEOfe7hSLd2iD6duMDqUhRfSvCGyC46HhR6Y8JXXdZ2lnRUMkPBpvg==}
     dependencies:
       browserslist: 4.21.4
+    dev: true
+
+  /core-js-pure/3.27.2:
+    resolution: {integrity: sha512-Cf2jqAbXgWH3VVzjyaaFkY1EBazxugUepGymDoeteyYr9ByX51kD2jdHZlsEF/xnJMyN3Prua7mQuzwMg6Zc9A==}
+    requiresBuild: true
     dev: true
 
   /corser/2.0.1:
@@ -7331,6 +7348,19 @@ packages:
       vite: 4.0.4_@types+node@16.11.7
     dev: true
 
+  /vite-plugin-static-copy/0.13.0_vite@4.0.4:
+    resolution: {integrity: sha512-cln+fvKMgwNBjxQ59QVblmExZrc9gGEdRmfqcPOOGpxT5KInfpkGMvmK4L+kCAeHHSSGNU1bM7BA9PQgaAJc6g==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    peerDependencies:
+      vite: ^3.0.0 || ^4.0.0
+    dependencies:
+      chokidar: 3.5.3
+      fast-glob: 3.2.12
+      fs-extra: 11.1.0
+      picocolors: 1.0.0
+      vite: 4.0.4_@types+node@16.11.7
+    dev: true
+
   /vite-tsconfig-paths/4.0.5_typescript@4.8.4:
     resolution: {integrity: sha512-/L/eHwySFYjwxoYt1WRJniuK/jPv+WGwgRGBYx3leciR5wBeqntQpUE6Js6+TJemChc+ter7fDBKieyEWDx4yQ==}
     dependencies:
@@ -7571,6 +7601,12 @@ packages:
 
   /xmlchars/2.2.0:
     resolution: {integrity: sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==}
+    dev: true
+
+  /xregexp/5.1.1:
+    resolution: {integrity: sha512-fKXeVorD+CzWvFs7VBuKTYIW63YD1e1osxwQ8caZ6o1jg6pDAbABDG54LCIq0j5cy7PjRvGIq6sef9DYPXpncg==}
+    dependencies:
+      '@babel/runtime-corejs3': 7.20.13
     dev: true
 
   /y18n/5.0.8:

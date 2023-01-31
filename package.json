@@ -33,8 +33,10 @@
     "vite": "^4.0.1",
     "vite-plugin-dts": "~1.7.1",
     "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-static-copy": "^0.13.0",
     "vite-tsconfig-paths": "^4.0.2",
-    "vitest": "^0.25.8"
+    "vitest": "^0.25.8",
+    "xregexp": "^5.1.1"
   },
   "dependencies": {
     "tslib": "^2.3.0"

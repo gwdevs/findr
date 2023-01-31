@@ -5,6 +5,19 @@
   "files": [
     "./"
   ],
+  "bugs": "https://github.com/gwdevs/findr/issues",
+  "homepage": "https://github.com/gwdevs/findr/",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gwdevs/findr.git"
+  },
+  "keywords": [
+    "search",
+    "find",
+    "replace",
+    "text"
+  ],
   "peerDependenciesMeta": {
     "xregexp": {
       "optional": true

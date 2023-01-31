@@ -1,3 +1,5 @@
+import XRegeExp from 'xregexp/types';
+
 export interface FindrConfig {
   // TODO: Add config to make use of xregexp optional
   ctxLen?: number;
@@ -6,7 +8,7 @@ export interface FindrConfig {
   /** function for wrapping or transforming the replacement word in context.*/
   filterCtxReplacement?: (replacement: string) => string;
   buildResultKey?: (index: number) => resultKey;
-  xregexp?: Function;
+  xregexp?: typeof XRegeExp;
   isRegex?: boolean;
   isCaseMatched?: boolean;
   isWordMatched?: boolean;
@@ -15,15 +17,23 @@ export interface FindrConfig {
 
 export type resultKey = string | number;
 export type metadata = { [key: string]: unknown };
+export type replacementCallback = (params: {
+  index: number;
+  match: string;
+  groups: Array<string>;
+  position: number;
+  source: string;
+  namedGroups: { [key: string]: unknown };
+}) => string;
 
 export interface FindrParams {
   source: string;
   target: string | RegExp;
-  replacement?: string | Function;
+  replacement?: string | replacementCallback;
   contextLength?: number;
   replacementKeys?: Array<resultKey> | string;
   metadata?: metadata;
-  config: FindrConfig;
+  config?: FindrConfig;
 }
 
 export interface Context {

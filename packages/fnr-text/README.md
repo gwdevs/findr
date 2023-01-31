@@ -1,11 +1,43 @@
-# fnr-text
+<h1 align="left">@findr/text 🔍</h1>
 
-This library was generated with [Nx](https://nx.dev).
+<p align="left">Highly configurable Find and Replace modules for plain text.</p>
 
-## Building
+<p align="left">
+<a href="https://github.com/abelpz/findr/blob/HEAD/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="license"></a>
+<a href="https://www.npmjs.com/package/@findr/text"><img src="https://img.shields.io/npm/v/@findr/text/latest.svg" alt="npm latest package"></a>
+<a href="https://www.npmjs.com/package/@findr/text"><img src="https://img.shields.io/npm/dm/@findr/text.svg" alt="npm downloads"></a>
+</p>
 
-Run `nx build fnr-text` to build the library.
+<h2 align="left">Installation</h2>
 
-## Running unit tests
+**@findr/text** is available as a npm package📚
 
-Run `nx test fnr-text` to execute the unit tests via [Jest](https://jestjs.io).
+- npm:
+
+  ```
+  npm install @findr/text
+  ```
+
+- yarn:
+
+  ```
+  yarn add @findr/text
+  ```
+
+  - pnpm:
+
+  ```
+  pnpm add @findr/text
+  ```
+
+<h2 align="left">Usage</h2>
+
+This documentation is a work in progress, check out some examples at:
+https://findrjs.netlify.app/
+
+<h2 align="left">Made for</h2>
+
+<div align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" width="52" alt="javascript logo"  />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" height="40" width="52" alt="typescript logo"  />
+</div>
