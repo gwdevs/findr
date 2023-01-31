@@ -1,5 +1,9 @@
 import XRegeExp from 'xregexp/types';
 
+declare const fnr: (params: FindrParams) => FindrReturn;
+
+export default fnr;
+
 export interface FindrConfig {
   // TODO: Add config to make use of xregexp optional
   ctxLen?: number;
@@ -48,4 +52,11 @@ export interface FindrResult {
   extContext: Context;
   resultKey: resultKey;
   metadata: metadata;
+}
+
+export type FindrReplaced = string;
+
+export interface FindrReturn {
+  replaced: FindrReplaced;
+  results: FindrResult[];
 }

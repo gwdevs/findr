@@ -1,4 +1,8 @@
-import { FindrConfig, resultKey, FindrParams } from '../index.d';
+import { FindrConfig, resultKey, FindrParams, FindrReturn } from '../index.d';
+
+declare const fnrMultiLine: (params: FindrMultiLineParams) => FindrReturn;
+
+export default fnrMultiLine;
 
 export interface FindrMultiLineConfig
   extends Omit<FindrConfig, 'buildResultKey'> {

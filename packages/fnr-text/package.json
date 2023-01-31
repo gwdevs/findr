@@ -23,16 +23,17 @@
       "optional": true
     }
   },
-  "main": "./@findr/text/fnr.cjs.js",
-  "module": "./@findr/text/fnr.es.js",
+  "main": "./index.cjs.js",
+  "module": "./index.es.js",
+  "types": "index.d.ts",
   "exports": {
     ".": {
-      "import": "./@findr/text/fnr.es.js",
-      "require": "./@findr/text/fnr.cjs.js"
+      "import": "./index.es.js",
+      "require": "./index.cjs.js"
     },
     "./multiline": {
-      "import": "./@findr/text/multiline.es.js",
-      "require": "./@findr/text/multiline.cjs.js"
+      "import": "./multiline/index.es.js",
+      "require": "./multiline/index.cjs.js"
     }
   }
 }
