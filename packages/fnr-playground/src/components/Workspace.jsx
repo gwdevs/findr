@@ -1,29 +1,18 @@
-import { Box, Stack, Skeleton } from "@mui/material";
-import React, { useState } from "react";
-import Post from "./Post";
+import { Box } from '@mui/material';
+import React, { useState } from 'react';
+import Post from './Post';
 
-const Feed = () => {
-  const [loading, setLoading] = useState(true);
-
-  setTimeout(() => {
-    setLoading(false);
-  }, [3000]);
-
+const Feed = ({ limit = 4 }) => {
+  const postIds = Array.from(Array(limit), (_, i) => i + 1);
+  console.log({ postIds });
   return (
-    <Box p={{ xs: 0, md: 2 }} sx={{ flexGrow: 1, display: 'grid', gridTemplateColumns: "auto auto" }}>
-      {loading ? (
-        <Stack spacing={1}>
-          <Skeleton variant="text" height={100} />
-          <Skeleton variant="text" height={20} />
-          <Skeleton variant="text" height={20} />
-          <Skeleton variant="rectangular" height={300} />
-        </Stack>
-      ) : (
-        <>
-          <Post />
-          <Post />
-        </>
-      )}
+    <Box
+      p={{ xs: 0, md: 2 }}
+      sx={{ flexGrow: 1, display: 'grid', gridTemplateColumns: 'auto auto' }}
+    >
+      {postIds.map((id) => (
+        <Post id={id} key={`post-${id}`} />
+      ))}
     </Box>
   );
 };

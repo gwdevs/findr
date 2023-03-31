@@ -4,21 +4,37 @@ import {
   CardHeader,
   IconButton,
   Typography,
+  Stack,
+  Skeleton,
 } from '@mui/material';
-import dummyText from '../data/dummy.txt';
 import SearchIcon from '@mui/icons-material/Search';
 import { useEffect, useState } from 'react';
 
-const Post = () => {
-  const [text, setText] = useState('');
+const Post = ({ id = 1 }) => {
+  const [loading, setLoading] = useState(true);
+  const [post, setPost] = useState({});
 
   useEffect(() => {
-    fetch('/dummy.txt').then(async (data) => {
-      setText(await data.text());
-    });
-  });
+    setLoading(true);
+    fetch(`https://dummyjson.com/posts/${id}`)
+      .then((res) => {
+        console.log('fetch called');
+        return res.json();
+      })
+      .then((json) => {
+        setLoading(false);
+        setPost(json);
+      });
+  }, [id]);
 
-  return (
+  return loading ? (
+    <Stack spacing={1}>
+      <Skeleton variant="text" height={100} />
+      <Skeleton variant="text" height={20} />
+      <Skeleton variant="text" height={20} />
+      <Skeleton variant="rectangular" height={300} />
+    </Stack>
+  ) : (
     <Card sx={{ margin: 5 }}>
       <CardHeader
         action={
@@ -26,12 +42,12 @@ const Post = () => {
             <SearchIcon />
           </IconButton>
         }
-        title="John Doe"
+        title={post?.title}
         subheader="September 14, 2022"
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          {text}
+          {post?.body}
         </Typography>
       </CardContent>
     </Card>

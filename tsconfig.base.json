@@ -16,7 +16,9 @@
     "baseUrl": ".",
     "paths": {
       "@findr/dom": ["packages/fnr-dom/src/index.ts"],
-      "@findr/text": ["packages/fnr-text/src/index.ts"]
+      "@findr/fnr-mui-old": ["packages/fnr-mui-old/src/index.ts"],
+      "@findr/text": ["packages/fnr-text/src/index.ts"],
+      "@findr/ui": ["packages/fnr-ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
