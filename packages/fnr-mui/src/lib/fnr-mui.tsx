@@ -1,11 +1,11 @@
 import { Box } from '@mui/material';
-import { SearchBox } from './SearchBox';
 
 import { VscCaseSensitive, VscWholeWord, VscRegex } from 'react-icons/vsc';
-import { OnChangeOptionsCallback, OptionsBar } from './OptionsBar';
 
-import { OptionButton } from './OptionButton';
 import { useFnrContext } from '@findr/ui';
+import { SearchBox } from './search-box/search-box';
+import { OnChangeOptionsCallback, OptionsBar } from './options-bar/options-bar';
+import { OptionButton } from './option-button/option-button';
 
 const defaultSearchOptions = {
   isCaseMatched: false,
@@ -13,9 +13,9 @@ const defaultSearchOptions = {
   isRegex: false,
 };
 
-const defaultReplaceOptions = {
-  isCasePreserved: false,
-};
+// const defaultReplaceOptions = {
+//   isCasePreserved: false,
+// };
 
 export function FnrMUI<Options>() {
   const { actions: fnrActons, state: fnrState } = useFnrContext();
