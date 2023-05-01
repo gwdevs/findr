@@ -1,4 +1,4 @@
-import fnr from './';
+import fnr from '.';
 
 describe('fnrText', () => {
   it('should work', () => {

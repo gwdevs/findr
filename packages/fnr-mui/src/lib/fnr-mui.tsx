@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, BoxProps } from '@mui/material';
 
 import { VscCaseSensitive, VscWholeWord, VscRegex } from 'react-icons/vsc';
 
@@ -17,13 +17,18 @@ const defaultSearchOptions = {
 //   isCasePreserved: false,
 // };
 
-export function FnrMUI<Options>() {
-  const { actions: fnrActons, state: fnrState } = useFnrContext();
+export function FnrMUI<Options>({ sx, ...props }: BoxProps) {
+  const {
+    actions: fnrActons,
+    state: fnrState,
+    events: fnrEvents,
+  } = useFnrContext();
 
   const { setOptions } = fnrActons ?? {};
-  const { options } = fnrState ?? {};
+  const { options, target } = fnrState ?? {};
+  const { onChangeTarget } = fnrEvents ?? {};
 
-  console.log({ options });
+  console.log({ options, target });
 
   const onChangeOptions: OnChangeOptionsCallback = (event, newOptions) => {
     if (typeof setOptions === 'function')
@@ -31,8 +36,12 @@ export function FnrMUI<Options>() {
   };
 
   return (
-    <Box sx={{ display: 'grid' }}>
+    <Box sx={{ display: 'grid', ...sx }}>
       <SearchBox
+        onChange={
+          typeof onChangeTarget === 'function' ? onChangeTarget : () => null
+        }
+        sx={{ background: '#fff' }}
         searchOptions={
           <OptionsBar
             defaultOptions={defaultSearchOptions}

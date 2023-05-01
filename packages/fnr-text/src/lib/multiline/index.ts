@@ -1,4 +1,4 @@
-import fnr from '../.';
+import fnr from '..';
 import { FindrResult } from '../index.d';
 import { FindrMultiLineParams } from './index.d';
 

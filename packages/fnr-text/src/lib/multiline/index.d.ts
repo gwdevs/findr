@@ -1,4 +1,4 @@
-import { FindrConfig, resultKey, FindrParams, FindrReturn } from '../index.d';
+import { FindrConfig, resultKey, FindrParams, FindrReturn } from '..
 
 declare const fnrMultiLine: (params: FindrMultiLineParams) => FindrReturn;
 
