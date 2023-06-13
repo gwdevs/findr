@@ -27,8 +27,12 @@ export default defineConfig({
     // }),
     viteTsConfigPaths({
       root: '../../',
+      loose: true,
     }),
   ],
+  // esbuild: {
+  //   jsxInject: `import * as React from 'react'`,
+  // },
 
   // Uncomment this if you are using workers.
   // worker: {

@@ -1,10 +1,9 @@
-import * as React from 'react';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
 import SearchIcon from '@mui/icons-material/Search';
-import { FnrMUI } from '../../../../fnr-mui/src';
+import Box from '@mui/material/Box';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
+import { useRef, useState } from 'react';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -41,8 +40,8 @@ function a11yProps(index) {
   };
 }
 export function Sidebar() {
-  const tabsRef = React.useRef(false);
-  const [value, setValue] = React.useState(false);
+  const tabsRef = useRef(false);
+  const [value, setValue] = useState(false);
 
   const handleChange = (event, newValue) => {
     console.log({ event, value, newValue });
@@ -74,7 +73,7 @@ export function Sidebar() {
         <Tab icon={<SearchIcon sx={{ p: 0, m: 0 }} />} aria-label="search" />
       </Tabs>
       <TabPanel value={value} index={0}>
-        <FnrMUI />
+
       </TabPanel>
     </Box>
   );

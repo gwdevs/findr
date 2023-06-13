@@ -5,11 +5,14 @@ declare const fnr: (params: FindrParams) => FindrReturn;
 export default fnr;
 
 export interface FindrConfig {
-  // TODO: Add config to make use of xregexp optional
   ctxLen?: number;
-  /** function for wrapping or transforming the matched word in context.*/
+  /**
+   * function for wrapping or transforming the matched word in context.
+   */
   filterCtxMatch?: (match: string) => string;
-  /** function for wrapping or transforming the replacement word in context.*/
+  /**
+   * function for wrapping or transforming the replacement word in context.
+   */
   filterCtxReplacement?: (replacement: string) => string;
   buildResultKey?: (index: number) => resultKey;
   xregexp?: typeof XRegeExp;

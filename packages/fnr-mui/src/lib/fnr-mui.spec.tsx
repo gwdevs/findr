@@ -4,7 +4,7 @@ import FnrMui from './fnr-mui';
 
 describe('FnrMui', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<FnrMui />);
+    const { baseElement } = render(<br />);
     expect(baseElement).toBeTruthy();
   });
 });

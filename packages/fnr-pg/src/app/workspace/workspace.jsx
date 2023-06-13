@@ -1,6 +1,5 @@
-import { Box } from '@mui/material';
-import React, { useState } from 'react';
 import Post from '../post/post';
+import { Box } from '@mui/material';
 
 export const Workspace = ({ limit = 4 }) => {
   const postIds = Array.from(Array(limit), (_, i) => i + 1);

@@ -23,3 +23,5 @@ export function SearchBox({ searchOptions, ...props }: SearchBoxProps) {
     />
   );
 }
+
+export default SearchBox

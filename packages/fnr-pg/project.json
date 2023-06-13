@@ -29,10 +29,12 @@
       "configurations": {
         "development": {
           "buildTarget": "fnr-pg:build:development",
+          "buildLibsFromSource": false,
           "hmr": true
         },
         "production": {
           "buildTarget": "fnr-pg:build:production",
+          "buildLibsFromSource": false,
           "hmr": false
         }
       }

@@ -9,20 +9,82 @@ import {
   Box,
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import { useEffect, useState } from 'react';
-import { FnrMUI } from '../../../../fnr-mui/src';
-import { FnrProvider, useFnrContext } from '../../../../fnr-ui/src';
+import { useEffect, useMemo, useState } from 'react';
+import fnr from '@findr/text';
+import { useFindr } from '@findr/react';
+import { FnrMUI } from '@findr/mui';
+
+const SearchAndReplace = ({post,setPost,sourceKey}) => {
+  const onSearch = (params) => {
+    const { options, target, replacement } = params;
+    const response = fnr({
+      source: post?.body || '',
+      target,
+      replacement,
+      config: { ...options, ctxLen: 50 },
+    });
+    console.log({searchResponse: response});
+    return Object.values(response?.results).map((result) => ({
+      ...result,
+      sourceKey,
+    }));
+  };
+
+  const onReplace = (params) => {
+    console.log({ params });
+    const { options, target, replacement, resultsKeys } = params;
+    const response = fnr({
+      source: post?.body || '',
+      target,
+      replacement,
+      replacementKeys: resultsKeys,
+      config: { ...options, ctxLen: 50 },
+    });
+    console.log({ replaceResponse: response });
+    setPost((json) => ({ ...json, body: response?.replaced }));
+    return Object.values(response?.results).map((result) => ({
+      ...result,
+      sourceKey,
+    }));
+  };
+
+ const {
+   actions: fnrActions,
+   state: fnrState,
+   events: fnrEvents,
+ } = useFindr({sourcesKeys:[sourceKey],onSearch,onReplace});
+
+ const { setOptions } = fnrActions ?? {};
+ const { target, replacement, groups, options } = fnrState ?? {};
+ const {
+   onChangeTarget,
+   onChangeReplacement,
+   onReplaceGroup,
+   onReplaceResult,
+   onReplaceAll
+ } = fnrEvents ?? {};
+
+ const fnrProps = {
+   onChangeTarget,
+   onChangeReplacement,
+   onReplaceGroup,
+   onReplaceResult,
+   onReplaceAll,
+   onChangeOptions: setOptions,
+   options,
+   target,
+   replacement,
+   groups,
+ };
+  return (
+    <FnrMUI sx={{ padding: '0.5em', margin: '0em 0.5em' }} {...fnrProps} />
+  );
+}
 
 export const Post = ({ id = 1 }) => {
-  const {
-    state: { groups, target, replacement },
-  } = useFnrContext();
-
-  useEffect(() => {}, []);
-
-  console.log({ groups, target, replacement });
   const [loading, setLoading] = useState(true);
   const [post, setPost] = useState({});
+  const sourceKey = useMemo(() => `post ${id}: ${post.title}`, [id,post.title]);
 
   useEffect(() => {
     setLoading(true);
@@ -37,16 +99,6 @@ export const Post = ({ id = 1 }) => {
       });
   }, [id]);
 
-  const onSearch = (params) => {
-    console.log(params);
-    return [];
-  };
-
-  const onReplace = (params) => {
-    console.log(params);
-    return [];
-  };
-
   return loading ? (
     <Stack spacing={1}>
       <Skeleton variant="text" height={100} />
@@ -56,9 +108,7 @@ export const Post = ({ id = 1 }) => {
     </Stack>
   ) : (
     <Card sx={{ margin: 5, position: 'relative' }}>
-      <FnrProvider onSearch={{ onSearch }} onReplace={{ onReplace }}>
-        <FnrMUI sx={{ padding: '0.5em', margin: '0em 0.5em' }} />
-      </FnrProvider>
+      <SearchAndReplace post={post} setPost={setPost} sourceKey={sourceKey} />
       <CardHeader
         action={
           <Box>

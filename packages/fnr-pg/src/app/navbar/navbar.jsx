@@ -1,14 +1,11 @@
 import {
   AppBar,
-  InputBase,
   styled,
   Toolbar,
   Typography,
   Box,
 } from '@mui/material';
-import React from 'react';
-import { FnrMUI } from '../../../../fnr-mui/src';
-// import { FnrMUI } from '@findr/mui';
+
 
 const StyledToolbar = styled(Toolbar)({
   display: 'flex',
@@ -29,7 +26,6 @@ export const Navbar = () => {
           sonar
         </Typography>
         <Search></Search>
-        <Box></Box>
       </StyledToolbar>
     </AppBar>
   );
