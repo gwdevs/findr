@@ -49,9 +49,12 @@ export interface FnrMUIProps extends Partial<BoxProps> {
     [key: string]: unknown;
   };
   groups: Groups;
+  setGroups?: React.Dispatch<React.SetStateAction<object>>;
   onChangeTarget: ChangeEvent;
   onChangeReplacement: ChangeEvent;
-  onChangeOptions: React.Dispatch<React.SetStateAction<object>> | ((params: object) => void);
+  onChangeOptions:
+    | React.Dispatch<React.SetStateAction<object>>
+    | ((params: object) => void);
   onReplaceAll: (params: OnReplaceAllProps) => void;
   onReplaceGroup: (params: OnReplaceGroupProps) => void;
   onReplaceResult: (params: OnReplaceResultProps) => void;

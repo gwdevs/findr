@@ -42,11 +42,12 @@ function ResultReplaceButton({ onReplace, title }:  { onReplace: () => void, tit
 }
 
 export function FnrMUI<Options>({
+  sx,
   target,
   replacement,
   options,
   groups,
-  sx,
+  setGroups,
   onChangeTarget,
   onChangeReplacement,
   onChangeOptions: _onChangeOptions,
@@ -119,6 +120,7 @@ export function FnrMUI<Options>({
           }
         />
         <ReplaceButton
+          variant='outlined'
           onClick={() => {
             onReplaceAll({
               target,
@@ -151,6 +153,11 @@ export function FnrMUI<Options>({
                       ? onSetGroupTitle(group)
                       : sourceKey
                   }
+                  onDismiss={key => typeof setGroups === 'function' && setGroups((currentGroups: typeof groups) => {
+                    const newGroups = {...currentGroups}
+                    delete newGroups[key];
+                    return newGroups
+                  })}
                   content={
                     typeof onSetGroupCaption === 'function'
                       ? onSetGroupCaption(group)
@@ -179,6 +186,18 @@ export function FnrMUI<Options>({
                     return (
                       <ResultsTreeItem
                         onClick={() => onClickResult({ result })}
+                        onDismiss={() =>
+                          typeof setGroups === 'function' &&
+                          setGroups((currentGroups: typeof groups) => ({
+                            ...currentGroups,
+                            [sourceKey]: {
+                              ...currentGroups[sourceKey],
+                              results: currentGroups[sourceKey]?.results.filter(
+                                (_, i) => index !== i
+                              ),
+                            },
+                          }))
+                        }
                         tooltip={
                           typeof onSetResultTooltip === 'function'
                             ? onSetResultTooltip({ result })

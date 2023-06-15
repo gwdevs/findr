@@ -3,8 +3,6 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import viteTsConfigPaths from 'vite-tsconfig-paths';
 import dts from 'vite-plugin-dts';
-import path from 'path';
-import { globSync } from 'glob';
 import { join } from 'path';
 
 export default defineConfig({
@@ -43,8 +41,6 @@ export default defineConfig({
       // Don't forgot to update your package.json as well.
       formats: ['es', 'cjs'],
     },
-    emptyOutDir: true,
-    cssCodeSplit: true,
     minify: false,
     rollupOptions: {
       // External packages that should not be bundled into your library.
@@ -56,23 +52,9 @@ export default defineConfig({
         '@mui/lab',
         '@mui/icons-material',
         'react-icons',
+        '@emotion/react',
+        '@emotion/styled',
       ],
-      input: globSync(path.resolve(__dirname, 'src/**/*.{ts,tsx}')),
-      output: {
-        preserveModules: true,
-        entryFileNames: (entry) => {
-          const { name, facadeModuleId } = entry;
-          const fileName = `${name}.js`;
-          if (!facadeModuleId) {
-            return fileName;
-          }
-          const relativeDir = path.relative(
-            path.resolve(__dirname, 'src'),
-            path.dirname(facadeModuleId)
-          );
-          return path.join(relativeDir, fileName);
-        },
-      },
     },
   },
 });
