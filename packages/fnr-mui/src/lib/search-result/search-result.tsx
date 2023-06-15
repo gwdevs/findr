@@ -63,7 +63,6 @@ export function SearchResult(props: SearchResultProps) {
     const wordsCount = ctxArr.length;
     const selectedWordsCount = wordsCount - 1;
     const selectedCtxArr = ctxArr.slice(0, selectedWordsCount);
-    console.log({ ctxArr,selectedCtxArr });
     const wordsLimit = minCtxWords;
     const slicedCtxArr = selectedCtxArr.slice(0,wordsLimit);
     const newCtxString = slicedCtxArr.join(' ');

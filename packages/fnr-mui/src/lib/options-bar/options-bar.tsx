@@ -56,3 +56,5 @@ export function OptionsBar({
     </ToggleButtonGroup>
   );
 }
+
+export default OptionsBar;

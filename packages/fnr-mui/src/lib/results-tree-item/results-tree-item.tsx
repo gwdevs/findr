@@ -26,7 +26,7 @@ const theme = createTheme({
     MuiTreeItem: {
       styleOverrides: {
         content: {
-          width: '100%',
+          width: 'auto',
         },
         group: {
           marginLeft: 0
@@ -48,7 +48,6 @@ export function ResultsTreeItem({
   actions,
   ...props
 }: ResultsTreeItemProps) {
-  console.log({ children });
   return (
     <ThemeProvider theme={theme}>
       <TreeItem
