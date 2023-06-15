@@ -54,7 +54,7 @@ const SearchAndReplace = ({post,setPost,sourceKey}) => {
    events: fnrEvents,
  } = useFindr({sourcesKeys:[sourceKey],onSearch,onReplace});
 
- const { setOptions } = fnrActions ?? {};
+ const { setOptions, setGroups } = fnrActions ?? {};
  const { target, replacement, groups, options } = fnrState ?? {};
  const {
    onChangeTarget,
@@ -71,6 +71,7 @@ const SearchAndReplace = ({post,setPost,sourceKey}) => {
    onReplaceResult,
    onReplaceAll,
    onChangeOptions: setOptions,
+   setGroups,
    options,
    target,
    replacement,

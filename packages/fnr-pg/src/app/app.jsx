@@ -1,5 +1,4 @@
 import { Box, Stack } from '@mui/material';
-import CssBaseline from '@mui/material/CssBaseline';
 import { Navbar } from './navbar/navbar';
 import { Sidebar } from './sidebar/sidebar';
 import { Workspace } from './workspace/workspace';
@@ -16,7 +15,6 @@ export function App() {
       }}
       color={'text.primary'}
     >
-      <CssBaseline />
       <Navbar />
       <Stack direction="row" spacing={2} justifyContent="space-between">
         <Sidebar />

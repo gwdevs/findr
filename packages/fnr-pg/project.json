@@ -29,7 +29,7 @@
       "configurations": {
         "development": {
           "buildTarget": "fnr-pg:build:development",
-          "buildLibsFromSource": false,
+          "buildLibsFromSource": true,
           "hmr": true
         },
         "production": {
