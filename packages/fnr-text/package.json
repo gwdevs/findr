@@ -1,6 +1,6 @@
 {
   "name": "@findr/text",
-  "version": "0.0.1",
+  "version": "1.0.7-beta.4",
   "type": "commonjs",
   "files": [
     "./"
@@ -23,17 +23,17 @@
       "optional": true
     }
   },
-  "main": "./index.cjs.js",
-  "module": "./index.es.js",
+  "main": "./index.cjs",
+  "module": "./index.mjs",
   "types": "index.d.ts",
   "exports": {
     ".": {
-      "import": "./index.es.js",
-      "require": "./index.cjs.js"
+      "import": "./index.mjs",
+      "require": "./index.cjs"
     },
     "./multiline": {
-      "import": "./multiline/index.es.js",
-      "require": "./multiline/index.cjs.js"
+      "import": "./multiline/index.mjs",
+      "require": "./multiline/index.cjs"
     }
   }
 }

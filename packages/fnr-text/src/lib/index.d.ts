@@ -1,18 +1,10 @@
 import XRegeExp from 'xregexp/types';
 
-declare const fnr: (params: FindrParams) => FindrReturn;
-
-export default fnr;
+export declare const findr: (params: FindrParams) => FindrReturn;
 
 export interface FindrConfig {
   ctxLen?: number;
-  /**
-   * function for wrapping or transforming the matched word in context.
-   */
   filterCtxMatch?: (match: string) => string;
-  /**
-   * function for wrapping or transforming the replacement word in context.
-   */
   filterCtxReplacement?: (replacement: string) => string;
   buildResultKey?: (index: number) => resultKey;
   xregexp?: typeof XRegeExp;
@@ -64,3 +56,5 @@ export interface FindrReturn {
   replaced: FindrReplaced;
   results: FindrResult[];
 }
+
+export default findr;
