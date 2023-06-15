@@ -83,15 +83,12 @@ export default [
     ],
     "description": "PERF=>PERF: Merge consecutive text strings"
   },
-
-
-
-    {
+  {
     "id": 20,
-    "title": "searchReplace",
-    "name": "searchReplace",
+    "title": "findAndReplace",
+    "name": "findAndReplace",
     "type": "Transform",
-    "transformName": "searchReplace",
+    "transformName": "findAndReplace",
     "inputs": [
       {
         "name": "perf",
@@ -116,7 +113,6 @@ export default [
     ],
     "description": "Search the given phrase or regex"
   },
-
   {
     "id": 12,
     "title": "Count stripped perf words",

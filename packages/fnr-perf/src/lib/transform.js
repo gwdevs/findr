@@ -1,9 +1,10 @@
 import {
   PerfRenderFromJson,
-  transforms,
+  render,
   mergeActions,
 } from "proskomma-json-tools";
-import fnr from "@findr/text";
+
+import { findr } from "@findr/text";
 
 const findAndReplaceActions = {
   startDocument: [
@@ -36,7 +37,7 @@ const findAndReplaceActions = {
           const _text = context.sequences[0].element.text;
           const { chapter, verses, bookCode } = workspace;
 
-          const { results, replaced } = fnr({
+          const { results, replaced } = findr({
             source: _text,
             target,
             replacement,
@@ -87,7 +88,7 @@ const findAndReplaceCode = function ({ perf, params }) {
     srcJson: perf,
     actions: mergeActions([
       findAndReplaceActions,
-      transforms.perf2perf.identityActions,
+      render.perfToPerf.renderActions.identityActions,
     ]),
   });
   const output = {};

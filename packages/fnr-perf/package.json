@@ -1,5 +1,20 @@
 {
   "name": "@findr/perf",
-  "version": "1.0.0-beta.4",
-  "type": "commonjs"
+  "version": "1.0.3-beta.17",
+  "type": "commonjs",
+  "dependencies": {
+    "proskomma-json-tools": "^0.7.1"
+  },
+  "files": [
+    "./"
+  ],
+  "main": "./perf.umd.js",
+  "module": "./perf.mjs",
+  "types": "./fnr-perf/src/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./perf.mjs",
+      "require": "./perf.umd.js"
+    }
+  }
 }
