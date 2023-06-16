@@ -135,7 +135,6 @@ export function useGroupHandlers<R extends Result, O = undefined>({
     group,
     options,
   }: OnReplaceGroupProps) => {
-    console.log('onReplaceGroup', { target, replacement, group, options });
     const { results, key: sourceKey } = group;
     const resultsKeys = results.map((result) => result.resultKey);
     const _groups = {
@@ -156,7 +155,6 @@ export function useGroupHandlers<R extends Result, O = undefined>({
     result,
     options,
   }: OnReplaceResultProps) => {
-    console.log('onReplaceResult', { target, replacement, result, options });
     const { resultKey, sourceKey } = result;
     const resultsKeys = [resultKey];
     const _groups = {
