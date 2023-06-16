@@ -73,7 +73,7 @@ export function FnrMUI<Options>({
   };
   const groupsEntries = Object.entries(groups);
   return (
-    <Box sx={{ display: 'grid', borderBottom: '1px solid #ddd', ...sx }}>
+    <Box sx={{ display: 'grid', ...sx }}>
       <SearchBox
         onChange={
           typeof onChangeTarget === 'function' ? onChangeTarget : () => null
