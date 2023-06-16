@@ -22,13 +22,22 @@ function invariant(condition, message) {
 
 // Executing publish script: node path/to/publish.mjs {name} --version {version} --tag {tag}
 // Default "tag" to "next" so we won't publish the "latest" tag by accident.
-const [, , name, ver, tag = 'next', otp] = process.argv;
+const [, , name, ver, tag, otp] = process.argv;
+
+const devDir = path.join(`packages/${name}`, `package.json`);
+const devJson = JSON.parse(readFileSync(`${devDir}`).toString());
+
+const _ver = ver === "undefined" ? devJson.version : ver;
+
+const _verTag = _ver.split('-')[1]?.split(/\.|\+/)[0] || 'latest';
+
+const _tag = tag === 'undefined' ? _verTag : tag;
 
 // A simple SemVer validation to validate the version
 const validVersion = /^\d+\.\d+\.\d+(-\w+\.\d+)?/;
 invariant(
-  ver && validVersion.test(ver),
-  `No version provided or version did not match Semantic Versioning, expected: #.#.#-tag.# or #.#.#, got ${ver}.`
+  _ver && validVersion.test(_ver),
+  `No version provided or version did not match Semantic Versioning, expected: #.#.#-tag.# or #.#.#, got ${_ver}.`
 );
 
 const graph = readCachedProjectGraph();
@@ -45,18 +54,27 @@ invariant(
   `Could not find "build.options.outputPath" of project "${name}". Is project.json configured  correctly?`
 );
 
-process.chdir(outputPath);
+
 
 // Updating the version in "package.json" before publishing
 try {
-  const json = JSON.parse(readFileSync(`package.json`).toString());
-  json.version = ver;
-  writeFileSync(`package.json`, JSON.stringify(json, null, 2));
+  const rootDir = path.join(`package.json`);
+  const distDir = path.join(`dist/packages/${name}`,`package.json`);
+  const distJson = JSON.parse(readFileSync(distDir).toString());
+  const rootJson = JSON.parse(readFileSync(rootDir).toString());
+
+    [rootJson, distJson, devJson].forEach((json) => (json.version = _ver));
+
+  writeFileSync(rootDir, JSON.stringify(rootJson, null, 2));
+  writeFileSync(distDir, JSON.stringify(distJson, null, 2));
+  writeFileSync(devDir, JSON.stringify(devJson, null, 2));
 } catch (e) {
   console.error(
-    chalk.bold.red(`Error reading package.json file from library build output.`)
+    chalk.bold.red(`Error reading package.json file from library build output.\n`, e)
   );
 }
 
+process.chdir(outputPath);
+
 // Execute "npm publish" to publish
-execSync(`npm publish --access public --tag ${tag} --otp ${otp}`);
+execSync(`npm publish --access public --tag ${_tag} --otp ${otp}`);

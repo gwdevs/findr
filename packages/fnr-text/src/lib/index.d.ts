@@ -1,15 +1,10 @@
 import XRegeExp from 'xregexp/types';
 
-declare const fnr: (params: FindrParams) => FindrReturn;
-
-export default fnr;
+export declare const findr: (params: FindrParams) => FindrReturn;
 
 export interface FindrConfig {
-  // TODO: Add config to make use of xregexp optional
   ctxLen?: number;
-  /** function for wrapping or transforming the matched word in context.*/
   filterCtxMatch?: (match: string) => string;
-  /** function for wrapping or transforming the replacement word in context.*/
   filterCtxReplacement?: (replacement: string) => string;
   buildResultKey?: (index: number) => resultKey;
   xregexp?: typeof XRegeExp;
@@ -30,12 +25,13 @@ export type replacementCallback = (params: {
   namedGroups: { [key: string]: unknown };
 }) => string;
 
+type resultsAll = 'all';
 export interface FindrParams {
   source: string;
   target: string | RegExp;
   replacement?: string | replacementCallback;
   contextLength?: number;
-  replacementKeys?: Array<resultKey> | string;
+  replacementKeys?: Array<resultKey> | resultsAll;
   metadata?: metadata;
   config?: FindrConfig;
 }
@@ -60,3 +56,5 @@ export interface FindrReturn {
   replaced: FindrReplaced;
   results: FindrResult[];
 }
+
+export default findr;

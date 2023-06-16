@@ -15,8 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@findr/dom": ["packages/fnr-dom/src/index.ts"],
-      "@findr/text": ["packages/fnr-text/src/index.ts"]
+      "@findr/mui": ["packages/fnr-mui/src/index.ts"],
+      "@findr/perf": ["packages/fnr-perf/src/index.js"],
+      "@findr/react": ["packages/fnr-react/src/index.ts"],
+      "@findr/text": ["packages/fnr-text/src/lib/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

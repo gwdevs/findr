@@ -1,8 +1,8 @@
-import fnr from '../.';
+import fnr from '..';
 import { FindrResult } from '../index.d';
 import { FindrMultiLineParams } from './index.d';
 
-export default function fnrMultiLine(params: FindrMultiLineParams) {
+export function findrMultiLine(params: FindrMultiLineParams) {
   const { source, metadata, config = {}, target } = params;
   const { buildResultKey } = config;
   const _source = source.split('\n');
@@ -31,3 +31,5 @@ export default function fnrMultiLine(params: FindrMultiLineParams) {
     replaced: _replaced.join('\n'),
   };
 }
+
+export default findrMultiLine

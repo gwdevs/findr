@@ -1,0 +1,74 @@
+{
+  "name": "fnr-pg",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/fnr-pg/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/packages/fnr-pg"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "fnr-pg:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "fnr-pg:build:development",
+          "buildLibsFromSource": true,
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "fnr-pg:build:production",
+          "buildLibsFromSource": false,
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nrwl/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "fnr-pg:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "fnr-pg:build:development"
+        },
+        "production": {
+          "buildTarget": "fnr-pg:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nrwl/vite:test",
+      "outputs": ["coverage/packages/fnr-pg"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/packages/fnr-pg"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/fnr-pg/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  },
+  "tags": []
+}

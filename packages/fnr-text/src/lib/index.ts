@@ -1,7 +1,7 @@
 import { FindrParams, FindrResult, resultKey } from './index.d';
 import { escapeRegExp, evalRegex, isUpperCase } from './utils';
 
-export default function fnr({
+export function findr({
   source,
   target,
   replacement = '',
@@ -170,3 +170,5 @@ export default function fnr({
       : source;
   return { results, replaced };
 }
+
+export default findr
