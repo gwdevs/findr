@@ -1,5 +1,5 @@
-import { FindrFormProps } from './findr-form/findr-form.d';
-import { FindrResultProps } from './findr-results/findr-results.d';
+import { FindrFormProps } from '../findr-form/findr-form.d';
+import { FindrResultProps } from '../findr-results/findr-results.d';
 
 type ChangeEvent = React.ChangeEventHandler<
   HTMLTextAreaElement | HTMLInputElement

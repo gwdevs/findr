@@ -49,7 +49,8 @@
         "babel": true
       },
       "component": {
-        "style": "@emotion/styled"
+        "style": "@emotion/styled",
+        "directory": "./"
       },
       "library": {
         "style": "@emotion/styled",

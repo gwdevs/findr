@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import FnrMui from './fnr-mui';
+import FindrMUI from './findr-mui';
 
-describe('FnrMui', () => {
+describe('FindrMUI', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<br />);
+    const { baseElement } = render(<FindrMUI />);
     expect(baseElement).toBeTruthy();
   });
 });

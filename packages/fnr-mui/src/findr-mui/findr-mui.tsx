@@ -1,7 +1,7 @@
-import { FindrMUIProps } from './fnr-mui.d';
+import { FindrMUIProps } from './findr-mui.d';
 import { Box, Collapse } from '@mui/material';
-import FindrForm from './findr-form/findr-form';
-import FindrResults from './findr-results/findr-results';
+import FindrForm from '../findr-form/findr-form';
+import FindrResults from '../findr-results/findr-results';
 
 export function FindrMUI({
   sx,

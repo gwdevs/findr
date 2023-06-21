@@ -1,6 +1,5 @@
-import { Context } from './../../../../fnr-text/src/lib/index.d';
 import { BoxProps } from "@mui/material";
-import { Groups } from '../fnr-mui.d';
+import { Groups } from '../findr-mui/findr-mui.d';
 
 export interface FindrResultProps extends Partial<BoxProps> {
   target: string;

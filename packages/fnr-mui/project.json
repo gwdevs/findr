@@ -13,22 +13,15 @@
       }
     },
     "build": {
-      "executor": "@nx/vite:build",
+      "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
-      "defaultConfiguration": "production",
       "options": {
         "outputPath": "dist/packages/fnr-mui",
-        "generatePackageJson": true,
-        "includeDevDependenciesInPackageJson": true,
-        "force": true
-      },
-      "configurations": {
-        "development": {
-          "mode": "development"
-        },
-        "production": {
-          "mode": "production"
-        }
+        "main": "packages/fnr-mui/src/index.ts",
+        "tsConfig": "packages/fnr-mui/tsconfig.lib.json",
+        "assets": ["packages/fnr-mui/*.md"],
+        "updateBuildableProjectDepsInPackageJson": true,
+        "generateLockfile": true
       }
     },
     "publish": {
