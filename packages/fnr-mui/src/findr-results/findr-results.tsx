@@ -58,10 +58,10 @@ export function FindrResults({
               : groupsEntries.map(([sourceKey]) => `${sourceKey}`)
           }
         >
-          {groupsEntries.map(([sourceKey, group]) =>
+          {groupsEntries.map(([sourceKey, group], groupIndex) =>
             !group?.results?.length ? null : (
               <ResultsTreeItem
-                key={`${sourceKey}`}
+                key={`${sourceKey}-${groupIndex}`}
                 itemKey={`${sourceKey}`}
                 title={
                   typeof onSetGroupTitle === 'function'
@@ -103,6 +103,7 @@ export function FindrResults({
                 {group?.results?.map((result, index) => {
                   return (
                     <ResultsTreeItem
+                      key={`${sourceKey}-${groupIndex}-${index}`}
                       onClick={() => onClickResult({ result })}
                       onDismiss={() =>
                         typeof setGroups === 'function' &&
@@ -121,7 +122,6 @@ export function FindrResults({
                           ? onSetResultTooltip({ result })
                           : null
                       }
-                      key={sourceKey + '/' + index}
                       itemKey={
                         typeof onSetResultKey === 'function'
                           ? onSetResultKey(result)

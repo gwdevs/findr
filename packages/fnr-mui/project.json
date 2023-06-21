@@ -17,22 +17,19 @@
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/packages/fnr-mui",
+        "rootDir": "packages/fnr-mui/src",
         "main": "packages/fnr-mui/src/index.ts",
         "tsConfig": "packages/fnr-mui/tsconfig.lib.json",
-        "assets": ["packages/fnr-mui/*.md"],
+        "assets": ["packages/fnr-mui/*.md", "packages/fnr-mui/.npmignore"],
         "updateBuildableProjectDepsInPackageJson": true,
         "generateLockfile": true
       }
     },
     "build": {
-      "executor": "@nx/js:tsc",
-      "outputs": ["{options.outputPath}"],
+      "executor": "nx:run-commands",
       "options": {
-        "rootDir": "packages/fnr-mui/src",
-        "outputPath": "dist/packages/fnr-mui/src/node",
-        "main": "packages/fnr-mui/src/index.ts",
-        "tsConfig": "packages/fnr-mui/tsconfig.node.json",
-        "generateLockfile": false
+        "command": "tsc -p packages/fnr-mui/tsconfig.node.json",
+        "outputPath": "dist/packages/fnr-mui"
       },
       "dependsOn": ["build-browser"]
     },

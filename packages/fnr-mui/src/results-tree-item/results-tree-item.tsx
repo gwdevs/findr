@@ -54,7 +54,6 @@ export function ResultsTreeItem({
 
   const renderTitle = useCallback(
     (items: typeof children) => {
-      console.log(items);
       const customItems = onRenderTitle({ items });
       return customItems || items;
     },
