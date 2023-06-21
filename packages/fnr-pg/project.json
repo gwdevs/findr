@@ -24,13 +24,12 @@
       "executor": "@nx/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "fnr-pg:build",
-        "force": true
+        "buildTarget": "fnr-pg:build"
       },
       "configurations": {
         "development": {
           "buildTarget": "fnr-pg:build:development",
-          "buildLibsFromSource": true,
+          "force": true,
           "hmr": true
         },
         "production": {

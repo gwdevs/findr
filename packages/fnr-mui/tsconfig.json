@@ -2,17 +2,15 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "jsx": "react-jsx",
-    "module": "ES6",
-    "esModuleInterop": false,
     "jsxImportSource": "@emotion/react",
-    "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "noEmit": false,
-    "declaration": true
+    "declaration": true,
+    "sourceMap": false
   },
   "files": [],
   "include": [],

@@ -12,7 +12,7 @@
         "lintFilePatterns": ["packages/fnr-mui/**/*.{ts,tsx,js,jsx}"]
       }
     },
-    "build": {
+    "build-browser": {
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
@@ -23,6 +23,18 @@
         "updateBuildableProjectDepsInPackageJson": true,
         "generateLockfile": true
       }
+    },
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "rootDir": "packages/fnr-mui/src",
+        "outputPath": "dist/packages/fnr-mui/src/node",
+        "main": "packages/fnr-mui/src/index.ts",
+        "tsConfig": "packages/fnr-mui/tsconfig.node.json",
+        "generateLockfile": false
+      },
+      "dependsOn": ["build-browser"]
     },
     "publish": {
       "executor": "nx:run-commands",

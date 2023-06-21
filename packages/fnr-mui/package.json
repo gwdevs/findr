@@ -1,11 +1,12 @@
 {
   "name": "@findr/mui",
-  "version": "1.0.0-beta.6",
-  "main": "./index.js",
-  "module": "./index.js",
-  "types": "./index.d.ts",
+  "version": "1.0.0-beta.11",
+  "type": "module",
+  "main": "./src/index.js",
+  "module": "./src/index.js",
+  "types": "./src/index.d.ts",
   "author": "unfoldingWord Team",
-  "description": "React components for Find and Replace that implement Google's Material Design.",
+  "description": "React components for Find-and-Replace that implement Google's Material Design.",
   "repository": {
     "type": "git",
     "url": "https://github.com/unfoldingword/findr.git",

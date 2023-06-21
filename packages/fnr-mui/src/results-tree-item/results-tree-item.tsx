@@ -1,6 +1,6 @@
 import type { } from '@mui/lab/themeAugmentation';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { TreeItem, TreeItemProps } from '@mui/lab';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Box, Chip, IconButton, Tooltip, Typography } from '@mui/material';
 
 import { VscClose } from 'react-icons/vsc';
