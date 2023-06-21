@@ -4,6 +4,7 @@ import { TreeItem, TreeItemProps } from '@mui/lab';
 import { Box, Chip, IconButton, Tooltip, Typography } from '@mui/material';
 
 import { VscClose } from 'react-icons/vsc';
+import { useCallback } from 'react';
 
 export interface ResultsTreeItemProps
   extends Omit<TreeItemProps, 'nodeId' | 'title' | 'label' | 'onClick'> {
@@ -19,6 +20,7 @@ export interface ResultsTreeItemProps
   ) => void;
   actions?: React.ReactNode;
   nodeId?: string;
+  onRenderTitle?: ({ items }: { items: React.ReactNode }) => React.ReactNode;
 }
 
 const theme = createTheme({
@@ -41,6 +43,7 @@ export function ResultsTreeItem({
   tooltip,
   title,
   content,
+  onRenderTitle = () => null,
   onReplace = () => null,
   onDismiss = () => null,
   onClick = () => null,
@@ -48,6 +51,16 @@ export function ResultsTreeItem({
   actions,
   ...props
 }: ResultsTreeItemProps) {
+
+  const renderTitle = useCallback(
+    (items: typeof children) => {
+      console.log(items);
+      const customItems = onRenderTitle({ items });
+      return customItems || items;
+    },
+    [onRenderTitle]
+  );
+
   return (
     <ThemeProvider theme={theme}>
       <TreeItem
@@ -94,7 +107,7 @@ export function ResultsTreeItem({
                     display: 'inline',
                   }}
                 >
-                  {title}{' '}
+                  {renderTitle(title)}{' '}
                   <Typography
                     variant="caption"
                     sx={{ fontWeight: 'inherit', width: 'auto' }}
@@ -113,7 +126,7 @@ export function ResultsTreeItem({
                   <IconButton
                     aria-label="Dismiss result"
                     size="small"
-                    title="Dismiss result"
+                    title="Dismiss"
                     onClick={(e) => {
                       e.preventDefault();
                       e.stopPropagation();

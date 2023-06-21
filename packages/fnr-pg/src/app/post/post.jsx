@@ -12,9 +12,9 @@ import SearchIcon from '@mui/icons-material/Search';
 import { useEffect, useMemo, useState } from 'react';
 import fnr from '@findr/text';
 import { useFindr } from '@findr/react';
-import { FnrMUI } from '@findr/mui';
+import { FindrMUI, Mark } from '@findr/mui';
 
-const SearchAndReplace = ({post,setPost,sourceKey}) => {
+const SearchAndReplace = ({post,setPost,sourceKey,open}) => {
   const onSearch = (params) => {
     const { options, target, replacement } = params;
     const response = fnr({
@@ -31,7 +31,6 @@ const SearchAndReplace = ({post,setPost,sourceKey}) => {
   };
 
   const onReplace = (params) => {
-    console.log({ params });
     const { options, target, replacement, resultsKeys } = params;
     const response = fnr({
       source: post?.body || '',
@@ -76,14 +75,28 @@ const SearchAndReplace = ({post,setPost,sourceKey}) => {
    target,
    replacement,
    groups,
+   onRenderResult: ({ nodes, data }) => (
+     <>
+       <Mark
+         color={'#d7f0ec'}
+         style={{ fontSize: '0.7rem', marginRight: '0.2rem' }}
+       >
+         {'mrk 1:5'}
+       </Mark>
+
+       {nodes}
+     </>
+   ),
+   open,
  };
   return (
-    <FnrMUI sx={{ padding: '0.5em', margin: '0em 0.5em' }} {...fnrProps} />
+    <FindrMUI sx={{ padding: '0.5em', margin: '0em 0.5em' }} {...fnrProps} />
   );
 }
 
 export const Post = ({ id = 1 }) => {
   const [loading, setLoading] = useState(true);
+  const [openSearch,setOpenSearch] = useState(false)
   const [post, setPost] = useState({});
   const sourceKey = useMemo(() => `post ${id}: ${post.title}`, [id,post.title]);
 
@@ -109,11 +122,16 @@ export const Post = ({ id = 1 }) => {
     </Stack>
   ) : (
     <Card sx={{ margin: 5, position: 'relative' }}>
-      <SearchAndReplace post={post} setPost={setPost} sourceKey={sourceKey} />
+      <SearchAndReplace
+        post={post}
+        setPost={setPost}
+        open={openSearch}
+        sourceKey={sourceKey}
+      />
       <CardHeader
         action={
           <Box>
-            <IconButton aria-label="settings">
+            <IconButton aria-label="settings" onClick={() => setOpenSearch(value => !value)}>
               <SearchIcon />
             </IconButton>
           </Box>

@@ -54,8 +54,8 @@ export function useGroupHandlers<R extends Result, O = undefined>({
     });
     const group: Group<R> = {
       key: `${sourceKey}`,
-      title: metadata?.title ? `${sourceKey}` : undefined,
-      hoverText: metadata?.hoverText ? `${sourceKey}` : undefined,
+      title: metadata?.title as string ?? `${sourceKey}`,
+      hoverText: metadata?.hoverText as string ?? `${sourceKey}`,
       results,
       metadata: metadata,
     };

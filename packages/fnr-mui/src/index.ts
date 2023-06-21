@@ -1,3 +1,5 @@
+export * from './lib/findr-results/findr-results';
+export * from './lib/findr-form/findr-form';
 export * from './lib/replace-button/replace-button';
 export * from './lib/replace-box/replace-box';
 export * from './lib/search-result/search-result';

@@ -6,20 +6,21 @@
   "tags": [],
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["packages/fnr-mui/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "build": {
-      "executor": "@nrwl/vite:build",
+      "executor": "@nx/vite:build",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
         "outputPath": "dist/packages/fnr-mui",
         "generatePackageJson": true,
-        "includeDevDependenciesInPackageJson": true
+        "includeDevDependenciesInPackageJson": true,
+        "force": true
       },
       "configurations": {
         "development": {
@@ -38,7 +39,7 @@
       "dependsOn": ["build"]
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "packages/fnr-mui/jest.config.ts",

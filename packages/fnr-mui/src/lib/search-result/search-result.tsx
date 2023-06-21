@@ -1,5 +1,28 @@
-import { Box, Typography, TypographyProps } from '@mui/material';
+import { Box, TypographyProps } from '@mui/material';
 import { useMemo } from 'react';
+
+interface MarkProps {
+  children: React.ReactNode;
+  color?: string;
+  style?: React.CSSProperties;
+}
+
+export function Mark(props: MarkProps) {
+  const { children, color, style, ..._props } = props;
+  const defaultColor = 'rgba(0, 18, 255, 0.2)';
+  const _style = {
+    backgroundColor: color ?? defaultColor,
+    padding: '0.1em 0.2em',
+    borderRadius: '0.3em',
+    border: `0.1em solid ${color ?? defaultColor}`,
+    color: '#141414',
+  };
+  return (
+    <mark style={{ ..._style, ...style }} {..._props}>
+      {children}
+    </mark>
+  );
+}
 
 interface MatchProps {
   children: React.ReactNode;
@@ -8,24 +31,27 @@ interface MatchProps {
 
 function Match(props: MatchProps) {
   const { children, replaced } = props;
-  const style = replaced
-    ? {
-        backgroundColor: '#ffe3e3',
-        textDecoration: 'line-through',
-        textDecorationColor: '#eea9a9',
-      }
-    : {
-        backgroundColor: '#e3e5ff',
-      };
-  return <mark style={style}>{children}</mark>;
+  const { style, color }: {
+    style?: React.CSSProperties;
+    color?: string
+  } =
+    replaced
+      ? {
+          color: 'rgba(218, 54, 51, 0.3)',
+          style: { textDecoration: 'line-through' },
+        }
+      : {};
+  return (
+    <Mark style={style} color={color}>
+      {children}
+    </Mark>
+  );
 }
 
 function Replacement(props: { children: React.ReactNode }) {
   const { children } = props;
-  const style = {
-    backgroundColor: '#e3ffe5',
-  };
-  return <mark style={style}>{children}</mark>;
+  const color = 'rgba(35, 134, 54, 0.3)';
+  return <Mark color={color}>{children}</Mark>;
 }
 
 type SearchResultProps = {
@@ -46,7 +72,7 @@ export function SearchResult(props: SearchResultProps) {
     ...other
   } = props;
   const { before, after } = context;
-  
+
   const clippedBefore = useMemo(() => {
     const ctxArr = before.split(' ');
     const wordsCount = ctxArr.length;
@@ -64,17 +90,17 @@ export function SearchResult(props: SearchResultProps) {
     const selectedWordsCount = wordsCount - 1;
     const selectedCtxArr = ctxArr.slice(0, selectedWordsCount);
     const wordsLimit = minCtxWords;
-    const slicedCtxArr = selectedCtxArr.slice(0,wordsLimit);
+    const slicedCtxArr = selectedCtxArr.slice(0, wordsLimit);
     const newCtxString = slicedCtxArr.join(' ');
     return newCtxString;
   }, [after, minCtxWords]);
 
   return (
-    <Box component={'span'}  width={'100%'} variant={'body1'} {...other}>
+    <Box component={'span'} width={'100%'} variant={'body1'} {...other}>
       {ellipsis}
       {clippedBefore}
       <Match replaced={!!replacement}>{match}</Match>
-      <Replacement>{replacement}</Replacement>
+      {!replacement ? null : <Replacement>{replacement}</Replacement>}
       {clippedAfter}
       {ellipsis}
     </Box>

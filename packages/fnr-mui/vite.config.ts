@@ -54,6 +54,8 @@ export default defineConfig({
         'react-icons',
         '@emotion/react',
         '@emotion/styled',
+        '@types/react',
+        '@mui/styled-engine',
       ],
     },
   },

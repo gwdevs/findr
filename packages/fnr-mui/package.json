@@ -1,6 +1,6 @@
 {
   "name": "@findr/mui",
-  "version": "1.0.0-beta.4",
+  "version": "1.0.0-beta.6",
   "main": "./index.js",
   "types": "./index.d.ts",
   "exports": {
@@ -10,11 +10,25 @@
     }
   },
   "peerDependencies": {
-    "@mui/icons-material": "^5.x",
-    "@mui/lab": "^5.x",
-    "@mui/material": "^5.x",
+    "@mui/icons-material": "^5.11.0",
+    "@mui/lab": "5.0.0-alpha.124",
+    "@mui/material": "^5.11.0",
     "react-icons": "^4.x",
-    "react": "^18.x",
-    "react-dom": "^18.x"
+    "@emotion/react": "^11.5.0",
+    "@emotion/styled": "^11.3.0",
+    "@types/react": "^17.0.0 || ^18.0.0",
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    },
+    "@emotion/react": {
+      "optional": true
+    },
+    "@emotion/styled": {
+      "optional": true
+    }
   }
 }
