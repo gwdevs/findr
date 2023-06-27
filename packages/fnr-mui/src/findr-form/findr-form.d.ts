@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { ChangeEvent, Groups, OnReplaceProps } from '../findr-mui/findr-mui.d';
 
 interface OnReplaceAllProps extends OnReplaceProps {

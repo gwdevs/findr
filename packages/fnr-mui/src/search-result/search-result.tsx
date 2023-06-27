@@ -1,6 +1,5 @@
+import * as React from 'react';
 import { Box, TypographyProps } from '@mui/material';
-import { useMemo } from 'react';
-
 interface MarkProps {
   children: React.ReactNode;
   color?: string;
@@ -73,7 +72,7 @@ export function SearchResult(props: SearchResultProps) {
   } = props;
   const { before, after } = context;
 
-  const clippedBefore = useMemo(() => {
+  const clippedBefore = React.useMemo(() => {
     const ctxArr = before.split(' ');
     const wordsCount = ctxArr.length;
     const selectedWordsCount = wordsCount - 1;
@@ -84,7 +83,7 @@ export function SearchResult(props: SearchResultProps) {
     return newCtxString;
   }, [before, minCtxWords]);
 
-  const clippedAfter = useMemo(() => {
+  const clippedAfter = React.useMemo(() => {
     const ctxArr = after.split(' ');
     const wordsCount = ctxArr.length;
     const selectedWordsCount = wordsCount - 1;

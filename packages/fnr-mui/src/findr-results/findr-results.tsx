@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import * as React from 'react';
 import ResultsTree from '../results-tree/results-tree';
 import ResultsTreeItem from '../results-tree-item/results-tree-item';
 import SearchResult from '../search-result/search-result';
@@ -47,7 +47,7 @@ export function FindrResults({
   defaultCollapsed = false,
   contextLength = 6,
 }: FindrResultProps) {
-  const groupsEntries = useMemo(() => Object.entries(groups), [groups]);
+  const groupsEntries = React.useMemo(() => Object.entries(groups), [groups]);
   return (
     <Box sx={sx}>
       {!groupsEntries.length ? null : (

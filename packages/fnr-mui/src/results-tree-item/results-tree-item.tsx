@@ -1,11 +1,10 @@
+import * as React from 'react';
 import type { } from '@mui/lab/themeAugmentation';
 import { TreeItem, TreeItemProps } from '@mui/lab';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Box, Chip, IconButton, Tooltip, Typography } from '@mui/material';
 
 import { VscClose } from 'react-icons/vsc';
-import { useCallback } from 'react';
-
 export interface ResultsTreeItemProps
   extends Omit<TreeItemProps, 'nodeId' | 'title' | 'label' | 'onClick'> {
   tooltip?: React.ReactNode;
@@ -52,7 +51,7 @@ export function ResultsTreeItem({
   ...props
 }: ResultsTreeItemProps) {
 
-  const renderTitle = useCallback(
+  const renderTitle = React.useCallback(
     (items: typeof children) => {
       const customItems = onRenderTitle({ items });
       return customItems || items;

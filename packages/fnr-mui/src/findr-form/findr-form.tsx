@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
+import * as React from 'react';
 import { OnChangeOptionsCallback } from '../options-bar/options-bar';
 import OptionButton from '../option-button/option-button';
 import SearchBox from '../search-box/search-box';
 import ReplaceBox from '../replace-box/replace-box';
 import ReplaceButton from '../replace-button/replace-button';
-import { FindrFormProps } from "./findr-form.d"
+import { FindrFormProps } from './findr-form.d';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { Box, Button, Collapse, FormControl } from '@mui/material';
@@ -36,11 +36,11 @@ export function FindrForm<Options>({
   target,
   replacement,
   options,
-  groups
+  groups,
 }: FindrFormProps) {
-  const [showReplace, setShowReplace] = useState(false);
+  const [showReplace, setShowReplace] = React.useState(false);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (typeof _onChangeOptions === 'function') {
       _onChangeOptions({ ...defaultSearchOptions, ...defaultReplaceOptions });
     }

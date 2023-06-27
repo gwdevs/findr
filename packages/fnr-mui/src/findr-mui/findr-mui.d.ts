@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { FindrFormProps } from '../findr-form/findr-form.d';
 import { FindrResultProps } from '../findr-results/findr-results.d';
 
