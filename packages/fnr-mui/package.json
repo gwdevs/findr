@@ -1,20 +1,49 @@
 {
   "name": "@findr/mui",
-  "version": "1.0.0-beta.4",
-  "main": "./index.js",
+  "version": "1.0.0-beta.17",
+  "main": "./node/index.js",
+  "module": "./index.js",
   "types": "./index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./index.mjs",
-      "require": "./index.js"
-    }
+  "author": "unfoldingWord Team",
+  "description": "React components for Find-and-Replace that implement Google's Material Design.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/unfoldingword/findr.git",
+    "directory": "packages/fnr-mui"
   },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/unfoldingword/findr/issues"
+  },
+  "homepage": "https://findrjs.netlify.app/",
+  "keywords": [
+    "scripture-open-components",
+    "find-and-replace",
+    "react-component",
+    "mui",
+    "material-ui",
+    "material design"
+  ],
   "peerDependencies": {
-    "@mui/icons-material": "^5.x",
-    "@mui/lab": "^5.x",
-    "@mui/material": "^5.x",
+    "@mui/icons-material": "^5.11.0",
+    "@mui/lab": "5.0.0-alpha.134",
+    "@mui/material": "^5.11.0",
     "react-icons": "^4.x",
-    "react": "^18.x",
-    "react-dom": "^18.x"
+    "@emotion/react": "^11.5.0",
+    "@emotion/styled": "^11.3.0",
+    "@types/react": "^17.0.0 || ^18.0.0",
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    },
+    "@emotion/react": {
+      "optional": true
+    },
+    "@emotion/styled": {
+      "optional": true
+    }
   }
 }

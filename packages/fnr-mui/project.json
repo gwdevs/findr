@@ -6,29 +6,32 @@
   "tags": [],
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["packages/fnr-mui/**/*.{ts,tsx,js,jsx}"]
       }
     },
-    "build": {
-      "executor": "@nrwl/vite:build",
+    "build-browser": {
+      "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
-      "defaultConfiguration": "production",
       "options": {
         "outputPath": "dist/packages/fnr-mui",
-        "generatePackageJson": true,
-        "includeDevDependenciesInPackageJson": true
-      },
-      "configurations": {
-        "development": {
-          "mode": "development"
-        },
-        "production": {
-          "mode": "production"
-        }
+        "rootDir": "packages/fnr-mui/src",
+        "main": "packages/fnr-mui/src/index.ts",
+        "tsConfig": "packages/fnr-mui/tsconfig.lib.json",
+        "assets": ["packages/fnr-mui/*.md", "packages/fnr-mui/.npmignore"],
+        "updateBuildableProjectDepsInPackageJson": true,
+        "generateLockfile": true
       }
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc -p packages/fnr-mui/tsconfig.node.json",
+        "outputPath": "dist/packages/fnr-mui"
+      },
+      "dependsOn": ["build-browser"]
     },
     "publish": {
       "executor": "nx:run-commands",
@@ -38,7 +41,7 @@
       "dependsOn": ["build"]
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "packages/fnr-mui/jest.config.ts",

@@ -1,10 +1,10 @@
+import * as React from 'react';
 import type { } from '@mui/lab/themeAugmentation';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { TreeItem, TreeItemProps } from '@mui/lab';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Box, Chip, IconButton, Tooltip, Typography } from '@mui/material';
 
 import { VscClose } from 'react-icons/vsc';
-
 export interface ResultsTreeItemProps
   extends Omit<TreeItemProps, 'nodeId' | 'title' | 'label' | 'onClick'> {
   tooltip?: React.ReactNode;
@@ -19,6 +19,7 @@ export interface ResultsTreeItemProps
   ) => void;
   actions?: React.ReactNode;
   nodeId?: string;
+  onRenderTitle?: ({ items }: { items: React.ReactNode }) => React.ReactNode;
 }
 
 const theme = createTheme({
@@ -41,6 +42,7 @@ export function ResultsTreeItem({
   tooltip,
   title,
   content,
+  onRenderTitle = () => null,
   onReplace = () => null,
   onDismiss = () => null,
   onClick = () => null,
@@ -48,6 +50,15 @@ export function ResultsTreeItem({
   actions,
   ...props
 }: ResultsTreeItemProps) {
+
+  const renderTitle = React.useCallback(
+    (items: typeof children) => {
+      const customItems = onRenderTitle({ items });
+      return customItems || items;
+    },
+    [onRenderTitle]
+  );
+
   return (
     <ThemeProvider theme={theme}>
       <TreeItem
@@ -94,7 +105,7 @@ export function ResultsTreeItem({
                     display: 'inline',
                   }}
                 >
-                  {title}{' '}
+                  {renderTitle(title)}{' '}
                   <Typography
                     variant="caption"
                     sx={{ fontWeight: 'inherit', width: 'auto' }}
@@ -113,7 +124,7 @@ export function ResultsTreeItem({
                   <IconButton
                     aria-label="Dismiss result"
                     size="small"
-                    title="Dismiss result"
+                    title="Dismiss"
                     onClick={(e) => {
                       e.preventDefault();
                       e.stopPropagation();
