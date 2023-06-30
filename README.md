@@ -2,7 +2,6 @@
   <img alt="Findr hero image" src="images/findr-cover.png">
 </a>
 
-
 # findr
 
 A set of **Open Component Packages** for creating fast and highly configurable **find-and-replace** user interfaces with javascript.
