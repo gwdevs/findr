@@ -41,6 +41,11 @@
     "libsDir": "packages"
   },
   "generators": {
+    "@nx/js": {
+      "library": {
+        "publishable": true
+      }
+    },
     "@nx/react": {
       "application": {
         "style": "@emotion/styled",
@@ -53,6 +58,7 @@
         "directory": "./"
       },
       "library": {
+        "publishable": true,
         "style": "@emotion/styled",
         "linter": "eslint",
         "unitTestRunner": "jest"
