@@ -1,6 +1,6 @@
 {
   "name": "@findr/perf",
-  "version": "1.0.3-beta.17",
+  "version": "1.0.7",
   "type": "commonjs",
   "dependencies": {
     "proskomma-json-tools": "^0.7.1"

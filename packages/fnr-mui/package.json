@@ -1,6 +1,6 @@
 {
   "name": "@findr/mui",
-  "version": "1.0.0-beta.17",
+  "version": "1.0.7",
   "main": "./node/index.js",
   "module": "./index.js",
   "types": "./index.d.ts",
