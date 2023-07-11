@@ -16,18 +16,9 @@
 ---
 
 ## Features
-TODO: it might be worth reviewing these features to refine what we mean by the features described in this project. Some questions that need to be answered are:
-
-  - Find/replace is an UI feature that's been around a while and there are certain to be other tools that do this. What's different about this library compared to other common find/replace tools (answering this will make your library more discoverable).
-
-  - What do we mean by "Fast"? The term itself is ambiguous and could mislead users: does it mean "fast build times?", "fast search/replace over large documents?", "fast React/integration"? If we mean "fast build times" do you have imperical evidence for this? 
-  
-  The same idea goes for "highly configurable"
 
   - Fast
   - Highly Configurable
-
-  - Supports Open Component Packages 
 
 ## Documentation
 
@@ -36,9 +27,7 @@ TODO: it might be worth reviewing these features to refine what we mean by the f
 
 ## Getting Started
 
-TODO: missing links for the tutorials
-
-Try the tutorial for one of the *@findr* packages:
+This project is organized as a mono-repository. The packages defined in this repo are published to `npm` individual. Here are the links and descriptions below:
 
 | 📦 Package | ✏️ Description |
 | - | - |
