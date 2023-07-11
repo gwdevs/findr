@@ -49,11 +49,11 @@ Try a getting started tutorial for one of the *@findr* packages:
 
 All of the packages are found inside the packages folder:
 
-* ├── [packages/](.\findr\packages)
-  * ├── [fnr-mui/](.\findr\packages\fnr-mui)
-  * ├── [fnr-perf/](.\findr\packages\fnr-perf)
-  * ├── [fnr-react/](.\findr\packages\fnr-react)
-  * └── [fnr-text/](.\findr\packages\fnr-text)
+* ├── [packages/](/packages)
+  * ├── [fnr-mui/](/packages/fnr-mui)
+  * ├── [fnr-perf/](/packages/fnr-perf)
+  * ├── [fnr-react/](/packages/fnr-react)
+  * └── [fnr-text/](/packages/fnr-text)
 
 All commands (*and `package.json` scripts*) should be executed from root and not from the packages directories.
 
