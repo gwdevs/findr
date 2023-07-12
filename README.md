@@ -18,27 +18,24 @@
 
 ## Documentation
 
-- tutorial:  [findrjs.netlify.app](https://findrjs.netlify.app/).
-- reference documentation: _coming soon!_
-
-## Getting Started
-
 This project is organized as a mono-repository. The packages defined in this repo are published to `npm` individual. Here are the links and descriptions below:
 
-| 📦 Package | Tutorial | ✏️ Description |
+| Local Package | 📦 NPM Package | Tutorial | ✏️ Description |
 | - | - | - |
-| [fndr-text](./packages/fndr-text)   | [@findr/text](https://npmjs.com/@findr/text)    | all the logic behind a find-and-replace feature |
-| [fndr-react](./packages/fndr-react) | [@findr/react](https://npmjs.com/@findr/react)  | state management needed to build your own find-and-replace components |
-| [fndr-mui](./packages/fndr-mui)     | [@findr/mui](https://npmjs.com/@findr/mui)      | library of GUI components for find-and-replace based on [@mui/material](https://mui.com/material-ui/getting-started/) |
-| [fndr-perf](./packages/fndr-perf)   | [@findr/perf](https://npmjs.com/@findr/perf)    | Pipeline and Actions needed for find-and-replace scripture using [proskomma-json-tools](https://github.com/Proskomma/proskomma-json-tools/) |
+| [fndr-text](./packages/fndr-text)   | [@findr/text](https://npmjs.com/@findr/text)    | [@findr/text tutorial](https://findrjs.netlify.app/) | all the logic behind a find-and-replace feature |
+| [fndr-react](./packages/fndr-react) | [@findr/react](https://npmjs.com/@findr/react)  |  | state management needed to build your own find-and-replace components |
+| [fndr-mui](./packages/fndr-mui)     | [@findr/mui](https://npmjs.com/@findr/mui)      |  | library of GUI components for find-and-replace based on [@mui/material](https://mui.com/material-ui/getting-started/) |
+| [fndr-perf](./packages/fndr-perf)   | [@findr/perf](https://npmjs.com/@findr/perf)    |  | Pipeline and Actions needed for find-and-replace scripture using [proskomma-json-tools](https://github.com/Proskomma/proskomma-json-tools/) |
+
+- reference documentation: _coming soon!_
 
 ---
 
 # Contributing
 
 This workspace uses the following Javascript tools: 
-  - [Nx, a Smart, fast and extensible build system](https://nx.dev) 
-  - [pnpm, a fast, disk space efficient package manager](https://pnpm.io/installation)
+  - [Nx, a build system](https://nx.dev) 
+  - [pnpm, package manager - like npm](https://pnpm.io/installation)
 
 ## Setup
 
