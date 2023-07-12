@@ -25,12 +25,12 @@
 
 This project is organized as a mono-repository. The packages defined in this repo are published to `npm` individual. Here are the links and descriptions below:
 
-| 📦 Package | ✏️ Description |
-| - | - |
-| [@findr/text](https://npmjs.com/@findr/text)    | all the logic behind a find-and-replace feature |
-| [@findr/react](https://npmjs.com/@findr/react)  | state management needed to build your own find-and-replace components |
-| [@findr/mui](https://npmjs.com/@findr/mui)      | library of GUI components for find-and-replace based on [@mui/material](https://mui.com/material-ui/getting-started/) |
-| [@findr/perf](https://npmjs.com/@findr/perf)    | Pipeline and Actions needed for find-and-replace scripture using [proskomma-json-tools](https://github.com/Proskomma/proskomma-json-tools/) |
+| 📦 Package | Tutorial | ✏️ Description |
+| - | - | - |
+| [fndr-text](./packages/fndr-text)   | [@findr/text](https://npmjs.com/@findr/text)    | all the logic behind a find-and-replace feature |
+| [fndr-react](./packages/fndr-react) | [@findr/react](https://npmjs.com/@findr/react)  | state management needed to build your own find-and-replace components |
+| [fndr-mui](./packages/fndr-mui)     | [@findr/mui](https://npmjs.com/@findr/mui)      | library of GUI components for find-and-replace based on [@mui/material](https://mui.com/material-ui/getting-started/) |
+| [fndr-perf](./packages/fndr-perf)   | [@findr/perf](https://npmjs.com/@findr/perf)    | Pipeline and Actions needed for find-and-replace scripture using [proskomma-json-tools](https://github.com/Proskomma/proskomma-json-tools/) |
 
 ---
 
