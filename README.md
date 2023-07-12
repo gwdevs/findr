@@ -21,7 +21,7 @@ Find and replace libraries in Typescript and React.
 This project is organized as a mono-repository. The packages defined in this repo are published to `npm` individual. Here are the links and descriptions below:
 
 | Local Package | 📦 NPM Package | Tutorial | ✏️ Description |
-| - | - | - |
+| - | - | - | - |
 | [fndr-text](./packages/fndr-text)   | [@findr/text](https://npmjs.com/@findr/text)    | [@findr/text tutorial](https://findrjs.netlify.app/) | all the logic behind a find-and-replace feature |
 | [fndr-react](./packages/fndr-react) | [@findr/react](https://npmjs.com/@findr/react)  |  | state management needed to build your own find-and-replace components |
 | [fndr-mui](./packages/fndr-mui)     | [@findr/mui](https://npmjs.com/@findr/mui)      |  | library of GUI components for find-and-replace based on [@mui/material](https://mui.com/material-ui/getting-started/) |
