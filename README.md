@@ -1,6 +1,6 @@
 # findr
 
-**find-and-replace** user interfaces using typescript/javascript and React.
+Find and replace libraries in Typescript and React.
 
 
 <p>
@@ -13,8 +13,8 @@
 
 ## Features
 
-  - Batteries included; `findr` provides a plug-and-play React component for performing find and replace.
-  - Highly Configurable. `findr` aims to be adaptable to your needs.
+  - Batteries included. `findr` provides a plug-and-play React component for performing find and replace.
+  - Highly Configurable. `findr` aims to be adaptable to your configuration needs.
 
 ## Documentation
 
