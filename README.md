@@ -1,10 +1,6 @@
-<a href="https://github.com/unfoldingWord/findr/" >
-  <img alt="Findr hero image" src="images/findr-cover.png">
-</a>
-
 # findr
 
-**find-and-replace** user interfaces using typescript/javascript.
+**find-and-replace** user interfaces using typescript/javascript and React.
 
 
 <p>
@@ -17,8 +13,8 @@
 
 ## Features
 
-  - Fast
-  - Highly Configurable
+  - Batteries included; `findr` provides a plug-and-play React component for performing find and replace.
+  - Highly Configurable. `findr` aims to be adaptable to your needs.
 
 ## Documentation
 
