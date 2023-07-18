@@ -27,7 +27,7 @@ This project is organized as a mono-repository. The packages defined in this rep
 | [fnr-mui](./packages/fnr-mui)     | [@findr/mui](https://npmjs.com/@findr/mui)      |  | library of GUI components for find-and-replace based on [@mui/material](https://mui.com/material-ui/getting-started/) |
 | [fnr-perf](./packages/fnr-perf)   | [@findr/perf](https://npmjs.com/@findr/perf)    |  | Pipeline and Actions needed for find-and-replace scripture using [proskomma-json-tools](https://github.com/Proskomma/proskomma-json-tools/) |
 
-- reference documentation: _coming soon!_
+_API reference documentation: coming soon!_
 
 ---
 
@@ -37,19 +37,24 @@ This workspace uses the following Javascript tools:
   - [Nx, a build system](https://nx.dev) 
   - [pnpm, package manager - like npm](https://pnpm.io/installation)
 
-## Setup
-
-run `pnpm install` on the root of the repository
+_All commands (*and `package.json` scripts*) should be executed from root and not from the packages directories._
 
 ## Support
 
 Having trouble? Get help in the official [Open Components Ecosystem Discord](https://discord.com/channels/867746700390563850/1019675732324143205).
 
-## Running commands on packages
+## Getting Started
 
-All of the packages are found inside the [packages/](/packages) folder.
+1. Install Dependencies:
 
-__All commands (*and `package.json` scripts*) should be executed from root and not from the packages directories.__
+  ```shell
+  pnpm install
+  ```
+
+2. Launch the playground
+```shell
+pnpm nx preview fnr-pg
+```
 
 ## Nx Quick Reference
 
@@ -60,42 +65,38 @@ Visit the [Nx Documentation](https://nx.dev) to learn more.
 * Creating a new [**react**](https://nx.dev/packages/react/generators/library) or [**javascript**](https://nx.dev/packages/js/generators/library) library, i.e:
 
   ```Shell
-   pnpm nx g[enerate] lib[rary] --publishable --importPath=@findr/new --name=fnr-new
+  pnpm nx g[enerate] lib[rary] --publishable --importPath=@findr/new --name=fnr-new
   ```
 * [Creating a component in an existing react package](https://nx.dev/packages/react/generators/component), i.e:
 
   ```Shell
-   pnpm nx g[enerate] c[omponent] --project=fnr-mui
+  pnpm nx g[enerate] c[omponent] --project=fnr-mui
   ```
 
 * Building a library, i.e:
 
   ```Shell
-   pnpm nx build fnr-mui
+  pnpm nx build fnr-mui
   ```
 * Publishing a library, i.e:
 
   ```Shell
-   pnpm nx publish fnr-mui --version=1.0.0-beta.1 --otp=668422
+  pnpm nx publish fnr-mui --version=1.0.0-beta.1 --otp=668422
   ```
 * Running a script from package's `package.json`, say `start`, i.e:
 
   ```Shell
-   pnpm nx start fnr-mui
+  pnpm nx preview fnr-pg
   ```
 * Adding a package dependency should also be done from root, i.e:
 
   ```Shell
-   pnpm add [package-name]
+  pnpm add [package-name]
   ```
 
-*  See a diagram of the dependencies of the projects.
+* See a diagram of the dependencies of the projects:
 
   ```Shell
   nx graph  
   ```
 
-*  enable [remote caching](https://nx.app) and make CI faster.
-  ```Shell
-  npx nx connect-to-nx-cloud
-  ```
