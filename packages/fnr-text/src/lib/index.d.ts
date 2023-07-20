@@ -16,7 +16,7 @@ export interface FindrConfig {
 
 export type ResultKey = string | number;
 
-export type metadata = { [key: string]: unknown };
+export type Metadata = { [key: string]: unknown };
 
 export type replacementCallback = (params: {
   index: number;
@@ -35,7 +35,7 @@ export interface FindrParams {
   replacement?: string | replacementCallback;
   contextLength?: number;
   replacementKeys?: Array<ResultKey> | resultsAll;
-  metadata?: metadata;
+  metadata?: Metadata;
   config?: FindrConfig;
 }
 
@@ -50,7 +50,7 @@ export interface FindrResult {
   context: Context;
   extContext: Context;
   resultKey: ResultKey;
-  metadata: metadata;
+  metadata: Metadata;
 }
 
 export type FindrReplaced = string;
