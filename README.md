@@ -37,34 +37,27 @@ _API reference documentation: coming soon!_
 
 # Contributing
 
+## Support
+
+Join the [Open Components Ecosystem Discord](https://discord.com/channels/867746700390563850/1019675732324143205) for help.
+
+## Getting Started
+
+_All commands (*and `package.json` scripts*) should be executed from root and not from the packages directories._
+
+Install dependencies and launch the playground: 
+  ```shell
+  pnpm install
+  pnpm nx preview fnr-pg
+  ```
+
+## Monorepo Tools
+
 This repo is organized as a monorepo and uses the following Javascript tools: 
   - [Nx, a build system](https://nx.dev) 
   - [pnpm, package manager - like npm](https://pnpm.io/installation)
 
-_All commands (*and `package.json` scripts*) should be executed from root and not from the packages directories._
-
-## Support
-
-Currently the "general" channel in the [Open Components Ecosystem Discord](https://discord.com/channels/867746700390563850/1019675732324143205) is the best place to get help.
-
-## Getting Started
-
-1. Install Dependencies:
-
-  ```shell
-  pnpm install
-  ```
-
-2. Launch the playground
-```shell
-pnpm nx preview fnr-pg
-```
-
-## Nx Quick Reference
-
 For those new to the Nx and/or pnpm ecosystem here are common commands used in this project:
-
-Visit the [Nx Documentation](https://nx.dev) to learn more.
 
 * Creating a new [**react**](https://nx.dev/packages/react/generators/library) or [**javascript**](https://nx.dev/packages/js/generators/library) library, i.e:
 
