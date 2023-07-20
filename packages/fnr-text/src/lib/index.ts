@@ -1,5 +1,7 @@
-import { FindrParams, FindrResult, resultKey } from './index.d';
+import { SearchAndReplace, SearchResult, ResultKey } from './index.d';
 import { escapeRegExp, evalRegex, isUpperCase } from './utils';
+
+type RegexFlags = Array<string>;
 
 /** 
 *  findr extends javascript's String.replace() by handling options like Preserve Case, 
@@ -23,12 +25,13 @@ export function findr({
     isWordMatched = false,
     isCasePreserved = false,
   } = {},
-}: FindrParams) {
+}: SearchAndReplace) {
   // START BUILDING SEARCH REGEXP
 
   /** default flags to be used for regex pattern */
-  const defaultFlags = ['g'];
-  if (!isCaseMatched) defaultFlags.push('i');
+  const defaultFlags : RegexFlags =  !isCaseMatched ? ['g', 'i'] : ['g'];
+
+  const _isRegex = typeof isRegex === 'boolean' ? isRegex : isRegex === 'true';
 
   /** is findr being used in regex mode */
   const _isRegex = typeof isRegex === 'boolean' ? isRegex : isRegex === 'true';
@@ -88,7 +91,7 @@ export function findr({
 
   let searchIndex = 0;
   let replaceIndex = 0;
-  const results: FindrResult[] = [];
+  const results: SearchResult[] = [];
   const replaced =
     target !== ''
       ? source.replace(initialRgx, function (...args) {
@@ -148,7 +151,7 @@ export function findr({
           const replaced = evaluateCase(match, match.replace(finalRgx, r));
 
           /** key for specific match index that needs to be replaced */
-          const replacePointer: resultKey = buildResultKey
+          const replacePointer: ResultKey = buildResultKey
             ? buildResultKey(replaceIndex)
             : replaceIndex;
           replaceIndex++;
