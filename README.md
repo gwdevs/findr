@@ -45,7 +45,7 @@ _All commands (*and `package.json` scripts*) should be executed from root and no
 
 ## Support
 
-Having trouble? Get help in the official [Open Components Ecosystem Discord](https://discord.com/channels/867746700390563850/1019675732324143205).
+Currently the "general" channel in the [Open Components Ecosystem Discord](https://discord.com/channels/867746700390563850/1019675732324143205) is the best place to get help.
 
 ## Getting Started
 
