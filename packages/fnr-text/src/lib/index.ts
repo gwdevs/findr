@@ -31,8 +31,15 @@ export function findr({
   /** default flags to be used for regex pattern */
   const defaultFlags : RegexFlags =  !isCaseMatched ? ['g', 'i'] : ['g'];
 
-  const _isRegex = typeof isRegex === 'boolean' ? isRegex : isRegex === 'true';
+  //TODO: is this necessary? isRegex is typed to be a boolean. If users are
+  //using TS this check is unecessary. If the users are using JS to consume this
+  //library maybe we should think about a more generic way to enforce types at 
+  //runtime?
+  const isRegex = typeof isRegex === 'boolean' ? isRegex : isRegex === 'true';
 
+  //TODO: I would recommend against using console.warn as an error handling mechanism
+  //this cloggs up the users console and doesn't provide the user an ability to handle
+  //this error
   /** is findr being used in regex mode */
   const _isRegex = typeof isRegex === 'boolean' ? isRegex : isRegex === 'true';
   if (!_isRegex && target instanceof RegExp)
@@ -48,11 +55,15 @@ export function findr({
         return new RegExp(source, flags);
       };
 
+  //TODO: I'm seeing a code-smell here. Performing if-then statements to variable assignment
+  //is running an evaluator to early. 
+  //TODO: needs increased support for multiple languages
   /** regex pattern for a wordlike character */
-  const WordLike = isXre ? `p{Letter}\\p{Number}` : `\\w\\d`; // needs increased support for multiple languages
+  const wordLike = isXre ? `p{Letter}\\p{Number}` : `\\w\\d`;
 
   /** regex pattern for uppercase character */
-  const UppercaseLetter = isXre ? `\\p{Uppercase_Letter}` : `[A-Z]`; // needs increased support for multiple languages
+  const uppercaseLetter = isXre ? `\\p{Uppercase_Letter}` : `[A-Z]`;
+
 
   /** adds patterns needed to fit findr's config to a given RegExp */
   function prepareRegExp({
@@ -64,12 +75,12 @@ export function findr({
   }) {
     const { source, flags } = regexp;
     return isWordMatched
-      ? regexer(`(^|[^${WordLike}])(${source})(?=[^${WordLike}]|$)`, flags)
+      ? regexer(`(^|[^${wordLike}])(${source})(?=[^${wordLike}]|$)`, flags)
       : regexer(`()(${source})`, flags);
   }
 
   /** regex gotten from findr's target input */
-  const rgxData = _isRegex
+  const rgxData = isRegex
     ? evalRegex(target)
     : { source: escapeRegExp(target), flags: null };
 
@@ -141,7 +152,7 @@ export function findr({
             if (isUpperCase(match)) {
               return replaced.toUpperCase();
             }
-            if (new RegExp(regexer(UppercaseLetter)).test(match[0])) {
+            if (new RegExp(regexer(uppercaseLetter)).test(match[0])) {
               return replaced[0].toUpperCase() + replaced.slice(1);
             }
             return replaced;
