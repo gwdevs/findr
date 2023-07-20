@@ -18,7 +18,7 @@ export type ResultKey = string | number;
 
 export type Metadata = { [key: string]: unknown };
 
-export type replacementCallback = (params: {
+export type ReplacementCallback = (params: {
   index: number;
   match: string;
   groups: Array<string>;
@@ -32,7 +32,7 @@ type resultsAll = 'all';
 export interface FindrParams {
   source: string;
   target: string | RegExp;
-  replacement?: string | replacementCallback;
+  replacement?: string | ReplacementCallback;
   contextLength?: number;
   replacementKeys?: Array<ResultKey> | resultsAll;
   metadata?: Metadata;
