@@ -27,14 +27,14 @@ export type ReplacementCallback = (params: {
   namedGroups: { [key: string]: unknown };
 }) => string;
 
-type resultsAll = 'all';
+type ResultsAll = 'all';
 
 export interface FindrParams {
   source: string;
   target: string | RegExp;
   replacement?: string | ReplacementCallback;
   contextLength?: number;
-  replacementKeys?: Array<ResultKey> | resultsAll;
+  replacementKeys?: Array<ResultKey> | ResultsAll;
   metadata?: Metadata;
   config?: FindrConfig;
 }
