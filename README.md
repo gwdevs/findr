@@ -24,7 +24,7 @@ The React Components provided here include:
 
 ## Documentation
 
-| Local Package | 📦 NPM Package | Tutorial | ✏️ Description |
+| Local Package | NPM Package | Tutorial | Description |
 | - | - | - | - |
 | [fnr-text](./packages/fnr-text)   | [@findr/text](https://npmjs.com/@findr/text)    | [@findr/text tutorial](https://findrjs.netlify.app/) | all the logic behind a find-and-replace feature |
 | [fnr-react](./packages/fnr-react) | [@findr/react](https://npmjs.com/@findr/react)  |  | state management needed to build your own find-and-replace components |
