@@ -6,7 +6,7 @@ export interface FindrConfig {
   ctxLen?: number;
   filterCtxMatch?: (match: string) => string;
   filterCtxReplacement?: (replacement: string) => string;
-  buildResultKey?: (index: number) => resultKey;
+  buildResultKey?: (index: number) => ResultKey;
   xregexp?: typeof XRegeExp;
   isRegex?: boolean;
   isCaseMatched?: boolean;
@@ -14,8 +14,10 @@ export interface FindrConfig {
   isCasePreserved?: boolean;
 }
 
-export type resultKey = string | number;
+export type ResultKey = string | number;
+
 export type metadata = { [key: string]: unknown };
+
 export type replacementCallback = (params: {
   index: number;
   match: string;
@@ -26,12 +28,13 @@ export type replacementCallback = (params: {
 }) => string;
 
 type resultsAll = 'all';
+
 export interface FindrParams {
   source: string;
   target: string | RegExp;
   replacement?: string | replacementCallback;
   contextLength?: number;
-  replacementKeys?: Array<resultKey> | resultsAll;
+  replacementKeys?: Array<ResultKey> | resultsAll;
   metadata?: metadata;
   config?: FindrConfig;
 }
@@ -46,7 +49,7 @@ export interface FindrResult {
   replacement: string;
   context: Context;
   extContext: Context;
-  resultKey: resultKey;
+  resultKey: ResultKey;
   metadata: metadata;
 }
 
