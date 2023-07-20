@@ -1,11 +1,13 @@
 import XRegeExp from 'xregexp/types';
 
-export declare const findr: (params: FindrParams) => FindrReturn;
+export declare const findr: (params: SearchAndReplace) => ReplacedAndResults;
+
+export type Filter = (match: string) => string;
 
 export interface FindrConfig {
   ctxLen?: number;
-  filterCtxMatch?: (match: string) => string;
-  filterCtxReplacement?: (replacement: string) => string;
+  filterCtxMatch?: Filter;
+  filterCtxReplacement?: Filter;
   buildResultKey?: (index: number) => ResultKey;
   xregexp?: typeof XRegeExp;
   isRegex?: boolean;
@@ -16,6 +18,17 @@ export interface FindrConfig {
 
 export type ResultKey = string | number;
 
+//TODO: make this well typed
+// 
+// {
+//  source: source,
+//  match: match,
+//  searchIndex,
+//  position: pos,
+//  groups: args,
+//  namedGroups,
+//  ...metadata,
+// }
 export type Metadata = { [key: string]: unknown };
 
 export type ReplacementCallback = (params: {
@@ -29,7 +42,7 @@ export type ReplacementCallback = (params: {
 
 type ResultsAll = 'all';
 
-export interface FindrParams {
+export interface SearchAndReplace {
   source: string;
   target: string | RegExp;
   replacement?: string | ReplacementCallback;
@@ -44,7 +57,7 @@ export interface Context {
   after: string;
 }
 
-export interface FindrResult {
+export interface SearchResult {
   match: string;
   replacement: string;
   context: Context;
@@ -53,11 +66,11 @@ export interface FindrResult {
   metadata: Metadata;
 }
 
-export type FindrReplaced = string;
+export type ReplacedText = string;
 
-export interface FindrReturn {
-  replaced: FindrReplaced;
-  results: FindrResult[];
+export interface ReplacedAndResults {
+  replaced: ReplacedText;
+  results: SearchResult[];
 }
 
 export default findr;
