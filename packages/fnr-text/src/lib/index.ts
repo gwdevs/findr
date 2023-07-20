@@ -36,7 +36,7 @@ export function findr({
   //library maybe we should think about a more generic way to enforce types at 
   //runtime?
   /** is findr being used in regex mode */
-  const isRegex = typeof isRegex === 'boolean' ? isRegex : isRegex === 'true';
+  isRegex = typeof isRegex === 'boolean' ? isRegex : isRegex === 'true';
 
   //TODO: I would recommend against using console.warn as an error handling mechanism
   //this cloggs up the users console and doesn't provide the user an ability to handle
@@ -47,11 +47,14 @@ export function findr({
   if (!isRegex && target instanceof RegExp)
     console.warn('isRegex is set to false but target of type RegExp given.');
 
+
+  //TODO: this could be defunctionalized...
+  //TODO: code-smell. Typically when you have an boolean and you're doing if-then statements based
+  //on that boolean then there's a logic inversion that can be performed to simplify the code (defunctionalization).
+  /** regex engine (default or xregexp) */
   /** is user providing an instance of XRegExp */
   const isXre = xre instanceof Function;
 
-  //TODO: this could be defunctionalized...
-  /** regex engine (default or xregexp) */
   const regexer = isXre
     ? xre
     : function (source: string, flags = '') {
@@ -111,7 +114,8 @@ export function findr({
 
   //TODO: place: initial array ---> array construction logic ---> final array with a fold/reduce pattern
   const results: SearchResult[] = [];
-  //TODO: there is a lot going on within this single variable assignment. I suggest refactoring this logic
+  //TODO: there is a lot going on within this single variable assignment. I suggest refactoring this logic to
+  //make the `... ? ... : ...` syntax more clear.
   //TODO: rework the types involved so that this empty string check isn't required
   const replaced =
     target !== ''
