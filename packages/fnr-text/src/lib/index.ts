@@ -82,6 +82,7 @@ export function findr({
     isWordMatched: boolean;
   }) {
     const { source, flags } = regexp;
+    //TODO: you have here an EDSL for constructing regexes...why not make this its own module?
     return isWordMatched
       ? regexer(`(^|[^${wordLike}])(${source})(?=[^${wordLike}]|$)`, flags)
       : regexer(`()(${source})`, flags);
@@ -196,6 +197,7 @@ export function findr({
           /** replacement string modified to match findr's replacement config */
           const replaced = evaluateCase(match, match.replace(finalRgx, r));
 
+          //TODO: I don't this interface to buildResultKey is a good idea...just a gut feeling here.
           /** key for specific match index that needs to be replaced */
           const replacePointer: ResultKey = buildResultKey
             ? buildResultKey(replaceIndex)
