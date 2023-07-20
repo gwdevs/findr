@@ -50,6 +50,14 @@
           "codeCoverage": true
         }
       }
+    },
+    "typedoc": {
+      "executor": "@enio.ai/typedoc:typedoc",
+      "outputs": ["docs/packages/fnr-react"],
+      "options": {
+        "options": "typedoc.json"
+      },
+      "configurations": {}
     }
   }
 }
