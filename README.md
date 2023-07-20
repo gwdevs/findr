@@ -24,8 +24,6 @@ The React Components provided here include:
 
 ## Documentation
 
-This project is organized as a mono-repository. The packages defined in this repo are published to `npm` individual. Here are the links and descriptions below:
-
 | Local Package | 📦 NPM Package | Tutorial | ✏️ Description |
 | - | - | - | - |
 | [fnr-text](./packages/fnr-text)   | [@findr/text](https://npmjs.com/@findr/text)    | [@findr/text tutorial](https://findrjs.netlify.app/) | all the logic behind a find-and-replace feature |
@@ -39,7 +37,7 @@ _API reference documentation: coming soon!_
 
 # Contributing
 
-This workspace uses the following Javascript tools: 
+This repo is organized as a monorepo and uses the following Javascript tools: 
   - [Nx, a build system](https://nx.dev) 
   - [pnpm, package manager - like npm](https://pnpm.io/installation)
 
