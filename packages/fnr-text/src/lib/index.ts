@@ -35,19 +35,22 @@ export function findr({
   //using TS this check is unecessary. If the users are using JS to consume this
   //library maybe we should think about a more generic way to enforce types at 
   //runtime?
+  /** is findr being used in regex mode */
   const isRegex = typeof isRegex === 'boolean' ? isRegex : isRegex === 'true';
 
   //TODO: I would recommend against using console.warn as an error handling mechanism
   //this cloggs up the users console and doesn't provide the user an ability to handle
-  //this error
-  /** is findr being used in regex mode */
-  const _isRegex = typeof isRegex === 'boolean' ? isRegex : isRegex === 'true';
-  if (!_isRegex && target instanceof RegExp)
+  //this error. If this is not an error then either:
+  // - encode proper behavior in the types so it is impossible for users to "do the wrong thing"
+  // - add a note in the documentation comment for `findr` so that users know what they should expect 
+  //   if the condition is met.
+  if (!isRegex && target instanceof RegExp)
     console.warn('isRegex is set to false but target of type RegExp given.');
 
   /** is user providing an instance of XRegExp */
   const isXre = xre instanceof Function;
 
+  //TODO: this could be defunctionalized...
   /** regex engine (default or xregexp) */
   const regexer = isXre
     ? xre
@@ -64,7 +67,9 @@ export function findr({
   /** regex pattern for uppercase character */
   const uppercaseLetter = isXre ? `\\p{Uppercase_Letter}` : `[A-Z]`;
 
-
+  //TODO: code-smell.. you're defining a function but it's only being called once elsewhere 
+  //TODO: could we move this out of the scope of findr?
+  //TODO: add return type annotation
   /** adds patterns needed to fit findr's config to a given RegExp */
   function prepareRegExp({
     regexp,
@@ -84,6 +89,7 @@ export function findr({
     ? evalRegex(target)
     : { source: escapeRegExp(target), flags: null };
 
+  //TODO: this could be a small EDSL under with Semigroup, Monoid, etc. instances
   /** merged default flags with inputted flags */
   const flags = rgxData.flags
     ? [...new Set([...rgxData.flags, ...defaultFlags])]
@@ -102,10 +108,18 @@ export function findr({
 
   let searchIndex = 0;
   let replaceIndex = 0;
+
+  //TODO: place: initial array ---> array construction logic ---> final array with a fold/reduce pattern
   const results: SearchResult[] = [];
+  //TODO: there is a lot going on within this single variable assignment. I suggest refactoring this logic
+  //TODO: rework the types involved so that this empty string check isn't required
   const replaced =
     target !== ''
       ? source.replace(initialRgx, function (...args) {
+          //TODO: invert the logic here. According to the MDN documentation these variables can be inferred
+          //from the initialRgx value. That is, the instance of `...args` can be inferred directly from
+          //the initialRgx construction. I recommend reworking the type of initalRgx to make this implication
+          //easier. 
           // START BUILDING MATCH DATA
 
           /** if the last argument of string.replace callback is an object it means the regexp contains groups */
@@ -119,10 +133,17 @@ export function findr({
           const pos = tmpPos + auxMatch.length;
           const match: string = args.shift();
 
+          //TODO: any function with the type `() -> a` is isomorphic to `a`. The only difference
+          //is that `() -> a` is a thunk and `a` is not. do we need to do lazy evaluation here?
           // START BUILDING REPLACEMENT STRING
 
           /** gets the replacement string from findr's replacement input */
           const replacementCB = function (): string {
+            //TODO: the type of `replacement` (according to index.d.ts) is a string. Here I recommend any of:
+            //  - update the type to properly reflect the potential inputs
+            //  - remove this check for `function` since it would be impossible to pass in a function
+            //I highly recommend the first one as it will give clear insight to a better API (typically when a variable
+            //can be a function type or a primitive type you are running into a poor user interace)
             if (typeof replacement === 'function') {
               const rep = replacement({
                 index: replaceIndex,
@@ -135,17 +156,26 @@ export function findr({
               return rep;
             }
             if (typeof replacement === 'string') {
+              //TODO: remove intermittent `returns` from body of function. This is a personal suggestion
+              //as it makes it difficult to follow the logic of what's going on here.
               return replacement;
             }
+            //TODO: could we make the error type being thrown here more well typed (as apposed to just a string?)
             throw new Error(
               'Replacement param should be of type string or function.'
             );
           };
 
+          //TODO: code-smell. Variable name is a single letter. Typically this indicates a name-binding that has 
+          //little denotational semantics. If this is the case can we remove the variable, otherwise rename it 
+          //to something more meaningful.
           /** replacement string from findr's replacement input */
+          /** modifies replacement string according to findr's replacement config */
           const r = replacementCB();
 
-          /** modifies replacement string according to findr's replacement config */
+          //TODO: code-smell: this function has a single callsite. Typically this means we can rework the logic to
+          //not need the function or replace the function 
+          //TODO: co
           const evaluateCase = (match: string, replaced: string) => {
             //TODO: Add callback to allow users to make their own case evaluation;
             if (!isCasePreserved) return replaced;
@@ -158,6 +188,7 @@ export function findr({
             return replaced;
           };
 
+          //TODO: name binding masks already defined name binding (defined on line 94)
           /** replacement string modified to match findr's replacement config */
           const replaced = evaluateCase(match, match.replace(finalRgx, r));
 
@@ -177,6 +208,15 @@ export function findr({
             return auxMatch + replaced;
           }
 
+          //TODO: code-smell: this variable is only used once and its callsite is assignment to an object key.
+          //in essense there are 2 names assigned to something that only has one meaning.
+          //I would recommend removing this variable assignment. This applies to the following name-bindings:
+          //  - ctxBefore
+          //  - ctxAfter
+          //  - ctxMatch
+          //  - ctxReplacement
+          //  - searchPointer
+          //  - result (this is only being used as the argument to `results.push`)
           // START BUILDING THE RESULT IF MATCH IS NOT REPLACED
 
           /** substring before matched result */
@@ -220,6 +260,8 @@ export function findr({
             },
           };
           results.push(result);
+          //TODO: is there a stateless way to do this? It's difficult to follow the denotational semantics
+          //of the code given a stateful variable like this.
           searchIndex++;
           return tmpMatch;
         })

@@ -4,6 +4,8 @@ export declare const findr: (params: SearchAndReplace) => ReplacedAndResults;
 
 export type Filter = (match: string) => string;
 
+//TODO: is this really config? Config generally implies a consumer's app will set these values ONCE and use everywhere.
+//for discoverability maybe we could rename this to SearchSettings?
 export interface FindrConfig {
   ctxLen?: number;
   filterCtxMatch?: Filter;
@@ -16,7 +18,6 @@ export interface FindrConfig {
   isCasePreserved?: boolean;
 }
 
-export type ResultKey = string | number;
 
 //TODO: make this well typed
 // 
@@ -40,7 +41,8 @@ export type ReplacementCallback = (params: {
   namedGroups: { [key: string]: unknown };
 }) => string;
 
-type ResultsAll = 'all';
+export type ResultsAll = 'all';
+export type ResultKey = string | number;
 
 export interface SearchAndReplace {
   source: string;
