@@ -19,6 +19,7 @@ export function findr({
     filterCtxReplacement = (replacement: string) => replacement,
     buildResultKey,
     ctxLen = 0,
+    //TODO: rename xre - it's difficult to follow
     xregexp: xre,
     isRegex = false,
     isCaseMatched = true,
@@ -202,10 +203,11 @@ export function findr({
           const replacePointer: ResultKey = buildResultKey
             ? buildResultKey(replaceIndex)
             : replaceIndex;
+
           replaceIndex++;
 
-          // REPLACE IF replacePointer IS INCLUDED IN replacementKeys given by user
 
+          // REPLACE IF replacePointer IS INCLUDED IN replacementKeys given by user
           if (
             replacementKeys === 'all' ||
             replacementKeys.includes(replacePointer as string)
