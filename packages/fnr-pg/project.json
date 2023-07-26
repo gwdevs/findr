@@ -68,14 +68,6 @@
       "options": {
         "lintFilePatterns": ["packages/fnr-pg/**/*.{ts,tsx,js,jsx}"]
       }
-    },
-    "typedoc": {
-      "executor": "@enio.ai/typedoc:typedoc",
-      "outputs": ["docs/packages/fnr-pg"],
-      "options": {
-        "options": "typedoc.json"
-      },
-      "configurations": {}
     }
   },
   "tags": []
