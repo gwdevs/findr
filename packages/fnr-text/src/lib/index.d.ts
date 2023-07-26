@@ -65,7 +65,7 @@ export interface SearchAndReplace {
 }
 
 //TODO: rename the Context to something that is more meaningful. Namely, what is this the "context" of?
-export interface Context {
+export interface SurroundingContext {
   before: string;
   after: string;
 }
@@ -73,8 +73,8 @@ export interface Context {
 export interface SearchResult {
   match: string;
   replacement: string;
-  context: Context;
-  extContext: Context;
+  context: SurroundingContext;
+  extContext: SurroundingContext;
   resultKey: ResultKey;
   metadata: Metadata;
 }
