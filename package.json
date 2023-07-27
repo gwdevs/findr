@@ -2,16 +2,11 @@
   "name": "findr",
   "version": "1.0.0-beta.17",
   "license": "MIT",
-  "scripts": {
-    "create.docs": "nx typedoc",
-    "setup.docs": "nx g @enio.ai/typedoc:config"
-  },
   "private": true,
   "devDependencies": {
     "@babel/preset-react": "^7.14.5",
     "@docusaurus/module-type-aliases": "2.1.0",
     "@emotion/babel-plugin": "11.10.5",
-    "@enio.ai/typedoc": "^1.0.8",
     "@nx-plus/docusaurus": "15.0.0-rc.0",
     "@nx/cypress": "^16.3.2",
     "@nx/devkit": "^16.3.2",

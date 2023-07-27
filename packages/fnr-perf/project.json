@@ -43,14 +43,6 @@
         }
       }
     },
-    "typedoc": {
-      "executor": "@enio.ai/typedoc:typedoc",
-      "outputs": ["docs/packages/fnr-perf"],
-      "options": {
-        "options": "typedoc.json"
-      },
-      "configurations": {}
-    }
   },
   "tags": []
 }

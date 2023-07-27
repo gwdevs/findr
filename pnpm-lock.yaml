@@ -85,9 +85,6 @@ devDependencies:
   '@emotion/babel-plugin':
     specifier: 11.10.5
     version: 11.10.5(@babel/core@7.22.5)
-  '@enio.ai/typedoc':
-    specifier: ^1.0.8
-    version: 1.0.8(nx@16.3.2)(typedoc-plugin-rename-defaults@0.6.5)(typedoc-theme-hierarchy@3.2.1)(typedoc@0.23.28)(typescript@4.8.4)
   '@nx-plus/docusaurus':
     specifier: 15.0.0-rc.0
     version: 15.0.0-rc.0(@nrwl/workspace@15.6.3)(nx@16.3.2)(typescript@4.8.4)
@@ -216,7 +213,7 @@ devDependencies:
     version: 16.3.2
   nx-cloud:
     specifier: latest
-    version: 16.1.0
+    version: 16.1.1
   prettier:
     specifier: ^2.6.2
     version: 2.8.3
@@ -3587,7 +3584,7 @@ packages:
       '@docusaurus/plugin-content-pages': 2.1.0(eslint@8.15.0)(react-dom@18.2.0)(react@18.2.0)(typescript@4.8.4)
       '@docusaurus/utils': 2.1.0(@docusaurus/types@2.1.0)
       '@types/history': 4.7.11
-      '@types/react': 18.0.27
+      '@types/react': 18.0.25
       '@types/react-router-config': 5.0.6
       clsx: 1.2.1
       parse-numeric-range: 1.3.0
@@ -3931,23 +3928,6 @@ packages:
   /@emotion/weak-memoize@0.3.1:
     resolution: {integrity: sha512-EsBwpc7hBUJWAsNPBmJy4hxWx12v6bshQsldrVmjxJoc3isbxhOrF2IcCpaXxfvq03NwkI7sbsOLXbYuqF/8Ww==}
     dev: false
-
-  /@enio.ai/typedoc@1.0.8(nx@16.3.2)(typedoc-plugin-rename-defaults@0.6.5)(typedoc-theme-hierarchy@3.2.1)(typedoc@0.23.28)(typescript@4.8.4):
-    resolution: {integrity: sha512-oZtYpvAXYEnrV/b8KD2HMdE3upHfW0HN5Fh9BD7LXIvoA7f2vEJK2chBT4c3Tb/ZLdy9UwNmH288sP+z/7pVTg==}
-    peerDependencies:
-      typedoc: ^0.23.26
-      typedoc-plugin-rename-defaults: ^0.6.4
-      typedoc-theme-hierarchy: ^3.0.0
-    dependencies:
-      '@nrwl/devkit': 15.8.5(nx@16.3.2)(typescript@4.8.4)
-      tslib: 2.5.0
-      typedoc: 0.23.28(typescript@4.8.4)
-      typedoc-plugin-rename-defaults: 0.6.5(typedoc@0.23.28)
-      typedoc-theme-hierarchy: 3.2.1(typedoc@0.23.28)
-    transitivePeerDependencies:
-      - nx
-      - typescript
-    dev: true
 
   /@esbuild/android-arm64@0.16.17:
     resolution: {integrity: sha512-MIGl6p5sc3RDTLLkYL1MyL8BMRN4tLMRCn+yRJJmEDvYZ2M7tmAf80hx1kbNEUX2KJ50RRtxZ4JHLvCfuB6kBg==}
@@ -5128,22 +5108,6 @@ packages:
       - typescript
     dev: true
 
-  /@nrwl/devkit@15.8.5(nx@16.3.2)(typescript@4.8.4):
-    resolution: {integrity: sha512-NgpD1I1BfFb6wRxB5i5PGP4hMyRhPsArCyENWWvY4gCn8tylAc7yjpQyiDiy2QnymL2PjWM8QeAeCOy1eF2xgw==}
-    peerDependencies:
-      nx: '>= 14.1 <= 16'
-    dependencies:
-      '@phenomnomnominal/tsquery': 4.1.1(typescript@4.8.4)
-      ejs: 3.1.8
-      ignore: 5.2.4
-      nx: 16.3.2
-      semver: 7.3.4
-      tmp: 0.2.1
-      tslib: 2.5.0
-    transitivePeerDependencies:
-      - typescript
-    dev: true
-
   /@nrwl/devkit@16.3.2(nx@16.3.2):
     resolution: {integrity: sha512-EiDwVIvh6AcClXv22Q7auQh7Iy/ONISEFWzTswy/J6ZmVGCQesbiwg4cGV0MKiScr+awdVzqyNey+wD6IR5Lkw==}
     dependencies:
@@ -5237,10 +5201,10 @@ packages:
       - verdaccio
     dev: true
 
-  /@nrwl/nx-cloud@16.1.0:
-    resolution: {integrity: sha512-OFjbSqdCuZq9KRYU/mOlIN8SYLZREsLlZYqYpObZqXJ5meUgBDJbUSwRweUSUvt73fgRixLEau2jPysiLHKxSQ==}
+  /@nrwl/nx-cloud@16.1.1:
+    resolution: {integrity: sha512-iJIPP46+saFZK748FKU4u4YZH+Sv3ZvZPbMwGVMhwqhOYcrlO5aSa0lpilyoN8WuhooKNqcCfiqshx6V577fTg==}
     dependencies:
-      nx-cloud: 16.1.0
+      nx-cloud: 16.1.1
     transitivePeerDependencies:
       - debug
     dev: true
@@ -13802,11 +13766,11 @@ packages:
     resolution: {integrity: sha512-90yv+6538zuvUMnN+zCr8LuV6bPFdq50304114vJYJ8RDyK8D5O9Phpbd6SZWgI7PwzmmfN1upeOJlvybDSgCw==}
     dev: true
 
-  /nx-cloud@16.1.0:
-    resolution: {integrity: sha512-2K5OuJ4MEDrn2solje2X+a3UxSCdfR5PIscCRQbBANyvJfl3hGJSTxz0n5xeJJX4cKcQlfAxDQFRH6DHNdTGPQ==}
+  /nx-cloud@16.1.1:
+    resolution: {integrity: sha512-Rq7ynvkYzAJ67N3pDqU6cMqwvWP7WXJGP4EFjLxgUrRHNCccqDPggeAqePodfk3nZEUrZB8F5QBKZuuw1DR3oA==}
     hasBin: true
     dependencies:
-      '@nrwl/nx-cloud': 16.1.0
+      '@nrwl/nx-cloud': 16.1.1
       axios: 1.1.3
       chalk: 4.1.2
       dotenv: 10.0.0
