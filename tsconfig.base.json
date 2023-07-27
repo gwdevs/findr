@@ -14,12 +14,7 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {
-      "@findr/mui": ["packages/fnr-mui/src/index.ts"],
-      "@findr/perf": ["packages/fnr-perf/src/index.js"],
-      "@findr/react": ["packages/fnr-react/src/index.ts"],
-      "@findr/text": ["packages/fnr-text/src/lib/index.ts"]
-    }
+    "paths": { }
   },
   "exclude": ["node_modules", "tmp"]
 }
