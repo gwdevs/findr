@@ -9,10 +9,7 @@
     "composite": false,
     "declaration": false
   },
-  "files": [
-    "../../node_modules/@nx/react/typings/cssmodule.d.ts",
-    "../../node_modules/@nx/react/typings/image.d.ts"
-  ],
+  "files": [],
   "exclude": [
     "jest.config.ts",
     "**/*.spec.ts",
