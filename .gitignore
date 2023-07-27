@@ -42,7 +42,4 @@ Thumbs.db
 .docusaurus/
 .cache-loader/
 #Project Docs
-docs/packages/fnr-mui
-docs/packages/fnr-perf
-docs/packages/fnr-react
-docs/packages/fnr-text
+docs/

@@ -1,6 +1,5 @@
 {
-  "entryPointStrategy": "expand",
-  "entryPoints": ["./src/lib"],
+  "entryPoints": ["./src/index.ts"],
   "tsconfig": "tsconfig.lib.json",
   "compilerOptions": {},
   "exclude": [
@@ -20,7 +19,6 @@
   "excludeNotDocumented": false,
   "externalSymbolLinkMappings": {},
   "includes": "",
-  "out": "../../docs/packages/fnr-react",
   "emit": "docs",
   "theme": "hierarchy",
   "name": "fnr-react",

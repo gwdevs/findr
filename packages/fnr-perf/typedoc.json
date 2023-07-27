@@ -1,5 +1,4 @@
 {
-  "entryPointStrategy": "expand",
   "entryPoints": ["./src/lib"],
   "tsconfig": "tsconfig.lib.json",
   "compilerOptions": {},
@@ -20,7 +19,6 @@
   "excludeNotDocumented": false,
   "externalSymbolLinkMappings": {},
   "includes": "",
-  "out": "../../docs/packages/fnr-perf",
   "emit": "docs",
   "theme": "hierarchy",
   "name": "fnr-perf",

@@ -1,5 +1,4 @@
 {
-  "entryPointStrategy": "expand",
   "entryPoints": ["./src/"],
   "tsconfig": "tsconfig.lib.json",
   "compilerOptions": {},
@@ -20,7 +19,6 @@
   "excludeNotDocumented": false,
   "externalSymbolLinkMappings": {},
   "includes": "",
-  "out": "../../docs/packages/fnr-mui",
   "emit": "docs",
   "theme": "hierarchy",
   "name": "fnr-mui",
