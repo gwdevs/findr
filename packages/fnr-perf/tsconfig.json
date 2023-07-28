@@ -1,6 +1,20 @@
 {
-  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "outDir": "../../dist/out-tsc",
+    "types": ["node"],
     "module": "CommonJS",
     "composite": true,
     "allowJs": true,
@@ -16,13 +30,14 @@
     "declaration": true
   },
   "files": [],
-  "include": [],
-  "references": [
-    {
-      "path": "./tsconfig.lib.json"
-    },
-    {
-      "path": "./tsconfig.spec.json"
-    }
+  "include": ["src/**/*.ts", "src/**/*.js"],
+  "exclude": [
+    "jest.config.ts",
+    "src/**/*.spec.ts",
+    "src/**/*.test.ts",
+    "src/**/*.spec.js",
+    "src/**/*.test.js",
+    "node_modules", 
+    "tmp"
   ]
 }
