@@ -29,7 +29,6 @@
     "allowSyntheticDefaultImports": true,
     "declaration": true
   },
-  "files": [],
   "include": ["src/**/*.ts", "src/**/*.js"],
   "exclude": [
     "jest.config.ts",
