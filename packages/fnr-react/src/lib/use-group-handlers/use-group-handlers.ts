@@ -1,3 +1,14 @@
+/*
+TODO: Code Readability Suggestions
+
+Reading this code was pretty nice!
+
+If anything, maybe some of the functions that are passed to reducers could
+be extracted from the handler functions to shorten them and improve readability
+
+i.e lines 123 (really only here)
+*/
+
 import {
   OnReplaceAllProps,
   OnReplaceGroupProps,

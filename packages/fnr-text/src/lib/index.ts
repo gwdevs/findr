@@ -1,6 +1,25 @@
 import { FindrParams, FindrResult, resultKey } from './index.d';
 import { escapeRegExp, evalRegex, isUpperCase } from './utils';
 
+/*
+TODO: Code Readability Suggestions
+
+It could be helpful to **separate Findr and Multiline into separate
+files and then import/export them in `index.ts`**.  It’s harder exploring
+through the codebase when I’m sorting through which `index.ts` file I’m looking at.
+- It also makes the imports within the files more readable (I get confused when
+  I see imports of index files and which folder they’re being imported from.
+  Like import x from “../../.”)
+
+A lot of the code was in one bigger function. **Creating smaller functions that
+group similar operations** (creating flags, preparing initial regex, etc.)
+**could help improve readability.**
+  1. For Example…
+      1. Wrapping the functionality in `source.replace` on **line 74** in a function
+      2. Wrapping the `defaultFlags` const with other code that generates flags
+      3. etc.
+*/
+
 export function findr({
   source,
   target,
@@ -171,4 +190,4 @@ export function findr({
   return { results, replaced };
 }
 
-export default findr
+export default findr;

@@ -52,6 +52,9 @@ For those new to the Nx and/or pnpm ecosystem here are common commands used in t
   ```Shell
   pnpm nx g[enerate] lib[rary] --publishable --importPath=@findr/new --name=fnr-new
   ```
+
+<!-- ^ Do we have to give --template react or js here? -->
+
 * [Creating a component in an existing react package](https://nx.dev/packages/react/generators/component), i.e:
 
   ```Shell
@@ -67,6 +70,8 @@ For those new to the Nx and/or pnpm ecosystem here are common commands used in t
   ```Shell
   pnpm nx preview fnr-pg
   ```
+  <!-- ^ Should the directions say "preview" instead of "start"? -->
+
 * Adding a package dependency should also be done from root, i.e:
 
   ```Shell
