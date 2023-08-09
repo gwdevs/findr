@@ -1,12 +1,12 @@
 import fnr from '..';
-import { FindrResult } from '../index.d';
+import { SearchResult } from '../index.d';
 import { FindrMultiLineParams } from './index.d';
 
 export function findrMultiLine(params: FindrMultiLineParams) {
   const { source, metadata, config = {}, target } = params;
   const { buildResultKey } = config;
   const _source = source.split('\n');
-  let _results: FindrResult[] = [];
+  let _results: SearchResult[] = [];
   const _replaced: string[] = [];
   _source.forEach((line: string, lineIndex: number) => {
     const lineNumber = lineIndex + 1;
