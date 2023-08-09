@@ -92,123 +92,124 @@ export function findr({
   const replaced =
     target !== ''
       ? source.replace(initialRgx, function (...args) {
-          // START BUILDING MATCH DATA
+        // START BUILDING MATCH DATA
 
-          /** if the last argument of string.replace callback is an object it means the regexp contains groups */
-          const containsGroup = typeof args[args.length - 1] === 'object';
-          /** get the groups if they exist and remove them from args */
-          const namedGroups = containsGroup ? args.pop() : undefined;
-          const source = args.pop();
-          const tmpPos = args.pop();
-          const tmpMatch = args.shift();
-          const auxMatch = args.shift();
-          const pos = tmpPos + auxMatch.length;
-          const match: string = args.shift();
+        /** if the last argument of string.replace callback is an object it means the regexp contains groups */
+        const containsGroup = typeof args[args.length - 1] === 'object';
+        /** get the groups if they exist and remove them from args */
+        const namedGroups = containsGroup ? args.pop() : undefined;
+        const source = args.pop();
+        const tmpPos = args.pop();
+        const tmpMatch = args.shift();
+        const auxMatch = args.shift();
+        const pos = tmpPos + auxMatch.length;
+        const match: string = args.shift();
 
-          // START BUILDING REPLACEMENT STRING
+        // START BUILDING REPLACEMENT STRING
 
-          /** gets the replacement string from findr's replacement input */
-          const replacementCB = function (): string {
-            if (typeof replacement === 'function') {
-              const rep = replacement({
-                index: replaceIndex,
-                match,
-                groups: args,
-                position: pos,
-                source,
-                namedGroups,
-              });
-              return rep;
-            }
-            if (typeof replacement === 'string') {
-              return replacement;
-            }
-            throw new Error(
-              'Replacement param should be of type string or function.'
-            );
-          };
-
-          /** replacement string from findr's replacement input */
-          const r = replacementCB();
-
-          /** modifies replacement string according to findr's replacement config */
-          const evaluateCase = (match: string, replaced: string) => {
-            //TODO: Add callback to allow users to make their own case evaluation;
-            if (!isCasePreserved) return replaced;
-            if (isUpperCase(match)) {
-              return replaced.toUpperCase();
-            }
-            if (new RegExp(regexer(UppercaseLetter)).test(match[0])) {
-              return replaced[0].toUpperCase() + replaced.slice(1);
-            }
-            return replaced;
-          };
-
-          /** replacement string modified to match findr's replacement config */
-          const replaced = evaluateCase(match, match.replace(finalRgx, r));
-
-          /** key for specific match index that needs to be replaced */
-          const replacePointer: resultKey = buildResultKey
-            ? buildResultKey(replaceIndex)
-            : replaceIndex;
-          replaceIndex++;
-
-          // REPLACE IF replacePointer IS INCLUDED IN replacementKeys given by user
-
-          if (
-            replacementKeys === 'all' ||
-            replacementKeys.includes(replacePointer as string)
-          ) {
-            /** if a replacementKey matches current result this result won't be included in the list of results */
-            return auxMatch + replaced;
-          }
-
-          // START BUILDING THE RESULT IF MATCH IS NOT REPLACED
-
-          /** substring before matched result */
-          const ctxBefore = source.slice(pos - ctxLen, pos);
-          /** substring after matched result */
-          const ctxAfter = source.slice(
-            pos + match.length,
-            pos + match.length + ctxLen
-          );
-
-          /** all source text before matched result */
-          const extCtxBefore = source.slice(0, pos);
-          /** all source text after matched result */
-          const extCtxAfter = source.slice(pos + match.length, -1);
-
-          const ctxMatch = filterCtxMatch ? filterCtxMatch(match) : match;
-          const ctxReplacement = filterCtxReplacement
-            ? filterCtxReplacement(replaced)
-            : replaced;
-
-          /** creates a pointer to this result */
-          const searchPointer = buildResultKey
-            ? buildResultKey(searchIndex)
-            : searchIndex;
-
-          //TODO: add result metadata as filterCtxReplacement arg
-          const result = {
-            match: ctxMatch,
-            replacement: ctxReplacement,
-            context: { before: ctxBefore, after: ctxAfter },
-            extContext: { before: extCtxBefore, after: extCtxAfter },
-            resultKey: searchPointer,
-            metadata: {
-              source: source,
-              match: match,
-              searchIndex,
-              position: pos,
+        /** gets the replacement string from findr's replacement input */
+        const replacementCB = function (): string {
+          if (typeof replacement === 'function') {
+            const rep = replacement({
+              index: replaceIndex,
+              match,
               groups: args,
+              position: pos,
+              source,
               namedGroups,
-              ...metadata,
-            },
-          };
-          results.push(result);
-          searchIndex++;
-          return tmpMatch;
-        })
+            });
+            return rep;
+          }
+          if (typeof replacement === 'string') {
+            return replacement;
+          }
+          throw new Error(
+            'Replacement param should be of type string or function.'
+          );
+        };
+
+        /** replacement string from findr's replacement input */
+        const r = replacementCB();
+
+        /** modifies replacement string according to findr's replacement config */
+        const evaluateCase = (match: string, replaced: string) => {
+          //TODO: Add callback to allow users to make their own case evaluation;
+          if (!isCasePreserved) return replaced;
+          if (isUpperCase(match)) {
+            return replaced.toUpperCase();
+          }
+          if (new RegExp(regexer(UppercaseLetter)).test(match[0])) {
+            return replaced[0].toUpperCase() + replaced.slice(1);
+          }
+          return replaced;
+        };
+
+        /** replacement string modified to match findr's replacement config */
+        const replaced = evaluateCase(match, match.replace(finalRgx, r));
+
+        /** key for specific match index that needs to be replaced */
+        const replacePointer: resultKey = buildResultKey
+          ? buildResultKey(replaceIndex)
+          : replaceIndex;
+        replaceIndex++;
+
+        // REPLACE IF replacePointer IS INCLUDED IN replacementKeys given by user
+
+        if (
+          replacementKeys === 'all' ||
+          replacementKeys.includes(replacePointer as string)
+        ) {
+          /** if a replacementKey matches current result this result won't be included in the list of results */
+          return auxMatch + replaced;
+        }
+
+        // START BUILDING THE RESULT IF MATCH IS NOT REPLACED
+
+        /** substring before matched result */
+        const ctxBefore = source.slice(pos - ctxLen, pos);
+        /** substring after matched result */
+        const ctxAfter = source.slice(
+          pos + match.length,
+          pos + match.length + ctxLen
+        );
+
+        /** all source text before matched result */
+        const extCtxBefore = source.slice(0, pos);
+        /** all source text after matched result */
+        const extCtxAfter = source.slice(pos + match.length, -1);
+
+        const ctxMatch = filterCtxMatch ? filterCtxMatch(match) : match;
+        const ctxReplacement = filterCtxReplacement
+          ? filterCtxReplacement(replaced)
+          : replaced;
+
+        /** creates a pointer to this result */
+        const searchPointer = buildResultKey
+          ? buildResultKey(searchIndex)
+          : searchIndex;
+
+        //TODO: add result metadata as filterCtxReplacement arg
+        //TODO: add a onSetmetadata hook so user can build it's own metadata given match data from String.replace args.
+        const result = {
+          match: ctxMatch,
+          replacement: ctxReplacement,
+          context: { before: ctxBefore, after: ctxAfter },
+          extContext: { before: extCtxBefore, after: extCtxAfter },
+          resultKey: searchPointer,
+          metadata: {
+            source: source,
+            match: match,
+            searchIndex,
+            position: pos,
+            groups: args,
+            namedGroups,
+            ...metadata,
+          },
+        };
+        results.push(result);
+        searchIndex++;
+        return tmpMatch;
+      })
       : source;
   return { results, replaced };
 }
