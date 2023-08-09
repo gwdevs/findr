@@ -1,3 +1,11 @@
+/*
+TODO: Code Readability Suggestions
+
+The names of the types could be improved for greater readability. For example,
+the types given for props could be renamed to give more detail to what the
+props should actually be, and the same with the return types.
+*/
+
 export interface UseFindAndReplace {
   count: number;
   increment: () => void;
