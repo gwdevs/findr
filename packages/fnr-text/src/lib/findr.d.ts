@@ -33,7 +33,7 @@ interface MatchObject {
   groups: FoundSubstring[];
   position: PositiveInteger;
   source: string;
-  namedGroups: { [key: string]: unknown };
+  namedGroups: { [groupName: string]: FoundSubstring };
 }
 
 interface SearchResultData extends MatchObject {
