@@ -4,8 +4,8 @@
 @description 
 This module provides syntax for constructing searches across text.
 
-@example run(matchCase(string("foo")), "foobarbaz")
-@example run(regex(/foo/), "foobarbaz")
+@example search(matchCase(string("foo")), "foobarbaz")
+@example search(regex(/foo/), "foobarbaz")
 @see {@link Search.search}
 */
 
@@ -13,7 +13,7 @@ import { Natural } from "./Natural.d"
 
 
 /**
-@description A value of type Search is the definition of something to search for
+@description A Search describes a cursor (or multi-cursor) into some text
 @memberof Search
 @todo define this as a Traversal into a string
 */
