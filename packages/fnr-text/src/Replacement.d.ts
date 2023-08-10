@@ -2,7 +2,18 @@
 @module Replacement
 @description
 This module defines the interface for performing text replacements 
-
+@example
+  replace
+  ( all
+      ( fromSearch(Search.matchCase(Search.string("foo")))
+      , include(0)
+      , include(5)
+      , withString("replace")
+      )
+  , "barFoobaz"
+  )
+  === "barReplacebaz"
+@see {@link Replacement.replace }
 @see {@link Replacement.fromSearch }
 */
 
@@ -10,13 +21,13 @@ import {Search} from './search'
 import {MatchIndex} from './matches'
 
 /**
-@description Describes the various forms of replacement that can be made
+@description This describes how to replace matched text after a search is performed
 @example
 //replace matched occurences at indices 0 and 5 with "foo" but preserve
 //the original case
 and(replaceWith("foo"), include(0), include(5), preserveCase)  
 @memberof Replacement
-@todo define this
+@todo define this as a text Traversal
 */
 export interface Replacement {}
 
@@ -38,7 +49,7 @@ export declare const empty : Replacement
 @description Replace all occurences with a given string
 @memberof Replacement
 */
-export declare const replaceWith : (replacementString : string) => Replacement
+export declare const withString : (replacementString : string) => Replacement
 
 /**
 @description Perserve the case of all replacements
@@ -75,7 +86,9 @@ export declare const onGroup : (groupIndex : GroupIndex) => Replacement
 Every search is a Replacement that, on its own, does nothing.
 You probably want to start here when constructing a Replacement
 __NOTE__: The context of a search is _ignored_ when performing replacements
+
 @memberof Replacement
+@see {@link Search.Search}
 */
 export declare const fromSearch : (search : Search) => Replacement
 
