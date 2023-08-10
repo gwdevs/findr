@@ -11,16 +11,17 @@ This module defines the results from performing a search
 @todo define this
 @todo in findr-mui it would make sense to define a `matchesToJSX : (m : Matches) => JSX`
 */
-export type Matches = undefined    
+export interface Matches {} 
 
 /**
 @description The index of a single match within Matches
 @memberof Matches
 */
-export type MatchIndex = undefined
+export interface MatchIndex {}
 
 /**
 @description Collect all indices from a set of Matches
+@param matches - the result from a search
 @memberof Matches
 */
 export declare const matchIndices : (matches : Matches) => Array<MatchIndex>

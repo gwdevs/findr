@@ -17,7 +17,7 @@ import { Natural } from "./Natural.d"
 @memberof Search
 @todo define this as a Traversal into a string
 */
-export type Search = undefined
+export interface Search {}
 
 /**
 @description A Regex can be a search.

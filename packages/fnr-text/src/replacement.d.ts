@@ -18,7 +18,7 @@ and(replaceWith("foo"), include(0), include(5), preserveCase)
 @memberof Replacement
 @todo define this
 */
-export type Replacement = undefined
+export interface Replacement {}
 
 /**
 @description Replace nothing. This is the left and right identity of `and`
@@ -62,7 +62,7 @@ export declare const all : (...replacements : Array<Replacement>) => Replacement
 @description The index of a regex matched group
 @todo define this
 */
-export type GroupIndex = undefined
+export interface GroupIndex {}
 
 /**
 @description Perform a replacement on a specific regex group
