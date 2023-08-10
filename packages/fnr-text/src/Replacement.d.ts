@@ -95,5 +95,9 @@ export declare const fromSearch : (search : Search) => Replacement
 /**
 @description run a replacement over an input string
 @memberof Replacement
+@todo it might be worthwhile merging {@link Replacement.all} with this: 
+```
+replace : (...replacements : Array<Replacement>, inputString : string) => string 
+```
 */
 export declare const replace : (replacement : Replacement, inputString : string) => string 
