@@ -29,6 +29,9 @@ export declare const regex : (r : Regex) => Search
 /**
 @description A string is also a search
 @memberof Search
+@todo Because every string is a Regex it might be worth removing this function
+and only providing {@link Search.regex}. This frees us from having to keep track
+of both types of input and can possibly optimize for Regex.
 */
 export declare const string : (s : String) => Search
 
