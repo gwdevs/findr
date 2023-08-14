@@ -26,7 +26,7 @@ export function findr<TSearchResultExtension extends ResultRecord>({
     onSetResult?: (result: FindrResult) => TSearchResultExtension;
   };
   config?: {
-    regexer?: <P extends SearchPattern | RegExp, F extends string>(
+    regexer?: <P extends SearchPattern, F extends string>(
       pattern: P,
       flags: P extends RegExp ? undefined : F | undefined
     ) => RegExp;
