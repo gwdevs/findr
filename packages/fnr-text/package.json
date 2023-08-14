@@ -12,6 +12,9 @@
     "type": "git",
     "url": "https://github.com/gwdevs/findr.git"
   },
+  "scripts": {
+    "docs": "typedoc --options ./src/typedoc.json"
+  },
   "keywords": [
     "search",
     "find",
@@ -22,6 +25,11 @@
     "xregexp": {
       "optional": true
     }
+  },
+  "devDependencies": {
+    "typedoc": "^0.24.8",
+    "typedoc-plugin-rename-defaults": "^0.6.4",
+    "typedoc-theme-hierarchy": "^3.0.0"
   },
   "main": "./index.cjs",
   "module": "./index.mjs",
