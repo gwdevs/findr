@@ -3,7 +3,8 @@
   "version": "1.0.0-beta.17",
   "license": "MIT",
   "scripts": {
-    "docs": "pnpm typedoc --tsconfig ./packages/fnr-text/tsconfig.lib.json --entryPoints ./packages/fnr-text/src/*.ts"
+    "docs": "pnpm typedoc --tsconfig ./packages/fnr-text/tsconfig.lib.json --entryPoints ./packages/fnr-text/src/*.ts",
+    "test": "pnpm nx run fnr-text:test"
   },
   "private": true,
   "devDependencies": {
@@ -45,6 +46,7 @@
     "eslint-plugin-jsx-a11y": "6.6.1",
     "eslint-plugin-react": "7.31.11",
     "eslint-plugin-react-hooks": "4.6.0",
+    "fast-check": "^3.12.0",
     "glob": "^10.2.7",
     "globby": "^11.0.4",
     "inquirer": "^9.1.4",
