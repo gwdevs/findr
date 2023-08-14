@@ -62,6 +62,6 @@ export declare const setContext : (characterCount : Natural, s : Search) => Sear
 
 /**
 @description Obtain matches from a given string
-@memberof Findr
+@memberof Search
 */
 export declare const search : (aSearch : Search, inputString : string) => Matches      
