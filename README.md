@@ -23,7 +23,9 @@ To generate typedocs documentation:
 pnpm add typedoc
 pnpm typedoc  --tsconfig ./packages/fnr-text/tsconfig.lib.json --entryPoints ./packages/fnr-text/
 ```
-Find the docs here: [typedocs](./docs/index.html)
+- Docs deployed on GitHub pages: [deployed typeDocs](https://unfoldingword.github.io/findr/index.html)
+- Find the local docs here: [typedocs](./docs/index.html)
+
 
 ## Support
 
