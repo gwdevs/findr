@@ -30,6 +30,7 @@ jobs:
     - name: Generate Typedocs
       run: |
         set -x
+        npm install -g pnpm
         pnpm typedoc  --tsconfig ./packages/fnr-text/tsconfig.lib.json --entryPoints ./packages/fnr-text/
         ls -als ./docs
 
