@@ -14,7 +14,7 @@ findr is a set of utility libraries for building find and replace UIs in Javascr
 
 | Local Package | NPM Package | Tutorial | Description |
 | - | - | - | - |
-| [fnr-text](./packages/fnr-text)   | [@findr/text](https://npmjs.com/@findr/text)    | [@findr/text tutorial](https://findrjs.netlify.app/) | all the logic behind a find-and-replace feature |
+| [fnr-text](./packages/fnr-text)   | [@findr/text](https://npmjs.com/@findr/text)    | [@findr/text tutorial](https://findrjs.netlify.app/) | all the logic behind a find-and-replace feature.  Docs deployed on GitHub pages: [deployed typeDocs](https://unfoldingword.github.io/findr/index.html) |
 | [fnr-react](./packages/fnr-react) | [@findr/react](https://npmjs.com/@findr/react)  |  | state management needed to build your own find-and-replace components |
 | [fnr-mui](./packages/fnr-mui)     | [@findr/mui](https://npmjs.com/@findr/mui)      |  | library of GUI components for find-and-replace based on [@mui/material](https://mui.com/material-ui/getting-started/) |
 | [fnr-perf](./packages/fnr-perf)   | [@findr/perf](https://npmjs.com/@findr/perf)    |  | Pipeline and Actions needed for find-and-replace scripture using [proskomma-json-tools](https://github.com/Proskomma/proskomma-json-tools/) |
