@@ -22,6 +22,17 @@ jobs:
         pnpm exec nx affected --target=test --parallel=3 --ci --code-coverage
         pnpm exec nx affected --target=build --parallel=3
 
+  docs:
+    name: Generate Docs
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Generate Typedocs
+      run: |
+        set -x
+        pnpm typedoc  --tsconfig ./packages/fnr-text/tsconfig.lib.json --entryPoints ./packages/fnr-text/
+        ls -als ./docs
+
   agents:
     name: Nx Cloud - Agents
     uses: nrwl/ci/.github/workflows/nx-cloud-agents.yml@v0.11.2

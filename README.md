@@ -18,6 +18,13 @@ A set of **Open Component Packages** for creating fast and highly configurable *
 
 For full documentation, visit [findrjs.netlify.app](https://findrjs.netlify.app/).
 
+To generate typedocs documentation:
+```
+pnpm add typedoc
+pnpm typedoc  --tsconfig ./packages/fnr-text/tsconfig.lib.json --entryPoints ./packages/fnr-text/
+```
+Find the docs here: [typedocs](./docs/index.html)
+
 ## Support
 
 Having trouble? Get help in the official [Open Components Ecosystem Discord](https://discord.com/channels/867746700390563850/1019675732324143205).
