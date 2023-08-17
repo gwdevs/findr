@@ -38,8 +38,8 @@ jobs:
         with:
           file_pattern: 'docs/*'
           commit_message: Apply typedocs update
-          skip_fetch: true
-          skip_checkout: true
+#          skip_fetch: true
+#          skip_checkout: true
 
       - uses: actions/upload-artifact@v1
         name: Upload typedocs
