@@ -1,15 +1,14 @@
 {
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "npmScope": "findr",
-  "namedInputs": {
-    "default": ["{projectRoot}/**/*", "sharedGlobals"],
-    "production": [
-      "default",
-      "!{projectRoot}/.eslintrc.json",
-      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
-      "!{projectRoot}/tsconfig.spec.json",
-      "!{projectRoot}/jest.config.[jt]s"
-    ],
-    "sharedGlobals": ["{workspaceRoot}/babel.config.json"]
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx-cloud",
+      "options": {
+        "cacheableOperations": ["build", "build-browser", "lint", "test", "e2e"],
+        "accessToken": "NWExMzBkMGEtMjk2Zi00YTU1LWJhMzQtNTg1MTJkMTE0NGFkfHJlYWQtd3JpdGU="
+      }
+    }
   },
   "targetDefaults": {
     "build": {
@@ -26,25 +25,20 @@
       "inputs": ["default", "^production"]
     }
   },
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "production": [
+      "default",
+      "!{projectRoot}/.eslintrc.json",
+      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
+      "!{projectRoot}/tsconfig.spec.json",
+      "!{projectRoot}/jest.config.[jt]s"
+    ],
+    "sharedGlobals": ["{workspaceRoot}/babel.config.json"]
+  },
   "workspaceLayout": {
     "appsDir": "packages",
     "libsDir": "packages"
-  },
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "nx-cloud",
-      "options": {
-        "cacheableOperations": [
-          "build",
-          "build-browser",
-          "lint",
-          "test",
-          "e2e",
-          "typedoc"
-        ],
-        "accessToken": "NWExMzBkMGEtMjk2Zi00YTU1LWJhMzQtNTg1MTJkMTE0NGFkfHJlYWQtd3JpdGU="
-      }
-    }
   },
   "generators": {
     "@nx/js": {
