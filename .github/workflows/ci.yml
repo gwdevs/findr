@@ -32,8 +32,8 @@ jobs:
       - name: Generate Typedocs
         run: pnpm run docs
 
-      - uses: actions/upload-artifact@v1
+      - uses: actions/upload-pages-artifact@v2
         name: Upload typedocs
         with:
-          name: typedocs
+          name: github-pages
           path: ./docs/
