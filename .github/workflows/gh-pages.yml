@@ -1,4 +1,4 @@
-name: build API documentation
+name: publish API documentation to Github Pages
 
 on:
   push:
