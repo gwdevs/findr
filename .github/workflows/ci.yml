@@ -2,6 +2,7 @@ name: build API documentation
 
 on:
   pull_request:
+    branches:
       - main
 
 jobs:
