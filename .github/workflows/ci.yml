@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  main:
+      runs-on: ubuntu-latest
+
+      steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: true
+
+      - name: Get versions
+        run: |
+          set -x
+          node --version
+          npm --version
+          git --version
+
+      - name: Generate Typedocs
+        run: |
+          set -x
+          npm install -g pnpm
+          pnpm --version
+          pnpm add typedoc
+          pnpm typedoc  --tsconfig ./packages/fnr-text/tsconfig.lib.json --entryPoints ./packages/fnr-text/src/*.ts
+          ls -als ./docs
+#        continue-on-error: true
+
+      - name: Update typedocs in branch
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          file_pattern: 'docs/*'
+          commit_message: Apply typedocs update
+#          skip_fetch: true
+#          skip_checkout: true
+
+      - uses: actions/upload-artifact@v1
+        name: Upload typedocs
+        with:
+          name: typedocs
+          path: ./docs/
