@@ -1,4 +1,4 @@
-import { SearchAndReplace, SearchResult, ResultKey, Filter } from './index.d';
+import { SearchAndReplace, SearchResult, ResultKey, Filter, ReplacementCallback } from './index.d';
 import { escapeRegExp, evalRegex, isUpperCase } from './utils';
 
 type RegexFlags = Array<string>;
@@ -28,7 +28,7 @@ group similar operations** (creating flags, preparing initial regex, etc.)
       3. etc.
 */
 
-export function findr({
+export default function findr({
   source,
   target,
   replacement = '',
@@ -145,33 +145,7 @@ export function findr({
     // START BUILDING REPLACEMENT STRING
 
     /** gets the replacement string from findr's replacement input */
-    const replacementCB = function (): string {
-      //TODO: the type of `replacement` (according to index.d.ts) is a string. Here I recommend any of:
-      //  - update the type to properly reflect the potential inputs
-      //  - remove this check for `function` since it would be impossible to pass in a function
-      //I highly recommend the first one as it will give clear insight to a better API (typically when a variable
-      //can be a function type or a primitive type you are running into a poor user interace)
-      if (typeof replacement === 'function') {
-        const rep = replacement({
-          index: replaceIndex,
-          match,
-          groups: args,
-          position: pos,
-          source,
-          namedGroups,
-        });
-        return rep;
-      }
-      if (typeof replacement === 'string') {
-        //TODO: remove intermittent `returns` from body of function. This is a personal suggestion
-        //as it makes it difficult to follow the logic of what's going on here.
-        return replacement;
-      }
-      //TODO: could we make the error type being thrown here more well typed (as apposed to just a string?)
-      throw new Error(
-        'Replacement param should be of type string or function.'
-      );
-    };
+    const replacementCB = replacementCB_(replacement, replaceIndex, match, args, pos, source, namedGroups);
 
     //TODO: code-smell. Variable name is a single letter. Typically this indicates a name-binding that has 
     //little denotational semantics. If this is the case can we remove the variable, otherwise rename it 
@@ -262,8 +236,36 @@ export function findr({
   const replaced = target !== '' ? source.replace(initialRgx, replaceFunc) : source;
   return { results, replaced };
 }
-
-export default findr
+ 
+function replacementCB_(replacement: string | ReplacementCallback, replaceIndex: number, match: string, args: any[], pos: any, source: any, namedGroups: any) {
+    return function(): string {
+        //TODO: the type of `replacement` (according to index.d.ts) is a string. Here I recommend any of:
+        //  - update the type to properly reflect the potential inputs
+        //  - remove this check for `function` since it would be impossible to pass in a function
+        //I highly recommend the first one as it will give clear insight to a better API (typically when a variable
+        //can be a function type or a primitive type you are running into a poor user interace)
+        if (typeof replacement === 'function') {
+            const rep = replacement({
+                index: replaceIndex,
+                match,
+                groups: args,
+                position: pos,
+                source,
+                namedGroups,
+            });
+            return rep;
+        }
+        if (typeof replacement === 'string') {
+            //TODO: remove intermittent `returns` from body of function. This is a personal suggestion
+            //as it makes it difficult to follow the logic of what's going on here.
+            return replacement;
+        }
+        //TODO: could we make the error type being thrown here more well typed (as apposed to just a string?)
+        throw new Error(
+            'Replacement param should be of type string or function.'
+        );
+    };
+}
 
 function preMatchSubstring(source: any, pos: any, ctxLen: number, match: string, filterCtxMatch: Filter, filterCtxReplacement: Filter, replaced: string, buildResultKey: ((index: number) => ResultKey) | undefined, searchIndex: number) {
     const ctxBefore = source.slice(pos - ctxLen, pos);
