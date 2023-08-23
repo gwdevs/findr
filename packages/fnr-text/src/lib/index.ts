@@ -1,8 +1,11 @@
 import { SearchAndReplace, SearchResult, ResultKey, Filter, ReplacementCallback } from './index.d';
 import { isUpperCase } from './utils';
+import * as P from './Parser'
+
 
 type RegexFlags = Array<string>;
 type Regexer = (source: string, flags? : string) => RegExp
+
 
 /** 
 *  findr extends javascript's String.replace() by handling options like Preserve Case, 
@@ -79,25 +82,31 @@ export default function findr({
   //runtime?
   //TODO: remove isRegex from interface of findr
   /** is findr being used in regex mode */
-  
   //TODO: isRegex : Bool -> (TargetString -> { source : string, flags: Flags})
   //rewrite isRegex to use 2 available function types
   /** regex gotten from findr's target input */
-  const rgxData = target instanceof RegExp 
-    ? { source: target.source, flags: null } 
-    : { source: target.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), flags: null };
+  const regexToRegexer = (r : RegExp) : RegExp => regexer(r.source, defaultFlags.join(''))
 
-  //TODO: this could be a small EDSL under with Semigroup, Monoid, etc. instances
-  /** merged default flags with inputted flags */
-  const flags = rgxData.flags
-    ? [...new Set([...rgxData.flags, ...defaultFlags])]
-    : defaultFlags;
+  const escapedString = (s: string) : RegExp =>  
+    regexer(s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), defaultFlags.join(''))
 
-  /** clean regex without findr's search configs */
-  const finalRgx = regexer(rgxData.source, flags.join(''));
+  const regexString : P.Parser<string, RegExp> = P.andThen 
+    (s => s.match(/\/(.+)\/(?=(\w*$))/)
+    , results => results?.length === 3 
+        ? regexer(results[1], [...new Set([...results[2], ...defaultFlags])].join(''))  
+        : null 
+    )
 
+  const regexStringToRegexer : (s : string) => RegExp = P.withDefault(regexString, escapedString)
+ 
+  //TODO: refactor this bit so we can do pattern matching on types
+  const mkFinalRegex = (s : RegExp | string) : RegExp =>
+    s instanceof RegExp ? regexToRegexer(s) : regexStringToRegexer(s) 
+
+  const finalRgx = mkFinalRegex(target)
+      
   /** regex with findr's search config */
-  const { source: source_, flags: flags_ } = finalRgx;
+  const { source: source_, flags: flags_ } = finalRgx
 
   //TODO: you have here an EDSL for constructing regexes...why not make this its own module?
   /** adds patterns needed to fit findr's config to a given RegExp */
@@ -303,5 +312,5 @@ function handleRegexGroups(args: any[]) : { match: string; pos: any; source: any
   const match = args.shift();
 
   return { match, pos, source, namedGroups, auxMatch, tmpMatch };
-}   
- 
+}     
+
