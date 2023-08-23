@@ -1,4 +1,4 @@
-import { SearchAndReplace, SearchResult, ResultKey } from './index.d';
+import { SearchAndReplace, SearchResult, ResultKey, Filter } from './index.d';
 import { escapeRegExp, evalRegex, isUpperCase } from './utils';
 
 type RegexFlags = Array<string>;
@@ -229,27 +229,7 @@ export function findr({
     // START BUILDING THE RESULT IF MATCH IS NOT REPLACED
 
     /** substring before matched result */
-    const ctxBefore = source.slice(pos - ctxLen, pos);
-    /** substring after matched result */
-    const ctxAfter = source.slice(
-      pos + match.length,
-      pos + match.length + ctxLen
-    );
-
-    /** all source text before matched result */
-    const extCtxBefore = source.slice(0, pos);
-    /** all source text after matched result */
-    const extCtxAfter = source.slice(pos + match.length, -1);
-
-    const ctxMatch = filterCtxMatch ? filterCtxMatch(match) : match;
-    const ctxReplacement = filterCtxReplacement
-      ? filterCtxReplacement(replaced)
-      : replaced;
-
-    /** creates a pointer to this result */
-    const searchPointer = buildResultKey
-      ? buildResultKey(searchIndex)
-      : searchIndex;
+    const { ctxMatch, ctxReplacement, ctxBefore, ctxAfter, extCtxBefore, extCtxAfter, searchPointer } = preMatchSubstring(source, pos, ctxLen, match, filterCtxMatch, filterCtxReplacement, replaced, buildResultKey, searchIndex);
 
     //TODO: add result metadata as filterCtxReplacement arg
     const result = {
@@ -268,6 +248,7 @@ export function findr({
         ...metadata,
       },
     };
+
     results.push(result);
     //TODO: is there a stateless way to do this? It's difficult to follow the denotational semantics
     //of the code given a stateful variable like this.
@@ -283,3 +264,29 @@ export function findr({
 }
 
 export default findr
+
+function preMatchSubstring(source: any, pos: any, ctxLen: number, match: string, filterCtxMatch: Filter, filterCtxReplacement: Filter, replaced: string, buildResultKey: ((index: number) => ResultKey) | undefined, searchIndex: number) {
+    const ctxBefore = source.slice(pos - ctxLen, pos);
+    /** substring after matched result */
+    const ctxAfter = source.slice(
+        pos + match.length,
+        pos + match.length + ctxLen
+    );
+
+    /** all source text before matched result */
+    const extCtxBefore = source.slice(0, pos);
+    /** all source text after matched result */
+    const extCtxAfter = source.slice(pos + match.length, -1);
+
+    const ctxMatch = filterCtxMatch ? filterCtxMatch(match) : match;
+    const ctxReplacement = filterCtxReplacement
+        ? filterCtxReplacement(replaced)
+        : replaced;
+
+    /** creates a pointer to this result */
+    const searchPointer = buildResultKey
+        ? buildResultKey(searchIndex)
+        : searchIndex;
+    return { ctxMatch, ctxReplacement, ctxBefore, ctxAfter, extCtxBefore, extCtxAfter, searchPointer };
+}
+
