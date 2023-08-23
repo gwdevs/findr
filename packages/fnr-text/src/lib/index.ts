@@ -123,96 +123,26 @@ export default function findr({
   //TODO: place: initial array ---> array construction logic ---> final array with a fold/reduce pattern
   const results: SearchResult[] = [];
 
-  const replaceFunc = (...args: any[]) =>  {
-    //TODO: invert the logic here. According to the MDN documentation these variables can be inferred
-    //from the initialRgx value. That is, the instance of `...args` can be inferred directly from
-    //the initialRgx construction. I recommend reworking the type of initalRgx to make this implication
-    //easier. 
-    // START BUILDING MATCH DATA
+  const replaceFunc_ = replaceFunc
+    ( regexer
+    , uppercaseLetter
+    , isCasePreserved
+    , finalRgx
+    , replacement
+    , replaceIndex
+    , buildResultKey
+    , replacementKeys
+    , metadata
+    , searchIndex
+    , results
+    , ctxLen
+    , filterCtxMatch
+    , filterCtxReplacement
+    )
 
-    /** if the last argument of string.replace callback is an object it means the regexp contains groups */
-    const containsGroup = typeof args[args.length - 1] === 'object';
-    /** get the groups if they exist and remove them from args */
-    const namedGroups = containsGroup ? args.pop() : undefined;
-    const source = args.pop();
-    const tmpPos = args.pop();
-    const tmpMatch = args.shift();
-    const auxMatch = args.shift();
-    const pos = tmpPos + auxMatch.length;
-    const match: string = args.shift();
-
-    //TODO: code-smell: this function has a single callsite. Typically this means we can rework the logic to
-    //not need the function or replace the function 
-    //TODO: co
-
-
-    //TODO: name binding masks already defined name binding (defined on line 94)
-    /** replacement string modified to match findr's replacement config */
-    const replaced = evaluateCase(regexer, uppercaseLetter, isCasePreserved, match, 
-      match.replace(finalRgx, replacementCallback(replacement, replaceIndex, match, args, pos, source, namedGroups))
-    );
-
-    //TODO: I don't this interface to buildResultKey is a good idea...just a gut feeling here.
-    /** key for specific match index that needs to be replaced */
-    const replacePointer: ResultKey = buildResultKey
-      ? buildResultKey(replaceIndex)
-      : replaceIndex;
-
-    replaceIndex++;
-
-
-    // REPLACE IF replacePointer IS INCLUDED IN replacementKeys given by user
-    if (
-      replacementKeys === 'all' ||
-      replacementKeys.includes(replacePointer as string)
-    ) {
-      /** if a replacementKey matches current result this result won't be included in the list of results */
-      return auxMatch + replaced;
-    }
-
-    //TODO: code-smell: this variable is only used once and its callsite is assignment to an object key.
-    //in essense there are 2 names assigned to something that only has one meaning.
-    //I would recommend removing this variable assignment. This applies to the following name-bindings:
-    //  - ctxBefore
-    //  - ctxAfter
-    //  - ctxMatch
-    //  - ctxReplacement
-    //  - searchPointer
-    //  - result (this is only being used as the argument to `results.push`)
-    // START BUILDING THE RESULT IF MATCH IS NOT REPLACED
-
-    /** substring before matched result */
-    const { ctxMatch, ctxReplacement, ctxBefore, ctxAfter, extCtxBefore, extCtxAfter, searchPointer } = preMatchSubstring(source, pos, ctxLen, match, filterCtxMatch, filterCtxReplacement, replaced, buildResultKey, searchIndex);
-
-    //TODO: add result metadata as filterCtxReplacement arg
-    const result = {
-      match: ctxMatch,
-      replacement: ctxReplacement,
-      context: { before: ctxBefore, after: ctxAfter },
-      extContext: { before: extCtxBefore, after: extCtxAfter },
-      resultKey: searchPointer,
-      metadata: {
-        source: source,
-        match: match,
-        searchIndex,
-        position: pos,
-        groups: args,
-        namedGroups,
-        ...metadata,
-      },
-    };
-
-    results.push(result);
-    //TODO: is there a stateless way to do this? It's difficult to follow the denotational semantics
-    //of the code given a stateful variable like this.
-    searchIndex++;
-    return tmpMatch;
-  }
-
-  //TODO: there is a lot going on within this single variable assignment. I suggest refactoring this logic to
-  //make the `... ? ... : ...` syntax more clear.
   //TODO: rework the types involved so that this empty string check isn't required
-  const replaced = target !== '' ? source.replace(initialRgx, replaceFunc) : source;
+  const replaced = target !== '' ? source.replace(initialRgx, replaceFunc_) : source;
+
   return { results, replaced };
 }
  
@@ -286,3 +216,97 @@ function evaluateCase(regexer : Regexer, uppercaseLetter : string, isCasePreserv
 
   return replaced;
 }
+
+function replaceFunc
+  ( regexer : any
+  , uppercaseLetter : any
+  , isCasePreserved : any
+  , finalRgx : any
+  , replacement : any
+  , replaceIndex : any
+  , buildResultKey : any
+  , replacementKeys : any
+  , metadata : any
+  , searchIndex : any
+  , results : any
+  , ctxLen : any
+  , filterCtxMatch : any
+  , filterCtxReplacement : any
+  ) { return (...args: any[]) => {
+  //TODO: invert the logic here. According to the MDN documentation these variables can be inferred
+  //from the initialRgx value. That is, the instance of `...args` can be inferred directly from
+  //the initialRgx construction. I recommend reworking the type of initalRgx to make this implication
+  //easier. 
+  // START BUILDING MATCH DATA
+  /** if the last argument of string.replace callback is an object it means the regexp contains groups */
+  const containsGroup = typeof args[args.length - 1] === 'object';
+  /** get the groups if they exist and remove them from args */
+  const namedGroups = containsGroup ? args.pop() : undefined;
+  const source = args.pop();
+  const tmpPos = args.pop();
+  const tmpMatch = args.shift();
+  const auxMatch = args.shift();
+  const pos = tmpPos + auxMatch.length;
+  const match: string = args.shift();
+
+  //TODO: name binding masks already defined name binding (defined on line 94)
+  /** replacement string modified to match findr's replacement config */
+  const replaced = evaluateCase(regexer, uppercaseLetter, isCasePreserved, match,
+      match.replace(finalRgx, replacementCallback(replacement, replaceIndex, match, args, pos, source, namedGroups))
+  );
+
+  //TODO: I don't this interface to buildResultKey is a good idea...just a gut feeling here.
+  /** key for specific match index that needs to be replaced */
+  const replacePointer: ResultKey = buildResultKey
+      ? buildResultKey(replaceIndex)
+      : replaceIndex;
+
+  replaceIndex++;
+
+
+  // REPLACE IF replacePointer IS INCLUDED IN replacementKeys given by user
+  if (replacementKeys === 'all' ||
+      replacementKeys.includes(replacePointer as string)) {
+      /** if a replacementKey matches current result this result won't be included in the list of results */
+      return auxMatch + replaced;
+  }
+
+  //TODO: code-smell: this variable is only used once and its callsite is assignment to an object key.
+  //in essense there are 2 names assigned to something that only has one meaning.
+  //I would recommend removing this variable assignment. This applies to the following name-bindings:
+  //  - ctxBefore
+  //  - ctxAfter
+  //  - ctxMatch
+  //  - ctxReplacement
+  //  - searchPointer
+  //  - result (this is only being used as the argument to `results.push`)
+  // START BUILDING THE RESULT IF MATCH IS NOT REPLACED
+  /** substring before matched result */
+  const { ctxMatch, ctxReplacement, ctxBefore, ctxAfter, extCtxBefore, extCtxAfter, searchPointer } = preMatchSubstring(source, pos, ctxLen, match, filterCtxMatch, filterCtxReplacement, replaced, buildResultKey, searchIndex);
+
+  //TODO: add result metadata as filterCtxReplacement arg
+  const result = {
+      match: ctxMatch,
+      replacement: ctxReplacement,
+      context: { before: ctxBefore, after: ctxAfter },
+      extContext: { before: extCtxBefore, after: extCtxAfter },
+      resultKey: searchPointer,
+      metadata: {
+          source: source,
+          match: match,
+          searchIndex,
+          position: pos,
+          groups: args,
+          namedGroups,
+          ...metadata,
+      },
+  };
+
+  results.push(result);
+
+  //TODO: is there a stateless way to do this? It's difficult to follow the denotational semantics
+  //of the code given a stateful variable like this.
+  searchIndex++;
+
+  return tmpMatch;
+}}
