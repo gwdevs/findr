@@ -140,20 +140,6 @@ export default function findr({
     const pos = tmpPos + auxMatch.length;
     const match: string = args.shift();
 
-    //TODO: any function with the type `() -> a` is isomorphic to `a`. The only difference
-    //is that `() -> a` is a thunk and `a` is not. do we need to do lazy evaluation here?
-    // START BUILDING REPLACEMENT STRING
-
-    /** gets the replacement string from findr's replacement input */
-    const replacementCB = replacementCB_(replacement, replaceIndex, match, args, pos, source, namedGroups);
-
-    //TODO: code-smell. Variable name is a single letter. Typically this indicates a name-binding that has 
-    //little denotational semantics. If this is the case can we remove the variable, otherwise rename it 
-    //to something more meaningful.
-    /** replacement string from findr's replacement input */
-    /** modifies replacement string according to findr's replacement config */
-    const r = replacementCB();
-
     //TODO: code-smell: this function has a single callsite. Typically this means we can rework the logic to
     //not need the function or replace the function 
     //TODO: co
@@ -171,7 +157,9 @@ export default function findr({
 
     //TODO: name binding masks already defined name binding (defined on line 94)
     /** replacement string modified to match findr's replacement config */
-    const replaced = evaluateCase(match, match.replace(finalRgx, r));
+    const replaced = evaluateCase(match, 
+      match.replace(finalRgx, replacementCallback(replacement, replaceIndex, match, args, pos, source, namedGroups))
+    );
 
     //TODO: I don't this interface to buildResultKey is a good idea...just a gut feeling here.
     /** key for specific match index that needs to be replaced */
@@ -237,7 +225,7 @@ export default function findr({
   return { results, replaced };
 }
  
-function replacementCB_(replacement: string | ReplacementCallback, replaceIndex: number, match: string, args: any[], pos: any, source: any, namedGroups: any) {
+function replacementCallback(replacement: string | ReplacementCallback, replaceIndex: number, match: string, args: any[], pos: any, source: any, namedGroups: any) {
     return function(): string {
         //TODO: the type of `replacement` (according to index.d.ts) is a string. Here I recommend any of:
         //  - update the type to properly reflect the potential inputs
