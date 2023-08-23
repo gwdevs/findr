@@ -91,24 +91,6 @@ export function findr({
   /** regex pattern for uppercase character */
   const uppercaseLetter = isXre ? `\\p{Uppercase_Letter}` : `[A-Z]`;
 
-  //TODO: code-smell.. you're defining a function but it's only being called once elsewhere 
-  //TODO: could we move this out of the scope of findr?
-  //TODO: add return type annotation
-  /** adds patterns needed to fit findr's config to a given RegExp */
-  function prepareRegExp({
-    regexp,
-    isWordMatched,
-  }: {
-    regexp: RegExp;
-    isWordMatched: boolean;
-  }) {
-    const { source, flags } = regexp;
-    //TODO: you have here an EDSL for constructing regexes...why not make this its own module?
-    return isWordMatched
-      ? regexer(`(^|[^${wordLike}])(${source})(?=[^${wordLike}]|$)`, flags)
-      : regexer(`()(${source})`, flags);
-  }
-
   /** regex gotten from findr's target input */
   const rgxData = isRegex
     ? evalRegex(target)
@@ -124,10 +106,13 @@ export function findr({
   const finalRgx = regexer(rgxData.source, flags.join(''));
 
   /** regex with findr's search config */
-  const initialRgx = prepareRegExp({
-    regexp: finalRgx,
-    isWordMatched,
-  });
+  const { source: source_, flags: flags_ } = finalRgx;
+
+  //TODO: you have here an EDSL for constructing regexes...why not make this its own module?
+  /** adds patterns needed to fit findr's config to a given RegExp */
+  const initialRgx = isWordMatched
+      ? regexer(`(^|[^${wordLike}])(${source_})(?=[^${wordLike}]|$)`, flags_)
+      : regexer(`()(${source_})`, flags_);
 
   //START FINDING AND REPLACING
 
