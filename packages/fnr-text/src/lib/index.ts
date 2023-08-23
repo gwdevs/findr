@@ -233,21 +233,15 @@ function replaceFunc
   , filterCtxMatch : any
   , filterCtxReplacement : any
   ) { return (...args: any[]) => {
+
   //TODO: invert the logic here. According to the MDN documentation these variables can be inferred
   //from the initialRgx value. That is, the instance of `...args` can be inferred directly from
   //the initialRgx construction. I recommend reworking the type of initalRgx to make this implication
   //easier. 
+
   // START BUILDING MATCH DATA
   /** if the last argument of string.replace callback is an object it means the regexp contains groups */
-  const containsGroup = typeof args[args.length - 1] === 'object';
-  /** get the groups if they exist and remove them from args */
-  const namedGroups = containsGroup ? args.pop() : undefined;
-  const source = args.pop();
-  const tmpPos = args.pop();
-  const tmpMatch = args.shift();
-  const auxMatch = args.shift();
-  const pos = tmpPos + auxMatch.length;
-  const match: string = args.shift();
+  const { match, pos, source, namedGroups, auxMatch, tmpMatch } = handleRegexGroups(args);
 
   //TODO: name binding masks already defined name binding (defined on line 94)
   /** replacement string modified to match findr's replacement config */
@@ -262,7 +256,6 @@ function replaceFunc
       : replaceIndex;
 
   replaceIndex++;
-
 
   // REPLACE IF replacePointer IS INCLUDED IN replacementKeys given by user
   if (replacementKeys === 'all' ||
@@ -282,7 +275,17 @@ function replaceFunc
   //  - result (this is only being used as the argument to `results.push`)
   // START BUILDING THE RESULT IF MATCH IS NOT REPLACED
   /** substring before matched result */
-  const { ctxMatch, ctxReplacement, ctxBefore, ctxAfter, extCtxBefore, extCtxAfter, searchPointer } = preMatchSubstring(source, pos, ctxLen, match, filterCtxMatch, filterCtxReplacement, replaced, buildResultKey, searchIndex);
+  const { ctxMatch, ctxReplacement, ctxBefore, ctxAfter, extCtxBefore, extCtxAfter, searchPointer } = preMatchSubstring
+    ( source
+    , pos
+    , ctxLen
+    , match
+    , filterCtxMatch
+    , filterCtxReplacement
+    , replaced
+    , buildResultKey
+    , searchIndex
+    )
 
   //TODO: add result metadata as filterCtxReplacement arg
   const result = {
@@ -310,3 +313,19 @@ function replaceFunc
 
   return tmpMatch;
 }}
+
+function handleRegexGroups(args: any[]) : { match: string; pos: any; source: any; namedGroups: any; auxMatch: any; tmpMatch: any; } {
+  const containsGroup = typeof args[args.length - 1] === 'object';
+
+  /** get the groups if they exist and remove them from args */
+  const namedGroups = containsGroup ? args.pop() : undefined;
+  const source = args.pop();
+  const tmpPos = args.pop();
+  const tmpMatch = args.shift();
+  const auxMatch = args.shift();
+  const pos = tmpPos + auxMatch.length;
+  const match = args.shift();
+
+  return { match, pos, source, namedGroups, auxMatch, tmpMatch };
+}
+
