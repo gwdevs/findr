@@ -1,11 +1,6 @@
 import { SearchAndReplace, SearchResult, ResultKey, Filter, ReplacementCallback } from './index.d';
 import { isUpperCase } from './utils';
-import * as P from './Parser'
-
-
-type RegexFlags = Array<string>;
-type Regexer = (source: string, flags? : string) => RegExp
-
+import * as S from './SourceAndFlags'
 
 /** 
 *  findr extends javascript's String.replace() by handling options like Preserve Case, 
@@ -53,8 +48,9 @@ export default function findr({
 }: SearchAndReplace) {
   // START BUILDING SEARCH REGEXP
 
+  //TODO: refactor this bit so ['g'] is a constant exported from S
   /** default flags to be used for regex pattern */
-  const defaultFlags : RegexFlags =  !isCaseMatched ? ['g', 'i'] : ['g'];
+  const defaultFlags : S.RegexFlags =  !isCaseMatched ? ['g', 'i'] : ['g'];
 
   /** regex engine (default or xregexp) */
   /** is user providing an instance of XRegExp */
@@ -76,39 +72,15 @@ export default function findr({
       , uppercaseLetter: `[A-Z]`
       }
 
-  //TODO: is this necessary? isRegex is typed to be a boolean. If users are
-  //using TS this check is unecessary. If the users are using JS to consume this
-  //library maybe we should think about a more generic way to enforce types at 
-  //runtime?
-  //TODO: remove isRegex from interface of findr
-  /** is findr being used in regex mode */
-  //TODO: isRegex : Bool -> (TargetString -> { source : string, flags: Flags})
-  //rewrite isRegex to use 2 available function types
-  /** regex gotten from findr's target input */
-  const regexToRegexer = (r : RegExp) : RegExp => regexer(r.source, defaultFlags.join(''))
 
-  const escapedString = (s: string) : RegExp =>  
-    regexer(s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), defaultFlags.join(''))
+  const mkFinalRegex = (s : RegExp | string) : S.SourceAndFlags => s instanceof RegExp ? S.fromRegex(s) : S.regexStringToRegexer(s) 
 
-  const regexString : P.Parser<string, RegExp> = P.andThen 
-    (s => s.match(/\/(.+)\/(?=(\w*$))/)
-    , results => results?.length === 3 
-        ? regexer(results[1], [...new Set([...results[2], ...defaultFlags])].join(''))  
-        : null 
-    )
-
-  const regexStringToRegexer : (s : string) => RegExp = P.withDefault(regexString, escapedString)
- 
-  //TODO: refactor this bit so we can do pattern matching on types
-  const mkFinalRegex = (s : RegExp | string) : RegExp =>
-    s instanceof RegExp ? regexToRegexer(s) : regexStringToRegexer(s) 
-
-  const finalRgx = mkFinalRegex(target)
+  const finalRgx = mkFinalRegex(target)(regexer, defaultFlags)
       
   /** regex with findr's search config */
-  const { source: source_, flags: flags_ } = finalRgx
+  const { source: source_, flags: flags_ } = finalRgx;
 
-  //TODO: you have here an EDSL for constructing regexes...why not make this its own module?
+  //TODO: replace this bit with the SourceAndFlags library  
   /** adds patterns needed to fit findr's config to a given RegExp */
   const initialRgx = isWordMatched
       ? regexer(`(^|[^${wordLike}])(${source_})(?=[^${wordLike}]|$)`, flags_)
@@ -182,7 +154,7 @@ function preMatchSubstring(source: any, pos: any, ctxLen: number, match: string,
     return { ctxMatch, ctxReplacement, ctxBefore, ctxAfter, extCtxBefore, extCtxAfter, searchPointer };
 }
 
-function evaluateCase(regexer : Regexer, uppercaseLetter : string, isCasePreserved : boolean, match: string, replaced: string) {
+function evaluateCase(regexer : S.Regexer, uppercaseLetter : string, isCasePreserved : boolean, match: string, replaced: string) {
   //TODO: Add callback to allow users to make their own case evaluation;
   if (!isCasePreserved)
       return replaced;
