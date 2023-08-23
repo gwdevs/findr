@@ -1,5 +1,5 @@
 import { SearchAndReplace, SearchResult, ResultKey, Filter, ReplacementCallback } from './index.d';
-import { escapeRegExp, evalRegex, isUpperCase } from './utils';
+import { isUpperCase } from './utils';
 
 type RegexFlags = Array<string>;
 type Regexer = (source: string, flags? : string) => RegExp
@@ -53,23 +53,6 @@ export default function findr({
   /** default flags to be used for regex pattern */
   const defaultFlags : RegexFlags =  !isCaseMatched ? ['g', 'i'] : ['g'];
 
-  //TODO: is this necessary? isRegex is typed to be a boolean. If users are
-  //using TS this check is unecessary. If the users are using JS to consume this
-  //library maybe we should think about a more generic way to enforce types at 
-  //runtime?
-  /** is findr being used in regex mode */
-  isRegex = typeof isRegex === 'boolean' ? isRegex : isRegex === 'true';
-
-  //TODO: I would recommend against using console.warn as an error handling mechanism
-  //this cloggs up the users console and doesn't provide the user an ability to handle
-  //this error. If this is not an error then either:
-  // - encode proper behavior in the types so it is impossible for users to "do the wrong thing"
-  // - add a note in the documentation comment for `findr` so that users know what they should expect 
-  //   if the condition is met.
-  if (!isRegex && target instanceof RegExp)
-    console.warn('isRegex is set to false but target of type RegExp given.');
-
-
   /** regex engine (default or xregexp) */
   /** is user providing an instance of XRegExp */
   const {regexer, wordLike, uppercaseLetter} = xre instanceof Function
@@ -90,8 +73,19 @@ export default function findr({
       , uppercaseLetter: `[A-Z]`
       }
 
+  //TODO: is this necessary? isRegex is typed to be a boolean. If users are
+  //using TS this check is unecessary. If the users are using JS to consume this
+  //library maybe we should think about a more generic way to enforce types at 
+  //runtime?
+  //TODO: remove isRegex from interface of findr
+  /** is findr being used in regex mode */
+  
+  //TODO: isRegex : Bool -> (TargetString -> { source : string, flags: Flags})
+  //rewrite isRegex to use 2 available function types
   /** regex gotten from findr's target input */
-  const rgxData = isRegex ? evalRegex(target) : { source: escapeRegExp(target), flags: null };
+  const rgxData = target instanceof RegExp 
+    ? { source: target.source, flags: null } 
+    : { source: target.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), flags: null };
 
   //TODO: this could be a small EDSL under with Semigroup, Monoid, etc. instances
   /** merged default flags with inputted flags */
@@ -309,4 +303,5 @@ function handleRegexGroups(args: any[]) : { match: string; pos: any; source: any
   const match = args.shift();
 
   return { match, pos, source, namedGroups, auxMatch, tmpMatch };
-}  
+}   
+ 
