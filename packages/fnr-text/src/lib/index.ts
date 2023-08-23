@@ -70,32 +70,28 @@ export default function findr({
     console.warn('isRegex is set to false but target of type RegExp given.');
 
 
-  //TODO: this could be defunctionalized...
-  //TODO: code-smell. Typically when you have an boolean and you're doing if-then statements based
-  //on that boolean then there's a logic inversion that can be performed to simplify the code (defunctionalization).
   /** regex engine (default or xregexp) */
   /** is user providing an instance of XRegExp */
-  const isXre = xre instanceof Function;
+  const {regexer, wordLike, uppercaseLetter} = xre instanceof Function
+    ? { regexer: xre 
+      //TODO: needs increased support for multiple languages
+      /** regex pattern for a wordlike character */
+      , wordLike: `p{Letter}\\p{Number}` 
 
-  const regexer : Regexer = isXre
-    ? xre
-    : function (source: string, flags = '') {
-        return new RegExp(source, flags);
-      };
+      /** regex pattern for uppercase character */
+      , uppercaseLetter: `\\p{Uppercase_Letter}` 
+      }
 
-  //TODO: I'm seeing a code-smell here. Performing if-then statements to variable assignment
-  //is running an evaluator to early. 
-  //TODO: needs increased support for multiple languages
-  /** regex pattern for a wordlike character */
-  const wordLike = isXre ? `p{Letter}\\p{Number}` : `\\w\\d`;
+    : { regexer: (source: string, flags = '') => new RegExp(source, flags)
+      /** regex pattern for a wordlike character */
+      , wordLike : `\\w\\d`
 
-  /** regex pattern for uppercase character */
-  const uppercaseLetter = isXre ? `\\p{Uppercase_Letter}` : `[A-Z]`;
+      /** regex pattern for uppercase character */
+      , uppercaseLetter: `[A-Z]`
+      }
 
   /** regex gotten from findr's target input */
-  const rgxData = isRegex
-    ? evalRegex(target)
-    : { source: escapeRegExp(target), flags: null };
+  const rgxData = isRegex ? evalRegex(target) : { source: escapeRegExp(target), flags: null };
 
   //TODO: this could be a small EDSL under with Semigroup, Monoid, etc. instances
   /** merged default flags with inputted flags */
