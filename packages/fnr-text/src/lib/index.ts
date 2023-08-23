@@ -121,164 +121,164 @@ export function findr({
 
   //TODO: place: initial array ---> array construction logic ---> final array with a fold/reduce pattern
   const results: SearchResult[] = [];
+
+  const replaceFunc = (...args: any[]) =>  {
+    //TODO: invert the logic here. According to the MDN documentation these variables can be inferred
+    //from the initialRgx value. That is, the instance of `...args` can be inferred directly from
+    //the initialRgx construction. I recommend reworking the type of initalRgx to make this implication
+    //easier. 
+    // START BUILDING MATCH DATA
+
+    /** if the last argument of string.replace callback is an object it means the regexp contains groups */
+    const containsGroup = typeof args[args.length - 1] === 'object';
+    /** get the groups if they exist and remove them from args */
+    const namedGroups = containsGroup ? args.pop() : undefined;
+    const source = args.pop();
+    const tmpPos = args.pop();
+    const tmpMatch = args.shift();
+    const auxMatch = args.shift();
+    const pos = tmpPos + auxMatch.length;
+    const match: string = args.shift();
+
+    //TODO: any function with the type `() -> a` is isomorphic to `a`. The only difference
+    //is that `() -> a` is a thunk and `a` is not. do we need to do lazy evaluation here?
+    // START BUILDING REPLACEMENT STRING
+
+    /** gets the replacement string from findr's replacement input */
+    const replacementCB = function (): string {
+      //TODO: the type of `replacement` (according to index.d.ts) is a string. Here I recommend any of:
+      //  - update the type to properly reflect the potential inputs
+      //  - remove this check for `function` since it would be impossible to pass in a function
+      //I highly recommend the first one as it will give clear insight to a better API (typically when a variable
+      //can be a function type or a primitive type you are running into a poor user interace)
+      if (typeof replacement === 'function') {
+        const rep = replacement({
+          index: replaceIndex,
+          match,
+          groups: args,
+          position: pos,
+          source,
+          namedGroups,
+        });
+        return rep;
+      }
+      if (typeof replacement === 'string') {
+        //TODO: remove intermittent `returns` from body of function. This is a personal suggestion
+        //as it makes it difficult to follow the logic of what's going on here.
+        return replacement;
+      }
+      //TODO: could we make the error type being thrown here more well typed (as apposed to just a string?)
+      throw new Error(
+        'Replacement param should be of type string or function.'
+      );
+    };
+
+    //TODO: code-smell. Variable name is a single letter. Typically this indicates a name-binding that has 
+    //little denotational semantics. If this is the case can we remove the variable, otherwise rename it 
+    //to something more meaningful.
+    /** replacement string from findr's replacement input */
+    /** modifies replacement string according to findr's replacement config */
+    const r = replacementCB();
+
+    //TODO: code-smell: this function has a single callsite. Typically this means we can rework the logic to
+    //not need the function or replace the function 
+    //TODO: co
+    const evaluateCase = (match: string, replaced: string) => {
+      //TODO: Add callback to allow users to make their own case evaluation;
+      if (!isCasePreserved) return replaced;
+      if (isUpperCase(match)) {
+        return replaced.toUpperCase();
+      }
+      if (new RegExp(regexer(uppercaseLetter)).test(match[0])) {
+        return replaced[0].toUpperCase() + replaced.slice(1);
+      }
+      return replaced;
+    };
+
+    //TODO: name binding masks already defined name binding (defined on line 94)
+    /** replacement string modified to match findr's replacement config */
+    const replaced = evaluateCase(match, match.replace(finalRgx, r));
+
+    //TODO: I don't this interface to buildResultKey is a good idea...just a gut feeling here.
+    /** key for specific match index that needs to be replaced */
+    const replacePointer: ResultKey = buildResultKey
+      ? buildResultKey(replaceIndex)
+      : replaceIndex;
+
+    replaceIndex++;
+
+
+    // REPLACE IF replacePointer IS INCLUDED IN replacementKeys given by user
+    if (
+      replacementKeys === 'all' ||
+      replacementKeys.includes(replacePointer as string)
+    ) {
+      /** if a replacementKey matches current result this result won't be included in the list of results */
+      return auxMatch + replaced;
+    }
+
+    //TODO: code-smell: this variable is only used once and its callsite is assignment to an object key.
+    //in essense there are 2 names assigned to something that only has one meaning.
+    //I would recommend removing this variable assignment. This applies to the following name-bindings:
+    //  - ctxBefore
+    //  - ctxAfter
+    //  - ctxMatch
+    //  - ctxReplacement
+    //  - searchPointer
+    //  - result (this is only being used as the argument to `results.push`)
+    // START BUILDING THE RESULT IF MATCH IS NOT REPLACED
+
+    /** substring before matched result */
+    const ctxBefore = source.slice(pos - ctxLen, pos);
+    /** substring after matched result */
+    const ctxAfter = source.slice(
+      pos + match.length,
+      pos + match.length + ctxLen
+    );
+
+    /** all source text before matched result */
+    const extCtxBefore = source.slice(0, pos);
+    /** all source text after matched result */
+    const extCtxAfter = source.slice(pos + match.length, -1);
+
+    const ctxMatch = filterCtxMatch ? filterCtxMatch(match) : match;
+    const ctxReplacement = filterCtxReplacement
+      ? filterCtxReplacement(replaced)
+      : replaced;
+
+    /** creates a pointer to this result */
+    const searchPointer = buildResultKey
+      ? buildResultKey(searchIndex)
+      : searchIndex;
+
+    //TODO: add result metadata as filterCtxReplacement arg
+    const result = {
+      match: ctxMatch,
+      replacement: ctxReplacement,
+      context: { before: ctxBefore, after: ctxAfter },
+      extContext: { before: extCtxBefore, after: extCtxAfter },
+      resultKey: searchPointer,
+      metadata: {
+        source: source,
+        match: match,
+        searchIndex,
+        position: pos,
+        groups: args,
+        namedGroups,
+        ...metadata,
+      },
+    };
+    results.push(result);
+    //TODO: is there a stateless way to do this? It's difficult to follow the denotational semantics
+    //of the code given a stateful variable like this.
+    searchIndex++;
+    return tmpMatch;
+  }
+
   //TODO: there is a lot going on within this single variable assignment. I suggest refactoring this logic to
   //make the `... ? ... : ...` syntax more clear.
   //TODO: rework the types involved so that this empty string check isn't required
-  const replaced =
-    target !== ''
-      ? source.replace(initialRgx, function (...args) {
-          //TODO: invert the logic here. According to the MDN documentation these variables can be inferred
-          //from the initialRgx value. That is, the instance of `...args` can be inferred directly from
-          //the initialRgx construction. I recommend reworking the type of initalRgx to make this implication
-          //easier. 
-          // START BUILDING MATCH DATA
-
-          /** if the last argument of string.replace callback is an object it means the regexp contains groups */
-          const containsGroup = typeof args[args.length - 1] === 'object';
-          /** get the groups if they exist and remove them from args */
-          const namedGroups = containsGroup ? args.pop() : undefined;
-          const source = args.pop();
-          const tmpPos = args.pop();
-          const tmpMatch = args.shift();
-          const auxMatch = args.shift();
-          const pos = tmpPos + auxMatch.length;
-          const match: string = args.shift();
-
-          //TODO: any function with the type `() -> a` is isomorphic to `a`. The only difference
-          //is that `() -> a` is a thunk and `a` is not. do we need to do lazy evaluation here?
-          // START BUILDING REPLACEMENT STRING
-
-          /** gets the replacement string from findr's replacement input */
-          const replacementCB = function (): string {
-            //TODO: the type of `replacement` (according to index.d.ts) is a string. Here I recommend any of:
-            //  - update the type to properly reflect the potential inputs
-            //  - remove this check for `function` since it would be impossible to pass in a function
-            //I highly recommend the first one as it will give clear insight to a better API (typically when a variable
-            //can be a function type or a primitive type you are running into a poor user interace)
-            if (typeof replacement === 'function') {
-              const rep = replacement({
-                index: replaceIndex,
-                match,
-                groups: args,
-                position: pos,
-                source,
-                namedGroups,
-              });
-              return rep;
-            }
-            if (typeof replacement === 'string') {
-              //TODO: remove intermittent `returns` from body of function. This is a personal suggestion
-              //as it makes it difficult to follow the logic of what's going on here.
-              return replacement;
-            }
-            //TODO: could we make the error type being thrown here more well typed (as apposed to just a string?)
-            throw new Error(
-              'Replacement param should be of type string or function.'
-            );
-          };
-
-          //TODO: code-smell. Variable name is a single letter. Typically this indicates a name-binding that has 
-          //little denotational semantics. If this is the case can we remove the variable, otherwise rename it 
-          //to something more meaningful.
-          /** replacement string from findr's replacement input */
-          /** modifies replacement string according to findr's replacement config */
-          const r = replacementCB();
-
-          //TODO: code-smell: this function has a single callsite. Typically this means we can rework the logic to
-          //not need the function or replace the function 
-          //TODO: co
-          const evaluateCase = (match: string, replaced: string) => {
-            //TODO: Add callback to allow users to make their own case evaluation;
-            if (!isCasePreserved) return replaced;
-            if (isUpperCase(match)) {
-              return replaced.toUpperCase();
-            }
-            if (new RegExp(regexer(uppercaseLetter)).test(match[0])) {
-              return replaced[0].toUpperCase() + replaced.slice(1);
-            }
-            return replaced;
-          };
-
-          //TODO: name binding masks already defined name binding (defined on line 94)
-          /** replacement string modified to match findr's replacement config */
-          const replaced = evaluateCase(match, match.replace(finalRgx, r));
-
-          //TODO: I don't this interface to buildResultKey is a good idea...just a gut feeling here.
-          /** key for specific match index that needs to be replaced */
-          const replacePointer: ResultKey = buildResultKey
-            ? buildResultKey(replaceIndex)
-            : replaceIndex;
-
-          replaceIndex++;
-
-
-          // REPLACE IF replacePointer IS INCLUDED IN replacementKeys given by user
-          if (
-            replacementKeys === 'all' ||
-            replacementKeys.includes(replacePointer as string)
-          ) {
-            /** if a replacementKey matches current result this result won't be included in the list of results */
-            return auxMatch + replaced;
-          }
-
-          //TODO: code-smell: this variable is only used once and its callsite is assignment to an object key.
-          //in essense there are 2 names assigned to something that only has one meaning.
-          //I would recommend removing this variable assignment. This applies to the following name-bindings:
-          //  - ctxBefore
-          //  - ctxAfter
-          //  - ctxMatch
-          //  - ctxReplacement
-          //  - searchPointer
-          //  - result (this is only being used as the argument to `results.push`)
-          // START BUILDING THE RESULT IF MATCH IS NOT REPLACED
-
-          /** substring before matched result */
-          const ctxBefore = source.slice(pos - ctxLen, pos);
-          /** substring after matched result */
-          const ctxAfter = source.slice(
-            pos + match.length,
-            pos + match.length + ctxLen
-          );
-
-          /** all source text before matched result */
-          const extCtxBefore = source.slice(0, pos);
-          /** all source text after matched result */
-          const extCtxAfter = source.slice(pos + match.length, -1);
-
-          const ctxMatch = filterCtxMatch ? filterCtxMatch(match) : match;
-          const ctxReplacement = filterCtxReplacement
-            ? filterCtxReplacement(replaced)
-            : replaced;
-
-          /** creates a pointer to this result */
-          const searchPointer = buildResultKey
-            ? buildResultKey(searchIndex)
-            : searchIndex;
-
-          //TODO: add result metadata as filterCtxReplacement arg
-          const result = {
-            match: ctxMatch,
-            replacement: ctxReplacement,
-            context: { before: ctxBefore, after: ctxAfter },
-            extContext: { before: extCtxBefore, after: extCtxAfter },
-            resultKey: searchPointer,
-            metadata: {
-              source: source,
-              match: match,
-              searchIndex,
-              position: pos,
-              groups: args,
-              namedGroups,
-              ...metadata,
-            },
-          };
-          results.push(result);
-          //TODO: is there a stateless way to do this? It's difficult to follow the denotational semantics
-          //of the code given a stateful variable like this.
-          searchIndex++;
-          return tmpMatch;
-        })
-      : source;
+  const replaced = target !== '' ? source.replace(initialRgx, replaceFunc) : source;
   return { results, replaced };
 }
 
