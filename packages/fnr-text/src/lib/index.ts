@@ -2,6 +2,7 @@ import { SearchAndReplace, SearchResult, ResultKey, Filter, ReplacementCallback 
 import { escapeRegExp, evalRegex, isUpperCase } from './utils';
 
 type RegexFlags = Array<string>;
+type Regexer = (source: string, flags? : string) => RegExp
 
 /** 
 *  findr extends javascript's String.replace() by handling options like Preserve Case, 
@@ -76,7 +77,7 @@ export default function findr({
   /** is user providing an instance of XRegExp */
   const isXre = xre instanceof Function;
 
-  const regexer = isXre
+  const regexer : Regexer = isXre
     ? xre
     : function (source: string, flags = '') {
         return new RegExp(source, flags);
@@ -143,21 +144,11 @@ export default function findr({
     //TODO: code-smell: this function has a single callsite. Typically this means we can rework the logic to
     //not need the function or replace the function 
     //TODO: co
-    const evaluateCase = (match: string, replaced: string) => {
-      //TODO: Add callback to allow users to make their own case evaluation;
-      if (!isCasePreserved) return replaced;
-      if (isUpperCase(match)) {
-        return replaced.toUpperCase();
-      }
-      if (new RegExp(regexer(uppercaseLetter)).test(match[0])) {
-        return replaced[0].toUpperCase() + replaced.slice(1);
-      }
-      return replaced;
-    };
+
 
     //TODO: name binding masks already defined name binding (defined on line 94)
     /** replacement string modified to match findr's replacement config */
-    const replaced = evaluateCase(match, 
+    const replaced = evaluateCase(regexer, uppercaseLetter, isCasePreserved, match, 
       match.replace(finalRgx, replacementCallback(replacement, replaceIndex, match, args, pos, source, namedGroups))
     );
 
@@ -280,3 +271,18 @@ function preMatchSubstring(source: any, pos: any, ctxLen: number, match: string,
     return { ctxMatch, ctxReplacement, ctxBefore, ctxAfter, extCtxBefore, extCtxAfter, searchPointer };
 }
 
+function evaluateCase(regexer : Regexer, uppercaseLetter : string, isCasePreserved : boolean, match: string, replaced: string) {
+  //TODO: Add callback to allow users to make their own case evaluation;
+  if (!isCasePreserved)
+      return replaced;
+
+  if (isUpperCase(match)) {
+      return replaced.toUpperCase();
+  }
+
+  if (new RegExp(regexer(uppercaseLetter)).test(match[0])) {
+      return replaced[0].toUpperCase() + replaced.slice(1);
+  }
+
+  return replaced;
+}
