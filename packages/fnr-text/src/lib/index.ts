@@ -145,36 +145,18 @@ export default function findr({
 
   return { results, replaced };
 }
- 
-function replacementCallback(replacement: string | ReplacementCallback, replaceIndex: number, match: string, args: any[], pos: any, source: any, namedGroups: any) {
-    return function(): string {
-        //TODO: the type of `replacement` (according to index.d.ts) is a string. Here I recommend any of:
-        //  - update the type to properly reflect the potential inputs
-        //  - remove this check for `function` since it would be impossible to pass in a function
-        //I highly recommend the first one as it will give clear insight to a better API (typically when a variable
-        //can be a function type or a primitive type you are running into a poor user interace)
-        if (typeof replacement === 'function') {
-            const rep = replacement({
-                index: replaceIndex,
-                match,
-                groups: args,
-                position: pos,
-                source,
-                namedGroups,
-            });
-            return rep;
-        }
-        if (typeof replacement === 'string') {
-            //TODO: remove intermittent `returns` from body of function. This is a personal suggestion
-            //as it makes it difficult to follow the logic of what's going on here.
-            return replacement;
-        }
-        //TODO: could we make the error type being thrown here more well typed (as apposed to just a string?)
-        throw new Error(
-            'Replacement param should be of type string or function.'
-        );
-    };
-}
+
+function replacementCallbackFunc
+  ( replacement : ReplacementCallback
+  , replaceIndex: number
+  , match: string
+  , args: any[]
+  , pos: any
+  , source: any
+  , namedGroups: any
+  ) : () => string {return () => replacement({ index: replaceIndex, match, groups: args, position: pos, source, namedGroups })}
+  
+function replacementString(s : string) : (() => string) {return () => s}
 
 function preMatchSubstring(source: any, pos: any, ctxLen: number, match: string, filterCtxMatch: Filter, filterCtxReplacement: Filter, replaced: string, buildResultKey: ((index: number) => ResultKey) | undefined, searchIndex: number) {
     const ctxBefore = source.slice(pos - ctxLen, pos);
@@ -246,8 +228,12 @@ function replaceFunc
   //TODO: name binding masks already defined name binding (defined on line 94)
   /** replacement string modified to match findr's replacement config */
   const replaced = evaluateCase(regexer, uppercaseLetter, isCasePreserved, match,
-      match.replace(finalRgx, replacementCallback(replacement, replaceIndex, match, args, pos, source, namedGroups))
-  );
+      match.replace(finalRgx, 
+        typeof replacement === 'function' 
+          ?  replacementCallbackFunc(replacement, replaceIndex, match, args, pos, source, namedGroups)
+          : replacementString(replacement)
+      )
+  )
 
   //TODO: I don't this interface to buildResultKey is a good idea...just a gut feeling here.
   /** key for specific match index that needs to be replaced */
@@ -327,5 +313,4 @@ function handleRegexGroups(args: any[]) : { match: string; pos: any; source: any
   const match = args.shift();
 
   return { match, pos, source, namedGroups, auxMatch, tmpMatch };
-}
-
+}  
