@@ -125,26 +125,6 @@ function replacementCallbackFunc
   
 function replacementString(s : string) : (() => string) {return () => s}
 
-function preMatchSubstring(source: any, pos: any, ctxLen: number, match: string ) {
-    const ctxBefore = source.slice(pos - ctxLen, pos);
-
-    /** substring after matched result */
-    const ctxAfter = source.slice(
-        pos + match.length,
-        pos + match.length + ctxLen
-    );
-
-    /** all source text before matched result */
-    const extCtxBefore = source.slice(0, pos);
-
-    /** all source text after matched result */
-    const extCtxAfter = source.slice(pos + match.length, -1);
-
-    return { ctxBefore, ctxAfter, extCtxBefore, extCtxAfter  };
-}
-
-
-  
 function isUpperCase(input: string) {
   //TODO: this is equivalent to ()
   return input.toUpperCase() === input && input.toLowerCase() !== input;
@@ -212,24 +192,6 @@ function replaceFunc
         )
     )
 
-  //TODO: code-smell: this variable is only used once and its callsite is assignment to an object key.
-  //in essense there are 2 names assigned to something that only has one meaning.
-  //I would recommend removing this variable assignment. This applies to the following name-bindings:
-  //  - ctxBefore
-  //  - ctxAfter
-  //  - ctxMatch
-  //  - ctxReplacement
-  //  - searchPointer
-  //  - result (this is only being used as the argument to `results.push`)
-  // START BUILDING THE RESULT IF MATCH IS NOT REPLACED
-  /** substring before matched result */
-  const { ctxBefore, ctxAfter, extCtxBefore, extCtxAfter } = preMatchSubstring
-    ( source
-    , pos
-    , ctxLen
-    , match
-    )
-
   //TODO: I don't this interface to buildResultKey is a good idea...just a gut feeling here.
   /** key for specific match index that needs to be replaced */
   const replacePointer: ResultKey = buildResultKey
@@ -249,8 +211,8 @@ function replaceFunc
   const result = {
       match: filterCtxMatch ? filterCtxMatch(match) : match,
       replacement: filterCtxReplacement ? filterCtxReplacement(replaced) : replaced,
-      context: { before: ctxBefore, after: ctxAfter },
-      extContext: { before: extCtxBefore, after: extCtxAfter },
+      context: { before: source.slice(pos - ctxLen, pos), after: source.slice(pos + match.length, pos + match.length + ctxLen) },
+      extContext: { before: source.slice(0, pos), after: source.slice(pos + match.length, -1) },
       resultKey: buildResultKey(searchIndex),
       metadata: {
           source: source,
