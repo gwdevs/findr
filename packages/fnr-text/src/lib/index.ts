@@ -91,7 +91,8 @@ export default function findr({
   const results: SearchResult[] = [];
 
   const replaceFunc_ = replaceFunc
-    ( regexBuilder
+    ( source
+    , regexBuilder
     , uppercaseLetter
     , isCasePreserved
     , targetRegex
@@ -156,7 +157,8 @@ function evaluateCase(regexer : S.Regexer, uppercaseLetter : string, isCasePrese
 }
 
 function replaceFunc
-  ( regexer : any
+  ( source : string
+  , regexer : any
   , uppercaseLetter : any
   , isCasePreserved : any
   , finalRgx : any
@@ -170,7 +172,7 @@ function replaceFunc
   , ctxLen : any
   , filterCtxMatch : any
   , filterCtxReplacement : any
-  ) { return (...args: any[]) => {
+  ) { return (tmpMatch: any, auxMatch: string | any[], match: string, ...args: any[]) => {
 
   //TODO: invert the logic here. According to the MDN documentation these variables can be inferred
   //from the initialRgx value. That is, the instance of `...args` can be inferred directly from
@@ -178,8 +180,14 @@ function replaceFunc
   //easier. 
 
   // START BUILDING MATCH DATA
+  const hasGroups = typeof args.at(-1) === 'object'
+
+  const namedGroups = hasGroups ? args.at(-1) : undefined;
+
+  //TODO: rename this to something more understandable
+  const pos = args.at(hasGroups ? -3 : -2) + auxMatch.length;
+
   /** if the last argument of string.replace callback is an object it means the regexp contains groups */
-  const { match, pos, source, namedGroups, auxMatch, tmpMatch } = handleRegexGroups(args);
 
   //TODO: name binding masks already defined name binding (defined on line 94)
   /** replacement string modified to match findr's replacement config */
@@ -192,20 +200,16 @@ function replaceFunc
         )
     )
 
+
   //TODO: I don't this interface to buildResultKey is a good idea...just a gut feeling here.
-  /** key for specific match index that needs to be replaced */
-  const replacePointer: ResultKey = buildResultKey
-      ? buildResultKey(replaceIndex)
-      : replaceIndex;
-
-  replaceIndex++;
-
   // REPLACE IF replacePointer IS INCLUDED IN replacementKeys given by user
   if (replacementKeys === 'all' ||
-      replacementKeys.includes(replacePointer as string)) {
+      replacementKeys.includes(buildResultKey(replaceIndex) as string)) {
       /** if a replacementKey matches current result this result won't be included in the list of results */
       return auxMatch + replaced;
   }
+
+  replaceIndex++;
 
   //TODO: add result metadata as filterCtxReplacement arg
   const result = {
@@ -238,28 +242,5 @@ function replaceFunc
   searchIndex++;
 
   return tmpMatch;
-}}
-
-function handleRegexGroups(args: any[]) : { match: any; pos: any; source: any; namedGroups: any; auxMatch: any; tmpMatch: any; } {
-  const hasGroups = typeof args.at(-1) === 'object'
-
-  const argsOffset = hasGroups ? 0 : 1;
-
-  const namedGroups = hasGroups ? args.at(-1) : undefined;
-
-  //TODO: this is unecessary...since we already have access to it from the main function
-  const source = args.at(-2+argsOffset);
-
-  //TODO: rename to offset
-  const tmpPos = args.at(-3+argsOffset);
-
-  //TODO: this is equivalent to match
-  const tmpMatch = args.at(0);
-  const auxMatch = args.at(1);
-  const match = args.at(2);
-
-  const pos = tmpPos + auxMatch.length;
-
-  return { match, pos, source, namedGroups, auxMatch, tmpMatch };
-}     
+}} 
 
