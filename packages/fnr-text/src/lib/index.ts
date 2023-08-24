@@ -1,4 +1,4 @@
-import { SearchAndReplace, SearchResult, ResultKey, Filter, ReplacementCallback } from './index.d';
+import { SearchAndReplace, SearchResult, ResultKey, ReplacementCallback } from './index.d';
 import * as S from './SourceAndFlags'
 
 /** 
@@ -39,7 +39,6 @@ export default function findr({
     ctxLen = 0,
     //TODO: rename xre - it's difficult to follow
     xregexp: xre,
-    isRegex = false,
     isCaseMatched = true,
     isWordMatched = false,
     isCasePreserved = false,
@@ -126,7 +125,7 @@ function replacementCallbackFunc
   
 function replacementString(s : string) : (() => string) {return () => s}
 
-function preMatchSubstring(source: any, pos: any, ctxLen: number, match: string, filterCtxReplacement: Filter, replaced: string) {
+function preMatchSubstring(source: any, pos: any, ctxLen: number, match: string ) {
     const ctxBefore = source.slice(pos - ctxLen, pos);
 
     /** substring after matched result */
@@ -141,11 +140,7 @@ function preMatchSubstring(source: any, pos: any, ctxLen: number, match: string,
     /** all source text after matched result */
     const extCtxAfter = source.slice(pos + match.length, -1);
 
-    const ctxReplacement = filterCtxReplacement
-        ? filterCtxReplacement(replaced)
-        : replaced;
-
-    return { ctxReplacement, ctxBefore, ctxAfter, extCtxBefore, extCtxAfter  };
+    return { ctxBefore, ctxAfter, extCtxBefore, extCtxAfter  };
 }
 
 
@@ -228,13 +223,11 @@ function replaceFunc
   //  - result (this is only being used as the argument to `results.push`)
   // START BUILDING THE RESULT IF MATCH IS NOT REPLACED
   /** substring before matched result */
-  const { ctxReplacement, ctxBefore, ctxAfter, extCtxBefore, extCtxAfter } = preMatchSubstring
+  const { ctxBefore, ctxAfter, extCtxBefore, extCtxAfter } = preMatchSubstring
     ( source
     , pos
     , ctxLen
     , match
-    , filterCtxReplacement
-    , replaced
     )
 
   //TODO: I don't this interface to buildResultKey is a good idea...just a gut feeling here.
@@ -255,7 +248,7 @@ function replaceFunc
   //TODO: add result metadata as filterCtxReplacement arg
   const result = {
       match: filterCtxMatch ? filterCtxMatch(match) : match,
-      replacement: ctxReplacement,
+      replacement: filterCtxReplacement ? filterCtxReplacement(replaced) : replaced,
       context: { before: ctxBefore, after: ctxAfter },
       extContext: { before: extCtxBefore, after: extCtxAfter },
       resultKey: buildResultKey(searchIndex),
