@@ -1,5 +1,4 @@
 import { SearchAndReplace, SearchResult, ResultKey, Filter, ReplacementCallback } from './index.d';
-import { isUpperCase } from './utils';
 import * as S from './SourceAndFlags'
 
 /** 
@@ -36,7 +35,7 @@ export default function findr({
   config: {
     filterCtxMatch = (match: string) => match,
     filterCtxReplacement = (replacement: string) => replacement,
-    buildResultKey,
+    buildResultKey = (searchIndex : number) => searchIndex,
     ctxLen = 0,
     //TODO: rename xre - it's difficult to follow
     xregexp: xre,
@@ -53,8 +52,8 @@ export default function findr({
 
   /** regex engine (default or xregexp) */
   /** is user providing an instance of XRegExp */
-  const {regexer, wordLike, uppercaseLetter} = xre instanceof Function
-    ? { regexer: xre 
+  const {regexBuilder, wordLike, uppercaseLetter} = xre instanceof Function
+    ? { regexBuilder: xre 
       //TODO: needs increased support for multiple languages
       /** regex pattern for a wordlike character */
       , wordLike: `p{Letter}\\p{Number}` 
@@ -63,7 +62,7 @@ export default function findr({
       , uppercaseLetter: `\\p{Uppercase_Letter}` 
       }
 
-    : { regexer: (source: string, flags = '') => new RegExp(source, flags)
+    : { regexBuilder: (source: string, flags = '') => new RegExp(source, flags)
       /** regex pattern for a wordlike character */
       , wordLike : `\\w\\d`
 
@@ -74,16 +73,15 @@ export default function findr({
 
   const mkFinalRegex = (s : RegExp | string) : S.SourceAndFlags => s instanceof RegExp ? S.fromRegex(s) : S.regexStringToRegexer(s) 
 
-  const finalRgx = mkFinalRegex(target)(regexer, defaultFlags)
+  const targetRegex = mkFinalRegex(target)(regexBuilder, defaultFlags)
       
   /** regex with findr's search config */
-  const { source: source_, flags: flags_ } = finalRgx;
+  const { source: source_, flags: flags_ } = targetRegex
 
-  //TODO: replace this bit with the SourceAndFlags library  
   /** adds patterns needed to fit findr's config to a given RegExp */
-  const initialRgx = isWordMatched
-      ? regexer(`(^|[^${wordLike}])(${source_})(?=[^${wordLike}]|$)`, flags_)
-      : regexer(`()(${source_})`, flags_);
+  const wholeWordRegex = isWordMatched
+      ? regexBuilder(`(^|[^${wordLike}])(${source_})(?=[^${wordLike}]|$)`, flags_)
+      : regexBuilder(`()(${source_})`, flags_);
 
   //START FINDING AND REPLACING
 
@@ -94,10 +92,10 @@ export default function findr({
   const results: SearchResult[] = [];
 
   const replaceFunc_ = replaceFunc
-    ( regexer
+    ( regexBuilder
     , uppercaseLetter
     , isCasePreserved
-    , finalRgx
+    , targetRegex
     , replacement
     , replaceIndex
     , buildResultKey
@@ -111,7 +109,7 @@ export default function findr({
     )
 
   //TODO: rework the types involved so that this empty string check isn't required
-  const replaced = target !== '' ? source.replace(initialRgx, replaceFunc_) : source;
+  const replaced = target !== '' ? source.replace(wholeWordRegex, replaceFunc_) : source;
 
   return { results, replaced };
 }
@@ -128,7 +126,7 @@ function replacementCallbackFunc
   
 function replacementString(s : string) : (() => string) {return () => s}
 
-function preMatchSubstring(source: any, pos: any, ctxLen: number, match: string, filterCtxMatch: Filter, filterCtxReplacement: Filter, replaced: string, buildResultKey: ((index: number) => ResultKey) | undefined, searchIndex: number) {
+function preMatchSubstring(source: any, pos: any, ctxLen: number, match: string, filterCtxMatch: Filter, filterCtxReplacement: Filter, replaced: string) {
     const ctxBefore = source.slice(pos - ctxLen, pos);
     /** substring after matched result */
     const ctxAfter = source.slice(
@@ -146,23 +144,35 @@ function preMatchSubstring(source: any, pos: any, ctxLen: number, match: string,
         ? filterCtxReplacement(replaced)
         : replaced;
 
-    /** creates a pointer to this result */
-    const searchPointer = buildResultKey
-        ? buildResultKey(searchIndex)
-        : searchIndex;
-    return { ctxMatch, ctxReplacement, ctxBefore, ctxAfter, extCtxBefore, extCtxAfter, searchPointer };
+    return { ctxMatch, ctxReplacement, ctxBefore, ctxAfter, extCtxBefore, extCtxAfter  };
+}
+
+
+  
+function isUpperCase(input: string) {
+  //TODO: this is equivalent to ()
+  return input.toUpperCase() === input && input.toLowerCase() !== input;
 }
 
 function evaluateCase(regexer : S.Regexer, uppercaseLetter : string, isCasePreserved : boolean, match: string, replaced: string) {
-  //TODO: Add callback to allow users to make their own case evaluation;
+
+  //the goal here is: 
+  //'foo' -> 'bar'
+  //'FOO' -> 'BAR'
+  //'Foo' -> 'Bar'
+
+  //if we are not preserving the case of the match then abort...
   if (!isCasePreserved)
       return replaced;
 
+  //if the whole string is upper case return its upper cased version
   if (isUpperCase(match)) {
       return replaced.toUpperCase();
   }
 
-  if (new RegExp(regexer(uppercaseLetter)).test(match[0])) {
+  //if the first letter of the match is uppercase then set the first letter of the replaced
+  //string to uppercase
+  if (regexer(uppercaseLetter).test(match[0])) {
       return replaced[0].toUpperCase() + replaced.slice(1);
   }
 
@@ -197,13 +207,14 @@ function replaceFunc
 
   //TODO: name binding masks already defined name binding (defined on line 94)
   /** replacement string modified to match findr's replacement config */
-  const replaced = evaluateCase(regexer, uppercaseLetter, isCasePreserved, match,
-      match.replace(finalRgx, 
-        typeof replacement === 'function' 
-          ?  replacementCallbackFunc(replacement, replaceIndex, match, args, pos, source, namedGroups)
-          : replacementString(replacement)
-      )
-  )
+  const replaced = 
+    evaluateCase(regexer, uppercaseLetter, isCasePreserved, match,
+        match.replace(finalRgx, 
+          typeof replacement === 'function' 
+            ?  replacementCallbackFunc(replacement, replaceIndex, match, args, pos, source, namedGroups)
+            : replacementString(replacement)
+        )
+    )
 
   //TODO: I don't this interface to buildResultKey is a good idea...just a gut feeling here.
   /** key for specific match index that needs to be replaced */
@@ -231,7 +242,7 @@ function replaceFunc
   //  - result (this is only being used as the argument to `results.push`)
   // START BUILDING THE RESULT IF MATCH IS NOT REPLACED
   /** substring before matched result */
-  const { ctxMatch, ctxReplacement, ctxBefore, ctxAfter, extCtxBefore, extCtxAfter, searchPointer } = preMatchSubstring
+  const { ctxMatch, ctxReplacement, ctxBefore, ctxAfter, extCtxBefore, extCtxAfter } = preMatchSubstring
     ( source
     , pos
     , ctxLen
@@ -239,8 +250,6 @@ function replaceFunc
     , filterCtxMatch
     , filterCtxReplacement
     , replaced
-    , buildResultKey
-    , searchIndex
     )
 
   //TODO: add result metadata as filterCtxReplacement arg
@@ -249,7 +258,7 @@ function replaceFunc
       replacement: ctxReplacement,
       context: { before: ctxBefore, after: ctxAfter },
       extContext: { before: extCtxBefore, after: extCtxAfter },
-      resultKey: searchPointer,
+      resultKey: buildResultKey(searchIndex),
       metadata: {
           source: source,
           match: match,
