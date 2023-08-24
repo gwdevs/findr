@@ -5,6 +5,10 @@ export type RegexFlags = Array<string>;
 
 export type SourceAndFlags = (regexer : Regexer, defFlags : RegexFlags) => RegExp 
 
+export const global : RegexFlags = ['g'] 
+
+export const caseInsensitive : RegexFlags = ['i'] 
+
 export const  mergeFlags = (a: RegexFlags, b : RegexFlags) : RegexFlags => [...new Set([...a, ...b])]
 
 export const  onlySource = (source : string) : SourceAndFlags => (regexer, defFlags) => regexer(source, defFlags.join(''))

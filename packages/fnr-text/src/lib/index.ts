@@ -48,9 +48,8 @@ export default function findr({
 }: SearchAndReplace) {
   // START BUILDING SEARCH REGEXP
 
-  //TODO: refactor this bit so ['g'] is a constant exported from S
   /** default flags to be used for regex pattern */
-  const defaultFlags : S.RegexFlags =  !isCaseMatched ? ['g', 'i'] : ['g'];
+  const defaultFlags : S.RegexFlags =  !isCaseMatched ? S.mergeFlags(S.global, S.caseInsensitive) : S.global;
 
   /** regex engine (default or xregexp) */
   /** is user providing an instance of XRegExp */
