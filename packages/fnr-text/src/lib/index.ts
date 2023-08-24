@@ -211,8 +211,14 @@ function replaceFunc
   const result = {
       match: filterCtxMatch ? filterCtxMatch(match) : match,
       replacement: filterCtxReplacement ? filterCtxReplacement(replaced) : replaced,
-      context: { before: source.slice(pos - ctxLen, pos), after: source.slice(pos + match.length, pos + match.length + ctxLen) },
-      extContext: { before: source.slice(0, pos), after: source.slice(pos + match.length, -1) },
+      context: 
+        { before: source.slice(pos - ctxLen, pos),
+          after: source.slice(pos + match.length, pos + match.length + ctxLen) 
+        },
+      extContext: 
+        { before: source.slice(0, pos),
+          after: source.slice(pos + match.length, -1) 
+        },
       resultKey: buildResultKey(searchIndex),
       metadata: {
           source: source,
@@ -234,17 +240,25 @@ function replaceFunc
   return tmpMatch;
 }}
 
-function handleRegexGroups(args: any[]) : { match: string; pos: any; source: any; namedGroups: any; auxMatch: any; tmpMatch: any; } {
-  const containsGroup = typeof args[args.length - 1] === 'object';
+function handleRegexGroups(args: any[]) : { match: any; pos: any; source: any; namedGroups: any; auxMatch: any; tmpMatch: any; } {
+  const hasGroups = typeof args.at(-1) === 'object'
 
-  /** get the groups if they exist and remove them from args */
-  const namedGroups = containsGroup ? args.pop() : undefined;
-  const source = args.pop();
-  const tmpPos = args.pop();
-  const tmpMatch = args.shift();
-  const auxMatch = args.shift();
+  const argsOffset = hasGroups ? 0 : 1;
+
+  const namedGroups = hasGroups ? args.at(-1) : undefined;
+
+  //TODO: this is unecessary...since we already have access to it from the main function
+  const source = args.at(-2+argsOffset);
+
+  //TODO: rename to offset
+  const tmpPos = args.at(-3+argsOffset);
+
+  //TODO: this is equivalent to match
+  const tmpMatch = args.at(0);
+  const auxMatch = args.at(1);
+  const match = args.at(2);
+
   const pos = tmpPos + auxMatch.length;
-  const match = args.shift();
 
   return { match, pos, source, namedGroups, auxMatch, tmpMatch };
 }     
