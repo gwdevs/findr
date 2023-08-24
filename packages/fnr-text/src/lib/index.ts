@@ -126,8 +126,9 @@ function replacementCallbackFunc
   
 function replacementString(s : string) : (() => string) {return () => s}
 
-function preMatchSubstring(source: any, pos: any, ctxLen: number, match: string, filterCtxMatch: Filter, filterCtxReplacement: Filter, replaced: string) {
+function preMatchSubstring(source: any, pos: any, ctxLen: number, match: string, filterCtxReplacement: Filter, replaced: string) {
     const ctxBefore = source.slice(pos - ctxLen, pos);
+
     /** substring after matched result */
     const ctxAfter = source.slice(
         pos + match.length,
@@ -136,15 +137,15 @@ function preMatchSubstring(source: any, pos: any, ctxLen: number, match: string,
 
     /** all source text before matched result */
     const extCtxBefore = source.slice(0, pos);
+
     /** all source text after matched result */
     const extCtxAfter = source.slice(pos + match.length, -1);
 
-    const ctxMatch = filterCtxMatch ? filterCtxMatch(match) : match;
     const ctxReplacement = filterCtxReplacement
         ? filterCtxReplacement(replaced)
         : replaced;
 
-    return { ctxMatch, ctxReplacement, ctxBefore, ctxAfter, extCtxBefore, extCtxAfter  };
+    return { ctxReplacement, ctxBefore, ctxAfter, extCtxBefore, extCtxAfter  };
 }
 
 
@@ -216,6 +217,26 @@ function replaceFunc
         )
     )
 
+  //TODO: code-smell: this variable is only used once and its callsite is assignment to an object key.
+  //in essense there are 2 names assigned to something that only has one meaning.
+  //I would recommend removing this variable assignment. This applies to the following name-bindings:
+  //  - ctxBefore
+  //  - ctxAfter
+  //  - ctxMatch
+  //  - ctxReplacement
+  //  - searchPointer
+  //  - result (this is only being used as the argument to `results.push`)
+  // START BUILDING THE RESULT IF MATCH IS NOT REPLACED
+  /** substring before matched result */
+  const { ctxReplacement, ctxBefore, ctxAfter, extCtxBefore, extCtxAfter } = preMatchSubstring
+    ( source
+    , pos
+    , ctxLen
+    , match
+    , filterCtxReplacement
+    , replaced
+    )
+
   //TODO: I don't this interface to buildResultKey is a good idea...just a gut feeling here.
   /** key for specific match index that needs to be replaced */
   const replacePointer: ResultKey = buildResultKey
@@ -231,30 +252,9 @@ function replaceFunc
       return auxMatch + replaced;
   }
 
-  //TODO: code-smell: this variable is only used once and its callsite is assignment to an object key.
-  //in essense there are 2 names assigned to something that only has one meaning.
-  //I would recommend removing this variable assignment. This applies to the following name-bindings:
-  //  - ctxBefore
-  //  - ctxAfter
-  //  - ctxMatch
-  //  - ctxReplacement
-  //  - searchPointer
-  //  - result (this is only being used as the argument to `results.push`)
-  // START BUILDING THE RESULT IF MATCH IS NOT REPLACED
-  /** substring before matched result */
-  const { ctxMatch, ctxReplacement, ctxBefore, ctxAfter, extCtxBefore, extCtxAfter } = preMatchSubstring
-    ( source
-    , pos
-    , ctxLen
-    , match
-    , filterCtxMatch
-    , filterCtxReplacement
-    , replaced
-    )
-
   //TODO: add result metadata as filterCtxReplacement arg
   const result = {
-      match: ctxMatch,
+      match: filterCtxMatch ? filterCtxMatch(match) : match,
       replacement: ctxReplacement,
       context: { before: ctxBefore, after: ctxAfter },
       extContext: { before: extCtxBefore, after: extCtxAfter },
