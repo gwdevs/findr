@@ -114,26 +114,6 @@ export default function findr({
   return { results, replaced };
 }
 
-function evaluateCase(regexer : S.Regexer, uppercaseLetter : string, isCasePreserved : boolean, match: string, replaced: string) {
-
-  //if we are not preserving the case of the match then abort...
-  if (!isCasePreserved)
-      return replaced;
-
-  //if the whole string is upper case return its upper cased version
-  if (String(match).toUpperCase() === match) {
-      return replaced.toUpperCase();
-  }
-
-  //if the first letter of the match is uppercase then set the first letter of the replaced
-  //string to uppercase
-  if (regexer(uppercaseLetter).test(match[0])) {
-      return replaced[0].toUpperCase() + replaced.slice(1);
-  }
-
-  return replaced;
-}
-
 function replaceFunc
   ( source : string
   , regexer : any
@@ -166,18 +146,19 @@ function replaceFunc
   const pos = args.at(hasGroups ? -3 : -2) + auxMatch.length;
 
   /** if the last argument of string.replace callback is an object it means the regexp contains groups */
-
-  /** replacement string modified to match findr's replacement config */
-  const replaced = 
-    evaluateCase(regexer, uppercaseLetter, isCasePreserved, match,
-        //TODO: why is the `match` the 3rd subgroup?
-        match.replace
+  //TODO: why is the `match` the 3rd subgroup?
+  const replacedText = match.replace
           (finalRgx, 
             typeof replacement === 'function' 
               ? () => replacement({ index: replaceIndex, match, groups: args, position: pos, source, namedGroups })
               : () => replacement
           )
-    )
+  /** replacement string modified to match findr's replacement config */
+  const replacedCaseHandled = 
+    !isCasePreserved ? replacedText
+    : String(match).toUpperCase() === match ? String(replacedText).toUpperCase() 
+    : regexer(uppercaseLetter).test(match[0]) ? replacedText[0].toUpperCase() + replacedText.slice(1)
+    : replacedText
 
 
   //TODO: I don't this interface to buildResultKey is a good idea...just a gut feeling here.
@@ -186,14 +167,14 @@ function replaceFunc
   if (replacementKeys === 'all' || replacementKeys.includes(buildResultKey(replaceIndex) as string) ) 
   { /** if a replacementKey matches current result this result won't be included in the list of results */
     //TODO: why are we concatenating the first subgroup with the replaced text? 
-      return auxMatch + replaced;
+      return auxMatch + replacedCaseHandled;
   }
 
 
   //TODO: add result metadata as filterCtxReplacement arg
   const result = {
       match: filterCtxMatch ? filterCtxMatch(match) : match,
-      replacement: filterCtxReplacement ? filterCtxReplacement(replaced) : replaced,
+      replacement: filterCtxReplacement ? filterCtxReplacement(replacedCaseHandled) : replacedCaseHandled,
       context: 
         { before: source.slice(pos - ctxLen, pos),
           after: source.slice(pos + match.length, pos + match.length + ctxLen) 
