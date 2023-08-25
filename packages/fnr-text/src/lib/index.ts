@@ -148,11 +148,13 @@ function replaceFunc
   /** if the last argument of string.replace callback is an object it means the regexp contains groups */
   //TODO: why is the `match` the 3rd subgroup?
   const replacedText = match.replace
-          (finalRgx, 
-            typeof replacement === 'function' 
-              ? () => replacement({ index: replaceIndex, match, groups: args, position: pos, source, namedGroups })
-              : () => replacement
-          )
+    (finalRgx, 
+      //TODO: invert the dependencies here
+      typeof replacement === 'function' 
+        ? () => replacement({ index: replaceIndex, match, groups: args, position: pos, source, namedGroups })
+        : () => replacement
+    )
+
   /** replacement string modified to match findr's replacement config */
   const replacedCaseHandled = 
     !isCasePreserved ? replacedText
@@ -167,12 +169,11 @@ function replaceFunc
   if (replacementKeys === 'all' || replacementKeys.includes(buildResultKey(replaceIndex) as string) ) 
   { /** if a replacementKey matches current result this result won't be included in the list of results */
     //TODO: why are we concatenating the first subgroup with the replaced text? 
-      return auxMatch + replacedCaseHandled;
+    return auxMatch + replacedCaseHandled;
   }
 
-
   //TODO: add result metadata as filterCtxReplacement arg
-  const result = {
+  results.push({
       match: filterCtxMatch ? filterCtxMatch(match) : match,
       replacement: filterCtxReplacement ? filterCtxReplacement(replacedCaseHandled) : replacedCaseHandled,
       context: 
@@ -195,9 +196,7 @@ function replaceFunc
           namedGroups,
           ...metadata,
       },
-  };
-
-  results.push(result);
+  })
 
   //TODO: is there a stateless way to do this? It's difficult to follow the denotational semantics
   //of the code given a stateful variable like this.
@@ -205,5 +204,4 @@ function replaceFunc
   replaceIndex++;
 
   return tmpMatch;
-}} 
-
+}}  
