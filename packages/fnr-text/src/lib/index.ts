@@ -114,36 +114,14 @@ export default function findr({
   return { results, replaced };
 }
 
-function replacementCallbackFunc
-  ( replacement : ReplacementCallback
-  , replaceIndex: number
-  , match: string
-  , args: any[]
-  , pos: any
-  , source: any
-  , namedGroups: any
-  ) : () => string {return () => replacement({ index: replaceIndex, match, groups: args, position: pos, source, namedGroups })}
-  
-function replacementString(s : string) : (() => string) {return () => s}
-
-function isUpperCase(input: string) {
-  //TODO: this is equivalent to ()
-  return input.toUpperCase() === input && input.toLowerCase() !== input;
-}
-
 function evaluateCase(regexer : S.Regexer, uppercaseLetter : string, isCasePreserved : boolean, match: string, replaced: string) {
-
-  //the goal here is: 
-  //'foo' -> 'bar'
-  //'FOO' -> 'BAR'
-  //'Foo' -> 'Bar'
 
   //if we are not preserving the case of the match then abort...
   if (!isCasePreserved)
       return replaced;
 
   //if the whole string is upper case return its upper cased version
-  if (isUpperCase(match)) {
+  if (String(match).toUpperCase() === match) {
       return replaced.toUpperCase();
   }
 
@@ -189,27 +167,28 @@ function replaceFunc
 
   /** if the last argument of string.replace callback is an object it means the regexp contains groups */
 
-  //TODO: name binding masks already defined name binding (defined on line 94)
   /** replacement string modified to match findr's replacement config */
   const replaced = 
     evaluateCase(regexer, uppercaseLetter, isCasePreserved, match,
-        match.replace(finalRgx, 
-          typeof replacement === 'function' 
-            ?  replacementCallbackFunc(replacement, replaceIndex, match, args, pos, source, namedGroups)
-            : replacementString(replacement)
-        )
+        //TODO: why is the `match` the 3rd subgroup?
+        match.replace
+          (finalRgx, 
+            typeof replacement === 'function' 
+              ? () => replacement({ index: replaceIndex, match, groups: args, position: pos, source, namedGroups })
+              : () => replacement
+          )
     )
 
 
   //TODO: I don't this interface to buildResultKey is a good idea...just a gut feeling here.
+  //TODO: unify the return results
   // REPLACE IF replacePointer IS INCLUDED IN replacementKeys given by user
-  if (replacementKeys === 'all' ||
-      replacementKeys.includes(buildResultKey(replaceIndex) as string)) {
-      /** if a replacementKey matches current result this result won't be included in the list of results */
+  if (replacementKeys === 'all' || replacementKeys.includes(buildResultKey(replaceIndex) as string) ) 
+  { /** if a replacementKey matches current result this result won't be included in the list of results */
+    //TODO: why are we concatenating the first subgroup with the replaced text? 
       return auxMatch + replaced;
   }
 
-  replaceIndex++;
 
   //TODO: add result metadata as filterCtxReplacement arg
   const result = {
@@ -225,7 +204,9 @@ function replaceFunc
         },
       resultKey: buildResultKey(searchIndex),
       metadata: {
+          //TODO: remove this since it's unecessary
           source: source,
+          //TODO: remove this since it's unecessary
           match: match,
           searchIndex,
           position: pos,
@@ -240,6 +221,7 @@ function replaceFunc
   //TODO: is there a stateless way to do this? It's difficult to follow the denotational semantics
   //of the code given a stateful variable like this.
   searchIndex++;
+  replaceIndex++;
 
   return tmpMatch;
 }} 
