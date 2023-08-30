@@ -2,12 +2,13 @@ import fnr from '.';
 import * as F from 'fast-check'
 import {nonSubStringOf} from './nonSubStringOf'
 import {reflectedString} from './ReflectedString'
+import legacyGoldMasterData from './legacyGoldMaster.json'
 
-/**
-findr takes in a regex or a string. We're currently testing only with strings but we also need to test
-with regexes.
-
-*/
+describe('gold-master', () => 
+  test.each
+    (legacyGoldMasterData.map(({param, result}) => [param, result]))
+    ('gold master test on: (%j)', (param : any, result) => { expect(fnr(param)).toEqual(result) })
+)
 
 describe('fnrText', () => {
 
@@ -111,3 +112,5 @@ describe('fnrText', () => {
   })
   
 });
+
+

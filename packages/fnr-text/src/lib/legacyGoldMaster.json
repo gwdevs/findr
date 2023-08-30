@@ -1,0 +1,5359 @@
+[
+  {
+    "param": {
+      "source": "c#",
+      "target": "na",
+      "contextLength": 18,
+      "config": {
+        "ctxLen": 2147483644,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        "!AAW.Z~0": {
+          "\"/26S": [
+            {
+              "": true,
+              "FS{/7": "mp|U",
+              "3~wI": false,
+              "=pI": null
+            },
+            false,
+            {}
+          ],
+          ";g\\Yu^H_L": {
+            ":e&^": true,
+            "X": true,
+            "({u,": "@6_u!U3:B",
+            "": -7677200305394804,
+            "]<m}hC": 3059171745999041,
+            "O": "Vz/u~"
+          }
+        },
+        "\"G;2c": 5.629124529450962e+119,
+        "%\"uAuDYDj": [
+          -6.359652285271691e+263,
+          [
+            [
+              null,
+              null
+            ],
+            "*9vkGHRFm",
+            [
+              true,
+              -8.097105457672024e+213,
+              2006645891459815,
+              9.306301269810682e-139,
+              "",
+              2.363857469703751e-249,
+              "%O,5F2K6>@",
+              3.47372189948799e-75,
+              "Su7"
+            ],
+            8396322069366957,
+            [
+              true,
+              -2.9219998681331636e-150,
+              "\\Q45H+",
+              "~h$y&s",
+              "<{>yXd_ux"
+            ],
+            "'[.?7 z=k"
+          ]
+        ],
+        "": [
+          "^,Pi)y6`j",
+          null,
+          -1.4881571207932017e-113,
+          null,
+          false,
+          "<~qklc",
+          false,
+          false,
+          {
+            ">": ">"
+          },
+          -5072852723451204
+        ],
+        ".XC( ": {
+          "uZ": -7.813360088948073e-269,
+          "L)$B": -4.1020781433954956e+161,
+          "H": "xI@l",
+          "/h])": [
+            null,
+            "Cz\"=x7%^U_",
+            false,
+            "vYA$",
+            ")tm6z*34",
+            true,
+            -3081913180334823
+          ],
+          "f-~]$`": false,
+          "\"-%AnuA:": false
+        },
+        "9*Dl~K": -5114911676866984,
+        "O~wH4d": {}
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "c#"
+    }
+  },
+  {
+    "param": {
+      "source": "j6",
+      "target": "|y",
+      "replacement": "x",
+      "contextLength": 524424090,
+      "replacementKeys": [
+        16,
+        "RDv"
+      ],
+      "config": {
+        "isCaseMatched": true,
+        "isWordMatched": true
+      },
+      "metadata": {
+        "!Yh#%@iK": [
+          {
+            "f#T": 6.630353092399074e+60,
+            "L|[266K": true,
+            "a": true,
+            "/": 2.4291221496877253e-137,
+            "pIPh3D_": true,
+            "bsOxj;*": -4556259206672391,
+            "p0j>S!!C": false,
+            "hnf(": false
+          },
+          false
+        ],
+        "E`NUS[x3 W": "+%omMT|",
+        "S*8d": 8.542899123266219e-212
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "j6"
+    }
+  },
+  {
+    "param": {
+      "source": "W",
+      "target": "Xdp",
+      "replacement": "W",
+      "contextLength": 15,
+      "replacementKeys": "all",
+      "config": {
+        "ctxLen": 2147483628,
+        "isWordMatched": false,
+        "isCasePreserved": false
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "W"
+    }
+  },
+  {
+    "param": {
+      "source": "__lookupSe",
+      "target": "\"w",
+      "replacement": "",
+      "contextLength": 824793240,
+      "replacementKeys": "all",
+      "config": {
+        "ctxLen": 23,
+        "isCaseMatched": false,
+        "isWordMatched": false,
+        "isCasePreserved": true
+      },
+      "metadata": {
+        "binefXop": [
+          [
+            "",
+            9.173571935806457e+150,
+            "Wl3&z$"
+          ],
+          -9007199254740958,
+          [
+            null,
+            -2083072297846071,
+            -2.1063210897316864e-182,
+            true,
+            null,
+            [
+              "$#82w?K",
+              false,
+              -3841709607790449,
+              false,
+              false
+            ]
+          ]
+        ],
+        "]U=i4,1T],": {
+          "(:[.lF(2": [
+            8849238294234221,
+            true,
+            -1997322050710424,
+            4919733219896221,
+            2557814559379277,
+            null
+          ],
+          "-Kgh<": [
+            "riJh)N7&",
+            "@!dtK",
+            1.5084087045482495e-274,
+            -1156292064092618
+          ],
+          "%TBSR\"{30|": [
+            -5563254916585111,
+            -4747868568378245,
+            true,
+            6316991274890181,
+            false,
+            true,
+            -1.6726239989387152e+107
+          ]
+        },
+        "": 9.4e-323,
+        "ref": -47,
+        "1~[": 22,
+        "EZzh.U&G&q": [
+          {
+            "m\")$": {
+              "Kt^*6": null,
+              "K1gzMpaV%": "Z[=2X~$J=",
+              "c0bD}": 3.169595066211023e-212
+            },
+            "+&V?DM8iM": [
+              3.296817859406053e+203,
+              2.916637417687025e-141,
+              false,
+              "6GkiuHDT",
+              true,
+              615336218742807,
+              5.189934347981952e+203,
+              "l/J5<p"
+            ]
+          },
+          [
+            false,
+            {
+              "9.+M": "i@",
+              "": 1.468466528642001e-69,
+              "sZ\\2pG~": 8376155205325425,
+              "V~j'&PXSn@": null,
+              "n1^:hy": true
+            },
+            -7.443241196385613e+170,
+            -9.745982555465798e-207
+          ],
+          1.797693134862307e+308,
+          "F  ",
+          [
+            [
+              6851638586867401,
+              false,
+              "lVqJ!_RHJ",
+              7.574050187976388e-171
+            ],
+            {},
+            "2#{"
+          ]
+        ],
+        "aT=(M": {
+          "property": 47,
+          "": "{}i1",
+          ":C.VA,4": null,
+          "9z%": -9007199254740968,
+          "8^jtter_&%": 6.972811539293603e+102,
+          "^n": -7283654910779684,
+          "]constr": 40,
+          "*l+s@)hff": -15,
+          "ju": -9.238748941858333e-212
+        }
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "__lookupSe"
+    }
+  },
+  {
+    "param": {
+      "source": "x",
+      "target": "a",
+      "replacement": "&h",
+      "contextLength": 2147483625,
+      "config": {
+        "ctxLen": 1478845369,
+        "isCaseMatched": false,
+        "isWordMatched": false,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        "T{},HW": 9007199254740973
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "x"
+    }
+  },
+  {
+    "param": {
+      "source": "j|AGU#uT`",
+      "target": "ref",
+      "replacement": "OaL6'x6t",
+      "contextLength": 547693839,
+      "replacementKeys": "all",
+      "config": {
+        "isCaseMatched": true,
+        "isWordMatched": true,
+        "isCasePreserved": true
+      },
+      "metadata": {
+        "&": {
+          "D2": "xx\"}5&_",
+          "yH:WMjQP#W": -7110957992501202,
+          "4d": 3,
+          "": null,
+          "x{xco:%v": true,
+          "{\"": true,
+          "asOw__": 9007199254740965
+        },
+        ">K83": {
+          "FkJV": [
+            "",
+            "|4{>\\",
+            -2951926663203875,
+            true,
+            [
+              -5620685022824399,
+              "",
+              -6.957699845112037e-297,
+              " 4d",
+              "|kl"
+            ]
+          ],
+          "#u ": false,
+          "C": "+x&x|l$",
+          "oNe?": null,
+          "f": {
+            "a4*ULH": "",
+            "lKX": -5781291794419721,
+            "fHhIYd0?": -1.6840129914005113e-31,
+            "1(nsi[#u": null,
+            "V[<w*%f ": -94352774661203940000,
+            "ykZ55QcY": -4981377568312153,
+            "it]sJ:": "G,n_K<\"S}D",
+            "%Gb[46\\W1)": "%X."
+          }
+        }
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "j|AGU#uT`"
+    }
+  },
+  {
+    "param": {
+      "source": "ref",
+      "target": "cT/",
+      "replacementKeys": "all",
+      "config": {
+        "ctxLen": 2147483643,
+        "isCaseMatched": true,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        "xPO": 5.3948523689113925e-278,
+        "calle": false,
+        "2MT~,5Y": {
+          "W1": {
+            "Hfk": null,
+            "uQu~ZJ7": "P",
+            "7\\W~": 5272113548188191,
+            "/": 6836894447985317,
+            "Lu#?H[": null
+          },
+          "@Xo<$Uo>:#": [
+            {
+              "@6Px8`njj": "'aB]&G",
+              "t.T2'H": "",
+              "": true,
+              "'e}l2mG": false,
+              "d-H": 7100198773135061,
+              "vBf5I6Opq": "uQ'G}2hSf",
+              "o]yXz)B": "",
+              "NnHo1c{5": "WFa:_2zDrf",
+              "/>vXvC:": -8.906236967879269e+133
+            },
+            false,
+            false,
+            "Y)iI@\"Z/P",
+            4.4247150042187456e-100,
+            false
+          ],
+          "hF-y": "L}nU",
+          "j]o8B2,o": 72167.90997527099,
+          "Bpo": true
+        }
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "ref"
+    }
+  },
+  {
+    "param": {
+      "source": "S}n",
+      "target": "1+\"",
+      "contextLength": 1341310258,
+      "replacementKeys": "all",
+      "config": {
+        "ctxLen": 512847368,
+        "isCaseMatched": false,
+        "isCasePreserved": true
+      },
+      "metadata": {
+        "+]PJj": {
+          "xy|~": true,
+          "kt": "6`Jxz+",
+          "-6^GF(}": null,
+          "w99eU": false,
+          "Gp-Mf?>@h": 1158269827823625,
+          "^H)Fy)b": false,
+          "x*": "TMVJ",
+          "mIT6Cf": true
+        },
+        "": [
+          {
+            "1bZ/j": -7716920863048895,
+            ">sVdts!#U": -2671732929607240,
+            "\"G@{/),P": "5",
+            "!": -6818935849194222,
+            "": true,
+            "9d7vx": -762044150053420,
+            "KrXe-koLof": "UA|"
+          },
+          null,
+          -1447129263125630,
+          "{J=p/"
+        ],
+        "nC": {
+          "8q0DA$Y": "#jnqU|)O*",
+          "Q@BKG=;U": "BkBFm",
+          "' ?M#": {
+            "": "}U",
+            "F,yMv*0sYn": -1380888232149283,
+            "r Cw|": [
+              "qai[",
+              "48c:^i^#+|",
+              true,
+              -2.6023069975188582e-110,
+              true,
+              "4HhB$1I)",
+              -6.31917819925551e+83
+            ]
+          },
+          "G4k|K/7bX": -5811117115728490,
+          "C": 2.1363461965655763e+195,
+          "nU%NTwh[|?": false
+        },
+        "GmXkem": {},
+        "(x;&,a": {
+          "Gh/ &iz#J": "x"
+        },
+        "caller": -1.7976931348623127e+308,
+        "B": 1329857935477849,
+        "x]|;)y5y": {
+          "3YM[opXk9Z": "",
+          "OLg00Q.6r^": [
+            null,
+            6003033067724889,
+            "[&V!@fb-)",
+            false,
+            null,
+            null,
+            null,
+            1.8918259771943363e-220,
+            false,
+            true
+          ]
+        },
+        "bind$nProp": 8267349800651863
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "S}n"
+    }
+  },
+  {
+    "param": {
+      "source": "OPRO",
+      "target": "/",
+      "contextLength": 1443389043,
+      "replacementKeys": [
+        "8zfb?mfx^",
+        "l6p!",
+        "f!",
+        "g;wr3 ObK`"
+      ],
+      "config": {
+        "isWordMatched": true,
+        "isCasePreserved": true
+      },
+      "metadata": {
+        "@>:euw": 8659149716790185,
+        "jExS[N": [
+          true,
+          1.5121729838836174e-174,
+          [
+            3300883864047093,
+            4.506639781297768e-178,
+            8.623707819708549e+103,
+            "gd|2nM.",
+            -3.863421884501122e+226,
+            5701673057719849,
+            null,
+            5119884683897405,
+            -6579069742594395
+          ]
+        ],
+        "jGhL&": {
+          "_": "XF*Qz",
+          "a3Q%*7[-": 6649460626993061,
+          "IGa": -6431910867467059,
+          "Q;b!~v~$u": 6.516213832692105e-243,
+          "!": "nB5e<",
+          "Bjaqh!=2M": false,
+          ".&B\\_Cw0C$": true
+        },
+        "/bj": {
+          ">8Z": true,
+          "],Rlgw": [
+            "L",
+            4759012405546803,
+            -1946353574641606,
+            true,
+            false,
+            true,
+            null,
+            -3.0353583515964533e-27
+          ],
+          "": 3241005719486783,
+          "q": [
+            "Mz|>bhJ\"|(",
+            -4.0871990402953947e-212,
+            "b",
+            true,
+            -1300047206546305,
+            1875412665121161
+          ],
+          "5MY7<a": 3718581672722761,
+          ":dh|`^S/uh": "R",
+          "pqc6t": 1.0709383969372503e-294,
+          "=yo8WV'nJ": -1.2904154041063143e-148,
+          "G,#0AD;M": 4.8231766525108745e-175
+        },
+        "p-b8\"7h1TP": false,
+        "r)\\JJpX#w": [
+          null,
+          8041550789692601,
+          ".3R",
+          false,
+          "Y)o\\%",
+          false,
+          {
+            "lWu<h n": -2181146890235877,
+            "F^L*GAi96": "8efbT",
+            "=Y#'": "\"[3|@",
+            "a5=LY\\?)": 4224753465883553
+          },
+          true,
+          true,
+          "O}"
+        ],
+        "X;'=bKa": "xZ5uj"
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "OPRO"
+    }
+  },
+  {
+    "param": {
+      "source": "yTgkv5I",
+      "target": "gbS",
+      "contextLength": 1267234655,
+      "replacementKeys": [
+        "\"[Q]*T",
+        "<5>m5c;"
+      ],
+      "config": {
+        "isCaseMatched": false,
+        "isWordMatched": true,
+        "isCasePreserved": true
+      },
+      "metadata": {
+        "nSs7?(G": 1.33e-322,
+        "\\[7[Bh`$": "",
+        "c[$t7F5'?C": [
+          [
+            null,
+            2.3044182668230734e+55,
+            true,
+            "/g",
+            true,
+            "YpXUMH9T+",
+            false,
+            false,
+            false,
+            null
+          ],
+          [
+            true,
+            null,
+            {
+              "BEqAAN": null,
+              "IO2IJ|": null,
+              "$&=5{QRA_s": "hYj~X>g,-`"
+            }
+          ],
+          {
+            "kL/kw": null,
+            "$b/#%Z/B@": 0.7559173595518018,
+            "3(f +": null,
+            "[xm}1`": -1.3177667988164028e+81,
+            "b": false,
+            "h": 2247592780592047,
+            "Nhb/}": -3548423288457182
+          }
+        ],
+        "~": [
+          null,
+          "]f=B,:{",
+          "96(",
+          1.5285374569607012e-146,
+          true,
+          false,
+          4.715151717759368e+98,
+          3.6762035224614107e-44,
+          false,
+          -7597584569007816
+        ]
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "yTgkv5I"
+    }
+  },
+  {
+    "param": {
+      "source": "=9F1Rsg",
+      "target": "7F#u?;",
+      "replacement": "callercall",
+      "contextLength": 2147483626,
+      "replacementKeys": "all",
+      "config": {
+        "isCaseMatched": true,
+        "isWordMatched": false,
+        "isCasePreserved": true
+      },
+      "metadata": null
+    },
+    "result": {
+      "results": [],
+      "replaced": "=9F1Rsg"
+    }
+  },
+  {
+    "param": {
+      "source": "",
+      "target": "s.(sdd|#U",
+      "contextLength": 1345046536,
+      "config": {
+        "isCaseMatched": true,
+        "isWordMatched": false,
+        "isCasePreserved": true
+      },
+      "metadata": {
+        "^AjJ": {},
+        "S": {
+          "KI\"E": [
+            1.720059031532549e+190,
+            ".M=xsR[E_7",
+            null,
+            false,
+            4049439770279557,
+            "D@`QUaqf'5",
+            "P?",
+            -7807178411964691,
+            {
+              "2": "0!6",
+              "Bp": false,
+              "rx@6DE7AjM": true,
+              "@<nYf2": -2.900521809046666e+149,
+              "": true,
+              "#": "J",
+              "\\'QW.U}": -7779023475906270,
+              "Y-8Vl.FpI(": 6.503292244706934e+63,
+              ",*uIiXI-": false
+            }
+          ]
+        },
+        "16;YTmOJ@": [
+          false,
+          "h",
+          -2.2600039576926343e-280,
+          -783319696005478,
+          3633330422903325,
+          "lu&y+15aA",
+          4310188480041667
+        ],
+        "+uNf": [
+          null,
+          5.746408822559483e-61,
+          null,
+          8.341121749731808e+223,
+          true,
+          3.3077921918724664e-94,
+          null
+        ],
+        "": null,
+        "&WcW\"F\\": [
+          [
+            {
+              "o:ZFf1JYZ": false
+            },
+            {
+              "D2": 3.144433576028518e+134,
+              "$U*|gxm": 6.538194935068535e-134,
+              "65}a/": ")",
+              "cD'": -5.2374449947580864e+119,
+              "rN{": 3793052217046851,
+              "p": false,
+              "l": -2247031089900908,
+              "rQ:`)Nnf9g": null,
+              "Xz-[t<kL": false
+            },
+            -1.52208094456788e+30,
+            -5148514560325924,
+            "`r\\e,*\\>l{"
+          ]
+        ],
+        "oBEN[n`0": "s72QpWw"
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": ""
+    }
+  },
+  {
+    "param": {
+      "source": "\"Nda$!vtO.",
+      "target": "z.~7k",
+      "replacement": " ;r",
+      "contextLength": 15,
+      "replacementKeys": [
+        820596694,
+        "}1!P",
+        "",
+        8,
+        1882150779,
+        1290736310,
+        "bind",
+        35427522
+      ],
+      "config": {
+        "ctxLen": 1894558349,
+        "isCaseMatched": true,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        "0w": "^~'N'",
+        "iZ(<)X/wYg": {
+          "": 5.426201183695675e-37,
+          "|TR>Qt": "tal&+G9HXS",
+          "Z2hs(u": true,
+          "RuH!9vo5": "$Q@+.X1/",
+          "7)\\V:": [
+            true,
+            false,
+            true,
+            6836719901495867,
+            "y9vGzQer}s",
+            "",
+            null,
+            null,
+            -5.969484345534326e+176,
+            true
+          ],
+          "hKFV~D4ja": {}
+        },
+        "5x=zY$Y": {
+          "&": {
+            "StGy": {
+              "eACN2 If": 8803952079980517
+            },
+            "NB01R;XG!": -116973483664079
+          },
+          "cS": 8016924478800163
+        },
+        "h": 1119412650198489,
+        "<p?": {
+          "Q7PVeP`": "z)zB\"",
+          "uE\"7V!0\\": 6389630888249197,
+          "]b": ";;?",
+          "c5 'z/cn-": "Ncg6\"v`&%+",
+          "<W`eqp1rdm": false
+        },
+        "qW2Ppz ": false,
+        "8x\"<uGR6F": "M,e",
+        "+UMP3wq": -3689536580832145,
+        "Ft}ddXdS": [
+          "E",
+          [
+            null,
+            [
+              4965722692323593,
+              [
+                true,
+                8181388434246161,
+                true,
+                null,
+                496656667085753
+              ]
+            ],
+            6632545668546735
+          ]
+        ],
+        "": [
+          null,
+          9.01172330855597e-171,
+          {
+            "I+R'`ZC": true
+          },
+          -4.205981432268423e-239,
+          false,
+          false,
+          "",
+          -7541409753462576
+        ]
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "\"Nda$!vtO."
+    }
+  },
+  {
+    "param": {
+      "source": "a",
+      "target": "",
+      "replacementKeys": "all",
+      "config": {
+        "ctxLen": 1370403317,
+        "isCaseMatched": false,
+        "isCasePreserved": false
+      },
+      "metadata": null
+    },
+    "result": {
+      "results": [],
+      "replaced": "a"
+    }
+  },
+  {
+    "param": {
+      "source": "a]",
+      "target": "x>261/",
+      "contextLength": 439991546,
+      "replacementKeys": "all",
+      "metadata": {
+        "": [
+          {
+            "uQG": "{&;4~KqU",
+            "+fz&Y": 7825393209725617,
+            "MYAOAfv-2c": 3.236480460613305e-219,
+            "aNvX": 7718980025265081,
+            "+]kZPM": "|9U'3",
+            "CBg": -8188762895487449
+          },
+          [
+            {
+              "<XsOTgH|E": 4237054132555021,
+              "3X6Beo": false,
+              "{J1^iC.AGj": -6.867495249199249e-234
+            },
+            null,
+            null,
+            true,
+            "?",
+            "ua[zGw",
+            "o8e/3",
+            "V[|a*K)T",
+            "(spNsXvf"
+          ],
+          {
+            "/P=<P": 6.575444594988083e+47,
+            "D-h": "L0",
+            "gd.osA/H": 3018247912782135,
+            "": 7804975040411781,
+            "`g])Uy": -1.05187826420551e-308,
+            "^<": true,
+            "+Xn": "A?2{"
+          }
+        ],
+        "x^=z`~b": 4.00775808711066e-46,
+        "s)&-nUW": [],
+        "} ": [
+          ")#KZ",
+          [
+            null,
+            5.5645480064155614e-269,
+            false,
+            true,
+            true,
+            -2065235916080254
+          ],
+          {
+            "$WHgFN": false,
+            "&w": "Soq`5ovPgf",
+            "": true
+          },
+          -32315297605.810974,
+          ":,g/_",
+          -5.762365156801239e+264,
+          ""
+        ],
+        "L": {
+          "NlT`xW63": 25
+        },
+        "MD7PY#j": {
+          "": ""
+        },
+        "VRfXGZ ": [
+          true,
+          "R",
+          {
+            "T": 7524513685153991,
+            "N4w}5<+lm": true,
+            "pJ2f/n'": 7829763873558981,
+            ";n": false,
+            "x('W": false,
+            ",'0cH#Kft]": true
+          },
+          ":",
+          "Y5*!f",
+          6652512476462305,
+          null
+        ]
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "a]"
+    }
+  },
+  {
+    "param": {
+      "source": "",
+      "target": "=%xi2",
+      "replacementKeys": [
+        "w{ME#D",
+        1625426735,
+        618704591,
+        1484600194,
+        "0TCBtH.#",
+        492937336,
+        1337727449
+      ],
+      "config": {
+        "ctxLen": 12,
+        "isCaseMatched": false,
+        "isWordMatched": true,
+        "isCasePreserved": true
+      },
+      "metadata": {
+        ",k": false,
+        "ia": null,
+        "U": 1.196789847296312e-28,
+        "DLo": -5.4812750064638706e-93,
+        "}^": -2343681639753970
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": ""
+    }
+  },
+  {
+    "param": {
+      "source": "tz",
+      "target": "}G8",
+      "replacement": "U",
+      "contextLength": 165298674,
+      "replacementKeys": [
+        235057474
+      ],
+      "config": {
+        "isCaseMatched": false,
+        "isWordMatched": true,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        "": [],
+        "V": {
+          "e": 3.334627430131116e+221
+        },
+        "q|]C8": {
+          "L": -2.133640754520475e+54
+        }
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "tz"
+    }
+  },
+  {
+    "param": {
+      "source": "",
+      "target": "",
+      "replacement": "Fd#%<&\"",
+      "contextLength": 1,
+      "replacementKeys": "all",
+      "config": {
+        "ctxLen": 1225371321,
+        "isCaseMatched": false,
+        "isWordMatched": true,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        "0": {
+          "I": -8426637687348028,
+          ",%-!h]_": false,
+          "z": 1267350897222289,
+          "&O_": "E",
+          "8`gl|5vM?_": 505545952040309,
+          "avH\\mQcM": 2710568480761425,
+          "yngqY>Z8": false
+        },
+        "-,O\\_;8p9u": [
+          false,
+          1.9730134384629637e-63,
+          874574688820635,
+          "53J-6z3)F",
+          "",
+          false,
+          "];",
+          null,
+          null,
+          "hcul*j"
+        ],
+        "k": [
+          -8941063243539669,
+          true,
+          4.768665553679339e+61,
+          "7R2``II",
+          true,
+          {},
+          -7109966096541545,
+          "+]0"
+        ],
+        "n$Lx*2vd": {
+          "g4w|%t": true,
+          "EC\\": 4.0631162404162696e+246,
+          "xw5tj": 7.111846304465727e-55,
+          "mxI(lR": 6.416225648855254e+251,
+          "8NjoS/Yo(G": -4218853519268395,
+          "/yfBc}R*": "bPSx>W5T`W",
+          "*>": -6.2930309556335935e+277,
+          "lR8": true
+        },
+        "NH{~qd=": {
+          "}T4i'": false,
+          "f": 1874391069274113,
+          "\\Z": false,
+          "H,D~": null,
+          "JpGN": null,
+          "r+*,1": 696319660872137,
+          "1p~$%r0": false,
+          "MZl$": "biA\\6"
+        },
+        "v.)*@": false,
+        "n[9": {
+          "td": 5.79436610846164e+232,
+          "": "><22H;uMw",
+          "|V9z~ZTd": true,
+          "LZ4&/P/`": 7133829195082749
+        }
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": ""
+    }
+  },
+  {
+    "param": {
+      "source": "y^-*",
+      "target": "yx",
+      "contextLength": 458741073,
+      "replacementKeys": "all",
+      "config": {
+        "isCasePreserved": false
+      },
+      "metadata": {
+        "0Hy\"d(HJ": [
+          -1.0651644948680563e-150,
+          "<DMNXSx",
+          false,
+          "$g",
+          {
+            "g}0mO-q": 1.8531024341630136e-10,
+            "o+=7bczclO": 3.231102427302441e-136,
+            "": null,
+            "1n-k^": "RwyG_J4",
+            "q4D": 5.915644974495833e+246,
+            "o": 6504628508093971,
+            ".Vp": "V0#nDBb (t"
+          },
+          -6105207462986053,
+          null
+        ],
+        "|": "O*",
+        "S": true,
+        "r8NF|": {
+          "7": -6,
+          "R": true,
+          "&oL": false,
+          "#": -4.068282024095551e+199,
+          "fhjN": -7,
+          "m@/p": "Bq("
+        },
+        "Q@wo": -5417246053750545
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "y^-*"
+    }
+  },
+  {
+    "param": {
+      "source": "tT$",
+      "target": "x",
+      "contextLength": 390436036,
+      "replacementKeys": [],
+      "config": {
+        "ctxLen": 1860035108,
+        "isWordMatched": false,
+        "isCasePreserved": true
+      },
+      "metadata": {
+        "Qq": [
+          -4710239256094258,
+          -0.000016786042613180256,
+          true,
+          "1#e^[*~u",
+          "",
+          {
+            "vV9Ct": 5766821680520177,
+            "LnXu:<": 3.779962267172391e-118
+          },
+          null,
+          true
+        ],
+        "p,-z": null,
+        "*H2N": {
+          "": "zh",
+          "kr^1Q@eH7": [
+            false,
+            5093247676599979,
+            -1468730205059733,
+            "n2;",
+            null
+          ]
+        },
+        "\\": {
+          "Vz3}v": "uwE f=bE4N",
+          "{=K_gN": "{[NWWUx~K\\",
+          "_22se9a5$(": ".3EKg.a",
+          "^4JLxE)L": -7615487739725359,
+          "btX!AVO": true,
+          "(iF.dqW": [
+            false,
+            true,
+            "oVF><Uy",
+            null,
+            7415745996468073,
+            "]\"$_Xy;!C",
+            null,
+            null,
+            512114363961889,
+            false
+          ],
+          "M": "CX-=4t"
+        },
+        "": {
+          "[": [
+            9.687327179195747e+178,
+            -1.5317862553503077e-77,
+            true,
+            false,
+            8388662658783959,
+            "VhBk",
+            null,
+            8.052692826759259e+198,
+            -5384694006863745,
+            "|("
+          ],
+          "B1n": [
+            3816878535207709,
+            true
+          ],
+          "D[rRG?J": {
+            "$m,(+u`f": null,
+            "~NwVI2U": "",
+            "^:": 5178562390838827,
+            "@%;Vq;+*zN": "PMFTwW&m"
+          }
+        }
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "tT$"
+    }
+  },
+  {
+    "param": {
+      "source": "@yN>]YT(",
+      "target": "L",
+      "replacement": "2V0-@l'jl9",
+      "contextLength": 7,
+      "replacementKeys": "all",
+      "config": {
+        "ctxLen": 1376217103,
+        "isCaseMatched": true,
+        "isWordMatched": false,
+        "isCasePreserved": true
+      },
+      "metadata": {
+        "r`7v": -7864090384823535
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "@yN>]YT("
+    }
+  },
+  {
+    "param": {
+      "source": "",
+      "target": "Z$/",
+      "replacement": "",
+      "contextLength": 1435354273,
+      "replacementKeys": [
+        "Y}J+",
+        1133284078
+      ],
+      "config": {
+        "ctxLen": 1974511246,
+        "isCaseMatched": true,
+        "isWordMatched": false,
+        "isCasePreserved": true
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": ""
+    }
+  },
+  {
+    "param": {
+      "source": "xI0",
+      "target": "valueOf",
+      "contextLength": 198249833,
+      "replacementKeys": [
+        "",
+        "*f4vu|B",
+        1461647133,
+        721519761,
+        1102843604,
+        2091311373,
+        ":r<[!",
+        "P6DU",
+        1476663037,
+        "uylP"
+      ],
+      "config": {
+        "ctxLen": 2147483637,
+        "isCaseMatched": false,
+        "isWordMatched": true,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        "./m0)ob": -8097618351708552,
+        " d:W#j[o0Q": "e,5JP",
+        "*Xi?n4*qWS": [],
+        "Dnhqrb": {
+          "\\hwr.;U": [
+            [
+              -1.213167850591088e-144,
+              254006054703133,
+              "",
+              null,
+              null,
+              -4.719502133447844e-210,
+              "/3d%7[K H@",
+              "Gh)CQs(%2{"
+            ],
+            "}SH'[_~",
+            null,
+            "m"
+          ]
+        }
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "xI0"
+    }
+  },
+  {
+    "param": {
+      "source": "Ic>uo_`",
+      "target": "H",
+      "replacement": "6^gU'NZY",
+      "contextLength": 454359894,
+      "config": {
+        "ctxLen": 1,
+        "isCaseMatched": true,
+        "isWordMatched": true,
+        "isCasePreserved": true
+      },
+      "metadata": {
+        "I@\"a=": [
+          [
+            "<",
+            false
+          ],
+          {},
+          true,
+          null
+        ],
+        "!": {
+          " 8m\"tQ": 3.039286789809317e-150,
+          "6/ihp7w7=": {
+            "6": true,
+            "shU[": 2923363281384769
+          },
+          "t<ke{+c": true,
+          "/~8cY3": "2_}|DrY7(2",
+          "C?7gz}+c": "LKd9$WUZ["
+        },
+        "1.PIj&": -8514006989037205,
+        "qOv": [
+          {}
+        ],
+        "94 k7s": -3835187958796116,
+        "<SKJz": true,
+        "": {
+          "1,4$3>$N": 3508270707707919,
+          "12s": true,
+          "6k(nM@fO/q": "!",
+          ")'#Fi*": {},
+          ";": false
+        },
+        "&=w": {
+          "&": true
+        }
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "Ic>uo_`"
+    }
+  },
+  {
+    "param": {
+      "source": "QsV,ba9",
+      "target": "?",
+      "contextLength": 17,
+      "replacementKeys": [
+        380181036,
+        1976296739,
+        1265446876,
+        "&",
+        "",
+        1061928251
+      ],
+      "config": {
+        "ctxLen": 6,
+        "isCaseMatched": true,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        "9U[u~^dA": {
+          "le#": [],
+          "": {
+            "\"S": [
+              -8.840866413008174e-9,
+              [
+                "",
+                "",
+                9.796630726855079e-66,
+                null,
+                -1332132227002060,
+                "+~",
+                true,
+                true,
+                -4370012482392599
+              ],
+              "",
+              ""
+            ],
+            "6_h": "j'-*PcR5B",
+            "z:<2!\\9#": "e:Vr(`",
+            "4?||>n": 1.0358082664691071e+171
+          },
+          "t=iG\\qC.!": [],
+          "'{%mJ": "n;Y",
+          "pfIU;!smj}": [
+            7561253842775901,
+            -4.5411433148080255e-298,
+            "np=lQ3+H.L",
+            true,
+            -3722374956934365
+          ]
+        },
+        "Wu": 1.000337911075325e+236,
+        "": [],
+        "/=)|0o<'Y": [
+          ", %7RIa",
+          null,
+          -5.127333161769973e+206,
+          {},
+          [
+            3.880577517118007e+193,
+            -4465803631201857,
+            null,
+            "2.)bc5dR}W",
+            3.457293190608386e+307,
+            -1983548177547820,
+            -1.5635115561351517e+44,
+            false
+          ],
+          false
+        ],
+        "k]w?XQ@": null,
+        "RHe": {
+          "5s@=H.A": "J:_P7qPxi",
+          "jRgGZCVap": -9.32308438758165e-305,
+          "_Fn{z": [],
+          "f": "k\"GP",
+          "YT": true
+        },
+        "@A:fz&'0": [],
+        "B*])$;": [],
+        "r": 1.3604662465742515e-168
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "QsV,ba9"
+    }
+  },
+  {
+    "param": {
+      "source": "0W",
+      "target": " ",
+      "replacement": "G",
+      "contextLength": 25,
+      "replacementKeys": "all",
+      "config": {
+        "ctxLen": 82300488,
+        "isCaseMatched": false
+      },
+      "metadata": {
+        "p=": [
+          -8.461269618517952e+129,
+          -8790228312777714,
+          {
+            "&": -3.805314548204911e-142,
+            "H<5CNZj": 4743180751633197,
+            ">/": "aqo *OL0m",
+            "": true,
+            "Ag!wtQ`ro": -3.742834214766534e-232
+          },
+          true,
+          true,
+          3.029900918186708e-136,
+          -1.7105140662010997e-210,
+          -6.316773672515787e+29
+        ],
+        "U#b(": true,
+        "c,xmZ": {
+          "/h0*k": 3360249878451033,
+          "Jg)3w^d~#": true,
+          "e*=6O:L": "S9#z3(H",
+          "ovB#,4xYY": -3668324679848298,
+          "zZ": 5.407374663508887e-214,
+          "~,<!": 2905275557038819,
+          "eGY0(XjHN$": 1.5478256984863477e-174,
+          "OEA4}": -6675859207518590
+        },
+        "<)": [
+          [
+            3.5794204122314236e+99,
+            "6V% u)"
+          ],
+          {
+            "1": {
+              "z]ISWaQ": false
+            },
+            "3yRD#\"": {}
+          },
+          {}
+        ],
+        "aPb": {
+          "44": "D",
+          "P`i5f;28vA": -1968768237789081,
+          "T": ";kEab>_",
+          "k": "h('d;}j",
+          "b^&5 e": 1.0448013116473633e+159
+        }
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "0W"
+    }
+  },
+  {
+    "param": {
+      "source": "u",
+      "target": "",
+      "replacement": "H$!<K",
+      "contextLength": 926256240,
+      "replacementKeys": [
+        "\""
+      ],
+      "config": {
+        "ctxLen": 2147483631,
+        "isCaseMatched": true,
+        "isWordMatched": true
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "u"
+    }
+  },
+  {
+    "param": {
+      "source": "eh{;cms*",
+      "target": "#Z1-",
+      "replacement": "+?#Wk\\,Zn",
+      "contextLength": 405915028,
+      "config": {
+        "ctxLen": 1811081577,
+        "isCaseMatched": false,
+        "isWordMatched": true,
+        "isCasePreserved": true
+      },
+      "metadata": {}
+    },
+    "result": {
+      "results": [],
+      "replaced": "eh{;cms*"
+    }
+  },
+  {
+    "param": {
+      "source": "X]2-",
+      "target": "vFh",
+      "config": {
+        "ctxLen": 1418191107,
+        "isCaseMatched": false,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        "I": "FoXeBXH\\i ",
+        "w": 2.1285979283831594e-237,
+        "2=lHhml": {
+          "vOK8V[": [
+            "0ZT{sY<<h",
+            null,
+            [
+              1.7009158293201787e+22,
+              7.662358897371537e+86,
+              -1.4248596876749985e+291,
+              null,
+              "Q2F",
+              "!m${_R"
+            ]
+          ],
+          "=LI,u]U": [
+            "lAO:y 4p",
+            "Kj#++3n ",
+            -2.904433966339268e+271,
+            -3064064757133740,
+            "",
+            false,
+            -2338243097545680,
+            null,
+            false,
+            "\"+`>4"
+          ]
+        },
+        "/9`y": {
+          "": {
+            "[Q": "Q/j/AQR",
+            "": "}p[9LH4|",
+            "%~ACWbb6aH": -5.751763407398956e+180,
+            "dHi943nh&1": -3.13404247938367e-62
+          }
+        },
+        "F?2": {
+          "B": -5792267784267919,
+          "MJ": true,
+          "7;:4\"O_T": -1560743567421028,
+          "P]*;JZhVh]": 1.4552499093642203e+281
+        },
+        "t:(L": {
+          "": [
+            false,
+            2199654025476471,
+            "vF%Bo`cdQ",
+            4846790209764685,
+            null,
+            -6165660886997103,
+            true,
+            null,
+            null
+          ]
+        }
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "X]2-"
+    }
+  },
+  {
+    "param": {
+      "source": "(F&V=-[",
+      "target": "c)s5Lch",
+      "contextLength": 19,
+      "config": {
+        "ctxLen": 1794624167,
+        "isWordMatched": false,
+        "isCasePreserved": true
+      },
+      "metadata": {
+        "EiINcpLMb=": [
+          "vH",
+          ")@[/5WZZN",
+          8.722842724812251e+204,
+          false,
+          [
+            false,
+            -1.1771433680491514e+27,
+            1477092048265075,
+            -4.910081376794638e-35,
+            -1.9746434223361684e+34,
+            "h7",
+            "H",
+            1042225988439665
+          ],
+          "u*#SVI=M"
+        ],
+        "": 7.885526230219178e-231,
+        ";{gYHo_": [],
+        "v5m&lW": "V"
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "(F&V=-["
+    }
+  },
+  {
+    "param": {
+      "source": "cd~",
+      "target": "",
+      "contextLength": 28,
+      "replacementKeys": [
+        "7z=| Kt+",
+        "N1M",
+        "kus$Vs",
+        "Hft(",
+        1769636417
+      ],
+      "config": {
+        "ctxLen": 2147483640,
+        "isCaseMatched": true
+      },
+      "metadata": {
+        "k~] B": [
+          false,
+          -1350667469123020,
+          -474100678861753,
+          ":lCR#n;#",
+          true,
+          false
+        ],
+        "WoDN": {
+          "nU{": -2.335902962665387e+224,
+          "D": 1.886146104708254e+43,
+          "FNxD*": 1.1246062988194142e+190,
+          "\\4Q": true
+        },
+        "tJD$$YVyTn": [
+          null,
+          false,
+          4015621350543219,
+          false,
+          "B@Y9a",
+          null,
+          -3.426965013215297e-171,
+          {
+            "i<0=}9D[": "V-n==1RM",
+            "wZF.kud0[": 825119723040125,
+            "F@": "7",
+            "zWe'O'wL": null,
+            "sQcn": "1wWq,pY@{",
+            "iyep^Dp": true,
+            "H": false,
+            "RN": "'5x79"
+          }
+        ],
+        "sM\"Kr": {
+          "0]T": 8998259089491873,
+          "": true,
+          "4fxP": 2844987048546837,
+          "S": 2940889738509301,
+          "zkLXIW`A1": false,
+          "Df` ": -2.3131274760561013e-192
+        },
+        "": {
+          "!>": []
+        },
+        "eW_A": {
+          "gO,{aT-": "I0",
+          "B&~X": true,
+          "TzL4?~`J0": -1003267280804777,
+          "bH`_": false,
+          "{n": "8dk",
+          "u''": "",
+          "": 7613870711705395,
+          "&pN\\xNQ6": true,
+          "Q ": "g_",
+          "B*ZoO": -1.5153870670150412e-290
+        },
+        "D/^A": [
+          7305160813868169,
+          "%xGNe$m",
+          null,
+          ";]",
+          false,
+          "Et/HV}R7",
+          -8.163707922223136e+113,
+          null,
+          null,
+          true
+        ],
+        "G2+uNu|": [
+          {
+            "GR.D": -4889269515955444,
+            "[:4p!i,": "+AG{cQ"
+          },
+          true,
+          1.3290021415368925e+92,
+          "OP~D]IOuZr"
+        ]
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "cd~"
+    }
+  },
+  {
+    "param": {
+      "source": "x+FQF@V",
+      "target": "uf=Q",
+      "replacement": "AbyOq# \"\"z",
+      "contextLength": 11,
+      "config": {
+        "ctxLen": 311481562,
+        "isCaseMatched": false,
+        "isCasePreserved": true
+      },
+      "metadata": {
+        "#hv": {
+          "[bof_C(": [
+            "D!)*WeHG>",
+            1.995057185162335e-153,
+            "iEZ",
+            null,
+            -2.8716396122222086e+159,
+            -5.993533527418661e+29
+          ],
+          "^^%=5": "0ook=*",
+          "4g\\": {
+            "+17>B`": "gT*c(u=W2h",
+            "qiF$": -9.430336160252714e-192,
+            "k2hF2,W#r": true,
+            "KV": "w\\-",
+            "&3": null,
+            "pXdxLcXxNM": "r$W",
+            "z ~^GS": 7990048993400815
+          }
+        },
+        "yIZ!": "k+/df@(",
+        ">y~=f!K@|%": ""
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "x+FQF@V"
+    }
+  },
+  {
+    "param": {
+      "source": "JwO#gVWe*",
+      "target": "",
+      "contextLength": 2147483620,
+      "replacementKeys": [
+        "_X",
+        "qQC@T",
+        "",
+        1370252062,
+        "",
+        "Ffy%A",
+        "0",
+        1613026657,
+        "@g3"
+      ],
+      "config": {
+        "ctxLen": 2013956207,
+        "isCaseMatched": true,
+        "isWordMatched": false,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        "_": [
+          "HyN",
+          -1248198156605447,
+          5503778988831157,
+          [
+            "6v\\1ta[",
+            -1.9271768246612834e-211,
+            2.9901846774161053e+249,
+            2429421385327229,
+            "]"
+          ],
+          -3344268984575067,
+          "I-n$n.,DBb",
+          true
+        ],
+        "9u*{_W": "-{"
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "JwO#gVWe*"
+    }
+  },
+  {
+    "param": {
+      "source": "",
+      "target": "ap",
+      "contextLength": 29,
+      "config": {
+        "isCaseMatched": false,
+        "isWordMatched": true,
+        "isCasePreserved": true
+      },
+      "metadata": {
+        "jU`": false,
+        "&%~#": 6240149121749533,
+        "YQ8P<": [
+          1585822331747166200,
+          false,
+          -497086441245105,
+          [
+            null,
+            3474429174907411,
+            -2.1976844520402545e+135,
+            true,
+            null,
+            true,
+            null,
+            null,
+            3766610923961449
+          ]
+        ],
+        "@1+irQF": {
+          "3)TmGLz8": 3.38146282669878e-136,
+          "A^": 6145909413493897,
+          "|a5}val": true,
+          "hbLNXRkw": 7832892156274817,
+          "": 35,
+          "9-WT&a~^`8": -2.093021227550979e-101,
+          "XD ": "",
+          "}Qo!{|s\\Z/": {
+            "?`EdgX": -5.1195263004812826e+299,
+            "KNa": "kf!DOW|x_",
+            "z|e'K&": false,
+            ":1ew35": "pI",
+            "(d8z": 1907125741620849,
+            "": true,
+            "6\"&1|[t": true,
+            ",<sth~g": true,
+            "ff.:._#I<": "v",
+            "FK": 4.3515004071618754e-82
+          },
+          "'G7hh\\G]": ""
+        },
+        "": true
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": ""
+    }
+  },
+  {
+    "param": {
+      "source": "Hz",
+      "target": "Ud`Mfk",
+      "contextLength": 2071805222,
+      "replacementKeys": [],
+      "config": {
+        "ctxLen": 1432870801,
+        "isCaseMatched": false,
+        "isWordMatched": false,
+        "isCasePreserved": true
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "Hz"
+    }
+  },
+  {
+    "param": {
+      "source": "",
+      "target": "I",
+      "contextLength": 77419658,
+      "replacementKeys": "all",
+      "config": {
+        "ctxLen": 2147483625,
+        "isCaseMatched": true,
+        "isWordMatched": false,
+        "isCasePreserved": false
+      },
+      "metadata": {}
+    },
+    "result": {
+      "results": [],
+      "replaced": ""
+    }
+  },
+  {
+    "param": {
+      "source": "Q`m3",
+      "target": "",
+      "contextLength": 1,
+      "replacementKeys": [
+        1388247168,
+        "U1%",
+        495925795,
+        880538504,
+        "axaS]m*T",
+        "%'@'4ya",
+        "Q xP",
+        "V",
+        "P"
+      ],
+      "config": {
+        "ctxLen": 1291862281,
+        "isCaseMatched": true,
+        "isWordMatched": false
+      },
+      "metadata": {
+        "rp": {
+          "]f,:H=^u ": null,
+          "@7A?tE]y": -5570553908830335,
+          "wD{0sE*Q\\": "\\,%R",
+          "Pe": 265630813680659,
+          "qHZ;": -1.9577345504678652e+226,
+          "{#t})mY'": "kLWlE49k4",
+          "!U": true,
+          "+tJ0Yf=<": "3rtF",
+          "g,}CEz": 7128345671859451
+        },
+        "E%": true,
+        "+lZhW{B": {},
+        "*&H_g": {
+          "DTfwS)`": [
+            -112501986063415
+          ],
+          "}ulMq*F#1<": [
+            -4.489247390241638e+219,
+            true,
+            null,
+            4986265437439597,
+            -2.094861038692602e-273,
+            null,
+            {
+              "q": "EmxpPgY(",
+              "NOMQQZ m%e": 4564882554639849,
+              "C": -2955542261716219,
+              "~X;": false,
+              "E}": "-E9tA"
+            },
+            null
+          ]
+        },
+        "X-": [
+          418907764796007,
+          "mUo5Y",
+          1515439194961321,
+          null,
+          3409731615384361,
+          2.6342998540640875e+23,
+          1.9329139819815007e-201,
+          "`j1tV",
+          "KH#7"
+        ],
+        "SoiyJ\"@_": {
+          ">": true,
+          "`3": 1634365651556473,
+          "IH": [
+            5.496816999281528e-252
+          ],
+          "ccB": ""
+        },
+        "[ulnst>": [
+          false,
+          false,
+          -1341987054407985,
+          null,
+          -1582293905244488,
+          2.131602454260179e-69,
+          "E",
+          null,
+          2743009174767599
+        ],
+        "`{O<*": [
+          true,
+          4.6161216270080134e+82,
+          "otgM",
+          "/|]X",
+          -3920900012722407,
+          null,
+          "2",
+          "",
+          null
+        ]
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "Q`m3"
+    }
+  },
+  {
+    "param": {
+      "source": ";15B[$O",
+      "target": "1|i{@{",
+      "replacement": "|VVO8h\\Dv\"",
+      "contextLength": 2100540532,
+      "replacementKeys": [
+        1288301483,
+        1819304782,
+        1751009844,
+        1636913417,
+        "lrE",
+        "dK",
+        "bA\\^",
+        1524505192,
+        418111068
+      ],
+      "config": {
+        "ctxLen": 1611237260,
+        "isCaseMatched": false,
+        "isWordMatched": true,
+        "isCasePreserved": false
+      },
+      "metadata": null
+    },
+    "result": {
+      "results": [],
+      "replaced": ";15B[$O"
+    }
+  },
+  {
+    "param": {
+      "source": "$!k",
+      "target": "{<s",
+      "contextLength": 1563486582,
+      "replacementKeys": "all",
+      "config": {
+        "ctxLen": 634684246,
+        "isCaseMatched": false,
+        "isWordMatched": true,
+        "isCasePreserved": true
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "$!k"
+    }
+  },
+  {
+    "param": {
+      "source": "<;({r;5g",
+      "target": "Wnl6&xi2tu",
+      "replacement": "Z;Q^v(&",
+      "replacementKeys": "all",
+      "config": {
+        "ctxLen": 2128365683,
+        "isCaseMatched": true,
+        "isWordMatched": true,
+        "isCasePreserved": true
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "<;({r;5g"
+    }
+  },
+  {
+    "param": {
+      "source": "",
+      "target": "",
+      "replacementKeys": "all",
+      "config": {
+        "ctxLen": 19,
+        "isCaseMatched": true,
+        "isWordMatched": true,
+        "isCasePreserved": true
+      },
+      "metadata": null
+    },
+    "result": {
+      "results": [],
+      "replaced": ""
+    }
+  },
+  {
+    "param": {
+      "source": "a6$5\"mUkz",
+      "target": "",
+      "contextLength": 1124543246,
+      "config": {
+        "isCaseMatched": false,
+        "isWordMatched": false,
+        "isCasePreserved": true
+      },
+      "metadata": {
+        "-l)q": [
+          true,
+          "/&Al,j",
+          null,
+          -2541868460954855,
+          null,
+          -7711150754161886,
+          false,
+          true,
+          "F%DhOEC\"",
+          "iF"
+        ],
+        "dyH=6v": {
+          ".>8": "Qf*HUw%&z",
+          "[\\J{{Q": -6831101229773976,
+          "JS W\\": {
+            "dhy\\Fv`U@Y": "e.v\"}vAq>",
+            "0L": false,
+            "WL~'l)7": true,
+            "_FVE": false,
+            "CNE&:\\[": -1883873308911789,
+            "r$Cyk'": false
+          },
+          "mWrR:)8)": -934651684560458
+        },
+        "g(_L3M[[h$": [
+          [],
+          [
+            -2191840034288404,
+            false
+          ],
+          -1.0240515299229934e+72
+        ],
+        "v>": [
+          true,
+          null,
+          -1831429267746414,
+          true,
+          true,
+          -3326864470149042,
+          null,
+          true
+        ],
+        "": {
+          "zD>]?5A%(": {
+            "$#.B%\"sl~": -4843040005711994,
+            "x,e&Epv+": "A}",
+            "}Aue1=": 6994655232830337,
+            "@, Bz?": -1.5961358814281832e+99,
+            "]3b8": 3.274685757684714e+39,
+            "87?kG/m\"": null,
+            "y`": "rV#4`[p",
+            "DcF8SB5~": false,
+            "x?&0ey(}?E": 4967228629987957,
+            "": "-2"
+          },
+          "kq": {
+            "": ":",
+            "@I531u.E": 3.0359504389177695e-155,
+            "A": true,
+            "n3#": true,
+            "Jo6": {
+              "$hg^8V1V>": -1.7938420552887084,
+              "k;6T/Bt$f": null,
+              "": "!@+3Ggle,g",
+              "ghJup": "wAz1Z3j",
+              "ktLE": "]",
+              "lHIyHwD,": true,
+              "}": -5827516121363030,
+              "]m": false
+            },
+            "?_.XK7j/": {
+              "M": false,
+              "v`cC|];7": 1.3513668586176061e+144,
+              "ZmDQQ+\"(u": 8573765928404009,
+              "5S 5w": 1.3775176979963034e-112,
+              ")h|y": "E+n*A2y",
+              "McRX24Q": null,
+              "": true
+            }
+          }
+        },
+        "\\": {
+          "* ~'}": {
+            "V_yy5<c`": 1.801455511442439e+217,
+            "?@N!O%t": "ZA",
+            "k": null,
+            "aN": 4.597099867036163e-148,
+            "OIs|}Tt": [
+              -7.328468987711624e-152,
+              null,
+              "P"
+            ],
+            "'oo}H": false
+          },
+          "P5&\\x5xyL": [
+            {},
+            445124399308249,
+            "",
+            "rS",
+            [
+              "UBZr$Y7",
+              true,
+              null,
+              null,
+              -6.2589944897312246e+60,
+              4920043143795953,
+              null,
+              false,
+              "G?F6/<"
+            ]
+          ],
+          "x/Diftq": -5813649554079445
+        },
+        "(HI{": "_eH4"
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "a6$5\"mUkz"
+    }
+  },
+  {
+    "param": {
+      "source": "\\a-ltsF",
+      "target": "f~",
+      "replacement": "z#2]B",
+      "config": {
+        "ctxLen": 70891600,
+        "isCaseMatched": true,
+        "isWordMatched": false,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        "c`H@]Z(+'\\": {
+          "\"+3vY": [
+            true
+          ],
+          "f<!e#Q8`nA": {
+            "": -3594789127009292,
+            "?lv": 1.1513326721866711e+227,
+            "iQ]AT)B": "5uH-}iED",
+            "N5kA6\\N": 2.127172343712226e-220,
+            "LTt": "[w-B:IG"
+          },
+          ")FpvC": 6099085064954941,
+          "": 164812868372781
+        },
+        "D`\\\\o>w": {
+          "e}H&`Z#A|": "TSx,jw~P'",
+          "+2EE\"Q0=J4": true,
+          "</z0:u@L$": false,
+          "0,": "oUNT!'",
+          "O+{": -7.800656680863612e-155,
+          "": "9Y=G5g",
+          "3QBw5": "=5)|GNTM",
+          "1E<YbJ": [
+            null,
+            "A$Z"
+          ],
+          "H": 5.849511121629598e-23
+        }
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "\\a-ltsF"
+    }
+  },
+  {
+    "param": {
+      "source": "",
+      "target": "",
+      "contextLength": 584228904,
+      "metadata": null
+    },
+    "result": {
+      "results": [],
+      "replaced": ""
+    }
+  },
+  {
+    "param": {
+      "source": "7;,",
+      "target": "d",
+      "contextLength": 588938419,
+      "replacementKeys": "all",
+      "config": {
+        "ctxLen": 1095912886,
+        "isCaseMatched": true,
+        "isWordMatched": true,
+        "isCasePreserved": true
+      },
+      "metadata": {
+        "\\ETEc": -6.2504763715890985e+57,
+        "8]f?V": [
+          8163317153887009,
+          null,
+          1.2238624834770715e-236,
+          [
+            null,
+            [
+              -3.092925715282043e+202,
+              true,
+              "+-qef",
+              "NQ\"Gk"
+            ]
+          ],
+          {
+            "lsS": true,
+            "sWIvMG4x_h": "M-%h",
+            "Cs\\R]AK&q": -128361565193722,
+            "<mp!!v": "3'",
+            "bZgW)d@By": "s",
+            "{s'\"l": null,
+            "m": true,
+            "": -2.012780037086167e+74,
+            ";)V;#W7z": null
+          },
+          -6556780701519166,
+          1.254607907080588e+99
+        ],
+        "#fnfQk": [
+          4783865109797093,
+          -5854527289970788,
+          false,
+          -1475128049580502,
+          -4.103328370477812e-17,
+          ":>in",
+          null,
+          false
+        ],
+        "8-,[<?LZ": [
+          false,
+          6.107397812377587e-179,
+          -636877810940257,
+          -7.07737301906097e+252,
+          1.1048070219849336e+257,
+          true,
+          "|`ga!C{@i*",
+          "s&wyI[C",
+          -1.7615727648683407e-10
+        ],
+        "[v~": true,
+        "9{rgsk7(": "EsOQ,9D[@",
+        "P_r0xX": 6583563221196353,
+        "Z/`HK5E:g": -181.69905344431396,
+        "2`T/n\"!|O": null
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "7;,"
+    }
+  },
+  {
+    "param": {
+      "source": "aQ",
+      "target": "-m#",
+      "contextLength": 24,
+      "replacementKeys": "all",
+      "config": {
+        "isWordMatched": true,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        "X": {
+          "6F_\\V": false,
+          "@)bxsoc@Ib": -9.162802432847865e-293,
+          ";&J": -6.5052420036823e+260,
+          "p": true,
+          "w": "eg:%_"
+        },
+        "I~J": {
+          "R#Lo$lq\"ZH": ")?m#?-_)",
+          "r{G@q)7,pj": [
+            -8.915066081334046e+264,
+            true,
+            -7.505275813665141e-85,
+            -4814808899631453,
+            "5yN::",
+            {
+              "K<Nq": "X1w{2",
+              "oyS": "jk]*(`_! ",
+              "X@\\*o26ep": 5335844176784605,
+              "\\\"v^K(Kya": -1.2197749329374381e-19,
+              ":~e": 1764680239722031
+            },
+            null,
+            7.766575285752036e+232,
+            -4.309325763045587e-32,
+            false
+          ],
+          "DZRtNtuZ": [
+            [],
+            7.136317054857428e-300,
+            "gdl `",
+            7.077983052727083e-274,
+            null,
+            null
+          ]
+        }
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "aQ"
+    }
+  },
+  {
+    "param": {
+      "source": "c",
+      "target": "?B",
+      "contextLength": 434470700,
+      "replacementKeys": [
+        832883884,
+        "k&`2t@/"
+      ],
+      "config": {
+        "ctxLen": 2147483630,
+        "isCaseMatched": false,
+        "isWordMatched": false,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        " Bx": "+~\\&j%$\"e",
+        "": [
+          "",
+          "-]w?Zg<",
+          true,
+          "}#",
+          {
+            "6/": "FX@Ss&",
+            "[l*": "{p<=?lb07",
+            "%fh": true,
+            "": false,
+            "ZCwDP": null
+          },
+          [
+            true,
+            "9`g",
+            "}!7",
+            -7663945790262982,
+            true,
+            false,
+            -6.15034869772935e+174,
+            "f$B",
+            "9",
+            null
+          ],
+          -2.6743804660557975e-141
+        ],
+        "Jz;cN": {},
+        "zJrON5KkO": 9007199254740954,
+        "$x\\#": ".z__lookup",
+        "pih": -5.54445722493732e-14,
+        "Q{d?": {
+          "0": "DdvC?E-",
+          " @(Pn": 4.3646548896326784e-302,
+          ".uUdp(V": -1.1360244208235144e+167,
+          "": -8052561337578454,
+          "j$^%QWj7": true,
+          "f*$": "@;{<",
+          "5M@8HpB": false,
+          "3b$Gc*$": "scl;5Ikx&}",
+          " Q&E?9Yl": true,
+          "fUb": true
+        }
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "c"
+    }
+  },
+  {
+    "param": {
+      "source": "",
+      "target": "s",
+      "contextLength": 2053853252,
+      "config": {
+        "ctxLen": 205374877,
+        "isCaseMatched": false,
+        "isWordMatched": false
+      },
+      "metadata": {
+        "a>(8Lby}t": {
+          "$E": "a|1:)LjA",
+          "KH[Q%*{l": false,
+          "QS4ZL": null,
+          "d%^zX": false,
+          "jB%b/?.": false,
+          "}cRP;y1V": ""
+        },
+        "_Dz#{E": -3096173547226696
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": ""
+    }
+  },
+  {
+    "param": {
+      "source": "ix7oLio*",
+      "target": "",
+      "contextLength": 21,
+      "replacementKeys": "all",
+      "metadata": {
+        "9.x(0FFf": {
+          "=})Z": "Uv#sK%3-u`",
+          "<": 5092571408088711,
+          "N": 2.6124968437963638e-272,
+          "": 7.588405122303902e+222,
+          "g2w^wlEx": {
+            "i&": true,
+            "sF\"U": -4.3546522428982856e+102,
+            "]6$?hj": -3313561175704618,
+            "b}|>O": "1x:",
+            "ze": "U{&5w",
+            "I": true,
+            "8$7SLM": true,
+            "4vAy0P\\": null,
+            "@>": -3820783656392834,
+            "VgRenue": "izr"
+          },
+          "MZ7lQJyRp?": 2.3144478019274685e-56,
+          "k,CU": -5.9853959000766585e-168,
+          "Pf=UoGg|8Q": 5.287303887794732e-7
+        },
+        "": [
+          [
+            6.38563975849291e+95,
+            1065746596401645,
+            false,
+            null,
+            -1384300496902915,
+            8498036198053565,
+            "499X\"'X3 ",
+            ">lOiVk@",
+            null,
+            true
+          ]
+        ],
+        "nH7C*\\GF*": {},
+        "D,M8WgVG&%": {
+          "3rYc I?d^": {
+            "=": null,
+            "DR(RB`": true,
+            "[?z0Jb%9": true
+          },
+          "&]@!": {
+            "92-U:K": true,
+            ")3": "",
+            "H7D": 3519276940543219,
+            "B4-cPN": "S",
+            "": true,
+            "[0'B)": -1468644951503968,
+            ".p]=|\"},|b": -6809633498583439,
+            "_;W @Yk-": true
+          }
+        },
+        "B+z/IGfZCG": {
+          "x": "Kmzj#b[",
+          "i6z#^IK": false,
+          "dea": -3533184721883267,
+          ")XGYmjx*z": true,
+          "{x:r\"&T": true
+        },
+        "=u3|F6k&1": -2792530049069047,
+        "ACVz;": 1.7563274538749203e+77
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "ix7oLio*"
+    }
+  },
+  {
+    "param": {
+      "source": "",
+      "target": ".<IX$D3?]",
+      "contextLength": 1976331417,
+      "config": {
+        "ctxLen": 220070801,
+        "isCaseMatched": false,
+        "isWordMatched": false,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        "<=Rz": {
+          "F]:kx": [
+            -6591961425842009,
+            1.5912270573800633e-31,
+            -9516229818137.69,
+            -2.5907816488263173e-107
+          ],
+          "u4uJU": null,
+          "bQX": "wykK",
+          " CF+2F": 8659789213421877,
+          "W.%3wb'YP": null
+        },
+        "gvY": "ep#]>>/E",
+        "W": false,
+        "": [
+          true,
+          "9fW",
+          null,
+          6.784403540872118e-17,
+          null,
+          "+W\\5Y,[}F",
+          1.6769629277148097e+143
+        ],
+        "FiSZ/F": "aD,x\\/"
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": ""
+    }
+  },
+  {
+    "param": {
+      "source": "G3",
+      "target": "P02",
+      "replacement": "IK`N/Pg%$",
+      "contextLength": 1220740110,
+      "config": {
+        "ctxLen": 28,
+        "isWordMatched": true,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        "|w\"]/5NN[Y": [],
+        " `}*": -3.5016644400117653e-102,
+        "05Hw?~G\\b": {
+          ";N\\4[Ad;w": [
+            null,
+            false,
+            -4.1191042352133206e-302,
+            true,
+            false,
+            6.576939078663519e+291,
+            2134345419068549,
+            [
+              -2.015259771969469e-26,
+              true
+            ],
+            true
+          ]
+        },
+        "ng": [
+          1.788766826695498e+40,
+          {
+            "e": -1.0921818612643387e+260,
+            ";HxKPO": "CC+m\"|e",
+            "#g": 1.2421878767183017e-185,
+            "4]`GzI}v": -1.5900621853126757e-8,
+            "5f>4O'L": "5{"
+          },
+          9.715999810600794e+102,
+          7758651252450237,
+          [
+            {
+              "": "o'|Wdw|MNN",
+              "]B#K[y||<": false,
+              "}`S]uk|n": "J",
+              "WH": "SMXR`Y",
+              "K@zP_+#": false,
+              "|V>vAV": null,
+              "b": 2.024624534159593e+64,
+              "UTC]Xl>kc~": false
+            },
+            "R'P_.2x",
+            false,
+            "+5G&[",
+            "!+wk<}"
+          ],
+          -8429640344487715,
+          3.6038230036956096e-8
+        ],
+        "CKU[DAq\"": -4622104091947712,
+        "\"e_!v421M": [
+          -8359775948874806,
+          2.1879457932647934e+54,
+          "*",
+          true,
+          6135541953907195
+        ],
+        "sU\"leKy": [
+          [
+            "_{",
+            "$bz7I",
+            [
+              [
+                -4.660123755718648e-99,
+                "(Z$&VRu",
+                null,
+                -3.31144615137559e+189,
+                -7511179335029676,
+                "]lgh"
+              ],
+              6942557593562257
+            ],
+            "WktV_e"
+          ],
+          [
+            2.1818345553301826e-307,
+            true,
+            "Tph8'jxY",
+            "lCN",
+            true,
+            -4.81659910747526e+88,
+            "!i",
+            -1.4424112492028498e-36,
+            "K"
+          ]
+        ],
+        "UCt": {
+          "SuSDa?": [
+            {
+              "[8Y": true,
+              "?": 2899613626639709,
+              "d9)`R": -2175713043242866,
+              "\\j&hk": 2.3517497123663957e-249,
+              "FSuv65LQL": "Da",
+              "mZ1PyM:I": -4655479874802930,
+              "n": true
+            },
+            null
+          ]
+        }
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "G3"
+    }
+  },
+  {
+    "param": {
+      "source": "%",
+      "target": "",
+      "contextLength": 998756409,
+      "replacementKeys": [
+        2147483625,
+        " +"
+      ],
+      "metadata": {
+        "M191iBqJ7": [
+          false,
+          "jU>(=s",
+          {
+            "": 7847444219253189,
+            "d": true,
+            "]?jp]L": "i&'u%&wzV8"
+          },
+          {
+            "": -5.862905667094361e-16,
+            "Ie2QC": true,
+            "Ux^9z": "vCr25~",
+            "fLnK": "e6?12}a:1m",
+            "]KB]$!*,": 1.3019876880991832e-86,
+            "t!2dvD<k*": false,
+            "s:": -6.500725903651599e-271
+          },
+          ""
+        ],
+        "gBas8kva": {
+          "X@&+9)Q%": false
+        },
+        "aGY#2u?@q": -3.3668833029927457e+165,
+        "": null,
+        "+S\\ ": {
+          "5": -4.5484934218098846e+154,
+          "(Pi^H&`": null,
+          "*(#\\;s": -2394211405481639,
+          ":WVVsNT&$5": true,
+          "&Q": true,
+          "s=Q (s": 3372837853478419,
+          "s": -5185534292179169
+        },
+        "D7*": false
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "%"
+    }
+  },
+  {
+    "param": {
+      "source": "3l4h<nCnv",
+      "target": "=vut#xUo\\q"
+    },
+    "result": {
+      "results": [],
+      "replaced": "3l4h<nCnv"
+    }
+  },
+  {
+    "param": {
+      "source": "6 GA{?argu",
+      "target": "!#",
+      "replacement": "",
+      "replacementKeys": [
+        "K>#H",
+        2147483642,
+        ""
+      ],
+      "config": {
+        "ctxLen": 689058454,
+        "isCaseMatched": true,
+        "isWordMatched": true,
+        "isCasePreserved": true
+      },
+      "metadata": {
+        "KRG\"a<": {
+          "hJjf7_": false,
+          "\\uS=|ctc": -4337612696668716,
+          "": 1.4032522577355873e+136,
+          "fzXp": "W",
+          "qYv=}V1g": "x~d/8,",
+          "-Xr1oQ": true,
+          "V_WkU)sBS": -6.34963137304162e-178,
+          ".l;kXl": -2.4680964681128788e+291
+        },
+        "G&.R]'": {
+          "MjCr.k,*7*": [
+            -8738361760805300,
+            -2921693012602965,
+            "Ge^",
+            "gw u",
+            "G",
+            null,
+            -188232893449948.53,
+            "gD7",
+            4.569578884774735e+181
+          ],
+          "T": -1.5856270305620645e-179,
+          "(*<l h+": null,
+          "": true,
+          "0'sG*": false,
+          "(yy\\": 4638870640817021,
+          "}NN;?s,6": -5079241966498831
+        },
+        " j*": [
+          false,
+          -1.6472403628560973e+212,
+          true,
+          -1223858860977187,
+          null,
+          -7754107991246737,
+          null,
+          "]YBSLnGS",
+          1519549221659587,
+          null
+        ],
+        "?}]Bw": "QcRv[-5"
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "6 GA{?argu"
+    }
+  },
+  {
+    "param": {
+      "source": "L=Wl%Zw0:",
+      "target": "2lFOn<i9",
+      "replacement": "`",
+      "contextLength": 710826094,
+      "replacementKeys": "all",
+      "config": {
+        "ctxLen": 833935390,
+        "isWordMatched": true,
+        "isCasePreserved": false
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "L=Wl%Zw0:"
+    }
+  },
+  {
+    "param": {
+      "source": "5h?l0",
+      "target": " ^ks`E",
+      "contextLength": 14,
+      "replacementKeys": "all",
+      "config": {
+        "isCaseMatched": true,
+        "isWordMatched": true,
+        "isCasePreserved": true
+      },
+      "metadata": {
+        "wX(@T": [
+          [
+            8056410893767737,
+            false,
+            324136771155413
+          ],
+          "Uhmu>Lv/",
+          true,
+          3596615847366451
+        ]
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "5h?l0"
+    }
+  },
+  {
+    "param": {
+      "source": "@",
+      "target": "{\\",
+      "replacement": "g_",
+      "contextLength": 262429442,
+      "replacementKeys": "all",
+      "config": {
+        "ctxLen": 943805163,
+        "isWordMatched": false,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        "$}-": -1.2290091515476841e+244,
+        ":": -1.3799085303705454e-8,
+        "}E}": [
+          "!<Z<r",
+          false,
+          false,
+          -782427426761101,
+          "",
+          1.8632651289648682e+160,
+          false,
+          false,
+          "uWZ[4$uN"
+        ],
+        "!6 !My ,{": [],
+        "d5E(@5f": {
+          "R": [
+            1.3611007854002129e+231,
+            {
+              "55Va": -441653568851825,
+              "Z1@": ".,",
+              "u{auz&": "7?;",
+              "k1jne^\"W": "b$v~",
+              "~0": -4451775485702049,
+              "'.y|]OP_8": "GyA",
+              "U": -145102445253584
+            }
+          ],
+          "+Xx": {
+            "pn2wVrhE 4": [],
+            "D E5Ay": {
+              "0U": ",\\",
+              "XY1%V!": "+T'"
+            },
+            "\\sv": "kub",
+            "e<`*Z+L": false
+          },
+          "<": 3554323603152305
+        }
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "@"
+    }
+  },
+  {
+    "param": {
+      "source": "tAK",
+      "target": "cI)o",
+      "replacement": "*B4-DsC{U",
+      "replacementKeys": "all",
+      "config": {
+        "isCaseMatched": false,
+        "isWordMatched": true,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        "m": 8375082066815667,
+        "vs": {
+          "MBy\\s": {
+            "]u:)/": "M\"1=];~<",
+            "URDS<": false,
+            "p#cE6j{?V": -1.3205520292732845e-23,
+            "s^qHGeYc": 1408192333256621,
+            "e6hd!{D>~F": null,
+            "x;,": "\\a<{oZ|",
+            "')> {j": -493623323840016,
+            "EN:": 8.089301195440812e+80,
+            "aP'Pu": 2579060742906823,
+            ",b": "{jbr. vt~J"
+          },
+          "l34": {
+            "0K(]R=?YGa": 8320966629468469,
+            "vccCd": -4895235512023193,
+            "U^esL9": "]1^",
+            "u_&kqZq33|": true,
+            "": 7036423741304357,
+            "vg": "",
+            "g%P7!": -3.058564411899094e+59,
+            "P": true,
+            "Lj": null
+          },
+          "ezs4!iA": [
+            -765684953974681,
+            "HDM"
+          ]
+        },
+        "$oLFR": 2425549096714329,
+        "-T": [
+          "rnSMS",
+          2417227148217671,
+          8.090806767614805e+46,
+          false,
+          true,
+          true,
+          null,
+          "Mt?Cq",
+          1.5463055986741331e-242,
+          2.069033522659536e+285
+        ],
+        "3O>": {
+          "sEpBaukZ_": true,
+          "h": 5.861013616503386e-279,
+          "": "+#",
+          "K7GsC0": true,
+          "u_MvF ls": -7259973914860517,
+          " ^l": true,
+          ":Ci)x": -1.9767659409451493e-27,
+          "-)^*0l3\"": "A'>d D}3]@",
+          "LWvTu ": -5.52867245364323e+241
+        },
+        "^!?YuJBx\\": 3066845337965345
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "tAK"
+    }
+  },
+  {
+    "param": {
+      "source": "",
+      "target": "sp-&;#)X\"",
+      "replacement": "C$:L6e",
+      "contextLength": 629335305,
+      "replacementKeys": [],
+      "config": {
+        "ctxLen": 2001597362,
+        "isCaseMatched": false,
+        "isCasePreserved": true
+      },
+      "metadata": null
+    },
+    "result": {
+      "results": [],
+      "replaced": ""
+    }
+  },
+  {
+    "param": {
+      "source": "?J+I{(9Wz\"",
+      "target": "_!",
+      "replacement": "Q|B)",
+      "contextLength": 843310241,
+      "replacementKeys": [
+        "Hw?",
+        790580353,
+        308418067,
+        1499382358,
+        273051009,
+        178072830
+      ],
+      "config": {
+        "ctxLen": 1170035689,
+        "isCasePreserved": true
+      },
+      "metadata": {
+        "EX'R#h_e": -52,
+        "2IGy$.r": [
+          false,
+          null,
+          6895886980150329,
+          -1.5990277410249686e-185,
+          ""
+        ],
+        "(": null
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "?J+I{(9Wz\""
+    }
+  },
+  {
+    "param": {
+      "source": "Ixb",
+      "target": "X[RV[",
+      "replacement": "y!s@",
+      "contextLength": 35784623,
+      "replacementKeys": [
+        1285942628,
+        "(QN-.Bh{RE",
+        1582213985,
+        "8Ki",
+        "AZx3Ne(o;o",
+        378634403
+      ],
+      "metadata": {}
+    },
+    "result": {
+      "results": [],
+      "replaced": "Ixb"
+    }
+  },
+  {
+    "param": {
+      "source": "_[`t",
+      "target": "[",
+      "contextLength": 768914391,
+      "replacementKeys": [
+        "OP>W",
+        "l3|7yoJ#"
+      ],
+      "config": {
+        "ctxLen": 1717379502,
+        "isCaseMatched": false,
+        "isWordMatched": false
+      },
+      "metadata": {}
+    },
+    "result": {
+      "results": [
+        {
+          "match": "[",
+          "replacement": "",
+          "context": {
+            "before": "_",
+            "after": "`t"
+          },
+          "extContext": {
+            "before": "_",
+            "after": "`"
+          },
+          "resultKey": 0,
+          "metadata": {
+            "source": "_[`t",
+            "match": "[",
+            "searchIndex": 0,
+            "position": 1,
+            "groups": []
+          }
+        }
+      ],
+      "replaced": "_[`t"
+    }
+  },
+  {
+    "param": {
+      "source": "5pc",
+      "target": "",
+      "contextLength": 1070370723,
+      "replacementKeys": [
+        "{$`A",
+        "jx.F)Qq",
+        "#\""
+      ],
+      "config": {
+        "isWordMatched": false,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        "B.rZ+f": false
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "5pc"
+    }
+  },
+  {
+    "param": {
+      "source": "]Jh?1",
+      "target": "!isPro",
+      "replacement": "/%",
+      "contextLength": 1645809846,
+      "replacementKeys": "all",
+      "config": {
+        "ctxLen": 737665502,
+        "isCaseMatched": true,
+        "isWordMatched": true,
+        "isCasePreserved": true
+      },
+      "metadata": {
+        "m\\y0S`": {
+          "3": false,
+          "hlf|:tQv": false,
+          "VL{;W7": "M9p8O",
+          ".>K2|l*C": false,
+          "F@DDab0^S{": null,
+          "": [
+            false,
+            -5.929452668470566e+154,
+            3987878839308061,
+            "$kSFh)Ay1A",
+            4247992910866509,
+            -1.8837049454851286e-301,
+            -7436122561792943,
+            1168241763221525,
+            ":"
+          ]
+        }
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "]Jh?1"
+    }
+  },
+  {
+    "param": {
+      "source": " Aj@yd\"!x3",
+      "target": "`+_7?L(",
+      "replacement": "KpP[",
+      "contextLength": 1699522613,
+      "replacementKeys": [
+        "K\\'QGsX!"
+      ],
+      "config": {
+        "ctxLen": 74447611,
+        "isCaseMatched": true,
+        "isWordMatched": true,
+        "isCasePreserved": true
+      },
+      "metadata": {
+        "F|z_jl": true,
+        "": [
+          true,
+          2246510596359783,
+          "}`~V",
+          "VEv-",
+          -1230872766989256,
+          true
+        ],
+        "aNwQ<": {
+          "lj,~;Ce_": -1.7896746509496445e+32,
+          "9DHcpe@(": -620169786458271,
+          "": [
+            null,
+            "",
+            null,
+            5.453485427181304e-244,
+            null,
+            "Xd&i8J",
+            null
+          ],
+          "Ut": false,
+          "8Ch2+=": "H",
+          "Iy#Xczk_y{": "u"
+        },
+        "M": [
+          {
+            "K*": false,
+            "w$reW*gC": {
+              "hCV": -8812.734537867325,
+              "CJHK=": -3.501089001362265e-206,
+              "c": "&*JoH)HwR",
+              "*k": "\\WeXiz@b!d",
+              "h^DC/Xzl/": -3.8584119929098274e+190,
+              "wjW6x_P": 2.8534082636602147e-18,
+              "RS5<`i{": 3.931097834446255e+274
+            },
+            "$]L1durm": "FAXZb~(wg;",
+            "\\C>/S": "10I; 'j",
+            "Ox?ECjT^z": false
+          },
+          {
+            "\"\"Z": true,
+            "!!}": false,
+            "NbindkeyVp": 7020757952270783
+          }
+        ],
+        "\"6Tt.P": null,
+        "#J": []
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": " Aj@yd\"!x3"
+    }
+  },
+  {
+    "param": {
+      "source": "",
+      "target": "n",
+      "replacement": "9N5.x^2B{X",
+      "contextLength": 30,
+      "config": {
+        "ctxLen": 156671116,
+        "isCaseMatched": false,
+        "isWordMatched": false,
+        "isCasePreserved": true
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": ""
+    }
+  },
+  {
+    "param": {
+      "source": "&VvI1*r]B",
+      "target": "r",
+      "replacement": ")\"{",
+      "contextLength": 29,
+      "config": {
+        "ctxLen": 1050735015,
+        "isWordMatched": true,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        "I": "5",
+        "@o+\"X{:": -1.1603885242825335e-111,
+        "": 1683810053762837,
+        "<#Q%lao>n": true,
+        "AI%-LR6": {
+          "8cPqBt": true,
+          "%3@-,f(F]N": {
+            "JG/": "x",
+            "?ml!5K8": "_",
+            "c;ots.": 5.679960601312706e+218,
+            "": true,
+            "!wWd": -2922435919236074,
+            "}mV": null,
+            "6:i": 2.3992501078696657e+21,
+            "qK": "Q|lr&&",
+            "W#nT{[": -8727763153125387
+          },
+          "pP'=ftGf=U": null,
+          "yW7+`[": null
+        },
+        "GR0fUC:=Zh": true
+      }
+    },
+    "result": {
+      "results": [
+        {
+          "match": "r",
+          "replacement": ")\"{",
+          "context": {
+            "before": "&VvI1*",
+            "after": "]B"
+          },
+          "extContext": {
+            "before": "&VvI1*",
+            "after": "]"
+          },
+          "resultKey": 0,
+          "metadata": {
+            "source": "&VvI1*r]B",
+            "match": "r",
+            "searchIndex": 0,
+            "position": 6,
+            "groups": [],
+            "I": "5",
+            "@o+\"X{:": -1.1603885242825335e-111,
+            "": 1683810053762837,
+            "<#Q%lao>n": true,
+            "AI%-LR6": {
+              "8cPqBt": true,
+              "%3@-,f(F]N": {
+                "JG/": "x",
+                "?ml!5K8": "_",
+                "c;ots.": 5.679960601312706e+218,
+                "": true,
+                "!wWd": -2922435919236074,
+                "}mV": null,
+                "6:i": 2.3992501078696657e+21,
+                "qK": "Q|lr&&",
+                "W#nT{[": -8727763153125387
+              },
+              "pP'=ftGf=U": null,
+              "yW7+`[": null
+            },
+            "GR0fUC:=Zh": true
+          }
+        }
+      ],
+      "replaced": "&VvI1*r]B"
+    }
+  },
+  {
+    "param": {
+      "source": "M9qi",
+      "target": "]:`E\\#D",
+      "contextLength": 4,
+      "replacementKeys": [
+        705006428,
+        965344969,
+        "b)w2C^u;Q?",
+        "lYc{$"
+      ],
+      "metadata": {
+        "": -2270202565257590
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "M9qi"
+    }
+  },
+  {
+    "param": {
+      "source": "}J~M~zAp#",
+      "target": "j:",
+      "contextLength": 1558409249,
+      "config": {
+        "ctxLen": 2147483638,
+        "isCaseMatched": true,
+        "isWordMatched": false,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        "i]G\"": {
+          "4u@ ~UP0ZR": {
+            "#>imtid": {
+              "a![\"/bp$": false,
+              "b[g8W&95jp": ":9",
+              "TN;U]JQ)": "rT1j!9IX",
+              " xVXq-": -1561248075833510,
+              ".HVb": "-08",
+              "8hS95$<": true,
+              "cH!@#": -7017113887530499,
+              "M.E$nP6dG": -2.093703088643749e+260
+            }
+          },
+          "-sgR": {
+            "|": "M6[o{cw",
+            "PM R1": "+`C\\?C(Z2u",
+            "-ilg'2>": -5380798958097446,
+            "(--5b": -3823231389551691,
+            "D[5eK QOQ": -501550482463624,
+            "XR2Sfo!": true
+          }
+        },
+        "\"mx`R^kIN": -983486378154342,
+        "\"Z": null
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "}J~M~zAp#"
+    }
+  },
+  {
+    "param": {
+      "source": "G~;z%",
+      "target": "",
+      "replacementKeys": [
+        "{["
+      ],
+      "config": {
+        "ctxLen": 995705673,
+        "isWordMatched": false,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        "#yMDmOGiJh": [
+          "vj.y7W\"I~f",
+          7011969446635545,
+          {
+            "d|p>": -5593261835612249,
+            ";N&?F-j": 1050324981449171,
+            "q?e*cNG": -7404673925856542,
+            "u'": false,
+            "{@tf": 2127853586856969,
+            "1kskl": -1.4174824258014739e+296,
+            "wT=d": 6.454561078438829e-132,
+            "Z8j\"sMMrlY": "WT1 C"
+          },
+          -1.7260247065155512e-112,
+          false
+        ],
+        "IaPq.XIJ[ ": false,
+        "'s<": -8117809806627117,
+        "C4;a": "{uHKC1M^w",
+        "gSm#": [
+          [
+            false,
+            null,
+            "X2s%oO]R",
+            "z?Vv+S",
+            null,
+            1.4631749569599916e-135,
+            null
+          ],
+          -7497355059326398,
+          7762842913826397,
+          -3.7344659969921535e+33
+        ],
+        "&S~y": 3770314166562447,
+        "[XwNI\\{": -2219905801976326,
+        "W*?J9": false,
+        "ONZ$9W<0": {
+          "@SlR": [
+            true,
+            "_@'R",
+            null,
+            null,
+            -3.930756454490898e-154,
+            -4.646840642697389e-47
+          ],
+          "wX": false
+        },
+        ">U-Qz;EucV": {
+          "z>%QRjSYU": {
+            "gPzh}": {
+              "?$.6'oj": -1837744801134793,
+              "": true,
+              "-": 1.9384693809784004e-249,
+              "BSYSl5": "~m",
+              ">'^T|-+": -2.2714078822577916e+113,
+              "DX": null,
+              "s$": "4<=g4%p4hM",
+              "td": -7723065059091287
+            },
+            "": {
+              "~$~z0": ",%0+Q",
+              "q$w_#~J:": -8665376083247673
+            }
+          },
+          ":|k\"4X5]": -2.9162635651185185e-260,
+          ":a.ZL7": {
+            "3": null,
+            "Z0&G%b~": -6315718731460538,
+            "?CL]": "ib]W%4}$G",
+            "S3?xs.xrdt": false,
+            "I|``C": 1.6058011030106846e-141,
+            "TvDSCfwva": null,
+            "=}l": 4.687034403324391e-11
+          },
+          "e`yd8": [
+            null,
+            "P!i",
+            false
+          ]
+        }
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "G~;z%"
+    }
+  },
+  {
+    "param": {
+      "source": "CQa[2#yy",
+      "target": "Zkd[",
+      "replacement": "wxD",
+      "contextLength": 1763139239,
+      "replacementKeys": "all",
+      "metadata": {
+        "2": [
+          [
+            "l_;ta$([%",
+            {
+              " BO": 2.099511812589888e-186,
+              "#": true,
+              "FP&4Mc.J": -2.8582866534887025e+267,
+              "eawF#6ou_=": " IIQwaQ",
+              "=z": "m9lRsn\"",
+              "G+~@": 574817157536311,
+              "@": 7796714390592179
+            },
+            -4051529231245763,
+            ">t;/?sx",
+            -2539472943343384,
+            false,
+            4735080284231425,
+            "f-c6",
+            -113277510300285960000
+          ],
+          -3345518584642842,
+          null,
+          true
+        ],
+        ">g": false,
+        "3;~r": {
+          ".U": -4213481184872551,
+          "x#u": -3.811907594206151e+259,
+          "Dh>Sb": true,
+          "vdG$DI;A)S": 8.534736781513837e-288,
+          "\"%": null,
+          "`J3$}z8": true,
+          "F[(P^QE# g": 1.4408175936943076e-271,
+          "2U|z#lX-U": "O",
+          "\"kd>\"M=,[j": 2.3995368540064296e+276
+        },
+        ":|G iu|-86": [
+          [
+            null,
+            "",
+            "4@>'",
+            -1.2859984943311151e-49,
+            true,
+            2321757530929177,
+            3995164265926381,
+            1.1095736167220627e+231,
+            false,
+            2619914925705237
+          ],
+          {
+            "5}": false
+          },
+          1.5684357892129242e-108,
+          " b]x",
+          -8.004080361485197e-225,
+          3.591549272369541e+262,
+          "Yw\\5"
+        ],
+        " Y": [
+          235983669339895,
+          true,
+          null,
+          true,
+          7750881756855023,
+          "q{ecn(",
+          true,
+          "VwoC"
+        ],
+        "+)RRm{Q)`Q": {
+          "a(mm": true,
+          "`PT": false,
+          "-ybl": true,
+          "^%z*f9": false,
+          "uE>N": -7985319233944603,
+          "+KbtH`a~[": false,
+          "": null
+        },
+        "@7b": [
+          2.9364605577813864e-244,
+          true,
+          [
+            "]jemH*f7\"",
+            8309554426747881,
+            "t#XjnN",
+            false,
+            -4047611269476718
+          ],
+          null,
+          null,
+          null,
+          "CgL+Vc\\",
+          null
+        ],
+        "": [
+          {
+            "|%WKf6_D": 6757937882799977,
+            ":Oj\\)m": "oq9t",
+            "cTYLnSbR": [
+              {
+                "^R,M": "V2]\\\\Od",
+                "lEq>u7": "*ksc7E:nYg",
+                "": " i_\"[W|w2'",
+                "QNpekbC5": true,
+                "lD?sI~y9k\\": null,
+                "'~9(zW(3AQ": -1863707201874969,
+                "@dYOzQ~uU": true,
+                "=a#AT": "TJawx\"Xd`u",
+                "8osh{": true,
+                "*}": 1.0162777541348741e+273
+              },
+              "Ob2e!o28}"
+            ]
+          },
+          false,
+          [
+            -8886937855736284,
+            null,
+            true,
+            true,
+            true,
+            false,
+            null,
+            true
+          ]
+        ]
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "CQa[2#yy"
+    }
+  },
+  {
+    "param": {
+      "source": "r",
+      "target": "\"",
+      "contextLength": 25,
+      "replacementKeys": [
+        896602905,
+        "O+&z@'$]",
+        1068029947
+      ],
+      "config": {
+        "ctxLen": 101613563,
+        "isCaseMatched": false,
+        "isWordMatched": false,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        "L;Pi:`}": [
+          true,
+          "R+j;V",
+          "ip{T",
+          false,
+          -5452250390995874,
+          5823350201272197,
+          "&p7",
+          6.293026967899538e+122,
+          false
+        ]
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "r"
+    }
+  },
+  {
+    "param": {
+      "source": "#%x",
+      "target": "t",
+      "replacement": "\"f#$",
+      "contextLength": 1826311851,
+      "replacementKeys": "all",
+      "config": {
+        "ctxLen": 1051911225,
+        "isCaseMatched": false,
+        "isWordMatched": true,
+        "isCasePreserved": true
+      },
+      "metadata": {}
+    },
+    "result": {
+      "results": [],
+      "replaced": "#%x"
+    }
+  },
+  {
+    "param": {
+      "source": "V//vpR>",
+      "target": "l]Vrd",
+      "replacementKeys": "all",
+      "config": {
+        "ctxLen": 2147483641,
+        "isCaseMatched": true,
+        "isWordMatched": true,
+        "isCasePreserved": false
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "V//vpR>"
+    }
+  },
+  {
+    "param": {
+      "source": "j6\" L",
+      "target": "!8Q%J2;$",
+      "replacement": "!\"N:&:c",
+      "contextLength": 512247389,
+      "replacementKeys": "all",
+      "config": {
+        "isCaseMatched": true,
+        "isWordMatched": true,
+        "isCasePreserved": true
+      },
+      "metadata": {
+        "&/`": {
+          "3^avvfm~c>": null,
+          "_ka]d": 839956899349783,
+          "dfl:JDABZ%": true,
+          "&%?Dgzfw%M": -3102968745515474,
+          ")b9cjTO": "3G{I "
+        },
+        "": {},
+        "K{^l%-": 4286311575943039,
+        ".|gk7x": {
+          "V*E%J!k8": false,
+          "57{": true,
+          ">7|A%@": 4.7179661079426795e+30,
+          "|?Ps^G,F0": null,
+          "<PpCn.U": 3297811933721021,
+          "GC(_;T-`oJ": 3265721442346461,
+          "q1": {
+            "f": "RTh3|",
+            "mZ>lW`zi7N": "iw}^$1"
+          }
+        },
+        "M21y&%,": [
+          [
+            {
+              "0": -7.331045771486277e-16,
+              "/:}/ss^OaK": null
+            },
+            true,
+            null,
+            -1.721468871802295e-55
+          ],
+          "ElT>",
+          [
+            6133318814673513,
+            ">%s0cE",
+            2626017756868735,
+            "",
+            1.2343916485180531e+41
+          ]
+        ],
+        "7y]l": [],
+        "4[A {55!B": 3.6766168800140083e+267,
+        "<:hQ.je": {
+          "7": "7zT^n4nRV-",
+          "DK2?7": -3.579108108893722e-120,
+          "BB>": 5320606527415843,
+          "9_j": 1.8032092117147777e-201,
+          "$!!}'z": "8xfglk@YW}",
+          "j+&sDn<": true,
+          "W?.": 4382930916243741,
+          ":sE~aO?C&": null
+        }
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "j6\" L"
+    }
+  },
+  {
+    "param": {
+      "source": "&W=2UsVp",
+      "target": "\"",
+      "replacement": "z{Jp|#$",
+      "config": {
+        "ctxLen": 26,
+        "isCaseMatched": true,
+        "isWordMatched": true,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        "$(e6MC7D": [
+          -6.79137003503217e+163,
+          false,
+          "R}+M",
+          -5.710918882322227e-119
+        ],
+        "M`vYl": {
+          "mCS<Of_C": {
+            ",P-:je;3%": true
+          },
+          "D": {
+            "44=^": true,
+            "|<YK9": [],
+            "}\"V": null,
+            "": []
+          },
+          "EjGZ\"J?D": [
+            -3809971203708670,
+            [
+              false,
+              2944035643573309
+            ],
+            "g>+p",
+            {}
+          ]
+        },
+        "+": -7699649686270175
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "&W=2UsVp"
+    }
+  },
+  {
+    "param": {
+      "source": "UV(X%2b$",
+      "target": "jE3ri(AE'",
+      "contextLength": 220480561,
+      "replacementKeys": "all",
+      "config": {
+        "isCaseMatched": false,
+        "isCasePreserved": true
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "UV(X%2b$"
+    }
+  },
+  {
+    "param": {
+      "source": "]J*:l\"",
+      "target": "valueOf",
+      "contextLength": 25,
+      "replacementKeys": "all",
+      "config": {
+        "isCaseMatched": false,
+        "isWordMatched": false,
+        "isCasePreserved": false
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "]J*:l\""
+    }
+  },
+  {
+    "param": {
+      "source": "ya0",
+      "target": "4[>ttK)49",
+      "replacement": ";OaTbgNrN}",
+      "contextLength": 30,
+      "config": {
+        "ctxLen": 592395430,
+        "isCaseMatched": false,
+        "isWordMatched": true,
+        "isCasePreserved": false
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "ya0"
+    }
+  },
+  {
+    "param": {
+      "source": "K_2ltG",
+      "target": "3/L0k!",
+      "replacement": "x#Ge6IM3",
+      "contextLength": 1817754967,
+      "replacementKeys": [
+        8,
+        11,
+        "}ijIf",
+        1269958561,
+        894128950,
+        "{0J&m",
+        "/K",
+        "-wA|L+Vw3",
+        499058865
+      ],
+      "config": {
+        "ctxLen": 35996292,
+        "isCaseMatched": false,
+        "isWordMatched": false
+      },
+      "metadata": {}
+    },
+    "result": {
+      "results": [],
+      "replaced": "K_2ltG"
+    }
+  },
+  {
+    "param": {
+      "source": "1DVP",
+      "target": "6WgI|",
+      "contextLength": 2147483631,
+      "replacementKeys": [
+        205266627,
+        2087624158,
+        "{@`!0vA7@v"
+      ],
+      "config": {
+        "isCaseMatched": false,
+        "isWordMatched": true,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        "!C^3U": -1.2407100351284922e-40,
+        "-nxe)Y?": [],
+        "7x/+A_W60P": {
+          "@Uj~xI?nu": "Tn!I\\\"^h2,",
+          "/j{4'": "p6|B0jnn",
+          "005YR%Azq": "G3c0Z6",
+          "Y(p:$y\\gV": -2549155556095759,
+          "l": 2512466085558789,
+          "-M{9": -2.8909235957322057e-170,
+          "": -5182509781753243,
+          "sgSloUIwO": -5125669063234235
+        },
+        "rqB": {
+          "a#": {
+            "On": "P6[\\ep_Ls",
+            "\"<z": false,
+            "0/*": -7376061920574973,
+            "T>": -3157111556830786,
+            "t;nmW6Bx": true,
+            "[=+8": "_LT=",
+            "9}[0": false
+          },
+          "]7KyByLC": [
+            "3dERq4`|fW",
+            false
+          ]
+        },
+        ".v/|?y~]": 7954716324349621,
+        "8\"J": ")d",
+        "N&_'DI(": [
+          1.784320349158243e+27,
+          641259010888597,
+          5579131710240233,
+          true,
+          "}O]~RrDC",
+          -3614213872145970,
+          -1.0153089401904245e+143,
+          "embK9Ar'",
+          7.878463910333323e-97
+        ]
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "1DVP"
+    }
+  },
+  {
+    "param": {
+      "source": "F/68",
+      "target": "r1W@.'bYa",
+      "contextLength": 2147483627,
+      "config": {
+        "ctxLen": 624483170,
+        "isCaseMatched": false,
+        "isWordMatched": false,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        "(&{": "LOX(?(&x\"",
+        "": [
+          [],
+          false,
+          false
+        ],
+        "YHR": {
+          ")'Q0Ju": 4.4427853499871494e-237,
+          "<\\:i|k>FW?": false,
+          "d-U95q'&jC": ">QQQL@;C",
+          "E+": "2tnwY("
+        },
+        "\".!": "Z.b\\>+JH6",
+        "xBeg2E,n{": [
+          null,
+          5330653300740665
+        ],
+        "qh^@iv": {
+          "W`?\\F": {
+            "QBL": false,
+            "[*": true,
+            "'>": 842561930129165,
+            "OrXs(~!SJ": 1057791678122081,
+            "{;W": "\"/@h#a",
+            "v": true
+          },
+          "F_~G@l8~[": [
+            true,
+            "u,dzWVH",
+            "j",
+            "*bhfWaW>_",
+            1.411345030609657e-107,
+            false,
+            null,
+            "7",
+            -8074222020161641
+          ]
+        },
+        "CI~rH": 9.243892493249542e-34,
+        " KN": [
+          false,
+          false,
+          {
+            "D{;.eTU{uh": -2.5832643096687027e-128,
+            "": null,
+            "H=%IR |": "J3I=3",
+            "`MND1XE{-": -9.031087428608017e+142,
+            "3ML": "",
+            "8IV": "o:[\"'Sh",
+            "]e": false
+          },
+          "+\"\"-mXAH|",
+          false,
+          [
+            "8mnxP",
+            null,
+            null,
+            "*FGuRz.3",
+            8.552300448218654e+283,
+            3583165217477997,
+            null,
+            ">ge2l4j"
+          ]
+        ],
+        "VTDY$(_oP0": 927053784060901,
+        "H|3|9T_": {
+          "\\0Q|bn2": -7003247757761796,
+          "Qi*3e~Lu": false,
+          "Fjb5}": 3249884446382823,
+          "w_": -2.073969482974135e+204,
+          "||5qTyh6l": null,
+          "g[v7}@,ie{": 2.0546874365134317e+89,
+          "4w": {
+            "U`9": 2786697351381033,
+            ",siL": -3997142641232601,
+            "aC1d<kOkE+": -3.1297499304246418e+177,
+            "[dh": 2706135452464285,
+            "8:z>M^tRg": "_-hs]&z"
+          }
+        }
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "F/68"
+    }
+  },
+  {
+    "param": {
+      "source": "V'f ",
+      "target": "HF{<kt5-",
+      "replacement": "-j}z",
+      "contextLength": 63564944,
+      "replacementKeys": [
+        1150807591,
+        1642585280,
+        148940272,
+        "+,Z:WHwO`",
+        1798611501,
+        2074114418,
+        "nhvnf;n",
+        1337701477,
+        "",
+        1590701896
+      ],
+      "config": {
+        "isCaseMatched": true,
+        "isWordMatched": true,
+        "isCasePreserved": true
+      },
+      "metadata": {
+        "|`D~f": -1970304201783563,
+        "X<": [
+          {
+            "M@8x\\*": false
+          },
+          false,
+          8.208949431544394e-10,
+          "a}Pe9H'",
+          7290590598698773,
+          [
+            "-M\"/5_",
+            -8106878373936183,
+            true,
+            true,
+            "yx]_4_r",
+            false,
+            -870736075255762,
+            null,
+            false,
+            2209259219559465
+          ]
+        ],
+        "3#z": 2971254501071537,
+        "k": "TKH#",
+        "YsXe]kV": {
+          "5": "jOZi",
+          "B98gQNX": -1.0750881671557598e-274,
+          "S7;=jcH": false,
+          "yc;A%&`": 1786939045276497,
+          ".6,GN_e>": "q`$~)|TxD",
+          "ws=n=xw_": 5.320443017138109e-35,
+          "XM": "a0?9(\"Ui"
+        },
+        "P": [
+          "h",
+          ",(@~",
+          -5.313634708130767e-170,
+          -1.2192015971905061e-26,
+          8019101408379765
+        ],
+        "Sl<": "` N$.GOo4"
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "V'f "
+    }
+  },
+  {
+    "param": {
+      "source": "W$VSSVIq",
+      "target": "%mU",
+      "replacement": "Y^",
+      "contextLength": 2147483618,
+      "replacementKeys": [
+        200521571,
+        "/-AnIW",
+        "",
+        "DGVg",
+        1233800438,
+        394204607,
+        "VHj JX#lX1",
+        "wq:("
+      ],
+      "metadata": {
+        "_v<@@/t#": true,
+        "qC'waP)": -5705549638952005,
+        "^XU$Fx$": -3159537959408788,
+        "k!c.?=GB": {
+          "oJ70^4": [
+            false,
+            true,
+            "h{WGys^=.",
+            false,
+            false,
+            7.631423565192027e-94
+          ],
+          "|;": [
+            -3.5433682700880105e+161,
+            -1.0686686654530023e-179,
+            -3.775868397003703e+197,
+            -1.4443097773432597e-130,
+            true,
+            null
+          ],
+          "b": -8259532528567291,
+          "of*v": [
+            8515083664368383,
+            "nO;6&!]",
+            null,
+            true,
+            791339765216573,
+            false
+          ],
+          "<w)@j": 5036443287955509,
+          "/N*1": null,
+          "I!D:${e,": true
+        },
+        "D0&B[": [],
+        "": null,
+        "y": {
+          "`2v(A": "G,",
+          "I)7": "qM",
+          "#": [
+            -1.1521546825563524e+62
+          ],
+          "$>\\$!": "ZEup",
+          "WvE@\\": false
+        },
+        ">&],*9": [
+          true,
+          -5.304902168209859e-125,
+          true,
+          false,
+          5214886783866945,
+          "c329yI",
+          -2.5436225548548688,
+          8.163991276514625e+209,
+          "# ne^%"
+        ],
+        "X4;Qol0i": [
+          -3074994273315430,
+          "G2YE",
+          -4225145580996051,
+          9.698758824991577e-88,
+          null,
+          -2.5327812951611695e-277,
+          "G",
+          ";TvpOF&#q"
+        ],
+        "5Zn>oKT<1O": [
+          -8.215019104647521e+273,
+          479156329944109,
+          1.2897716173011104e-123,
+          "A7+",
+          1.4328586759967333e-286,
+          null,
+          2527782237014473,
+          -1249857958718402
+        ]
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "W$VSSVIq"
+    }
+  },
+  {
+    "param": {
+      "source": "9w6Y1-k",
+      "target": "&const",
+      "replacement": "Y)XD>",
+      "replacementKeys": [
+        "% },",
+        1365806356,
+        558615061,
+        8,
+        "=Mq4FU{",
+        1706245174,
+        "{!\\2*'",
+        "%]Zf}kj"
+      ],
+      "config": {
+        "isCaseMatched": false,
+        "isWordMatched": false,
+        "isCasePreserved": false
+      },
+      "metadata": null
+    },
+    "result": {
+      "results": [],
+      "replaced": "9w6Y1-k"
+    }
+  },
+  {
+    "param": {
+      "source": "O8k,!|",
+      "target": "Ez",
+      "contextLength": 371301378,
+      "replacementKeys": "all",
+      "config": {
+        "isCaseMatched": true,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        ">.u)IAZd|": -4.919575876020649e+133,
+        "p}CNV'6": {
+          "Z": false,
+          "jJUoa43o%": true,
+          "G?y6LPJHT:": "wX_Yt8 ",
+          "bbjX": 2696557878666869,
+          "[rZ6>Tw": true,
+          "Reiqv": 2.2940448949924762e-194
+        },
+        "CAknQ}5`a7": [
+          false,
+          false,
+          false,
+          1109353950267111,
+          null,
+          null,
+          "L9T]&Iyb^\\",
+          ""
+        ],
+        "=rP_\"^": [
+          "t]jiH7nL",
+          3.972590574252738e+47,
+          3235055850358379,
+          null,
+          -8151848571648109,
+          6.514146707626914e-56,
+          3.915996960783072e+251,
+          null,
+          1.5321051023654483e-276
+        ],
+        ")WGqXHZsta": true,
+        "}M}*s$ ": {
+          ")-4bsd!wpp": false,
+          "o": [
+            "",
+            null,
+            null,
+            -2831716809587161
+          ],
+          "": true,
+          ",(FU2 )U,Y": 748208037757093
+        }
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "O8k,!|"
+    }
+  },
+  {
+    "param": {
+      "source": "",
+      "target": "T",
+      "replacement": "PHO\\:Y",
+      "contextLength": 0,
+      "replacementKeys": "all",
+      "config": {
+        "ctxLen": 1936591577,
+        "isCaseMatched": false,
+        "isWordMatched": true,
+        "isCasePreserved": false
+      },
+      "metadata": {}
+    },
+    "result": {
+      "results": [],
+      "replaced": ""
+    }
+  },
+  {
+    "param": {
+      "source": ".wl}`zB",
+      "target": "v.W]\"]k&",
+      "contextLength": 429096873,
+      "replacementKeys": [
+        "<au3J",
+        "%]%=M",
+        950589680,
+        1326873382,
+        1155782660,
+        1742056804,
+        "U=!",
+        1668289309
+      ],
+      "config": {
+        "ctxLen": 777214124,
+        "isCaseMatched": true,
+        "isWordMatched": true,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        "|{": {
+          "": false,
+          "@^v2MvO": 6920104508269055,
+          "~?wcv%": "tC!G|O",
+          ".Q>&": 8158966503793541,
+          "E N&9AreZ": "=lLwE",
+          "Z:R:F": -1.188665293529921e-198
+        },
+        "A}'": [
+          false,
+          1.4438777465528164e-275,
+          false,
+          2.5086049709460166e+149,
+          {
+            "": -3012493.519020115,
+            "<$[@ /": ":9'1u6:P;",
+            "Y6?.": "vc`QZ",
+            "BH cJI": 1.2292643896086877e-238
+          },
+          false
+        ],
+        "C": {
+          "": false,
+          "f": -4.520162525011381e+241,
+          "4{n_J&": false,
+          "ju/": " p.{x} @Q",
+          "VkB2n": -7672144780012129,
+          "lC1__j": true,
+          "%$+CFTk/jX": 7365307136751883,
+          "\"/": -7.635057288011561e+285,
+          "09kz5&L5": 8058402405417657
+        },
+        "name": [
+          [
+            false,
+            "Mv%",
+            false,
+            330138528116165,
+            ";(?N"
+          ],
+          1775701965679021,
+          {
+            "dSv\\XA[Q": 1.7922497992888462e+115,
+            "x<%": {
+              "ObB": 4.9912897815778265e+155,
+              ",H8ck": "p[=\\FIdhb8",
+              "D\\>\"N5p=": "Nda%Z",
+              "=ehW*": "9|3t"
+            },
+            "?O0": 325949300079867,
+            "CM": true,
+            "%@0Y1YsW": [
+              1948636620639765,
+              -1.1620723503334205e-235
+            ]
+          }
+        ],
+        "FU|%#<h": [
+          true,
+          false,
+          "f",
+          "a}2w",
+          null,
+          "",
+          "!dr",
+          2.894041709050923e+260,
+          -8028665108505862,
+          -1.1477598894556227e+78
+        ],
+        "": -438885869332829
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": ".wl}`zB"
+    }
+  },
+  {
+    "param": {
+      "source": "k#qu",
+      "target": "I__define",
+      "contextLength": 4,
+      "replacementKeys": "all",
+      "config": {
+        "ctxLen": 9,
+        "isCaseMatched": false,
+        "isWordMatched": false,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        ")": [
+          [
+            -7.373134564887051e+65
+          ],
+          [
+            [
+              "KM|]",
+              3028372793734693,
+              -1.0380393180877308e+80,
+              2489356621444909,
+              "t8q#GU>",
+              true,
+              ",7`CxD*",
+              "`M",
+              true
+            ]
+          ],
+          3.2751850971021695e-38
+        ],
+        "_?.": [
+          ":P%",
+          null,
+          [
+            "} D!wKa6",
+            -5906563031746363,
+            "s",
+            2336315351327009,
+            true,
+            null,
+            19.194642764522193,
+            "sAQxf)PV'",
+            "",
+            " [Jf"
+          ]
+        ],
+        "HQ$8k|5": {
+          "qTJ": 2.321028228696241e-16,
+          "zSf_%99": "H\\SmmKD,",
+          "gb%bJU)*I": "g)f[je",
+          "u": 1589963982226657,
+          "RMuXM\\fN": "",
+          "o.l": true,
+          "OdyO]GnW3I": {},
+          "u[v]!6y=JX": -6926381715465155,
+          "d": -4830020675096433
+        },
+        "": {
+          "kg": null,
+          "t": {
+            "\"EiV+:K(": -1.0590497734264242e+25,
+            "bA,7K": 4769355827645449,
+            "l;": "rp$<|h$e",
+            "M:14xRPgoD": 2983899511960481,
+            "4`": 6.121916553393484e+233,
+            ":": "/\\]f(",
+            "fL9B;r": ";",
+            "y@@": "u8%q`7b",
+            "X'": "mF=10/mw["
+          },
+          "": true,
+          "]%/1": [
+            {
+              "oP@92": "4afm0}2=",
+              "wuG": "C:",
+              " ": -8284453458678660,
+              "": "ImD~?SJ",
+              "KH": null,
+              "?spY'": 2433559901163923,
+              "l^!H=K": -5.0597054943044845e+179
+            },
+            "j~]"
+          ]
+        },
+        "#!VMN|=]": 3.18637732285012e+88,
+        "V5": {
+          "q.`": false,
+          "zqg_!": "kVpyJloi",
+          "}": true,
+          "YRzR": true,
+          "\\": false,
+          "u7Rw": null,
+          "ia>X": "~f>KG4",
+          "aIY4(12~": -3.392344788793002e+25
+        },
+        "Nz": [
+          false,
+          null,
+          [
+            2285106210371811,
+            502282246262968.56,
+            3.973216889701177e+72,
+            -9.479335395628753e+22,
+            "gT["
+          ],
+          "yzqepE",
+          {
+            "cL~Z3v$P=": " l?j%'g",
+            "?oS6": "\"XeNV2S'f",
+            "Lj": -7.976338685610355e-50,
+            "DAAG": "%.,PDv&Q",
+            ":M@>m!-1?]": -7.45629643456253e-10,
+            "EU@SXQ": -1.4408215660660806e+60,
+            "": 3.2830264893247127e+241,
+            "P>-d$e{7d^": false,
+            ":5zfUBn(": {
+              "": -8010946487760508,
+              "St": false,
+              ":Dq": "6XAPc Dt~_",
+              "'W;p}U\\": -1893568772682583,
+              ".l>h": "A",
+              "iH'#<": 8.460178347076494e+165
+            }
+          },
+          "?;2!E",
+          "}x<j|k7U",
+          null
+        ],
+        "2|u^Jfp(M": 6.78798279985701e-299,
+        "Qy": {
+          "5?XSQ3PTa3": -3.963762260902234e-260,
+          "C?": "y",
+          "s'dctc": 1.9039242428787615e+79,
+          "XQp(Me": 7.930477455263002e+306,
+          "4_1v&": false,
+          "QG1": -8497328666097365,
+          "Z~(h": -4.531149380368739e-98,
+          "vnW": {
+            "zJZH\"@": -1.9110645034833347e+156,
+            "7rtC": ":^svW`3",
+            "B~IoI&-": 8.468441515763193e+247
+          },
+          "us*:5q=": false
+        },
+        "construc": {
+          "|i": [
+            null,
+            5.131479659833354e+153,
+            -8821080487189865,
+            3.3994320169275875e-71,
+            3.8585536301243434e+58,
+            false
+          ],
+          "'C": true,
+          "h": -2647622855486672,
+          "u2(?^\"Y": {},
+          "Xd ": "t<_&}8\\DDd",
+          "-": 2.9e-322,
+          "TAq]S296": null
+        }
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "k#qu"
+    }
+  },
+  {
+    "param": {
+      "source": "DBg:??QI",
+      "target": "]",
+      "replacement": "{_ ",
+      "contextLength": 1586793619,
+      "config": {
+        "ctxLen": 12,
+        "isCaseMatched": false,
+        "isWordMatched": true,
+        "isCasePreserved": true
+      },
+      "metadata": {
+        "l.1~": "kup#'",
+        "3%A%bAp": [
+          {
+            "ikNm>K#jn": -1.1662540625643356e-176
+          }
+        ],
+        "": [
+          {
+            "',wKU": 2.8590640293789483e-67,
+            "": false
+          },
+          {
+            "?": "$N5",
+            "z8D25f": ":6%FykpUT4",
+            "H8.": "4RZ`8",
+            "4f=ik`0I": false,
+            "]S(": false,
+            "": -0.0005661843998226683,
+            ",Z9+8nP": "cMtP,yMd}",
+            "W/{oaAsqF": {
+              "*\"D[tx8ri": "+g-,",
+              "0Vd3/lLIA": "$U/fTx>mK>",
+              "R": -1.4182980535561158e+284,
+              "jy>E7z%": null
+            },
+            "[(?": 6607917085676219
+          },
+          [
+            2515888715507409,
+            601415953490777,
+            -1291418754771019,
+            {
+              "fSp~S\"BE": "{s&]YW#t#7",
+              "": "tNfv*j",
+              "UX": {
+                ",bXX": "A",
+                "Oob:)]eU>": true,
+                "-XnKySl": false
+              }
+            },
+            -6879886726781827,
+            -7.788624750728157e-16
+          ]
+        ]
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "DBg:??QI"
+    }
+  },
+  {
+    "param": {
+      "source": "}bfE^ziX0",
+      "target": "",
+      "contextLength": 1800952851,
+      "replacementKeys": [
+        "&+H9{Vw1",
+        1539168991,
+        361470480,
+        2132178340,
+        "6F~L/ZoUG|",
+        "hn}`3\\W7$",
+        "3p\"",
+        1634205570,
+        "pJ#8jG>%`",
+        "DY>ew $Ky"
+      ],
+      "config": {
+        "ctxLen": 2147483624,
+        "isCaseMatched": true,
+        "isWordMatched": false
+      },
+      "metadata": {}
+    },
+    "result": {
+      "results": [],
+      "replaced": "}bfE^ziX0"
+    }
+  },
+  {
+    "param": {
+      "source": ":W>^j:F",
+      "target": "kmLp*x[",
+      "replacement": " G1_=vOyD",
+      "contextLength": 2147483633,
+      "replacementKeys": "all",
+      "config": {
+        "isCaseMatched": false,
+        "isWordMatched": false,
+        "isCasePreserved": true
+      },
+      "metadata": {
+        " i 3xqV": [
+          null,
+          {
+            "`Qp$Z&7+GP": "a)yP_",
+            "he?R*r`o": "stevFg/kfe",
+            "": 8299143481413357,
+            "Unx@:n<~": false,
+            "18*": "zbZo",
+            "1 ": 3892692278577833,
+            "{et{q": "3h)US",
+            ">": 5083410352918879
+          },
+          {}
+        ],
+        "tt@!mO &4": true,
+        "!_^~cwxLYa": [
+          null,
+          null,
+          null,
+          "W$h~]7(v\\r",
+          true,
+          1.2911172245908628e-156,
+          false,
+          -473972746602177,
+          null,
+          -7604636001782238
+        ],
+        "": [
+          [
+            "}&s3",
+            8990013688552433,
+            "K.lI(iU",
+            "y*\\q<n",
+            true,
+            -6.826826529163749e+233,
+            -1.2403306300929498e+80
+          ],
+          false,
+          [
+            -8594784267404711,
+            -1.0111927842808468e+216,
+            true,
+            -8576243389299553,
+            {
+              "plg|Z?B": true,
+              "YI": true,
+              "z1#": false,
+              "Wxx>#v/": -2.3624070609822484e-97,
+              "6i/": 2329161290559921,
+              "a": "w&]H|)",
+              "W&\\\"}x/": 3930525839189087,
+              "x": -3700872223623637,
+              "": "}RPW5#md",
+              ":>`s/1%%@": -4.123828873192484e+273
+            }
+          ]
+        ],
+        ",v(QA]o": -2.7256110123792767e+218
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": ":W>^j:F"
+    }
+  },
+  {
+    "param": {
+      "source": "FXO[J;$?q\\",
+      "target": "al",
+      "replacementKeys": "all",
+      "config": {
+        "ctxLen": 953572686,
+        "isCaseMatched": true,
+        "isWordMatched": false,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        "Y-[qDi": {
+          "|>m": -3.776484927004546e+218,
+          "y'utwl`": "V",
+          "u": "",
+          "": -1251164672718455,
+          "TwZbw]MV;": 4403737194334359,
+          "6Sf.]T06fU": null,
+          "mic?\\847(E": "!a6S!x@",
+          "([$": 1.3003953485436634e+138
+        },
+        "F$W0U": {
+          "B#1|~c!": false,
+          "nma!?3mD": [
+            "`|LCY",
+            null,
+            3.6167775427439824e-29,
+            "_b)/{dl$",
+            -3.9875038334984396e-127,
+            -978944083454075
+          ],
+          "`s/Ib9YA f": [
+            null,
+            1.7322930146566883e+99,
+            "w0nVbq",
+            null,
+            -596873293722570,
+            null,
+            false,
+            null,
+            8399569817809305,
+            4.003194481105812e-19
+          ]
+        }
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "FXO[J;$?q\\"
+    }
+  },
+  {
+    "param": {
+      "source": "$",
+      "target": "\"~",
+      "contextLength": 71956004,
+      "replacementKeys": "all",
+      "config": {
+        "ctxLen": 7,
+        "isCaseMatched": true
+      },
+      "metadata": {}
+    },
+    "result": {
+      "results": [],
+      "replaced": "$"
+    }
+  },
+  {
+    "param": {
+      "source": "-PI3Yz",
+      "target": "UGM",
+      "contextLength": 2147483644,
+      "replacementKeys": "all",
+      "config": {
+        "ctxLen": 1014859762,
+        "isCasePreserved": true
+      },
+      "metadata": {
+        "Q*": [
+          7.690896522949005e-78,
+          "",
+          -869615063067252,
+          "BP~",
+          1.7533640606186934e-252,
+          true,
+          6344282140051557,
+          2.3836165547047644e-287,
+          "",
+          null
+        ],
+        "'?$:]D`_)X": {
+          "1-?`akn5--": [
+            "*i8x_",
+            -5681392079932946,
+            false
+          ],
+          "/~bNcxa": [
+            true,
+            "t#5x",
+            -1.5974679362730173e-95,
+            false
+          ],
+          "4%|Jf": "p\\SsDL{]"
+        },
+        "6wV2b+": 2.67e-322,
+        ";~e-Q>I`": {
+          "rPX5FvOKbG": false,
+          "1z`TSnNHTV": "",
+          " (ga4": [
+            458948674601726800,
+            true,
+            true
+          ],
+          ">eo4IAEjh": [
+            "E0ap]_;Z",
+            8.097659606504752e-81,
+            1.1499854797647474e+293,
+            3.783857417343849e-299,
+            true,
+            -1.2284279628113074e+244,
+            3.3388760071455194e+212,
+            null,
+            true,
+            -5439047977673746
+          ],
+          "V?O4(pv?T": "xbIRJY)%@N",
+          "gE|F~I9AC": "z="
+        }
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "-PI3Yz"
+    }
+  },
+  {
+    "param": {
+      "source": "mTx",
+      "target": "",
+      "contextLength": 489101790,
+      "replacementKeys": [],
+      "config": {
+        "ctxLen": 54456449,
+        "isCaseMatched": false,
+        "isWordMatched": false,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        "Z": [
+          [
+            null,
+            -1.040309304903059e+83,
+            "'#h)3A'X",
+            3197294720577813,
+            false,
+            1071452913789963,
+            7684232607559845,
+            -6590615984786731,
+            ""
+          ],
+          -5.996555444212092e-188,
+          [
+            2.243360914692563e-126,
+            null,
+            "<lvuLPy?"
+          ],
+          null,
+          -1.2007499538906549e+236,
+          ":8cT",
+          -234043426014.29727
+        ],
+        ",_": {
+          "EtV~lTl": {
+            "\\f4y": "@2+etemm'-",
+            "mI1n": {
+              "~A6).x7": "7(",
+              "J": 2.8390439893682892e+82
+            },
+            "y|!Pv[3^p)": "5NW",
+            "}x": "'cW"
+          },
+          "": {}
+        },
+        "": [],
+        "Rq9f": [
+          null,
+          true,
+          null,
+          -4009091875280076,
+          {},
+          true,
+          null,
+          "^o(OXZoZ",
+          null
+        ],
+        "4w/okY": {
+          "": {
+            "H": 6003445771360815,
+            "]/3V!ao81": false,
+            "IV^A_": -6.388828791140899e+254,
+            "eY": 2312682698972961,
+            "QIr": false
+          },
+          "3iD9@,;": {
+            "P_,Oka:v*U": true
+          },
+          "v#)k$BzL": false,
+          "{|j": "",
+          "#c'9,!": true,
+          "qh)MX1bb": null,
+          "k!x}pZDq0": "7STv+sn\"aK",
+          "%zAU\\\"R6": true
+        },
+        "s9{} zEC/P": {
+          "-_(p.5GD0": 8.033166999957248e-268,
+          "G": "L)&>0$,",
+          ":ZW($": [
+            true,
+            true,
+            false,
+            null,
+            "mwT$S",
+            "J$/ZGu'A5",
+            "wr#5oa=d",
+            false
+          ],
+          "V": 4.853568634870543e+27,
+          ">Rzid": "s_v3L",
+          "2\"JQk~Lw#w": 1313011868079485,
+          "[kc": "IJx`/?"
+        },
+        "{K&G": [
+          true,
+          false,
+          true,
+          "BmamUg\\",
+          -1.0262758328857234e-78,
+          "bS^-FdMOW!",
+          5781157981830817
+        ],
+        "l/": -2237635571837484,
+        "FjvU10?M": true,
+        ")_FA@": {
+          "&O>Gc:=OK6": -7.5798865931349125e+87
+        }
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "mTx"
+    }
+  },
+  {
+    "param": {
+      "source": "o{L@z",
+      "target": "fU`tQ,_DY/",
+      "replacementKeys": "all",
+      "config": {
+        "ctxLen": 22,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        "": [
+          4.188088052740441e-232,
+          null,
+          true,
+          "3bh+",
+          "|X",
+          true,
+          null,
+          7532686800058417
+        ]
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "o{L@z"
+    }
+  },
+  {
+    "param": {
+      "source": "Tdm6)o+{2",
+      "target": "H}Sh",
+      "contextLength": 1878348071,
+      "replacementKeys": "all",
+      "config": {
+        "ctxLen": 500941934,
+        "isCaseMatched": false,
+        "isWordMatched": false,
+        "isCasePreserved": true
+      },
+      "metadata": {
+        "\"J+Xo+)R": [
+          1.4308098751713976e+262,
+          83335064615599260,
+          -2447750992541898,
+          false,
+          false,
+          null,
+          1.0215186949559358e+30,
+          true,
+          null,
+          -4781111555870708
+        ]
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "Tdm6)o+{2"
+    }
+  },
+  {
+    "param": {
+      "source": "&Q\\N\\W",
+      "target": "s-",
+      "contextLength": 744136730,
+      "replacementKeys": "all",
+      "config": {
+        "isCaseMatched": true,
+        "isWordMatched": false,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        ",d-A\\$:*b0": [
+          -6.3409535082555e-291,
+          null,
+          "LU4",
+          true,
+          "v*0vW%F"
+        ],
+        "": [
+          {
+            "Y": "9& )u17Nq/",
+            "x": 7603927611086701,
+            "AJN1": true,
+            "zqNF)b?Gp(": "m3Pg",
+            "{Q75='e.": "l$d",
+            ".{X8A": false,
+            "`l2": -1.8451213639619716e+225,
+            "6-cyP": true
+          },
+          {
+            "S": {
+              ">:c": 4.858378309703544e+143,
+              "KLJ42}d": false,
+              " d&{d": false,
+              "=5#": true,
+              "6A]y": 8038712915640395
+            },
+            "w$k'8/H": true,
+            "M:i": true,
+            "#~}U{dDj%": 2.1202483655835386e-30
+          },
+          {
+            "\\w/{OMVr|": false,
+            "B(r;/_e#": 1.5806597174386404e-99,
+            "PT": 7333479513586439,
+            "'y": ""
+          }
+        ],
+        "3c7p,<=`": false,
+        "1r,": {
+          "": 579397588007377,
+          "_&!Xu-mZ": -8.598444061732038e+151,
+          "TdcF": true,
+          "R1`I^>/\"V": "SyV94",
+          "V": "@n",
+          "_j!:LE's": "^z;8",
+          "8l": null,
+          "7Rm": true,
+          "x": 0.0006246394620152261,
+          "&*8D1Rd(h": "h5ITfd3"
+        },
+        "k/-{tQ<5-": [
+          "by0\\mk",
+          {
+            "=a)r": "](7P",
+            "wInS :[": ""
+          }
+        ]
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": "&Q\\N\\W"
+    }
+  },
+  {
+    "param": {
+      "source": "",
+      "target": "<bTkHUk*sz",
+      "contextLength": 851819162,
+      "config": {
+        "ctxLen": 1137581756,
+        "isCaseMatched": true,
+        "isWordMatched": true,
+        "isCasePreserved": false
+      },
+      "metadata": {
+        "u9zxR<}O": {},
+        "": [
+          1.9254288237169372e-144,
+          -2050709269921491,
+          -2430022512770631,
+          "c64o"
+        ],
+        "08(yjT": [
+          -6228883574791335,
+          "~6",
+          null,
+          null,
+          -6707521707951723,
+          "@Ywh"
+        ],
+        "@[g": false,
+        "hH|6": "'uevtH#CJ2",
+        "d*\"vvjR": true,
+        "*W]M`b/x": [
+          null,
+          -1.9503541757056396e-144,
+          true,
+          null,
+          2169829957785013,
+          -7221687243173758,
+          5359514324533369,
+          ""
+        ]
+      }
+    },
+    "result": {
+      "results": [],
+      "replaced": ""
+    }
+  }
+]
