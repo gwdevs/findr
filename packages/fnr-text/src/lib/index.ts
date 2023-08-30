@@ -145,13 +145,18 @@ function replaceFunc
   //TODO: rename this to something more understandable
   const pos = args.at(hasGroups ? -3 : -2) + auxMatch.length;
 
+  
+  //TODO: remove the need for oldArgs (this will break the legacy API)
+  //in order to maintain the legacy behavior of args we need to modify the args array
+  const oldArgs = args.slice(0, hasGroups ? -3 : -2)
+
   /** if the last argument of string.replace callback is an object it means the regexp contains groups */
   //TODO: why is the `match` the 3rd subgroup?
   const replacedText = match.replace
     (finalRgx, 
       //TODO: invert the dependencies here
       typeof replacement === 'function' 
-        ? () => replacement({ index: replaceIndex, match, groups: args, position: pos, source, namedGroups })
+        ? () => replacement({ index: replaceIndex, match, groups: oldArgs, position: pos, source, namedGroups })
         : () => replacement
     )
 
@@ -192,7 +197,7 @@ function replaceFunc
           match: match,
           searchIndex,
           position: pos,
-          groups: args,
+          groups: oldArgs,
           namedGroups,
           ...metadata,
       },
