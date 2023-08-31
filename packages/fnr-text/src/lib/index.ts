@@ -6,26 +6,6 @@ import * as S from './SourceAndFlags'
 *  Match Word, Regex, and allowing consumers to extend it further.
 *  It formats it's response in a way that is easier to consume by a Find and Replace UI.
 */
-
-/*
-TODO: Code Readability Suggestions
-
-It could be helpful to **separate Findr and Multiline into separate
-files and then import/export them in `index.ts`**.  It’s harder exploring
-through the codebase when I’m sorting through which `index.ts` file I’m looking at.
-- It also makes the imports within the files more readable (I get confused when
-  I see imports of index files and which folder they’re being imported from.
-  Like import x from “../../.”)
-
-A lot of the code was in one bigger function. **Creating smaller functions that
-group similar operations** (creating flags, preparing initial regex, etc.)
-**could help improve readability.**
-  1. For Example…
-      1. Wrapping the functionality in `source.replace` on **line 74** in a function
-      2. Wrapping the `defaultFlags` const with other code that generates flags
-      3. etc.
-*/
-
 export default function findr({
   source,
   target,
@@ -49,11 +29,11 @@ export default function findr({
   /** default flags to be used for regex pattern */
   const defaultFlags : S.RegexFlags =  !isCaseMatched ? S.mergeFlags(S.global, S.caseInsensitive) : S.global;
 
+  //TODO: needs increased support for multiple languages
   /** regex engine (default or xregexp) */
   /** is user providing an instance of XRegExp */
   const {regexBuilder, wordLike, uppercaseLetter} = xre instanceof Function
     ? { regexBuilder: xre 
-      //TODO: needs increased support for multiple languages
       /** regex pattern for a wordlike character */
       , wordLike: `p{Letter}\\p{Number}` 
 
