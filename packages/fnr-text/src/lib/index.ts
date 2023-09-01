@@ -28,27 +28,9 @@ export default function findr({
 
   /** default flags to be used for regex pattern */
   const defaultFlags : S.RegexFlags =  !isCaseMatched ? S.mergeFlags(S.global, S.caseInsensitive) : S.global;
-
-  //TODO: needs increased support for multiple languages
-  /** regex engine (default or xregexp) */
-  /** is user providing an instance of XRegExp */
-  const {regexBuilder, wordLike, uppercaseLetter} = xre instanceof Function
-    ? { regexBuilder: xre 
-      /** regex pattern for a wordlike character */
-      , wordLike: `p{Letter}\\p{Number}` 
-
-      /** regex pattern for uppercase character */
-      , uppercaseLetter: `\\p{Uppercase_Letter}` 
-      }
-
-    : { regexBuilder: (source: string, flags = '') => new RegExp(source, flags)
-      /** regex pattern for a wordlike character */
-      , wordLike : `\\w\\d`
-
-      /** regex pattern for uppercase character */
-      , uppercaseLetter: `[A-Z]`
-      }
-
+  
+  const {regexBuilder, wordLike, uppercaseLetter} = 
+    xre instanceof Function ? S.regexBuilderAndConfigFromFunction(xre) : S.defaultRegexAndConfig 
 
   const mkFinalRegex = (s : RegExp | string) : S.SourceAndFlags => s instanceof RegExp ? S.fromRegex(s) : S.regexStringToRegexer(s) 
 

@@ -1,10 +1,16 @@
 import * as P from './Parser'
 
+//TODO: rename this type type RegExpBuilder
 export type Regexer = (source: string, flags? : string) => RegExp
 export type RegexFlags = Array<string>;
 
+/**
+This represents something that builds a RegExp from a source (as in `/<source>/`) and regular
+expression flags 
+*/
 export type SourceAndFlags = (regexer : Regexer, defFlags : RegexFlags) => RegExp 
 
+//TODO: refactor flags to its own module
 export const global : RegexFlags = ['g'] 
 
 export const caseInsensitive : RegexFlags = ['i'] 
@@ -37,3 +43,27 @@ export const  regexFromString : P.Parser<string, SourceAndFlags> = P.andThen
     )
 
 export const  regexStringToRegexer : (s : string) => SourceAndFlags = P.withDefault(regexFromString, fromString) 
+
+type RegexString = string
+
+/**
+This represents something that builds a 
+*/
+export type RegexerConfig = 
+    { regexBuilder : Regexer
+    , wordLike : RegexString
+    , uppercaseLetter : RegexString
+    }
+
+export const regexBuilderAndConfigFromFunction : (r : Regexer) => RegexerConfig = r => 
+  ({ regexBuilder: r
+  , wordLike: `p{Letter}\\p{Number}` 
+  , uppercaseLetter: `\\p{Uppercase_Letter}` 
+  })
+
+
+export const defaultRegexAndConfig : RegexerConfig = 
+  ({ regexBuilder: (source: string, flags = '') => new RegExp(source, flags)
+  , wordLike : `\\w\\d`
+  , uppercaseLetter: `[A-Z]`
+  })
