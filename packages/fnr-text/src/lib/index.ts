@@ -1,4 +1,4 @@
-import { SearchAndReplace, SearchResult, ResultKey, ReplacementCallback } from './index.d';
+import { SearchAndReplace, SearchResult } from './index.d';
 import * as S from './SourceAndFlags'
 
 /** 
@@ -32,7 +32,8 @@ export default function findr({
   const {regexBuilder, wordLike, uppercaseLetter} = 
     xre instanceof Function ? S.regexBuilderAndConfigFromFunction(xre) : S.defaultRegexAndConfig 
 
-  const mkFinalRegex = (s : RegExp | string) : S.SourceAndFlags => s instanceof RegExp ? S.fromRegex(s) : S.regexStringToRegexer(s) 
+  const mkFinalRegex = (s : RegExp | string) : S.SourceAndFlags => 
+    s instanceof RegExp ? S.fromRegex(s) : S.regexStringToRegexer(s) 
 
   const targetRegex = mkFinalRegex(target)(regexBuilder, defaultFlags)
       
@@ -49,10 +50,10 @@ export default function findr({
   let searchIndex = 0;
   let replaceIndex = 0;
 
-  //TODO: place: initial array ---> array construction logic ---> final array with a fold/reduce pattern
-  const results: SearchResult[] = [];
+  let results : SearchResult[] = []
 
-  const replaceFunc_ = replaceFunc
+  //TODO: it might be worth using a Reader functor here...
+  const replaceFunc_ = (a : any, b : any, c : any, ...d : any[]) => replaceFunc
     ( source
     , regexBuilder
     , uppercaseLetter
@@ -64,16 +65,24 @@ export default function findr({
     , replacementKeys
     , metadata
     , searchIndex
-    , results
     , ctxLen
     , filterCtxMatch
     , filterCtxReplacement
-    )
+    )(a,b, c, ...d)(results)
 
   //TODO: rework the types involved so that this empty string check isn't required
   const replaced = target !== '' ? source.replace(wholeWordRegex, replaceFunc_) : source;
 
   return { results, replaced };
+}
+
+type ResultsBuilder = (results : SearchResult[]) => string
+
+const onlyReplace = (s : string) : ResultsBuilder => () => s
+ 
+const replaceAndResult = (s : string, r : SearchResult) : ResultsBuilder => (results : SearchResult[]) => {
+  results.push(r)
+  return s
 }
 
 function replaceFunc
@@ -88,7 +97,6 @@ function replaceFunc
   , replacementKeys : any
   , metadata : any
   , searchIndex : any
-  , results : any
   , ctxLen : any
   , filterCtxMatch : any
   , filterCtxReplacement : any
@@ -106,7 +114,6 @@ function replaceFunc
 
   //TODO: rename this to something more understandable
   const pos = args.at(hasGroups ? -3 : -2) + auxMatch.length;
-
   
   //TODO: remove the need for oldArgs (this will break the legacy API)
   //in order to maintain the legacy behavior of args we need to modify the args array
@@ -129,19 +136,24 @@ function replaceFunc
     : regexer(uppercaseLetter).test(match[0]) ? replacedText[0].toUpperCase() + replacedText.slice(1)
     : replacedText
 
+  const hasReplacementKey = replacementKeys === 'all' || replacementKeys.includes(buildResultKey(replaceIndex) as string) 
 
-  //TODO: I don't this interface to buildResultKey is a good idea...just a gut feeling here.
-  //TODO: unify the return results
-  // REPLACE IF replacePointer IS INCLUDED IN replacementKeys given by user
-  if (replacementKeys === 'all' || replacementKeys.includes(buildResultKey(replaceIndex) as string) ) 
-  { /** if a replacementKey matches current result this result won't be included in the list of results */
-    //TODO: why are we concatenating the first subgroup with the replaced text? 
-    return auxMatch + replacedCaseHandled;
+  //TODO: once searchIndex has been made stateless 
+  const searchIndex_ = searchIndex
+
+  //TODO: this has been moved up as we refactor away the threading around of result
+  if(!hasReplacementKey) {
+    searchIndex++;
+    replaceIndex++;
   }
 
-  //TODO: add result metadata as filterCtxReplacement arg
-  results.push({
-      match: filterCtxMatch ? filterCtxMatch(match) : match,
+  // REPLACE IF replacePointer IS INCLUDED IN replacementKeys given by user
+  return hasReplacementKey
+  ? /** if a replacementKey matches current result this result won't be included in the list of results */
+    //TODO: why are we concatenating the first subgroup with the replaced text? 
+    onlyReplace(auxMatch + replacedCaseHandled)
+  : replaceAndResult(tmpMatch,
+      {match: filterCtxMatch ? filterCtxMatch(match) : match,
       replacement: filterCtxReplacement ? filterCtxReplacement(replacedCaseHandled) : replacedCaseHandled,
       context: 
         { before: source.slice(pos - ctxLen, pos),
@@ -151,24 +163,17 @@ function replaceFunc
         { before: source.slice(0, pos),
           after: source.slice(pos + match.length, -1) 
         },
-      resultKey: buildResultKey(searchIndex),
+      resultKey: buildResultKey(searchIndex_),
       metadata: {
           //TODO: remove this since it's unecessary
           source: source,
           //TODO: remove this since it's unecessary
           match: match,
-          searchIndex,
+          searchIndex: searchIndex_,
           position: pos,
           groups: oldArgs,
           namedGroups,
           ...metadata,
-      },
-  })
-
-  //TODO: is there a stateless way to do this? It's difficult to follow the denotational semantics
-  //of the code given a stateful variable like this.
-  searchIndex++;
-  replaceIndex++;
-
-  return tmpMatch;
-}}  
+      }}
+    )
+}}   
