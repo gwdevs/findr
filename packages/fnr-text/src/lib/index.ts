@@ -1,4 +1,5 @@
 import { SearchAndReplace, SearchResult } from './index.d';
+import { onlyReplace, replaceAndResult } from './ResultsBuilder';
 import * as S from './SourceAndFlags'
 
 /** 
@@ -46,10 +47,8 @@ export default function findr({
       : regexBuilder(`()(${source_})`, flags_);
 
   //START FINDING AND REPLACING
-
   let searchIndex = 0;
   let replaceIndex = 0;
-
   let results : SearchResult[] = []
 
   //TODO: it might be worth using a Reader functor here...
@@ -68,21 +67,12 @@ export default function findr({
     , ctxLen
     , filterCtxMatch
     , filterCtxReplacement
-    )(a,b, c, ...d)(results)
+    )(a,b, c, ...d)(results, searchIndex, replaceIndex)
 
   //TODO: rework the types involved so that this empty string check isn't required
   const replaced = target !== '' ? source.replace(wholeWordRegex, replaceFunc_) : source;
 
   return { results, replaced };
-}
-
-type ResultsBuilder = (results : SearchResult[]) => string
-
-const onlyReplace = (s : string) : ResultsBuilder => () => s
- 
-const replaceAndResult = (s : string, r : SearchResult) : ResultsBuilder => (results : SearchResult[]) => {
-  results.push(r)
-  return s
 }
 
 function replaceFunc
@@ -138,15 +128,6 @@ function replaceFunc
 
   const hasReplacementKey = replacementKeys === 'all' || replacementKeys.includes(buildResultKey(replaceIndex) as string) 
 
-  //TODO: once searchIndex has been made stateless 
-  const searchIndex_ = searchIndex
-
-  //TODO: this has been moved up as we refactor away the threading around of result
-  if(!hasReplacementKey) {
-    searchIndex++;
-    replaceIndex++;
-  }
-
   // REPLACE IF replacePointer IS INCLUDED IN replacementKeys given by user
   return hasReplacementKey
   ? /** if a replacementKey matches current result this result won't be included in the list of results */
@@ -163,13 +144,13 @@ function replaceFunc
         { before: source.slice(0, pos),
           after: source.slice(pos + match.length, -1) 
         },
-      resultKey: buildResultKey(searchIndex_),
+      resultKey: buildResultKey(searchIndex),
       metadata: {
           //TODO: remove this since it's unecessary
           source: source,
           //TODO: remove this since it's unecessary
           match: match,
-          searchIndex: searchIndex_,
+          searchIndex,
           position: pos,
           groups: oldArgs,
           namedGroups,
