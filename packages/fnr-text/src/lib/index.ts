@@ -82,10 +82,12 @@ function replaceFunc
   , isCasePreserved : any
   , finalRgx : any
   , replacement : any
+  //TODO: eliminate from function argument
   , replaceIndex : any
   , buildResultKey : any
   , replacementKeys : any
   , metadata : any
+  //TODO: eliminate from function argument
   , searchIndex : any
   , ctxLen : any
   , filterCtxMatch : any
@@ -123,11 +125,14 @@ function replaceFunc
   const replacedCaseHandled = 
     !isCasePreserved ? replacedText
     : String(match).toUpperCase() === match ? String(replacedText).toUpperCase() 
+    //TODO: remove need to pass in regexer
     : regexer(uppercaseLetter).test(match[0]) ? replacedText[0].toUpperCase() + replacedText.slice(1)
     : replacedText
 
   const hasReplacementKey = replacementKeys === 'all' || replacementKeys.includes(buildResultKey(replaceIndex) as string) 
 
+  //TODO: I don't this interface to buildResultKey is a good idea...just a gut feeling here.
+  //TODO: unify the return results
   // REPLACE IF replacePointer IS INCLUDED IN replacementKeys given by user
   return hasReplacementKey
   ? /** if a replacementKey matches current result this result won't be included in the list of results */
@@ -146,9 +151,9 @@ function replaceFunc
         },
       resultKey: buildResultKey(searchIndex),
       metadata: {
-          //TODO: remove this since it's unecessary
+          //TODO: remove this since it's unecessary and bloating the return value
           source: source,
-          //TODO: remove this since it's unecessary
+          //TODO: remove this since it's unecessary (and already included in the above code)
           match: match,
           searchIndex,
           position: pos,
