@@ -15,6 +15,8 @@ export const global : RegexFlags = ['g']
 
 export const caseInsensitive : RegexFlags = ['i'] 
 
+export const emptyRegexer = (source: string, flags = '') => new RegExp(source, flags)
+
 export const  mergeFlags = (a: RegexFlags, b : RegexFlags) : RegexFlags => [...new Set([...a, ...b])]
 
 export const  onlySource = (source : string) : SourceAndFlags => (regexer, defFlags) => regexer(source, defFlags.join(''))
@@ -47,23 +49,23 @@ export const  regexStringToRegexer : (s : string) => SourceAndFlags = P.withDefa
 type RegexString = string
 
 /**
-This represents something that builds a 
+This represents the combination of which RegExp builder to use and the match 
 */
 export type RegexerConfig = 
     { regexBuilder : Regexer
     , wordLike : RegexString
-    , uppercaseLetter : RegexString
+    , uppercaseLetter : RegExp
     }
 
 export const regexBuilderAndConfigFromFunction : (r : Regexer) => RegexerConfig = r => 
   ({ regexBuilder: r
   , wordLike: `p{Letter}\\p{Number}` 
-  , uppercaseLetter: `\\p{Uppercase_Letter}` 
+  , uppercaseLetter: r(`\\p{Uppercase_Letter}`) 
   })
 
 
 export const defaultRegexAndConfig : RegexerConfig = 
-  ({ regexBuilder: (source: string, flags = '') => new RegExp(source, flags)
+  ({ regexBuilder: emptyRegexer 
   , wordLike : `\\w\\d`
-  , uppercaseLetter: `[A-Z]`
+  , uppercaseLetter: emptyRegexer(`[A-Z]`)
   })

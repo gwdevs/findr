@@ -54,7 +54,6 @@ export default function findr({
   //TODO: it might be worth using a Reader functor here...
   const replaceFunc_ = (a : any, b : any, c : any, ...d : any[]) => replaceFunc
     ( source
-    , regexBuilder
     , uppercaseLetter
     , isCasePreserved
     , targetRegex
@@ -77,7 +76,6 @@ export default function findr({
 
 function replaceFunc
   ( source : string
-  , regexer : any
   , uppercaseLetter : any
   , isCasePreserved : any
   , finalRgx : any
@@ -106,6 +104,7 @@ function replaceFunc
 
   //TODO: rename this to something more understandable
   const pos = args.at(hasGroups ? -3 : -2) + auxMatch.length;
+
   
   //TODO: remove the need for oldArgs (this will break the legacy API)
   //in order to maintain the legacy behavior of args we need to modify the args array
@@ -126,7 +125,7 @@ function replaceFunc
     !isCasePreserved ? replacedText
     : String(match).toUpperCase() === match ? String(replacedText).toUpperCase() 
     //TODO: remove need to pass in regexer
-    : regexer(uppercaseLetter).test(match[0]) ? replacedText[0].toUpperCase() + replacedText.slice(1)
+    : uppercaseLetter.test(match[0]) ? replacedText[0].toUpperCase() + replacedText.slice(1)
     : replacedText
 
   const hasReplacementKey = replacementKeys === 'all' || replacementKeys.includes(buildResultKey(replaceIndex) as string) 
