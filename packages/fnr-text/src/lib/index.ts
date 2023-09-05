@@ -69,8 +69,9 @@ export default function findr({
   //TODO: rework the types involved so that this empty string check isn't required
   const replaced = target !== '' ? source.replace(wholeWordRegex, replaceFunc_) : source;
 
+  //TODO: break the external API so this is no longer needed
   const adjoinMetadata = ({metadata, ...result} : SearchResult) => 
-    ({ metadata : {...metadata, ...mdata}
+    ({ metadata : {...metadata, source, ...mdata}
     , ...result
     })
 
@@ -140,8 +141,6 @@ function replaceFunc
         },
       resultKey: buildResultKey(searchIndex),
       metadata: {
-          //TODO: remove this since it's unecessary and bloating the return value
-          source: source,
           //TODO: remove this since it's unecessary (and already included in the above code)
           match: subStringMatch,
           searchIndex,
