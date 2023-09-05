@@ -54,18 +54,15 @@ This represents the combination of which RegExp builder to use and the match
 export type RegexerConfig = 
     { regexBuilder : Regexer
     , wordLike : RegexString
-    , uppercaseLetter : RegExp
     }
 
 export const regexBuilderAndConfigFromFunction : (r : Regexer) => RegexerConfig = r => 
   ({ regexBuilder: r
   , wordLike: `p{Letter}\\p{Number}` 
-  , uppercaseLetter: r(`\\p{Uppercase_Letter}`) 
   })
 
 
 export const defaultRegexAndConfig : RegexerConfig = 
   ({ regexBuilder: emptyRegexer 
   , wordLike : `\\w\\d`
-  , uppercaseLetter: emptyRegexer(`[A-Z]`)
   })

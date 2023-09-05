@@ -30,7 +30,7 @@ export default function findr({
   /** default flags to be used for regex pattern */
   const defaultFlags : S.RegexFlags =  !isCaseMatched ? S.mergeFlags(S.global, S.caseInsensitive) : S.global;
   
-  const {regexBuilder, wordLike, uppercaseLetter} = 
+  const {regexBuilder, wordLike } = 
     xre instanceof Function ? S.regexBuilderAndConfigFromFunction(xre) : S.defaultRegexAndConfig 
 
   const mkFinalRegex = (s : RegExp | string) : S.SourceAndFlags => 
@@ -55,7 +55,6 @@ export default function findr({
   //TODO: it might be worth using a Reader functor here...
   const replaceFunc_ = (a : any, b : any, c : any, ...d : any[]) => replaceFunc
     ( source
-    , uppercaseLetter
     , isCasePreserved
     , replacement
     , buildResultKey
@@ -77,9 +76,14 @@ export default function findr({
   return { results: results.map(adjoinMetadata), replaced };
 }
 
+const maintainCase = (match : string, replaced : string) =>
+  String(match).toUpperCase() === match ? String(replaced).toUpperCase() 
+  //TODO: remove need to pass in uppercase regex
+  : match[0].toUpperCase() ? `${replaced[0].toUpperCase()}${replaced.slice(1)}`
+  : replaced
+
 function replaceFunc
   ( source : string
-  , uppercaseLetter : any
   , isCasePreserved : any
   , replacement : any
   //TODO: eliminate from function argument
@@ -115,12 +119,6 @@ function replaceFunc
     typeof replacement === 'function' 
     ? replacement({ index: searchIndex, match: subStringMatch, groups: oldArgs, position: pos, source, namedGroups })
     : replacement
-
-  const maintainCase = (match : string, replaced : string) =>
-    String(match).toUpperCase() === match ? String(replaced).toUpperCase() 
-    //TODO: remove need to pass in uppercase regex
-    : uppercaseLetter.test(match[0]) ? replaced[0].toUpperCase() + replaced.slice(1)
-    : replaced
 
   /** replacement string modified to match findr's replacement config */
   const replacedCaseHandled =  !isCasePreserved ? replacedText : maintainCase(subStringMatch, replacedText)
