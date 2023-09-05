@@ -12,7 +12,7 @@ export default function findr({
   target,
   replacement = '',
   replacementKeys = [],
-  metadata,
+  metadata: mdata,
   config: {
     filterCtxMatch = (match: string) => match,
     filterCtxReplacement = (replacement: string) => replacement,
@@ -60,7 +60,6 @@ export default function findr({
     , replacement
     , buildResultKey
     , replacementKeys
-    , metadata
     , searchIndex
     , ctxLen
     , filterCtxMatch
@@ -70,7 +69,12 @@ export default function findr({
   //TODO: rework the types involved so that this empty string check isn't required
   const replaced = target !== '' ? source.replace(wholeWordRegex, replaceFunc_) : source;
 
-  return { results, replaced };
+  const adjoinMetadata = ({metadata, ...result} : SearchResult) => 
+    ({ metadata : {...metadata, ...mdata}
+    , ...result
+    })
+
+  return { results: results.map(adjoinMetadata), replaced };
 }
 
 function replaceFunc
@@ -81,7 +85,6 @@ function replaceFunc
   //TODO: eliminate from function argument
   , buildResultKey : any
   , replacementKeys : any
-  , metadata : any
   //TODO: eliminate from function argument
   , searchIndex : any
   , ctxLen : any
@@ -110,8 +113,8 @@ function replaceFunc
   //TODO: why is the `match` the 3rd subgroup?
   const replacedText = 
     typeof replacement === 'function' 
-        ? replacement({ index: searchIndex, match, groups: oldArgs, position: pos, source, namedGroups })
-        : replacement
+    ? replacement({ index: searchIndex, match, groups: oldArgs, position: pos, source, namedGroups })
+    : replacement
 
   /** replacement string modified to match findr's replacement config */
   const replacedCaseHandled = 
@@ -151,7 +154,6 @@ function replaceFunc
           position: pos,
           groups: oldArgs,
           namedGroups,
-          ...metadata,
       }}
     )
 }}   
