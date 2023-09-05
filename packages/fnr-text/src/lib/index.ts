@@ -71,7 +71,7 @@ export default function findr({
 
   //TODO: break the external API so this is no longer needed
   const adjoinMetadata = ({metadata, ...result} : SearchResult) => 
-    ({ metadata : {...metadata, source, ...mdata}
+    ({ metadata : {...metadata, source, match: result.match, ...mdata}
     , ...result
     })
 
@@ -141,8 +141,6 @@ function replaceFunc
         },
       resultKey: buildResultKey(searchIndex),
       metadata: {
-          //TODO: remove this since it's unecessary (and already included in the above code)
-          match: subStringMatch,
           searchIndex,
           position: pos,
           groups: oldArgs,
