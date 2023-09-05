@@ -90,7 +90,7 @@ function replaceFunc
   , ctxLen : any
   , filterCtxMatch : any
   , filterCtxReplacement : any
-  ) { return (entireStringMatch: any, preWordSpaceCharacter: string | string[], match: string, ...args: any[]) => {
+  ) { return (entireStringMatch: any, preWordSpaceCharacter: string | string[], subStringMatch: string, ...args: any[]) => {
 
   //TODO: invert the logic here. According to the MDN documentation these variables can be inferred
   //from the initialRgx value. That is, the instance of `...args` can be inferred directly from
@@ -113,16 +113,17 @@ function replaceFunc
   //TODO: why is the `match` the 3rd subgroup?
   const replacedText = 
     typeof replacement === 'function' 
-    ? replacement({ index: searchIndex, match, groups: oldArgs, position: pos, source, namedGroups })
+    ? replacement({ index: searchIndex, match: subStringMatch, groups: oldArgs, position: pos, source, namedGroups })
     : replacement
 
+  const maintainCase = (match : string, replaced : string) =>
+    String(match).toUpperCase() === match ? String(replaced).toUpperCase() 
+    //TODO: remove need to pass in uppercase regex
+    : uppercaseLetter.test(match[0]) ? replaced[0].toUpperCase() + replaced.slice(1)
+    : replaced
+
   /** replacement string modified to match findr's replacement config */
-  const replacedCaseHandled = 
-    !isCasePreserved ? replacedText
-    : String(match).toUpperCase() === match ? String(replacedText).toUpperCase() 
-    //TODO: remove need to pass in regexer
-    : uppercaseLetter.test(match[0]) ? replacedText[0].toUpperCase() + replacedText.slice(1)
-    : replacedText
+  const replacedCaseHandled =  !isCasePreserved ? replacedText : maintainCase(subStringMatch, replacedText)
 
   const hasReplacementKey = replacementKeys === 'all' || replacementKeys.includes(buildResultKey(searchIndex) as string) 
 
@@ -134,22 +135,22 @@ function replaceFunc
     //TODO: why are we concatenating the first subgroup with the replaced text? 
     onlyReplace(preWordSpaceCharacter + replacedCaseHandled)
   : replaceAndResult(entireStringMatch,
-      {match: filterCtxMatch ? filterCtxMatch(match) : match,
+      {match: filterCtxMatch ? filterCtxMatch(subStringMatch) : subStringMatch,
       replacement: filterCtxReplacement ? filterCtxReplacement(replacedCaseHandled) : replacedCaseHandled,
       context: 
         { before: source.slice(pos - ctxLen, pos),
-          after: source.slice(pos + match.length, pos + match.length + ctxLen) 
+          after: source.slice(pos + subStringMatch.length, pos + subStringMatch.length + ctxLen) 
         },
       extContext: 
         { before: source.slice(0, pos),
-          after: source.slice(pos + match.length, -1) 
+          after: source.slice(pos + subStringMatch.length, -1) 
         },
       resultKey: buildResultKey(searchIndex),
       metadata: {
           //TODO: remove this since it's unecessary and bloating the return value
           source: source,
           //TODO: remove this since it's unecessary (and already included in the above code)
-          match: match,
+          match: subStringMatch,
           searchIndex,
           position: pos,
           groups: oldArgs,
