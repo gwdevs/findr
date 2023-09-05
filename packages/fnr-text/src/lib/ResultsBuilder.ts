@@ -1,12 +1,11 @@
 import { SearchResult } from './index.d';
 
-type ResultsBuilder = (results: SearchResult[], searchIndex : number, replaceIndex : number) => string;
+type ResultsBuilder = (results: SearchResult[], searchIndex : number ) => string;
 
 export const onlyReplace = (s: string): ResultsBuilder => () => s;
 
-export const replaceAndResult = (s: string, r: SearchResult): ResultsBuilder => (results: SearchResult[], searchIndex, replaceIndex) => {
+export const replaceAndResult = (s: string, r: SearchResult): ResultsBuilder => (results: SearchResult[], searchIndex) => {
     searchIndex++;
-    replaceIndex++;
     results.push(r);
     return s;
 };

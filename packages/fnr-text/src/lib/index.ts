@@ -50,7 +50,6 @@ export default function findr({
 
   //START FINDING AND REPLACING
   let searchIndex = 0;
-  let replaceIndex = 0;
   let results : SearchResult[] = []
 
   //TODO: it might be worth using a Reader functor here...
@@ -59,7 +58,6 @@ export default function findr({
     , uppercaseLetter
     , isCasePreserved
     , replacement
-    , replaceIndex
     , buildResultKey
     , replacementKeys
     , metadata
@@ -67,7 +65,7 @@ export default function findr({
     , ctxLen
     , filterCtxMatch
     , filterCtxReplacement
-    )(a,b, c, ...d)(results, searchIndex, replaceIndex)
+    )(a,b, c, ...d)(results, searchIndex)
 
   //TODO: rework the types involved so that this empty string check isn't required
   const replaced = target !== '' ? source.replace(wholeWordRegex, replaceFunc_) : source;
@@ -81,7 +79,6 @@ function replaceFunc
   , isCasePreserved : any
   , replacement : any
   //TODO: eliminate from function argument
-  , replaceIndex : any
   , buildResultKey : any
   , replacementKeys : any
   , metadata : any
@@ -113,16 +110,8 @@ function replaceFunc
   //TODO: why is the `match` the 3rd subgroup?
   const replacedText = 
     typeof replacement === 'function' 
-        ? replacement({ index: replaceIndex, match, groups: oldArgs, position: pos, source, namedGroups })
+        ? replacement({ index: searchIndex, match, groups: oldArgs, position: pos, source, namedGroups })
         : replacement
-
-    //match.replace
-    //(targetRegex, 
-    //  //TODO: invert the dependencies here
-    //  typeof replacement === 'function' 
-    //    ? () => replacement({ index: replaceIndex, match, groups: oldArgs, position: pos, source, namedGroups })
-    //    : () => replacement
-    //)
 
   /** replacement string modified to match findr's replacement config */
   const replacedCaseHandled = 
@@ -132,7 +121,7 @@ function replaceFunc
     : uppercaseLetter.test(match[0]) ? replacedText[0].toUpperCase() + replacedText.slice(1)
     : replacedText
 
-  const hasReplacementKey = replacementKeys === 'all' || replacementKeys.includes(buildResultKey(replaceIndex) as string) 
+  const hasReplacementKey = replacementKeys === 'all' || replacementKeys.includes(buildResultKey(searchIndex) as string) 
 
   //TODO: I don't this interface to buildResultKey is a good idea...just a gut feeling here.
   //TODO: unify the return results
