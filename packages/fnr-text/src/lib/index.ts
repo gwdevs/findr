@@ -58,7 +58,6 @@ export default function findr({
     ( source
     , uppercaseLetter
     , isCasePreserved
-    , targetRegex
     , replacement
     , replaceIndex
     , buildResultKey
@@ -80,7 +79,6 @@ function replaceFunc
   ( source : string
   , uppercaseLetter : any
   , isCasePreserved : any
-  , targetRegex : any
   , replacement : any
   //TODO: eliminate from function argument
   , replaceIndex : any
@@ -113,13 +111,18 @@ function replaceFunc
 
   /** if the last argument of string.replace callback is an object it means the regexp contains groups */
   //TODO: why is the `match` the 3rd subgroup?
-  const replacedText = match.replace
-    (targetRegex, 
-      //TODO: invert the dependencies here
-      typeof replacement === 'function' 
-        ? () => replacement({ index: replaceIndex, match, groups: oldArgs, position: pos, source, namedGroups })
-        : () => replacement
-    )
+  const replacedText = 
+    typeof replacement === 'function' 
+        ? replacement({ index: replaceIndex, match, groups: oldArgs, position: pos, source, namedGroups })
+        : replacement
+
+    //match.replace
+    //(targetRegex, 
+    //  //TODO: invert the dependencies here
+    //  typeof replacement === 'function' 
+    //    ? () => replacement({ index: replaceIndex, match, groups: oldArgs, position: pos, source, namedGroups })
+    //    : () => replacement
+    //)
 
   /** replacement string modified to match findr's replacement config */
   const replacedCaseHandled = 
