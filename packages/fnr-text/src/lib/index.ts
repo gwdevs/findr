@@ -1,3 +1,4 @@
+import * as C from './CaseHandler';
 import { SearchAndReplace, SearchResult } from './index.d';
 import { onlyReplace, replaceAndResult } from './ResultsBuilder';
 import * as S from './SourceAndFlags'
@@ -55,7 +56,7 @@ export default function findr({
   //TODO: it might be worth using a Reader functor here...
   const replaceFunc_ = (a : any, b : any, c : any, ...d : any[]) => replaceFunc
     ( source
-    , isCasePreserved
+    , isCasePreserved ? C.maintainCase : C.replaceCase 
     , replacement
     , buildResultKey
     , replacementKeys
@@ -76,15 +77,9 @@ export default function findr({
   return { results: results.map(adjoinMetadata), replaced };
 }
 
-const maintainCase = (match : string, replaced : string) =>
-  String(match).toUpperCase() === match ? String(replaced).toUpperCase() 
-  //TODO: remove need to pass in uppercase regex
-  : match[0].toUpperCase() ? `${replaced[0].toUpperCase()}${replaced.slice(1)}`
-  : replaced
-
 function replaceFunc
   ( source : string
-  , isCasePreserved : any
+  , handleCase : C.CaseHandler
   , replacement : any
   //TODO: eliminate from function argument
   , buildResultKey : any
@@ -121,9 +116,9 @@ function replaceFunc
     : replacement
 
   /** replacement string modified to match findr's replacement config */
-  const replacedCaseHandled =  !isCasePreserved ? replacedText : maintainCase(subStringMatch, replacedText)
+  const replacedCaseHandled = handleCase(subStringMatch, replacedText)
 
-  const hasReplacementKey = replacementKeys === 'all' || replacementKeys.includes(buildResultKey(searchIndex) as string) 
+  const hasReplacementKey = replacementKeys === 'all' || replacementKeys.includes(buildResultKey(searchIndex)) 
 
   //TODO: I don't this interface to buildResultKey is a good idea...just a gut feeling here.
   //TODO: unify the return results
