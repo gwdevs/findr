@@ -41,10 +41,12 @@ export default function findr({
   /** regex with findr's search config */
   const { source: source_, flags: flags_ } = targetRegex
 
+  const regexWithWholeWord = regexBuilder(`(^|[^${wordLike}])(${source_})(?=[^${wordLike}]|$)`, flags_)
+
+  const onlySourceRegex = regexBuilder(`()(${source_})`, flags_)
+
   /** adds patterns needed to fit findr's config to a given RegExp */
-  const wholeWordRegex = isWordMatched
-      ? regexBuilder(`(^|[^${wordLike}])(${source_})(?=[^${wordLike}]|$)`, flags_)
-      : regexBuilder(`()(${source_})`, flags_);
+  const wholeWordRegex = isWordMatched ? regexWithWholeWord : onlySourceRegex
 
   //START FINDING AND REPLACING
   let searchIndex = 0;
@@ -78,7 +80,7 @@ function replaceFunc
   ( source : string
   , uppercaseLetter : any
   , isCasePreserved : any
-  , finalRgx : any
+  , targetRegex : any
   , replacement : any
   //TODO: eliminate from function argument
   , replaceIndex : any
@@ -90,7 +92,7 @@ function replaceFunc
   , ctxLen : any
   , filterCtxMatch : any
   , filterCtxReplacement : any
-  ) { return (tmpMatch: any, auxMatch: string | any[], match: string, ...args: any[]) => {
+  ) { return (entireStringMatch: any, preWordSpaceCharacter: string | string[], match: string, ...args: any[]) => {
 
   //TODO: invert the logic here. According to the MDN documentation these variables can be inferred
   //from the initialRgx value. That is, the instance of `...args` can be inferred directly from
@@ -103,8 +105,7 @@ function replaceFunc
   const namedGroups = hasGroups ? args.at(-1) : undefined;
 
   //TODO: rename this to something more understandable
-  const pos = args.at(hasGroups ? -3 : -2) + auxMatch.length;
-
+  const pos = args.at(hasGroups ? -3 : -2) + preWordSpaceCharacter.length;
   
   //TODO: remove the need for oldArgs (this will break the legacy API)
   //in order to maintain the legacy behavior of args we need to modify the args array
@@ -113,7 +114,7 @@ function replaceFunc
   /** if the last argument of string.replace callback is an object it means the regexp contains groups */
   //TODO: why is the `match` the 3rd subgroup?
   const replacedText = match.replace
-    (finalRgx, 
+    (targetRegex, 
       //TODO: invert the dependencies here
       typeof replacement === 'function' 
         ? () => replacement({ index: replaceIndex, match, groups: oldArgs, position: pos, source, namedGroups })
@@ -136,8 +137,8 @@ function replaceFunc
   return hasReplacementKey
   ? /** if a replacementKey matches current result this result won't be included in the list of results */
     //TODO: why are we concatenating the first subgroup with the replaced text? 
-    onlyReplace(auxMatch + replacedCaseHandled)
-  : replaceAndResult(tmpMatch,
+    onlyReplace(preWordSpaceCharacter + replacedCaseHandled)
+  : replaceAndResult(entireStringMatch,
       {match: filterCtxMatch ? filterCtxMatch(match) : match,
       replacement: filterCtxReplacement ? filterCtxReplacement(replacedCaseHandled) : replacedCaseHandled,
       context: 
