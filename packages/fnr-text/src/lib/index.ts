@@ -53,11 +53,14 @@ export default function findr({
   let searchIndex = 0;
   let results : SearchResult[] = []
 
+  
+  const createReplacement = typeof replacement === 'function' ? replacement : () => replacement
+
   //TODO: it might be worth using a Reader functor here...
   const replaceFunc_ = (a : any, b : any, c : any, ...d : any[]) => replaceFunc
     ( source
     , isCasePreserved ? C.maintainCase : C.replaceCase 
-    , replacement
+    , createReplacement
     , buildResultKey
     , replacementKeys
     , searchIndex
@@ -81,7 +84,7 @@ export default function findr({
 function replaceFunc
   ( source : string
   , handleCase : C.CaseHandler
-  , replacement : any
+  , createReplacement : (x : any) => string
   //TODO: eliminate from function argument
   , buildResultKey : any
   , replacementKeys : any
@@ -109,25 +112,22 @@ function replaceFunc
   //in order to maintain the legacy behavior of args we need to modify the args array
   const oldArgs = args.slice(0, hasGroups ? -3 : -2)
 
-  /** if the last argument of string.replace callback is an object it means the regexp contains groups */
-  //TODO: why is the `match` the 3rd subgroup?
-  const replacedText = 
-    typeof replacement === 'function' 
-    ? replacement({ index: searchIndex, match: subStringMatch, groups: oldArgs, position: pos, source, namedGroups })
-    : replacement
-
   /** replacement string modified to match findr's replacement config */
-  const replacedCaseHandled = handleCase(subStringMatch, replacedText)
+  const replacedCaseHandled = handleCase(subStringMatch, createReplacement(
+    { index: searchIndex
+    , match: subStringMatch
+    , groups: oldArgs
+    , position: pos
+    , source
+    , namedGroups 
+    }))
 
   const hasReplacementKey = replacementKeys === 'all' || replacementKeys.includes(buildResultKey(searchIndex)) 
 
-  //TODO: I don't this interface to buildResultKey is a good idea...just a gut feeling here.
-  //TODO: unify the return results
   // REPLACE IF replacePointer IS INCLUDED IN replacementKeys given by user
+  //TODO: why are we concatenating the first subgroup with the replaced text? 
   return hasReplacementKey
-  ? /** if a replacementKey matches current result this result won't be included in the list of results */
-    //TODO: why are we concatenating the first subgroup with the replaced text? 
-    onlyReplace(preWordSpaceCharacter + replacedCaseHandled)
+  ? onlyReplace(preWordSpaceCharacter + replacedCaseHandled)
   : replaceAndResult(entireStringMatch,
       {match: filterCtxMatch ? filterCtxMatch(subStringMatch) : subStringMatch,
       replacement: filterCtxReplacement ? filterCtxReplacement(replacedCaseHandled) : replacedCaseHandled,
