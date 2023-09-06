@@ -1,8 +1,23 @@
-export type CaseHandler = (match: string, replaced: string) => string;
+type StringIndex = number
+type SearchIndex = number
 
-export const maintainCase: CaseHandler = (match, replaced) => String(match).toUpperCase() === match ? String(replaced).toUpperCase()
-    //TODO: remove need to pass in uppercase regex
-    : match[0].toUpperCase() ? `${replaced[0].toUpperCase()}${replaced.slice(1)}`
-        : replaced;
+export type SearchMatch = 
+    { index: SearchIndex
+    , match: string
+    , groups: string[]
+    , position: StringIndex
+    , source : string
+    , namedGroups? : object
+    }
 
-export const replaceCase: CaseHandler = (_, r) => r; 
+export type CaseHandler<A> = (match : SearchMatch) => A;
+
+export const pure : <A>(a : A) => CaseHandler<A> = (s) => () => s  
+
+export const andThen = <A,B>(a : CaseHandler<A>, f : (a : A) => CaseHandler<B>) => (m : SearchMatch) => 
+    f(a(m))(m)
+
+export const maintainCase = (replaced : string) : CaseHandler<string> => ({match}) => 
+  String(match).toUpperCase() === match ? String(replaced).toUpperCase()
+  : match[0].toUpperCase() ? `${replaced[0].toUpperCase()}${replaced.slice(1)}`
+  : replaced;  

@@ -53,13 +53,16 @@ export default function findr({
   let searchIndex = 0;
   let results : SearchResult[] = []
 
-  
-  const createReplacement = typeof replacement === 'function' ? replacement : () => replacement
+  const createReplacement = 
+    C.andThen
+    ( typeof replacement === 'function' ? (replacement as C.CaseHandler<string>) 
+      : C.pure(replacement)
+    , isCasePreserved ? C.maintainCase : C.pure 
+    )
 
   //TODO: it might be worth using a Reader functor here...
   const replaceFunc_ = (a : any, b : any, c : any, ...d : any[]) => replaceFunc
     ( source
-    , isCasePreserved ? C.maintainCase : C.replaceCase 
     , createReplacement
     , buildResultKey
     , replacementKeys
@@ -83,8 +86,7 @@ export default function findr({
 
 function replaceFunc
   ( source : string
-  , handleCase : C.CaseHandler
-  , createReplacement : (x : any) => string
+  , createReplacement : C.CaseHandler<string>
   //TODO: eliminate from function argument
   , buildResultKey : any
   , replacementKeys : any
@@ -113,14 +115,14 @@ function replaceFunc
   const oldArgs = args.slice(0, hasGroups ? -3 : -2)
 
   /** replacement string modified to match findr's replacement config */
-  const replacedCaseHandled = handleCase(subStringMatch, createReplacement(
+  const replacedCaseHandled = createReplacement(
     { index: searchIndex
     , match: subStringMatch
     , groups: oldArgs
     , position: pos
     , source
     , namedGroups 
-    }))
+    })
 
   const hasReplacementKey = replacementKeys === 'all' || replacementKeys.includes(buildResultKey(searchIndex)) 
 
