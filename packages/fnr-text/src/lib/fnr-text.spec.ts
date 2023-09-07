@@ -102,7 +102,7 @@ describe('fnrText', () => {
   })
 
   it.skip('for any given search with n results: replace with a word should have at least n occurrences of that word in the result text.', () => {
-    F.assert(F.property(stringWithNWordOccurance, F.string(), ({fnrSearch: {source, target}, n}, replacement) => {
+    F.assert(F.property(stringWithNWordOccurance, F.string({minLength: 1}), ({fnrSearch: {source, target}, n}, replacement) => {
       const fnrResults = fnr({source, target, replacement})
 
       return fnrResults.results.length >= n 
