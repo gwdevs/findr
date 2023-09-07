@@ -29,11 +29,15 @@ export default function findr({
   // START BUILDING SEARCH REGEXP
 
   /** default flags to be used for regex pattern */
+  // CHRIS: Yay this is more readable. What does the global flag do?
   const defaultFlags : S.RegexFlags =  !isCaseMatched ? S.mergeFlags(S.global, S.caseInsensitive) : S.global;
   
+  // CHRIS: What does wordLike mean?
   const {regexBuilder, wordLike } = 
     xre instanceof Function ? S.regexBuilderAndConfigFromFunction(xre) : S.defaultRegexAndConfig 
 
+  // CHRIS: The name 'mkFinalRegex' does point to the fact that it is a function,
+  // but the SourceAndFlags type doesn't sound like a function
   const mkFinalRegex = (s : RegExp | string) : S.SourceAndFlags => 
     s instanceof RegExp ? S.fromRegex(s) : S.regexStringToRegexer(s) 
 
@@ -47,12 +51,14 @@ export default function findr({
   const onlySourceRegex = regexBuilder(`()(${source_})`, flags_)
 
   /** adds patterns needed to fit findr's config to a given RegExp */
+  // CHRIS: Is wholeWordRegex a good name if we aren't always matching the whole word?
   const wholeWordRegex = isWordMatched ? regexWithWholeWord : onlySourceRegex
 
   //START FINDING AND REPLACING
   let searchIndex = 0;
   let results : SearchResult[] = []
 
+  // CHRIS: The andThen function was confusing to wrap my brain around
   const createReplacement = 
     C.andThen
     ( typeof replacement === 'function' ? (replacement as C.CaseHandler<string>) 
@@ -61,6 +67,8 @@ export default function findr({
     )
 
   //TODO: it might be worth using a Reader functor here...
+  // CHRIS: Single-character variables are scary.
+  // Combining that and currying can make this function look alien
   const replaceFunc_ = (a : any, b : any, c : any, ...d : any[]) => replaceFunc
     ( source
     , createReplacement
@@ -76,6 +84,7 @@ export default function findr({
   const replaced = target !== '' ? source.replace(wholeWordRegex, replaceFunc_) : source;
 
   //TODO: break the external API so this is no longer needed
+  // CHRIS: Yeah this is a little weird
   const adjoinMetadata = ({metadata, ...result} : SearchResult) => 
     ({ metadata : {...metadata, source, match: result.match, ...mdata}
     , ...result
@@ -108,6 +117,7 @@ function replaceFunc
   const namedGroups = hasGroups ? args.at(-1) : undefined;
 
   //TODO: rename this to something more understandable
+  // CHRIS: Agree ^
   const pos = args.at(hasGroups ? -3 : -2) + preWordSpaceCharacter.length;
   
   //TODO: remove the need for oldArgs (this will break the legacy API)
@@ -126,6 +136,7 @@ function replaceFunc
 
   // REPLACE IF replacePointer IS INCLUDED IN replacementKeys given by user
   //TODO: why are we concatenating the first subgroup with the replaced text? 
+  // CHRIS: I think this exploded my brain.
   return R.ifElse(
    R.map(R.searchIndex, i => replacementKeys === 'all' || replacementKeys.includes(buildResultKey(i)))
   , R.pure(preWordSpaceCharacter + replacedCaseHandled)
