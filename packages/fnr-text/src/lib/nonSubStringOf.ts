@@ -26,5 +26,5 @@ Create a string (s) from a string (t) such that (s) has a length (n) and (t) is 
 anywhere in (s).
 */
 export const nonSubStringOf = (s : string, n : number) : F.Arbitrary<string> => 
-    s.length === 0 ? F.string({minLength: n, maxLength: n})
+    s.length === 0 ? F.asciiString({minLength: n, maxLength: n})
   : subStrOfChars(Array.from(setDiff(alphabet(), new Set(s))), n)
