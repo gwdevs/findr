@@ -1,6 +1,6 @@
 import * as C from './CaseHandler';
 import { SearchAndReplace, SearchResult } from './index.d';
-import { onlyReplace, replaceAndResult } from './ResultsBuilder';
+import * as R from './ResultsBuilder';
 import * as S from './SourceAndFlags'
 
 /** 
@@ -124,13 +124,12 @@ function replaceFunc
     , namedGroups 
     })
 
-  const hasReplacementKey = replacementKeys === 'all' || replacementKeys.includes(buildResultKey(searchIndex)) 
-
   // REPLACE IF replacePointer IS INCLUDED IN replacementKeys given by user
   //TODO: why are we concatenating the first subgroup with the replaced text? 
-  return hasReplacementKey
-  ? onlyReplace(preWordSpaceCharacter + replacedCaseHandled)
-  : replaceAndResult(entireStringMatch,
+  return R.ifElse(
+   R.map(R.searchIndex, i => replacementKeys === 'all' || replacementKeys.includes(buildResultKey(i)))
+  , R.pure(preWordSpaceCharacter + replacedCaseHandled)
+  , R.replaceAndResult(entireStringMatch,
       {match: filterCtxMatch ? filterCtxMatch(subStringMatch) : subStringMatch,
       replacement: filterCtxReplacement ? filterCtxReplacement(replacedCaseHandled) : replacedCaseHandled,
       context: 
@@ -149,4 +148,5 @@ function replaceFunc
           namedGroups,
       }}
     )
+  )
 }}   

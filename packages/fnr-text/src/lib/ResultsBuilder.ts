@@ -1,12 +1,31 @@
 import { SearchResult } from './index.d';
 
 //TODO: merge this with the CaseHandler type
-type ResultsBuilder = (results: SearchResult[], searchIndex : number ) => string;
+type SearchIndex = number
 
-export const onlyReplace = (s: string): ResultsBuilder => () => s;
+type ResultsBuilder<A> = (results: SearchResult[], searchIndex : SearchIndex) => A;
 
-export const replaceAndResult = (s: string, r: SearchResult): ResultsBuilder => (results: SearchResult[], searchIndex) => {
-    searchIndex++;
-    results.push(r);
-    return s;
-};
+export const pure = <A>(a : A) : ResultsBuilder<A> => () => a
+
+export const andThen = <A,B>(a : ResultsBuilder<A>, f : (a : A) => ResultsBuilder<B>) : ResultsBuilder<B> => (r, i) =>
+  f(a(r,i))(r,i)
+
+export const andNext = <A,B>(a : ResultsBuilder<A>, b : ResultsBuilder<B>) : ResultsBuilder<B> => (r,i) => {
+  a(r,i)
+  return b(r,i)
+}
+
+export const searchIndex : ResultsBuilder<SearchIndex> = (_,i) => i
+
+export const incrementSearchIndex : ResultsBuilder<null> = (_,i) => {i++; return null}
+
+export const addSearchResult = (newResult : SearchResult) : ResultsBuilder<null> => (r,_) => {r.push(newResult); return null}
+
+export const replaceAndResult = (s : string, r : SearchResult) : ResultsBuilder<string> => 
+  andNext(andNext(incrementSearchIndex, addSearchResult(r)),  pure(s))  
+
+export const map = <A,B>(a : ResultsBuilder<A>, f : (A : A) => B) : ResultsBuilder<B> => (r,i) => 
+  f(a(r,i))
+
+export const ifElse  = <A>(predicate : ResultsBuilder<boolean>, a : ResultsBuilder<A>, b : ResultsBuilder<A>) : ResultsBuilder<A> => (r,i) =>
+  predicate(r,i) ? a(r,i) : b(r,i) 
