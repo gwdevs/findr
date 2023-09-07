@@ -10,6 +10,7 @@ This module provides syntax for constructing searches across text.
 */
 
 import { Natural } from "./Natural.d"
+import { Matches } from './Matches.d'
 
 
 /**
