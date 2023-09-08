@@ -4,6 +4,11 @@ import {nonSubStringOf} from './nonSubStringOf'
 import {reflectedString} from './ReflectedString'
 import legacyGoldMasterData from './legacyGoldMaster.json'
 
+/**
+  @todo CHRIS:
+    What is gold-master? Looking into the json wasn't very helpufl in trying
+    To figure that out
+*/
 describe('gold-master', () =>
   test.each
     (legacyGoldMasterData.map(({param, result}) => [param, result]))
@@ -12,6 +17,12 @@ describe('gold-master', () =>
 
 describe('fnrText', () => {
 
+  /**
+    @todo CHRIS:
+      The only familiarity I have with type/property-based testing is what
+      you have shown me.
+      Maybe some kind of summary on how it works would be helpful?
+  */
   it('searching for empty text should give back the original text and an empty list of results', () => {
     F.assert(F.property(F.string(), (source) => {
 

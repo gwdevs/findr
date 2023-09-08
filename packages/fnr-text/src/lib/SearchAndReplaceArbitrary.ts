@@ -6,6 +6,12 @@ test of the legacy findr API. Once the new API is out we can delete
 this file
 */
 
+/**
+  @todo CHRIS:
+   Since we are importing from a index file, I don't really know what T is
+   supposed to be. Single-character variables usually take my brain a few
+   seconds longer usually though.
+ */
 import * as T from './index.d'
 import * as F from 'fast-check'
 import fnr from './index'
@@ -15,6 +21,12 @@ import fnr from './index'
 // const regExp : F.Arbitrary<RegExp> = F.constant(F)
 
 // declare const xregexp : F.Arbitrary<typeof XRegeExp>
+
+/**
+  @todo CHRIS:
+   Same as earlier I don't understand all that this is doing since I haven't
+   used property-based testing
+ */
 
 const replacementCallback : F.Arbitrary<T.replacementCallback> = F.func(F.string())
 
