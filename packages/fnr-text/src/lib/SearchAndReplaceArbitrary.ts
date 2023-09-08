@@ -12,7 +12,7 @@ import fnr from './index'
 
 // import XRegeExp from 'xregexp/types'
 
-// const regExp : F.Arbitrary<RegExp> = F.constant(F) 
+// const regExp : F.Arbitrary<RegExp> = F.constant(F)
 
 // declare const xregexp : F.Arbitrary<typeof XRegeExp>
 
@@ -20,7 +20,7 @@ const replacementCallback : F.Arbitrary<T.replacementCallback> = F.func(F.string
 
 const resultsAll : F.Arbitrary<'all'> = F.constant('all')
 
-const resultKeybuilder : F.Arbitrary<(index: number) => T.resultKey> = 
+const resultKeybuilder : F.Arbitrary<(index: number) => T.resultKey> =
   F.oneof
     ( F.constant((i : number) => String(i))
     , F.constant((x: number) => x)
@@ -51,7 +51,7 @@ export const searchAndReplace : F.Arbitrary<T.FindrParams> = F.record
   , config          : findrConfig
   , metadata        : F.option(F.object())
   }, {requiredKeys: ['source', 'target' ]}
-  ) 
+  )
 
 export const generateTestJSONString = () : string =>
   JSON.stringify(F.sample(searchAndReplace).map(param => ({ param, result: fnr(param)})), null, 2)
