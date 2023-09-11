@@ -11,6 +11,20 @@ this file
    Since we are importing from a index file, I don't really know what T is
    supposed to be. Single-character variables usually take my brain a few
    seconds longer usually though.
+
+  Noah:
+    So `T` here stands for `Types`. The reason I use a single character is
+    to reduce visual noise in the code. Consider the alternative in the following
+    example:
+
+    `FastCheck.Arbitrary<FnrTypes.replacementCallback>`
+
+    To what I currently have:
+
+    `F.Arbitrary<T.replacementCallback>`
+
+    For me the signal to noise ratio is lower in the second example. 
+    What's your opinion?
  */
 import * as T from './index.d'
 import * as F from 'fast-check'
