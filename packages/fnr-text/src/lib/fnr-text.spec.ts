@@ -28,14 +28,9 @@ describe('gold-master', () =>
     ('gold master test on: (%j)', (param : any, result) => { expect(fnr(param)).toEqual(result) })
 )
 
+//See the following for an introduction to property based testing.
+//https://medium.com/criteo-engineering/introduction-to-property-based-testing-f5236229d237
 describe('fnrText', () => {
-
-  /**
-    @todo CHRIS:
-      The only familiarity I have with type/property-based testing is what
-      you have shown me.
-      Maybe some kind of summary on how it works would be helpful?
-  */
   it('searching for empty text should give back the original text and an empty list of results', () => {
     F.assert(F.property(F.string(), (source) => {
 
