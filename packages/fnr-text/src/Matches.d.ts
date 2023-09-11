@@ -1,4 +1,4 @@
-/** 
+/**
 @module Matches
 @description
 This module defines the results from performing a search
@@ -11,7 +11,7 @@ This module defines the results from performing a search
 @todo define this
 @todo in findr-mui it would make sense to define a `matchesToJSX : (m : Matches) => JSX`
 */
-export interface Matches {} 
+export interface Matches {}
 
 /**
 @description The index of a single match within Matches
