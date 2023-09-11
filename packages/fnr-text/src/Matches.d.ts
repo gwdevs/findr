@@ -1,6 +1,8 @@
 /**
 @module Matches
 @description
+@todo CHRIS: As you said down there, definitions of Matches and MatchIndex are
+      are needed. The function definition makes sense
 This module defines the results from performing a search
 */
 
@@ -24,4 +26,4 @@ export interface MatchIndex {}
 @param matches - the result from a search
 @memberof Matches
 */
-export declare const matchIndices : (matches : Matches) => Array<MatchIndex>
+export declare const matchIndices: (matches: Matches) => Array<MatchIndex>;

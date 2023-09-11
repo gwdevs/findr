@@ -3,6 +3,8 @@
 /**
 @description A natural number is an integer that is greater than or equal to 0
 @memberof Natural
+@todo CHRIS:
+        What does unique symbol do? That probably shows my unfamiliarity with TS
 */
 export type Natural = { readonly Natural: unique symbol; n: number };
 

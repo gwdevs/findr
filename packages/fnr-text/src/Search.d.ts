@@ -9,6 +9,11 @@ This module provides syntax for constructing searches across text.
 @see {@link Search.search}
 */
 
+/**
+ * @todo CHRIS:
+ *         This one was pretty simple to understand!
+ */
+
 import { Natural } from './Natural.d';
 import { Matches } from './Matches.d';
 
@@ -16,6 +21,7 @@ import { Matches } from './Matches.d';
 @description A Search describes a cursor (or multi-cursor) into some text
 @memberof Search
 @todo define this as a Traversal into a string
+CHRIS: Truly truly
 */
 export interface Search {}
 
@@ -23,6 +29,7 @@ export interface Search {}
 @description A Regex can be a search.
 @memberof Search
 @todo include documentation for regex-group matching
+CHRIS: Truly truly
 */
 export declare const regex: (r: Regex) => Search;
 
@@ -32,6 +39,7 @@ export declare const regex: (r: Regex) => Search;
 @todo Because every string is a Regex it might be worth removing this function
 and only providing {@link Search.regex}. This frees us from having to keep track
 of both types of input and can possibly optimize for Regex.
+Chris: that's a cool idea I think
 */
 export declare const string: (s: string) => Search;
 
@@ -39,6 +47,7 @@ export declare const string: (s: string) => Search;
 @description Modify a search to match a whole case
 @example
   //matchCase is idempotent
+  Chris: What does that word mean?
   matchCase(matchCase(s)) === matchCase(s)
 @memberof Search
 */

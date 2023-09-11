@@ -17,6 +17,12 @@ This module defines the interface for performing text replacements
 @see {@link Replacement.fromSearch }
 */
 
+/**
+ * @todo Chris
+ *        Reading through code and commenting like this is fun. Also I
+ *        definitely understand it better taking it in via smaller chunks
+ */
+
 import { Search } from './search';
 import { MatchIndex } from './matches';
 
@@ -26,8 +32,13 @@ import { MatchIndex } from './matches';
 //replace matched occurences at indices 0 and 5 with "foo" but preserve
 //the original case
 and(replaceWith("foo"), include(0), include(5), preserveCase)
+CHRIS: This example and the previous were helpful! Are 'includes' saying that
+       we will replace the first and sixth occurrences of our searched text?
+       Two mintes later... Oh now I get the 'and' too after reading further.
+       My brain takes a minute to read boolean operations in functions.
 @memberof Replacement
 @todo define this as a text Traversal
+Chris: truly truly
 */
 export interface Replacement {}
 
@@ -39,6 +50,8 @@ and(empty, r) === r === and(r, empty)
 
 @example
 //an empty replacement on a search does nothing to the final result
+// CHRIS: Is the double replace purposeful?
+          Two mintes later... Oh now I get it after reading further down
 replace(replace(empty, search(s, i))) === i
 
 @memberof Replacement
@@ -72,6 +85,7 @@ export declare const all: (...replacements: Array<Replacement>) => Replacement;
 /**
 @description The index of a regex matched group
 @todo define this
+Chris: truly truly
 */
 export interface GroupIndex {}
 
