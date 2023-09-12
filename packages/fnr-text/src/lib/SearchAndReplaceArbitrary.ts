@@ -32,12 +32,6 @@ import {expect, describe, test} from '@jest/globals'
 import fnr from './index'
 import {readFile, writeFile} from 'fs/promises'
 
-// import XRegeExp from 'xregexp/types'
-
-// const regExp : F.Arbitrary<RegExp> = F.constant(F)
-
-// declare const xregexp : F.Arbitrary<typeof XRegeExp>
-
 const replacementCallback : F.Arbitrary<T.replacementCallback> = F.func(F.string())
 
 const resultsAll : F.Arbitrary<'all'> = F.constant('all')
@@ -50,13 +44,17 @@ const resultKeybuilder : F.Arbitrary<(index: number) => T.resultKey> =
 
 const filter : F.Arbitrary<(s: string) => string> = F.constant((x : string) => x)
 
+/**
+  generates random config for findr. 
+
+  NOTE: we're not generating regular expressions so config related to
+  that has not been included.
+*/
 const findrConfig : F.Arbitrary<T.FindrConfig> = F.record
   ({ctxLen              : F.nat()
   , filterCtxMatch      : filter
   , filterCtxReplacement: filter
   , buildResultKey      : resultKeybuilder
-  // xregexp            : xregexp
-  //, isRegex           : F.boolean()
   , isCaseMatched       : F.boolean()
   , isWordMatched       : F.boolean()
   , isCasePreserved     : F.boolean()
@@ -64,6 +62,9 @@ const findrConfig : F.Arbitrary<T.FindrConfig> = F.record
   , {requiredKeys : []}
   )
 
+/**
+  Generates random FindrParams to use for the goldmaster testing.
+*/
 export const searchAndReplace : F.Arbitrary<T.FindrParams> = F.record
   ({source          : F.string()
   , target          : F.string()
