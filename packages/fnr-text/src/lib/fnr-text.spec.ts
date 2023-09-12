@@ -2,31 +2,9 @@ import fnr from '.';
 import * as F from 'fast-check'
 import {nonSubStringOf} from './nonSubStringOf'
 import {reflectedString} from './ReflectedString'
-import legacyGoldMasterData from './legacyGoldMaster.json'
+import {goldMasterTest} from './SearchAndReplaceArbitrary'
 
-/**
-  @description perform Goldmaster testing
-
-  Gold-master testing is a way to test an API to ensure that
-  it is fully backwards compatible with older versions of the API.
-
-  In short here's how it works.
-    0. start with the old API (in ourcase this will be the `fnr` function
-    _before_ the refactor since that's the  API who's version we want to
-    preserve)
-    1. generate a large enough random set of inputs and pass them into
-    the API.
-    2. Record each pair of input/output (this is what the legacyGoldMaster.json
-    file is for)
-    3. Whenever the API is updated (aka, we refactor the `fnr` function) apply
-    all of the inputs to the API and ensure the outputs didn't change.
-  @see https://en.wikipedia.org/wiki/Characterization_test
-*/
-describe('gold-master', () =>
-  test.each
-    (legacyGoldMasterData.map(({param, result}) => [param, result]))
-    ('gold master test on: (%j)', (param : any, result) => { expect(fnr(param)).toEqual(result) })
-)
+goldMasterTest()
 
 //See the following for an introduction to property based testing.
 //https://medium.com/criteo-engineering/introduction-to-property-based-testing-f5236229d237

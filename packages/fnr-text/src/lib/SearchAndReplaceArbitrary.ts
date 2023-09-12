@@ -28,19 +28,15 @@ this file
  */
 import * as T from './index.d'
 import * as F from 'fast-check'
+import {expect, describe, test} from '@jest/globals'
 import fnr from './index'
+import {readFile, writeFile} from 'fs/promises'
 
 // import XRegeExp from 'xregexp/types'
 
 // const regExp : F.Arbitrary<RegExp> = F.constant(F)
 
 // declare const xregexp : F.Arbitrary<typeof XRegeExp>
-
-/**
-  @todo CHRIS:
-   Same as earlier I don't understand all that this is doing since I haven't
-   used property-based testing
- */
 
 const replacementCallback : F.Arbitrary<T.replacementCallback> = F.func(F.string())
 
@@ -79,5 +75,46 @@ export const searchAndReplace : F.Arbitrary<T.FindrParams> = F.record
   }, {requiredKeys: ['source', 'target' ]}
   )
 
-export const generateTestJSONString = () : string =>
-  JSON.stringify(F.sample(searchAndReplace).map(param => ({ param, result: fnr(param)})), null, 2)
+
+/**
+  @todo pnpm requires this to be a path relative to the root of the
+  repository.  I'm not a fan of it but I'm not sure where else to
+  place this file.
+*/
+const goldMasterFileName = './packages/fnr-text/src/lib/legacyGoldMaster.json'
+
+/**
+  @description Generates the JSON file for performing a goldmaster testing on the
+  legacy findr API.
+*/
+export const writeGoldMasterJSONFile = () =>
+  writeFile
+    ( goldMasterFileName
+    , JSON.stringify(F.sample(searchAndReplace).map(param => ({ param, result: fnr(param)})), null, 2)
+    )
+
+/**
+  @description perform Goldmaster testing
+
+  Gold-master testing is a way to test an API to ensure that
+  it is fully backwards compatible with older versions of the API.
+
+  In short here's how it works.
+    0. start with the old API (in ourcase this will be the `fnr` function
+    _before_ the refactor since that's the  API who's version we want to
+    preserve)
+    1. generate a large enough random set of inputs and pass them into
+    the API.
+    2. Record each pair of input/output (this is what the legacyGoldMaster.json
+    file is for)
+    3. Whenever the API is updated (aka, we refactor the `fnr` function) apply
+    all of the inputs to the API and ensure the outputs didn't change.
+  @see https://en.wikipedia.org/wiki/Characterization_test
+*/
+export const goldMasterTest = () =>
+  readFile(goldMasterFileName, { encoding: 'utf8' })
+  .then(JSON.parse)
+  .then(legacyGoldMasterData => 
+    describe('gold-master', () => test.each(legacyGoldMasterData)
+      ('gold master test on: (%j)', (param : any, result) => { expect(fnr(param)).toEqual(result) })
+  ))
