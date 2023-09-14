@@ -32,6 +32,11 @@ this file
     I would say my main trouble in reading it would be importing from a
     file named 'index.d'. I know that it will be a file containing types,
     but types for what specifically?
+
+  Noah:
+    Good point. I think in that case we need to rename the file since that's 
+    the real problem. Personally files like `index.d` should ONLY be used
+    for re-exports.
  */
 import * as T from './index.d'
 import * as F from 'fast-check'
