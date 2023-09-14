@@ -6,38 +6,6 @@ test of the legacy findr API. Once the new API is out we can delete
 this file
 */
 
-/**
-  @todo CHRIS:
-   Since we are importing from a index file, I don't really know what T is
-   supposed to be. Single-character variables usually take my brain a few
-   seconds longer usually though.
-
-  Noah:
-    So `T` here stands for `Types`. The reason I use a single character is
-    to reduce visual noise in the code. Consider the alternative in the following
-    example:
-
-    `FastCheck.Arbitrary<FnrTypes.replacementCallback>`
-
-    To what I currently have:
-
-    `F.Arbitrary<T.replacementCallback>`
-
-    For me the signal to noise ratio is lower in the second example. 
-    What's your opinion?
-
-  Chris:
-    I agree that the second is desirable.
-
-    I would say my main trouble in reading it would be importing from a
-    file named 'index.d'. I know that it will be a file containing types,
-    but types for what specifically?
-
-  Noah:
-    Good point. I think in that case we need to rename the file since that's 
-    the real problem. Personally files like `index.d` should ONLY be used
-    for re-exports.
- */
 import * as T from './FindrTypes.d'
 import * as F from 'fast-check'
 import {expect, describe, test} from '@jest/globals'
