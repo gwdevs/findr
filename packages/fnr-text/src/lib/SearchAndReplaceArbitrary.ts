@@ -38,7 +38,7 @@ this file
     the real problem. Personally files like `index.d` should ONLY be used
     for re-exports.
  */
-import * as T from './index.d'
+import * as T from './FindrTypes.d'
 import * as F from 'fast-check'
 import {expect, describe, test} from '@jest/globals'
 import fnr from './index'
