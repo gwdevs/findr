@@ -1,6 +1,10 @@
 type StringIndex = number
 type SearchIndex = number
 
+/**
+ * CHRIS:
+ *  What is the groups property? I can get my mind around the other properties
+ */
 export type SearchMatch = 
     { index: SearchIndex
     , match: string

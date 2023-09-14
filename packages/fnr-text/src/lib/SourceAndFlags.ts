@@ -35,8 +35,16 @@ export const  addFlags = (runRegexer : SourceAndFlags, flags : RegexFlags) : Sou
   /** regex gotten from findr's target input */
 export const  fromRegex = (r : RegExp) : SourceAndFlags => onlySource(r.source)
 
+/**
+ * CHRIS:
+ *   Can we abstract this regex into a CONST and name it so we know what it's doing?
+ */
 export const  fromString = (s: string) : SourceAndFlags => onlySource(s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
 
+/**
+ * CHRIS:
+ *   Same here about abstracting the regex. Also this is hard for me to udnerstand
+ */
 export const  regexFromString : P.Parser<string, SourceAndFlags> = P.andThen 
     (s => s.match(/\/(.+)\/(?=(\w*$))/)
     , results => results?.length === 3 
