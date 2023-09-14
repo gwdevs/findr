@@ -25,6 +25,13 @@ this file
 
     For me the signal to noise ratio is lower in the second example. 
     What's your opinion?
+
+  Chris:
+    I agree that the second is desirable.
+
+    I would say my main trouble in reading it would be importing from a
+    file named 'index.d'. I know that it will be a file containing types,
+    but types for what specifically?
  */
 import * as T from './index.d'
 import * as F from 'fast-check'
