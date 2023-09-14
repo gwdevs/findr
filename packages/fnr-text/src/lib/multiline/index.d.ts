@@ -1,14 +1,14 @@
-import { FindrConfig, resultKey, FindrParams, FindrReturn } from '../index.d'
+import { FindrConfig, ResultKey, SearchAndReplace, ReplacedAndResults } from '../index.d'
 
-export declare const findrMultiLine: (params: FindrMultiLineParams) => FindrReturn;
+export declare const findrMultiLine: (params: FindrMultiLineParams) => ReplacedAndResults;
 
 export default findrMultiLine;
 
 export interface FindrMultiLineConfig
   extends Omit<FindrConfig, 'buildResultKey'> {
-  buildResultKey?: (index: number, lineNumber: number) => resultKey;
+  buildResultKey?: (index: number, lineNumber: number) => ResultKey;
 }
 
-export interface FindrMultiLineParams extends Omit<FindrParams, 'config'> {
+export interface FindrMultiLineParams extends Omit<SearchAndReplace, 'config'> {
   config?: FindrMultiLineConfig;
 }

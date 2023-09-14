@@ -1,174 +1,163 @@
-import { FindrParams, FindrResult, resultKey } from './index.d';
-import { escapeRegExp, evalRegex, isUpperCase } from './utils';
+import * as C from './CaseHandler';
+import { SearchAndReplace, SearchResult } from './index.d';
+import * as R from './ResultsBuilder';
+import * as S from './SourceAndFlags'
 
-export function findr({
+/** 
+*  findr extends javascript's String.replace() by handling options like Preserve Case, 
+*  Match Word, Regex, and allowing consumers to extend it further.
+*  It formats it's response in a way that is easier to consume by a Find and Replace UI.
+*/
+export default function findr({
   source,
   target,
   replacement = '',
   replacementKeys = [],
-  metadata,
+  metadata: mdata,
   config: {
     filterCtxMatch = (match: string) => match,
     filterCtxReplacement = (replacement: string) => replacement,
-    buildResultKey,
+    buildResultKey = (searchIndex : number) => searchIndex,
     ctxLen = 0,
+    //TODO: rename xre - it's difficult to follow
     xregexp: xre,
-    isRegex = false,
     isCaseMatched = true,
     isWordMatched = false,
     isCasePreserved = false,
   } = {},
-}: FindrParams) {
-  const defaultFlags = ['g'];
+}: SearchAndReplace) {
+  // START BUILDING SEARCH REGEXP
 
-  if (!isCaseMatched) defaultFlags.push('i');
-  const _isRegex = typeof isRegex === 'boolean' ? isRegex : isRegex === 'true';
+  /** default flags to be used for regex pattern */
+  // CHRIS: Yay this is more readable. What does the global flag do?
+  const defaultFlags : S.RegexFlags =  !isCaseMatched ? S.mergeFlags(S.global, S.caseInsensitive) : S.global;
+  
+  // CHRIS: What does wordLike mean?
+  const {regexBuilder, wordLike } = 
+    xre instanceof Function ? S.regexBuilderAndConfigFromFunction(xre) : S.defaultRegexAndConfig 
 
-  if (!_isRegex && target instanceof RegExp)
-    console.warn('isRegex is set to false but target of type RegExp given.');
+  // CHRIS: The name 'mkFinalRegex' does point to the fact that it is a function,
+  // but the SourceAndFlags type doesn't sound like a function
+  const mkFinalRegex = (s : RegExp | string) : S.SourceAndFlags => 
+    s instanceof RegExp ? S.fromRegex(s) : S.regexStringToRegexer(s) 
 
-  const isXre = xre instanceof Function;
+  const targetRegex = mkFinalRegex(target)(regexBuilder, defaultFlags)
+      
+  /** regex with findr's search config */
+  const { source: source_, flags: flags_ } = targetRegex
 
-  const regexer = isXre
-    ? xre
-    : function (source: string, flags = '') {
-        return new RegExp(source, flags);
-      };
+  const regexWithWholeWord = regexBuilder(`(^|[^${wordLike}])(${source_})(?=[^${wordLike}]|$)`, flags_)
 
-  const WordLike = isXre ? `p{Letter}\\p{Number}` : `\\w\\d`;
-  const UppercaseLetter = isXre ? `\\p{Uppercase_Letter}` : `[A-Z]`;
+  const onlySourceRegex = regexBuilder(`()(${source_})`, flags_)
 
-  function prepareRegExp({
-    regexp,
-    isWordMatched,
-  }: {
-    regexp: RegExp;
-    isWordMatched: boolean;
-  }) {
-    const { source, flags } = regexp;
-    return isWordMatched
-      ? regexer(`(^|[^${WordLike}])(${source})(?=[^${WordLike}]|$)`, flags)
-      : regexer(`()(${source})`, flags);
-  }
+  /** adds patterns needed to fit findr's config to a given RegExp */
+  // CHRIS: Is wholeWordRegex a good name if we aren't always matching the whole word?
+  const wholeWordRegex = isWordMatched ? regexWithWholeWord : onlySourceRegex
 
-  const rgxData = _isRegex
-    ? evalRegex(target)
-    : { source: escapeRegExp(target), flags: null };
-
-  const flags = rgxData.flags
-    ? [...new Set([...rgxData.flags, ...defaultFlags])]
-    : defaultFlags;
-
-  const finalRgx = regexer(rgxData.source, flags.join(''));
-
-  const initialRgx = prepareRegExp({
-    regexp: finalRgx,
-    isWordMatched,
-  });
-
+  //START FINDING AND REPLACING
   let searchIndex = 0;
-  let replaceIndex = 0;
-  const results: FindrResult[] = [];
-  const replaced =
-    target !== ''
-      ? source.replace(initialRgx, function (...args) {
-          const containsGroup = typeof args[args.length - 1] === 'object';
-          const namedGroups = containsGroup ? args.pop() : undefined;
-          const source = args.pop();
-          const tmpPos = args.pop();
-          const tmpMatch = args.shift();
-          const auxMatch = args.shift();
-          const pos = tmpPos + auxMatch.length;
-          const match: string = args.shift();
+  let results : SearchResult[] = []
 
-          const replacementCB = function (): string {
-            if (typeof replacement === 'function') {
-              const rep = replacement({
-                index: replaceIndex,
-                match,
-                groups: args,
-                position: pos,
-                source,
-                namedGroups,
-              });
-              return rep;
-            }
-            if (typeof replacement === 'string') {
-              return replacement;
-            }
-            throw new Error(
-              'Replacement param should be of type string or function.'
-            );
-          };
+  // CHRIS: The andThen function was confusing to wrap my brain around
+  const createReplacement = 
+    C.andThen
+    ( typeof replacement === 'function' ? (replacement as C.CaseHandler<string>) 
+      : C.pure(replacement)
+    , isCasePreserved ? C.maintainCase : C.pure 
+    )
 
-          const r = replacementCB();
+  //TODO: it might be worth using a Reader functor here...
+  // CHRIS: Single-character variables are scary.
+  // Combining that and currying can make this function look alien
+  const replaceFunc_ = (a : any, b : any, c : any, ...d : any[]) => replaceFunc
+    ( source
+    , createReplacement
+    , buildResultKey
+    , replacementKeys
+    , searchIndex
+    , ctxLen
+    , filterCtxMatch
+    , filterCtxReplacement
+    )(a,b, c, ...d)(results, searchIndex)
 
-          const evaluateCase = (match: string, replaced: string) => {
-            //TODO: Add callback to allow users to make their own case evaluation;
-            if (!isCasePreserved) return replaced;
-            if (isUpperCase(match)) {
-              return replaced.toUpperCase();
-            }
-            if (new RegExp(regexer(UppercaseLetter)).test(match[0])) {
-              return replaced[0].toUpperCase() + replaced.slice(1);
-            }
-            return replaced;
-          };
+  //TODO: rework the types involved so that this empty string check isn't required
+  const replaced = target !== '' ? source.replace(wholeWordRegex, replaceFunc_) : source;
 
-          const replaced = evaluateCase(match, match.replace(finalRgx, r));
+  //TODO: break the external API so this is no longer needed
+  // CHRIS: Yeah this is a little weird
+  const adjoinMetadata = ({metadata, ...result} : SearchResult) => 
+    ({ metadata : {...metadata, source, match: result.match, ...mdata}
+    , ...result
+    })
 
-          const replacePointer: resultKey = buildResultKey
-            ? buildResultKey(replaceIndex)
-            : replaceIndex;
-          replaceIndex++;
-          if (
-            replacementKeys === 'all' ||
-            replacementKeys.includes(replacePointer as string)
-          ) {
-            return auxMatch + replaced;
-          }
-
-          const ctxBefore = source.slice(pos - ctxLen, pos);
-          const ctxAfter = source.slice(
-            pos + match.length,
-            pos + match.length + ctxLen
-          );
-
-          const extCtxBefore = source.slice(0, pos);
-          const extCtxAfter = source.slice(pos + match.length, -1);
-
-          const ctxMatch = filterCtxMatch ? filterCtxMatch(match) : match;
-          const ctxReplacement = filterCtxReplacement
-            ? filterCtxReplacement(replaced)
-            : replaced;
-
-          const searchPointer = buildResultKey
-            ? buildResultKey(searchIndex)
-            : searchIndex;
-
-          //TODO: add result metadata as filterCtxReplacement arg
-          const result = {
-            match: ctxMatch,
-            replacement: ctxReplacement,
-            context: { before: ctxBefore, after: ctxAfter },
-            extContext: { before: extCtxBefore, after: extCtxAfter },
-            resultKey: searchPointer,
-            metadata: {
-              source: source,
-              match: match,
-              searchIndex,
-              position: pos,
-              groups: args,
-              namedGroups,
-              ...metadata,
-            },
-          };
-          results.push(result);
-          searchIndex++;
-          return tmpMatch;
-        })
-      : source;
-  return { results, replaced };
+  return { results: results.map(adjoinMetadata), replaced };
 }
 
-export default findr
+function replaceFunc
+  ( source : string
+  , createReplacement : C.CaseHandler<string>
+  //TODO: eliminate from function argument
+  , buildResultKey : any
+  , replacementKeys : any
+  //TODO: eliminate from function argument
+  , searchIndex : any
+  , ctxLen : any
+  , filterCtxMatch : any
+  , filterCtxReplacement : any
+  ) { return (entireStringMatch: any, preWordSpaceCharacter: string | string[], subStringMatch: string, ...args: any[]) => {
+
+  //TODO: invert the logic here. According to the MDN documentation these variables can be inferred
+  //from the initialRgx value. That is, the instance of `...args` can be inferred directly from
+  //the initialRgx construction. I recommend reworking the type of initalRgx to make this implication
+  //easier. 
+
+  // START BUILDING MATCH DATA
+  const hasGroups = typeof args.at(-1) === 'object'
+
+  const namedGroups = hasGroups ? args.at(-1) : undefined;
+
+  //TODO: rename this to something more understandable
+  // CHRIS: Agree ^
+  const pos = args.at(hasGroups ? -3 : -2) + preWordSpaceCharacter.length;
+  
+  //TODO: remove the need for oldArgs (this will break the legacy API)
+  //in order to maintain the legacy behavior of args we need to modify the args array
+  const oldArgs = args.slice(0, hasGroups ? -3 : -2)
+
+  /** replacement string modified to match findr's replacement config */
+  const replacedCaseHandled = createReplacement(
+    { index: searchIndex
+    , match: subStringMatch
+    , groups: oldArgs
+    , position: pos
+    , source
+    , namedGroups 
+    })
+
+  // REPLACE IF replacePointer IS INCLUDED IN replacementKeys given by user
+  //TODO: why are we concatenating the first subgroup with the replaced text? 
+  // CHRIS: I think this exploded my brain.
+  return R.ifElse(
+   R.map(R.searchIndex, i => replacementKeys === 'all' || replacementKeys.includes(buildResultKey(i)))
+  , R.pure(preWordSpaceCharacter + replacedCaseHandled)
+  , R.replaceAndResult(entireStringMatch,
+      {match: filterCtxMatch ? filterCtxMatch(subStringMatch) : subStringMatch,
+      replacement: filterCtxReplacement ? filterCtxReplacement(replacedCaseHandled) : replacedCaseHandled,
+      context: 
+        { before: source.slice(pos - ctxLen, pos),
+          after: source.slice(pos + subStringMatch.length, pos + subStringMatch.length + ctxLen) 
+        },
+      extContext: 
+        { before: source.slice(0, pos),
+          after: source.slice(pos + subStringMatch.length, -1) 
+        },
+      resultKey: buildResultKey(searchIndex),
+      metadata: {
+          searchIndex,
+          position: pos,
+          groups: oldArgs,
+          namedGroups,
+      }}
+    )
+  )
+}}   
