@@ -3,7 +3,7 @@ import ResultsTree from '../results-tree/results-tree';
 import ResultsTreeItem from '../results-tree-item/results-tree-item';
 import SearchResult from '../search-result/search-result';
 import { FindrResultProps } from './findr-results.d';
-import { Box, IconButton } from '@mui/material';
+import { Alert, Box, IconButton } from '@mui/material';
 import { VscReplace } from 'react-icons/vsc';
 
 function ResultReplaceButton({
@@ -59,7 +59,9 @@ export function FindrResults({
           }
         >
           {groupsEntries.map(([sourceKey, group], groupIndex) =>
-            !group?.results?.length ? null : (
+            !group?.results?.length
+              ? <Alert severity="info">No results found</Alert>
+              : (
               <ResultsTreeItem
                 key={`${sourceKey}-${groupIndex}`}
                 itemKey={`${sourceKey}`}

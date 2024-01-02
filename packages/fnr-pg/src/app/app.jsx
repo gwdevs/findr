@@ -1,27 +1,32 @@
+import { ThemeProvider } from '@mui/material/styles'
 import { Box, Stack } from '@mui/material';
 import { Navbar } from './navbar/navbar';
 import { Sidebar } from './sidebar/sidebar';
 import { Workspace } from './workspace/workspace';
 
-export function App() {
+function FindrApp() {
   return (
-    <Box
-      bgcolor={'background.default'}
-      sx={{
-        display: 'grid',
-        gridTemplateRows: 'min-content auto',
-        width: '100vw',
-        minHeight: '100vh',
-      }}
-      color={'text.primary'}
-    >
-      <Navbar />
-      <Stack direction="row" spacing={2} justifyContent="space-between">
-        <Sidebar />
-        <Workspace />
-      </Stack>
-    </Box>
-  );
+  <Box
+    sx={{
+      display: 'grid',
+      gridTemplateRows: 'min-content auto',
+      width: '100vw',
+      minHeight: '100vh',
+    }}
+  >
+    <Navbar />
+    <Stack direction="row" spacing={2} justifyContent="space-between">
+      <Sidebar />
+      <Workspace />
+    </Stack>
+  </Box>
+ )
+}
+
+export function App() {
+  return <ThemeProvider theme={{}}>
+    <FindrApp></FindrApp>
+  </ThemeProvider>;
 }
 
 export default App;

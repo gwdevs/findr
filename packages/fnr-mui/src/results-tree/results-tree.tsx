@@ -1,6 +1,7 @@
-import { TreeView, TreeViewProps } from '@mui/lab';
+import { TreeView, TreeViewProps } from '@mui/x-tree-view';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { devNull } from 'os';
 
 /* eslint-disable-next-line */
 export type ResultsTreeProps = TreeViewProps;

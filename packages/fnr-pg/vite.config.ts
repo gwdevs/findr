@@ -30,6 +30,10 @@ export default defineConfig({
       loose: true,
     }),
   ],
+
+  build: {
+    sourcemap: true
+  },
   // esbuild: {
   //   jsxInject: `import * as React from 'react'`,
   // },
