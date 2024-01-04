@@ -1,10 +1,9 @@
 import { TreeView, TreeViewProps } from '@mui/x-tree-view';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import { devNull } from 'os';
 
 /* eslint-disable-next-line */
-export type ResultsTreeProps = TreeViewProps;
+export type ResultsTreeProps = TreeViewProps<boolean | undefined>;
 
 export function ResultsTree({ children, sx, ...props }: ResultsTreeProps) {
   return ['string', 'number', 'boolean'].includes(typeof children) ||
