@@ -1,6 +1,6 @@
 import * as React from 'react';
-import type { } from '@mui/lab/themeAugmentation';
-import { TreeItem, TreeItemProps } from '@mui/lab';
+import type { } from '@mui/x-tree-view/themeAugmentation';
+import { TreeItem, TreeItemProps } from '@mui/x-tree-view';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Box, Chip, IconButton, Tooltip, Typography } from '@mui/material';
 
