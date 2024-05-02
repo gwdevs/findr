@@ -12,7 +12,7 @@ function ResultReplaceButton({
 }: {
   onReplace: () => void;
   title: string;
-}) {
+} & React.ComponentProps<typeof IconButton>) {
   return (
     <IconButton
       aria-label={title}
@@ -59,9 +59,9 @@ export function FindrResults({
           }
         >
           {groupsEntries.map(([sourceKey, group], groupIndex) =>
-            !group?.results?.length
-              ? <Alert severity="info">No results found</Alert>
-              : (
+            !group?.results?.length ? (
+              <Alert severity="info">No results found</Alert>
+            ) : (
               <ResultsTreeItem
                 key={`${sourceKey}-${groupIndex}`}
                 itemKey={`${sourceKey}`}
@@ -98,6 +98,7 @@ export function FindrResults({
                         options,
                       })
                     }
+                    key={`${sourceKey}-${groupIndex}-replace-group`}
                     title="Replace group"
                   />
                 }

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { } from '@mui/x-tree-view/themeAugmentation';
+import type {} from '@mui/x-tree-view/themeAugmentation';
 import { TreeItem, TreeItemProps } from '@mui/x-tree-view';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Box, Chip, IconButton, Tooltip, Typography } from '@mui/material';
@@ -30,8 +30,8 @@ const theme = createTheme({
           width: 'auto',
         },
         group: {
-          marginLeft: 0
-        }
+          marginLeft: 0,
+        },
       },
     },
   },
@@ -50,7 +50,6 @@ export function ResultsTreeItem({
   actions,
   ...props
 }: ResultsTreeItemProps) {
-
   const renderTitle = React.useCallback(
     (items: typeof children) => {
       const customItems = onRenderTitle({ items });
@@ -63,7 +62,7 @@ export function ResultsTreeItem({
     <ThemeProvider theme={theme}>
       <TreeItem
         key={itemKey}
-        onClick={(e) => onClick(e,itemKey)}
+        onClick={(e) => onClick(e, itemKey)}
         label={
           <Tooltip title={tooltip || ''} enterDelay={800} enterNextDelay={800}>
             <Box
@@ -133,7 +132,15 @@ export function ResultsTreeItem({
                   >
                     <VscClose fontSize="inherit" />
                   </IconButton>,
-                ].flat()}
+                ]
+                  .flat()
+                  .map((action, index) => {
+                    return (
+                      <Box key={index} sx={{ display: 'inline-block' }}>
+                        {action}
+                      </Box>
+                    );
+                  })}
               </Box>
               <Box
                 className={'results-count'}
